@@ -1,2374 +1,477 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
-
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>طاہر پرفیوم سٹور | Tahir Perfume Store</title>
+<title>طاہر پرفیوم سٹور</title>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/12.17.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.17.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.17.0/firebase-storage-compat.js"></script>
 
 <style>
-
-/* =====================================================
-   FONTS
-===================================================== */
-
-:root{
-    --urdu-font:
-        "Jameel Noori Nastaleeq",
-        "Jameel Noori",
-        "Noto Nastaliq Urdu",
-        serif;
-
-    --english-font: Arial, sans-serif;
-
-    --black:#111;
-    --gold:#c79b3b;
-    --dark-gold:#9d7428;
-    --cream:#faf7f0;
-    --white:#fff;
-    --gray:#777;
-    --red:#c62828;
-    --green:#159447;
+@font-face{
+    font-family:Jameel;
+    src:url("https://fonts.cdnfonts.com/s/16749/Jameel-Noori-Nastaleeq.woff");
 }
 
 *{
-    margin:0;
-    padding:0;
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
-    background:#fff;
-    color:#111;
-    font-family:var(--urdu-font);
+    margin:0;
+    background:#faf7f2;
+    color:#222;
+    font-family:Jameel,Arial,sans-serif;
 }
 
-button,
-input,
-select,
-textarea{
-    font-family:var(--urdu-font);
+.english{
+    font-family:Arial,sans-serif;
 }
-
-.english,
-.price,
-.admin-number,
-input[type="number"],
-input[type="tel"],
-input[type="email"],
-input[type="password"]{
-    font-family:var(--english-font);
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-
-/* =====================================================
-   TOP BAR
-===================================================== */
-
-.topbar{
-    background:#111;
-    color:#fff;
-    text-align:center;
-    padding:8px;
-    font-size:16px;
-}
-
-.topbar strong{
-    color:#e7c96d;
-}
-
-
-/* =====================================================
-   HEADER
-===================================================== */
 
 header{
-    background:#fff;
+    background:#17110d;
+    color:white;
+    padding:18px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
     position:sticky;
     top:0;
-    z-index:1000;
-    border-bottom:1px solid #eee;
-}
-
-.header-inner{
-    max-width:1250px;
-    margin:auto;
-    padding:12px 20px;
-    min-height:78px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
+    z-index:100;
 }
 
 .logo{
     font-size:28px;
+    color:#d7ad63;
     font-weight:bold;
-    white-space:nowrap;
 }
 
-.logo span{
-    display:block;
-    font-family:Arial,sans-serif;
-    color:var(--gold);
-    direction:ltr;
-    text-align:center;
-    font-size:10px;
-    letter-spacing:3px;
-}
-
-.search{
-    flex:1;
-    max-width:480px;
-    position:relative;
-}
-
-.search input{
-    width:100%;
-    padding:12px 45px 12px 15px;
-    border:1px solid #ddd;
-    border-radius:30px;
-    outline:none;
-    font-size:15px;
-}
-
-.search button{
-    position:absolute;
-    right:6px;
-    top:5px;
-    width:35px;
-    height:35px;
+nav button{
     border:0;
-    border-radius:50%;
-    background:#111;
-    color:#fff;
-    cursor:pointer;
-}
-
-.header-icons{
-    display:flex;
-    gap:10px;
-}
-
-.icon-btn{
-    width:43px;
-    height:43px;
-    border-radius:50%;
-    border:1px solid #ddd;
-    background:#fff;
-    cursor:pointer;
-    position:relative;
-    font-size:18px;
-}
-
-.cart-count{
-    position:absolute;
-    top:-5px;
-    left:-5px;
-    width:20px;
-    height:20px;
-    background:var(--gold);
-    color:#fff;
-    border-radius:50%;
-
-    font-family:Arial;
-    font-size:11px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-
-/* =====================================================
-   NAV
-===================================================== */
-
-nav{
-    border-top:1px solid #f2f2f2;
-}
-
-.nav-inner{
-    max-width:1250px;
-    margin:auto;
-
-    display:flex;
-    justify-content:center;
-    gap:35px;
-
-    padding:10px 20px;
-
-    overflow-x:auto;
-}
-
-.nav-inner a{
-    white-space:nowrap;
-    font-weight:bold;
-    font-size:16px;
-}
-
-.nav-inner a:hover{
-    color:var(--gold);
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero{
-    min-height:550px;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,.90),
-            rgba(0,0,0,.45),
-            rgba(0,0,0,.15)
-        ),
-        url("https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1800&q=85")
-        center/cover;
-
-    display:flex;
-    align-items:center;
-    color:#fff;
-}
-
-.hero-content{
-    max-width:1250px;
-    width:100%;
-    margin:auto;
-    padding:40px 25px;
-}
-
-.hero-content small{
-    color:#e5c66b;
-    font-size:18px;
-}
-
-.hero-content h1{
-    font-size:clamp(45px,7vw,80px);
-    line-height:1.2;
-    margin:10px 0;
-}
-
-.hero-content p{
-    max-width:550px;
-    font-size:19px;
-    line-height:2;
-    color:#eee;
-}
-
-.gold-btn{
-    display:inline-block;
-    background:var(--gold);
-    color:#fff;
-    border:0;
-    border-radius:4px;
-    padding:12px 30px;
-    margin-top:20px;
+    background:none;
+    color:white;
+    margin:5px;
     cursor:pointer;
     font-size:17px;
-    font-weight:bold;
 }
 
-.gold-btn:hover{
-    background:var(--dark-gold);
-}
-
-
-/* =====================================================
-   FEATURES
-   FREE DELIVERY REMOVED
-===================================================== */
-
-.features{
-    max-width:1200px;
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-
-    gap:15px;
-    padding:35px 20px;
-}
-
-.feature{
-    background:var(--cream);
+.hero{
+    background:linear-gradient(135deg,#211711,#50331d);
+    color:white;
     text-align:center;
-    padding:20px;
-    border-radius:8px;
+    padding:75px 20px;
 }
 
-.feature-icon{
-    font-size:28px;
+.hero h1{
+    font-size:45px;
+    color:#e3bd78;
+    margin:0 0 10px;
 }
 
-.feature h3{
-    font-size:18px;
+.hero p{
+    font-size:22px;
 }
 
-.feature p{
-    color:var(--gray);
-}
-
-
-/* =====================================================
-   SECTIONS
-===================================================== */
-
-.section{
-    max-width:1250px;
-    margin:auto;
-    padding:60px 20px;
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:35px auto;
 }
 
 .section-title{
     text-align:center;
-    margin-bottom:35px;
-}
-
-.section-title small{
-    color:var(--gold);
-    font-weight:bold;
-}
-
-.section-title h2{
-    font-size:40px;
-}
-
-
-/* =====================================================
-   CATEGORIES
-===================================================== */
-
-.categories{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-}
-
-.category{
-    height:220px;
-    border-radius:8px;
-    overflow:hidden;
-    position:relative;
-    background-size:cover;
-    background-position:center;
-}
-
-.category::after{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-        linear-gradient(
-            transparent,
-            rgba(0,0,0,.85)
-        );
-}
-
-.category h3{
-    position:absolute;
-    z-index:2;
-    bottom:15px;
-    right:20px;
-    color:#fff;
-    font-size:25px;
-}
-
-.cat1{
-    background-image:url(
-        "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80"
-    );
-}
-
-.cat2{
-    background-image:url(
-        "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=800&q=80"
-    );
-}
-
-.cat3{
-    background-image:url(
-        "https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=800&q=80"
-    );
-}
-
-.cat4{
-    background-image:url(
-        "https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=800&q=80"
-    );
-}
-
-
-/* =====================================================
-   PRODUCTS
-===================================================== */
-
-.products-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    font-size:34px;
+    color:#392519;
     margin-bottom:25px;
-}
-
-.filters{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-}
-
-.filter-btn{
-    background:#fff;
-    border:1px solid #ddd;
-    padding:8px 18px;
-    border-radius:30px;
-    cursor:pointer;
-}
-
-.filter-btn.active,
-.filter-btn:hover{
-    background:#111;
-    color:#fff;
 }
 
 .products{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:22px;
 }
 
-.product{
-    border:1px solid #eee;
-    border-radius:8px;
+.card{
+    background:white;
+    border-radius:15px;
     overflow:hidden;
-    transition:.25s;
-    position:relative;
-    background:#fff;
+    box-shadow:0 5px 20px #00000012;
+    transition:.3s;
 }
 
-.product:hover{
+.card:hover{
     transform:translateY(-5px);
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-.sale{
-    position:absolute;
-    top:12px;
-    right:12px;
-    background:var(--red);
-    color:#fff;
-    padding:4px 9px;
-    border-radius:4px;
-
-    font-family:Arial;
-    font-size:12px;
-
-    z-index:2;
-}
-
-.product-img{
+.card img{
     width:100%;
-    height:270px;
+    height:260px;
     object-fit:cover;
-    display:block;
+    background:#eee;
 }
 
-.product-info{
-    padding:15px;
+.card-body{
+    padding:16px;
 }
 
-.stars{
-    color:#e5a91c;
-    font-family:Arial;
-}
-
-.product-name{
-    font-size:20px;
-    font-weight:bold;
-}
-
-.product-desc{
-    color:#777;
-    font-size:14px;
+.card h3{
+    margin:0 0 8px;
+    font-size:24px;
 }
 
 .price{
-    display:flex;
-    gap:10px;
-    align-items:center;
-    margin:10px 0;
-
-    direction:ltr;
-    justify-content:flex-end;
-}
-
-.new-price{
-    font-size:18px;
+    color:#9a681d;
+    font-size:22px;
     font-weight:bold;
 }
 
 .old-price{
     color:#999;
     text-decoration:line-through;
+    margin-right:8px;
 }
 
-.add-btn{
-    width:100%;
-    padding:10px;
-    background:#fff;
-    border:1px solid #111;
+.btn{
+    background:#9a681d;
+    color:white;
+    border:0;
+    border-radius:8px;
+    padding:11px 18px;
     cursor:pointer;
-    border-radius:4px;
+    font-size:16px;
+    margin-top:10px;
+}
+
+.btn:hover{
+    background:#704811;
+}
+
+.cart{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    background:#9a681d;
+    color:white;
+    padding:15px 20px;
+    border-radius:50px;
+    cursor:pointer;
+    z-index:200;
+    box-shadow:0 5px 20px #0004;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:#0009;
+    z-index:500;
+    padding:20px;
+    overflow:auto;
+}
+
+.modal-box{
+    max-width:600px;
+    margin:30px auto;
+    background:white;
+    border-radius:15px;
+    padding:25px;
+}
+
+.close{
+    float:left;
+    cursor:pointer;
+    font-size:25px;
+}
+
+input,textarea,select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    margin:7px 0 15px;
+    font-size:16px;
+    font-family:Arial,sans-serif;
+}
+
+label{
     font-weight:bold;
 }
 
-.add-btn:hover{
-    background:#111;
-    color:#fff;
+.admin{
+    display:none;
 }
 
-
-/* =====================================================
-   OFFER
-===================================================== */
-
-.offer{
-    background:
-        linear-gradient(
-            rgba(0,0,0,.85),
-            rgba(0,0,0,.85)
-        ),
-        url("https://images.unsplash.com/photo-1595425970377-c9703cf48b6c?auto=format&fit=crop&w=1800&q=80")
-        center/cover;
-
-    color:#fff;
-    text-align:center;
-    padding:70px 20px;
-}
-
-.offer h2{
-    color:#e6c365;
-    font-size:43px;
-}
-
-
-/* =====================================================
-   ABOUT
-===================================================== */
-
-.about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
-}
-
-.about-img{
-    width:100%;
-    height:450px;
-    object-fit:cover;
-    border-radius:8px;
-}
-
-.about h2{
-    font-size:40px;
-}
-
-.about p{
-    color:#666;
-    font-size:18px;
-    line-height:2;
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
-    background:#111;
-    color:#fff;
-}
-
-.footer-grid{
-    max-width:1250px;
-    margin:auto;
-
-    padding:55px 20px;
-
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr 1fr;
-    gap:35px;
-}
-
-.footer-brand h2{
-    color:#e1bf63;
-}
-
-footer h3{
-    color:#e1bf63;
-}
-
-footer ul{
-    list-style:none;
-}
-
-footer li{
-    color:#aaa;
-    margin:8px 0;
-}
-
-footer li a:hover{
-    color:#e1bf63;
-}
-
-.copyright{
-    border-top:1px solid #292929;
-    padding:15px;
-    text-align:center;
-
-    font-family:Arial;
-    font-size:12px;
-
-    direction:ltr;
-    color:#888;
-}
-
-
-/* =====================================================
-   WHATSAPP
-===================================================== */
-
-.whatsapp{
-    position:fixed;
-    bottom:20px;
-    left:20px;
-
-    width:58px;
-    height:58px;
-
-    border-radius:50%;
-    background:#18a34a;
-    color:#fff;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-size:27px;
-    z-index:2000;
-}
-
-
-/* =====================================================
-   CART
-===================================================== */
-
-.cart-panel{
-    position:fixed;
-    top:0;
-    left:-420px;
-
-    width:400px;
-    max-width:92%;
-    height:100vh;
-
-    background:#fff;
-    z-index:3000;
-
-    box-shadow:5px 0 30px rgba(0,0,0,.2);
-
-    transition:.3s;
-
-    display:flex;
-    flex-direction:column;
-}
-
-.cart-panel.open{
-    left:0;
-}
-
-.cart-head{
-    padding:18px;
+.admin-top{
+    background:#211711;
+    color:white;
+    padding:20px;
     display:flex;
     justify-content:space-between;
-    border-bottom:1px solid #eee;
+    align-items:center;
 }
 
-.cart-head button{
-    border:0;
-    background:none;
-    font-size:25px;
-    cursor:pointer;
+.admin-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
 }
 
-.cart-items{
-    flex:1;
-    overflow-y:auto;
-    padding:15px;
+.panel{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 4px 15px #0001;
 }
 
-.cart-item{
+.product-admin{
     display:flex;
-    gap:10px;
+    gap:12px;
+    align-items:center;
     border-bottom:1px solid #eee;
     padding:12px 0;
 }
 
-.cart-item img{
-    width:65px;
-    height:65px;
-    object-fit:cover;
-}
-
-.cart-item-info{
-    flex:1;
-}
-
-.qty button{
-    padding:2px 8px;
-    cursor:pointer;
-}
-
-.remove{
-    border:0;
-    color:red;
-    background:#fee;
-    cursor:pointer;
-}
-
-.cart-bottom{
-    padding:18px;
-    border-top:1px solid #ddd;
-}
-
-.total{
-    display:flex;
-    justify-content:space-between;
-    font-size:20px;
-    font-weight:bold;
-    margin-bottom:12px;
-}
-
-.checkout{
-    width:100%;
-    padding:13px;
-    background:#111;
-    color:#fff;
-    border:0;
-    border-radius:4px;
-    cursor:pointer;
-}
-
-
-/* =====================================================
-   MODALS
-===================================================== */
-
-.modal{
-    position:fixed;
-    inset:0;
-
-    background:rgba(0,0,0,.75);
-
-    z-index:5000;
-
-    display:none;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:20px;
-    overflow-y:auto;
-}
-
-.modal.show{
-    display:flex;
-}
-
-.login-box{
-    width:400px;
-    max-width:100%;
-
-    background:#fff;
-
-    padding:30px;
-    border-radius:10px;
-
-    box-shadow:0 20px 60px rgba(0,0,0,.3);
-}
-
-.login-box h2{
-    text-align:center;
-    margin-bottom:20px;
-}
-
-.close-modal{
-    float:left;
-    border:0;
-    background:none;
-    font-size:25px;
-    cursor:pointer;
-}
-
-.form-group{
-    margin-bottom:15px;
-}
-
-.form-group label{
-    display:block;
-    margin-bottom:5px;
-    font-weight:bold;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea{
-    width:100%;
-    padding:11px;
-    border:1px solid #ddd;
-    border-radius:5px;
-    outline:none;
-    background:#fff;
-}
-
-.form-group textarea{
-    min-height:90px;
-}
-
-.login-btn{
-    width:100%;
-    padding:12px;
-    background:#111;
-    color:#fff;
-    border:0;
-    border-radius:5px;
-    cursor:pointer;
-}
-
-.login-error{
-    color:red;
-    text-align:center;
-    margin-top:10px;
-}
-
-
-/* =====================================================
-   IMAGE PREVIEW
-===================================================== */
-
-.image-preview{
-    margin-top:10px;
-    display:none;
-    text-align:center;
-}
-
-.image-preview img{
-    width:130px;
-    height:130px;
-    object-fit:cover;
-    border-radius:8px;
-    border:1px solid #ddd;
-}
-
-
-/* =====================================================
-   ADMIN PANEL
-===================================================== */
-
-.admin-panel{
-    position:fixed;
-    inset:0;
-    z-index:4500;
-
-    background:#f5f5f5;
-
-    display:none;
-    overflow-y:auto;
-}
-
-.admin-panel.show{
-    display:block;
-}
-
-.admin-header{
-    background:#111;
-    color:#fff;
-
-    padding:15px 25px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    position:sticky;
-    top:0;
-
-    z-index:20;
-}
-
-.admin-header h2{
-    color:#e4c263;
-}
-
-.admin-header button{
-    background:#c62828;
-    color:#fff;
-    border:0;
-    padding:8px 18px;
-    border-radius:4px;
-    cursor:pointer;
-}
-
-.admin-container{
-    max-width:1250px;
-    margin:auto;
-    padding:30px 20px;
-}
-
-
-/* =====================================================
-   DASHBOARD
-===================================================== */
-
-.dashboard-cards{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-    margin-bottom:25px;
-}
-
-.dashboard-card{
-    background:#fff;
-    padding:20px;
-    border-radius:8px;
-    box-shadow:0 3px 15px rgba(0,0,0,.05);
-}
-
-.dashboard-card h3{
-    color:#777;
-}
-
-.dashboard-card strong{
-    display:block;
-    margin-top:8px;
-
-    font-family:Arial;
-    font-size:27px;
-}
-
-
-/* =====================================================
-   ADMIN TABS
-===================================================== */
-
-.admin-tabs{
-    display:flex;
-    gap:8px;
-    margin-bottom:20px;
-}
-
-.admin-tab{
-    padding:10px 20px;
-    border:0;
-    background:#fff;
-    cursor:pointer;
-    border-radius:5px;
-}
-
-.admin-tab.active{
-    background:#111;
-    color:#fff;
-}
-
-.admin-section{
-    display:none;
-}
-
-.admin-section.active{
-    display:block;
-}
-
-
-/* =====================================================
-   ORDERS
-===================================================== */
-
-.table-wrap{
-    background:#fff;
-    border-radius:8px;
-    overflow-x:auto;
-}
-
-.admin-table{
-    width:100%;
-    border-collapse:collapse;
-    min-width:950px;
-}
-
-.admin-table th,
-.admin-table td{
-    padding:12px;
-    border-bottom:1px solid #eee;
-    text-align:right;
-    vertical-align:top;
-}
-
-.admin-table th{
-    background:#faf7f0;
-}
-
-.admin-table select{
-    padding:6px;
-    border:1px solid #ddd;
-    border-radius:5px;
-}
-
-
-/* =====================================================
-   ADMIN PRODUCT FORM
-===================================================== */
-
-.admin-product-form{
-    background:#fff;
-    padding:25px;
-    border-radius:8px;
-    max-width:700px;
-}
-
-
-/* =====================================================
-   ADMIN PRODUCT LIST
-===================================================== */
-
-.admin-product-list{
-    margin-top:25px;
-}
-
-.admin-product-row{
-    background:#fff;
-
-    display:flex;
-    align-items:center;
-
-    gap:15px;
-
-    padding:12px;
-    margin-bottom:10px;
-
-    border-radius:7px;
-
-    flex-wrap:wrap;
-}
-
-.admin-product-row img{
+.product-admin img{
     width:70px;
     height:70px;
-
     object-fit:cover;
-
-    border-radius:6px;
-    border:1px solid #eee;
-}
-
-.admin-product-info{
-    flex:1;
-}
-
-.edit-product{
-    background:#c89b3c;
-    color:#fff;
-    border:0;
-    padding:8px 14px;
-    border-radius:4px;
-    cursor:pointer;
-}
-
-.delete-product{
-    background:#c62828;
-    color:#fff;
-    border:0;
-    padding:8px 14px;
-    cursor:pointer;
-    border-radius:4px;
-}
-
-
-/* =====================================================
-   EDIT PRODUCT
-===================================================== */
-
-.edit-modal-box{
-    width:600px;
-    max-width:100%;
-    max-height:92vh;
-    overflow-y:auto;
-
-    background:#fff;
-
-    padding:30px;
-    border-radius:10px;
-}
-
-.edit-preview{
-    text-align:center;
-    margin:15px 0;
-}
-
-.edit-preview img{
-    width:140px;
-    height:140px;
-
-    object-fit:cover;
-
     border-radius:8px;
+}
+
+.order{
     border:1px solid #ddd;
+    border-radius:10px;
+    padding:15px;
+    margin:10px 0;
 }
 
-.current-image-text{
-    color:#777;
-    font-size:14px;
-    margin-top:5px;
+.badge{
+    background:#eee;
+    padding:4px 9px;
+    border-radius:20px;
 }
 
-
-/* =====================================================
-   LOADING
-===================================================== */
-
-.firebase-loading{
+footer{
+    margin-top:50px;
+    padding:35px;
+    background:#17110d;
+    color:white;
     text-align:center;
-    padding:25px;
-    color:#777;
 }
 
-.save-status{
-    margin-top:10px;
-    color:var(--green);
-    font-weight:bold;
-}
-
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
-@media(max-width:900px){
-
-    .products{
-        grid-template-columns:repeat(3,1fr);
+@media(max-width:700px){
+    .admin-grid{
+        grid-template-columns:1fr;
     }
 
-    .categories{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .dashboard-cards{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media(max-width:650px){
-
-    .header-inner{
-        flex-wrap:wrap;
+    .hero h1{
+        font-size:34px;
     }
 
     .logo{
-        font-size:23px;
-    }
-
-    .search{
-        order:3;
-        flex-basis:100%;
-    }
-
-    .nav-inner{
-        justify-content:flex-start;
-        gap:22px;
-    }
-
-    .hero{
-        min-height:470px;
-    }
-
-    .hero-content h1{
-        font-size:45px;
-    }
-
-    .products{
-        grid-template-columns:repeat(2,1fr);
-        gap:12px;
-    }
-
-    .product-img{
-        height:210px;
-    }
-
-    .categories{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .features{
-        grid-template-columns:1fr;
-    }
-
-    .about{
-        grid-template-columns:1fr;
-    }
-
-    .about-img{
-        height:300px;
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr;
-    }
-
-    .dashboard-cards{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .products-top{
-        display:block;
-    }
-
-    .filters{
-        margin-top:15px;
-    }
-
-    .admin-header h2{
-        font-size:16px;
+        font-size:21px;
     }
 }
-
 </style>
 </head>
 
-
 <body>
 
+<!-- STORE -->
 
-<!-- =====================================================
-     TOP BAR
-===================================================== -->
-
-<div class="topbar">
-
-<strong>طاہر پرفیوم سٹور</strong>
-
-— پاکستان بھر میں ڈیلیوری دستیاب ہے
-
-</div>
-
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
+<div id="store">
 
 <header>
+    <div class="logo">طاہر پرفیوم سٹور</div>
 
-<div class="header-inner">
-
-<a href="#home" class="logo">
-
-طاہر پرفیوم سٹور
-
-<span>
-TAHIR PERFUME STORE
-</span>
-
-</a>
-
-
-<div class="search">
-
-<input
-    id="searchInput"
-    type="text"
-    placeholder="پرفیوم تلاش کریں..."
->
-
-<button onclick="searchProducts()">
-⌕
-</button>
-
-</div>
-
-
-<div class="header-icons">
-
-<button
-    class="icon-btn"
-    onclick="openAdminLogin()"
-    title="Admin">
-
-⚙️
-
-</button>
-
-
-<button
-    class="icon-btn"
-    onclick="openCart()">
-
-🛒
-
-<span
-    id="cartCount"
-    class="cart-count">
-
-0
-
-</span>
-
-</button>
-
-</div>
-
-</div>
-
-
-<nav>
-
-<div class="nav-inner">
-
-<a href="#home">ہوم</a>
-
-<a href="#categories">کیٹیگریز</a>
-
-<a href="#products">پرفیوم</a>
-
-<a href="#about">ہمارے بارے میں</a>
-
-<a href="#contact">رابطہ</a>
-
-</div>
-
-</nav>
-
+    <nav>
+        <button onclick="goHome()">ہوم</button>
+        <button onclick="openCart()">کارٹ 🛒</button>
+        <button onclick="openAdminLogin()">Admin</button>
+    </nav>
 </header>
 
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section class="hero" id="home">
-
-<div class="hero-content">
-
-<small>
-طاہر پرفیوم سٹور
-</small>
-
-<h1>
-
-آپ کی خوشبو<br>
-آپ کی پہچان
-
-</h1>
-
-<p>
-
-بہترین اور دلکش خوشبوؤں کا شاندار کلیکشن۔
-اپنے لیے اور اپنے پیاروں کے لیے آج ہی
-پسندیدہ پرفیوم منتخب کریں۔
-
-</p>
-
-<a href="#products" class="gold-btn">
-ابھی خریدیں
-</a>
-
-</div>
-
+<section class="hero">
+    <h1>طاہر پرفیوم سٹور</h1>
+    <p>اعلیٰ معیار کے عطر اور پرفیوم</p>
 </section>
 
+<div class="container">
 
-<!-- =====================================================
-     FEATURES
-===================================================== -->
+<h2 class="section-title">ہماری مصنوعات</h2>
 
-<section class="features">
-
-
-<div class="feature">
-
-<div class="feature-icon">💎</div>
-
-<h3>
-اعلیٰ معیار
-</h3>
-
-<p>
-پریمیم خوشبوئیں
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">🔒</div>
-
-<h3>
-محفوظ آرڈر
-</h3>
-
-<p>
-Cash on Delivery
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">💬</div>
-
-<h3>
-کسٹمر سپورٹ
-</h3>
-
-<p>
-ہمیشہ آپ کے ساتھ
-</p>
-
-</div>
-
-
-</section>
-
-
-<!-- =====================================================
-     CATEGORIES
-===================================================== -->
-
-<section class="section" id="categories">
-
-<div class="section-title">
-
-<small>
-ہماری کلیکشن
-</small>
-
-<h2>
-کیٹیگریز
-</h2>
-
-</div>
-
-
-<div class="categories">
-
-<a class="category cat1" href="#products">
-<h3>مردانہ پرفیوم</h3>
-</a>
-
-<a class="category cat2" href="#products">
-<h3>خواتین کے پرفیوم</h3>
-</a>
-
-<a class="category cat3" href="#products">
-<h3>پریمیم عطر</h3>
-</a>
-
-<a class="category cat4" href="#products">
-<h3>گفٹ سیٹس</h3>
-</a>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     PRODUCTS
-===================================================== -->
-
-<section class="section" id="products">
-
-<div class="section-title">
-
-<small>
-BEST COLLECTION
-</small>
-
-<h2>
-ہمارے پرفیوم
-</h2>
-
-<p>
-سب سے زیادہ پسند کیے جانے والے پرفیوم
-</p>
-
-</div>
-
-
-<div class="products-top">
-
-<strong id="productNumber">
-Loading Products...
-</strong>
-
-
-<div class="filters">
-
-<button
-    class="filter-btn active"
-    onclick="filterProducts('all',this)">
-سب
-</button>
-
-<button
-    class="filter-btn"
-    onclick="filterProducts('men',this)">
-مردانہ
-</button>
-
-<button
-    class="filter-btn"
-    onclick="filterProducts('women',this)">
-زنانہ
-</button>
-
-<button
-    class="filter-btn"
-    onclick="filterProducts('attar',this)">
-عطر
-</button>
-
+<div id="products" class="products">
+    <p>مصنوعات لوڈ ہو رہی ہیں...</p>
 </div>
 
 </div>
 
-
-<div id="productGrid" class="products">
-
-<div class="firebase-loading">
-Products لوڈ ہو رہے ہیں...
+<div class="cart" onclick="openCart()">
+🛒 کارٹ (<span id="cartCount">0</span>)
 </div>
 
+<footer>
+
+<div>طاہر پرفیوم سٹور</div>
+
+<div class="english">
+03142300764
 </div>
 
-</section>
-
-
-<!-- =====================================================
-     OFFER
-===================================================== -->
-
-<section class="offer">
-
-<h2>
-خاص آفر
-</h2>
-
-<p>
-منتخب پرفیومز پر خصوصی رعایت
-</p>
-
-<a href="#products" class="gold-btn">
-آفر دیکھیں
-</a>
-
-</section>
-
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section class="section" id="about">
-
-<div class="about">
-
-<img
-    class="about-img"
-    src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1000&q=80"
-    alt="Tahir Perfume Store"
->
-
-
-<div>
-
-<small style="color:#c89b3c;font-weight:bold;">
-طاہر پرفیوم سٹور
-</small>
-
-<h2>
-خوشبو جو آپ کو یاد رکھے
-</h2>
-
-<p>
-
-طاہر پرفیوم سٹور میں ہم اپنے صارفین کے لیے
-بہترین اور معیاری پرفیوم اور عطر فراہم کرتے ہیں۔
-ہمارا مقصد ایسی خوشبوئیں فراہم کرنا ہے جو آپ کی
-شخصیت کو مزید خوبصورت اور یادگار بنائیں۔
-
-</p>
-
-<a href="#contact" class="gold-btn">
-ہم سے رابطہ کریں
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer id="contact">
-
-<div class="footer-grid">
-
-
-<div class="footer-brand">
-
-<h2>
-طاہر پرفیوم سٹور
-</h2>
-
-<p>
-
-Premium perfumes اور attars کا قابل اعتماد
-آن لائن اسٹور۔ پاکستان بھر میں ڈیلیوری دستیاب ہے۔
-
-</p>
-
-</div>
-
-
-<div>
-
-<h3>
-اہم لنکس
-</h3>
-
-<ul>
-
-<li><a href="#home">ہوم</a></li>
-
-<li><a href="#products">پرفیومز</a></li>
-
-<li><a href="#categories">کیٹیگریز</a></li>
-
-<li><a href="#about">ہمارے بارے میں</a></li>
-
-</ul>
-
-</div>
-
-
-<div>
-
-<h3>
-کسٹمر سروس
-</h3>
-
-<ul>
-
-<li>رابطہ کریں</li>
-
-<li>ڈیلیوری معلومات</li>
-
-<li>واپسی کی پالیسی</li>
-
-<li>پرائیویسی پالیسی</li>
-
-</ul>
-
-</div>
-
-
-<div>
-
-<h3>
-رابطہ
-</h3>
-
-<ul>
-
-<li>
-
-<a
-    href="tel:03142300764"
-    class="english">
-
-📞 03142300764
-
-</a>
-
-</li>
-
-
-<li>
-📍 پاکستان
-</li>
-
-
-<li>
-
-<a
-    href="mailto:tahirnaeemtahir123@gmail.com"
-    class="english">
-
-✉️ tahirnaeemtahir123@gmail.com
-
-</a>
-
-</li>
-
-</ul>
-
-</div>
-
-
-</div>
-
-
-<div class="copyright">
-
-© 2026 Tahir Perfume Store. All Rights Reserved.
-
+<div class="english">
+tahirnaeemtahir123@gmail.com
 </div>
 
 </footer>
 
-
-<!-- =====================================================
-     WHATSAPP
-===================================================== -->
-
-<a
-    class="whatsapp"
-    href="https://wa.me/923142300764"
-    target="_blank">
-
-☎
-
-</a>
+</div>
 
 
-<!-- =====================================================
-     CART
-===================================================== -->
+<!-- ADMIN -->
 
-<aside id="cartPanel" class="cart-panel">
+<div id="admin" class="admin">
 
-<div class="cart-head">
+<div class="admin-top">
 
-<h2>
-آپ کا کارٹ 🛒
-</h2>
+<h2>Admin Panel - طاہر پرفیوم سٹور</h2>
 
-<button onclick="closeCart()">
-×
+<button class="btn" onclick="logoutAdmin()">Logout</button>
+
+</div>
+
+<div class="container">
+
+<div class="admin-grid">
+
+<!-- PRODUCT FORM -->
+
+<div class="panel">
+
+<h2>پروڈکٹ شامل / اپڈیٹ کریں</h2>
+
+<input type="hidden" id="editId">
+
+<label>پروڈکٹ کا نام</label>
+<input id="pName" type="text">
+
+<label>قیمت</label>
+<input id="pPrice" type="number">
+
+<label>پرانی قیمت</label>
+<input id="pOldPrice" type="number">
+
+<label>تفصیل</label>
+<textarea id="pDescription"></textarea>
+
+<label>تصویر منتخب کریں</label>
+<input id="pImage" type="file" accept="image/*">
+
+<div id="currentImage"></div>
+
+<button class="btn" onclick="saveProduct()">
+پروڈکٹ محفوظ کریں
+</button>
+
+<button class="btn" onclick="clearProductForm()">
+نیا پروڈکٹ
 </button>
 
 </div>
 
 
-<div id="cartItems" class="cart-items">
+<!-- PRODUCTS -->
+
+<div class="panel">
+
+<h2>تمام مصنوعات</h2>
+
+<div id="adminProducts">
+لوڈ ہو رہا ہے...
 </div>
 
-
-<div class="cart-bottom">
-
-<div class="total">
-
-<span>
-کل:
-</span>
-
-<span id="cartTotal" class="english">
-Rs. 0
-</span>
+</div>
 
 </div>
 
 
-<button class="checkout" onclick="checkout()">
+<!-- ORDERS -->
 
-WhatsApp پر آرڈر کریں
+<div class="panel" style="margin-top:25px">
 
-</button>
+<h2>آرڈرز</h2>
+
+<div id="adminOrders">
+آرڈرز لوڈ ہو رہے ہیں...
+</div>
 
 </div>
 
-</aside>
+</div>
+
+</div>
 
 
-<!-- =====================================================
-     ADMIN LOGIN
-===================================================== -->
+<!-- ADMIN LOGIN MODAL -->
 
 <div id="loginModal" class="modal">
 
-<div class="login-box">
+<div class="modal-box">
 
-<button
-    class="close-modal"
-    onclick="closeAdminLogin()">
+<span class="close" onclick="closeLogin()">×</span>
 
-×
+<h2>Admin Login</h2>
 
-</button>
+<label>Email</label>
+<input id="adminEmail" type="email">
 
-<h2>
-Admin Login
-</h2>
+<label>Password</label>
+<input id="adminPassword" type="password">
 
-
-<div class="form-group">
-
-<label>
-Username
-</label>
-
-<input
-    id="adminUsername"
-    type="text"
-    placeholder="Username"
-    class="english"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Password
-</label>
-
-<input
-    id="adminPassword"
-    type="password"
-    placeholder="Password"
-    class="english"
->
-
-</div>
-
-
-<button
-    class="login-btn"
-    onclick="adminLogin()">
-
+<button class="btn" onclick="adminLogin()">
 Login
-
 </button>
 
-
-<div
-    id="loginError"
-    class="login-error">
-</div>
+<p id="loginError" style="color:red"></p>
 
 </div>
 
 </div>
 
 
-<!-- =====================================================
-     EDIT PRODUCT MODAL
-===================================================== -->
+<!-- CART MODAL -->
 
-<div id="editProductModal" class="modal">
+<div id="cartModal" class="modal">
 
-<div class="edit-modal-box">
+<div class="modal-box">
 
-<button
-    class="close-modal"
-    onclick="closeEditProduct()">
+<span class="close" onclick="closeCart()">×</span>
 
-×
+<h2>آپ کا آرڈر</h2>
 
-</button>
+<div id="cartItems"></div>
 
-
-<h2 style="text-align:center;margin-bottom:20px;">
-
-Product Update کریں
-
-</h2>
-
-
-<input
-    type="hidden"
-    id="editProductIndex"
->
-
-
-<div class="form-group">
-
-<label>
-Product Name
-</label>
-
-<input
-    id="editProductName"
-    type="text"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Category
-</label>
-
-<select id="editProductCategory">
-
-<option value="men">
-مردانہ
-</option>
-
-<option value="women">
-زنانہ
-</option>
-
-<option value="attar">
-عطر
-</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Price
-</label>
-
-<input
-    id="editProductPrice"
-    type="number"
-    class="english"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Old Price
-</label>
-
-<input
-    id="editProductOldPrice"
-    type="number"
-    class="english"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-نئی Product Image
-</label>
-
-<input
-    id="editProductImage"
-    type="file"
-    accept="image/*"
-    onchange="previewEditImage(this)"
->
-
-</div>
-
-
-<div class="edit-preview">
-
-<img
-    id="editProductPreview"
-    src=""
-    alt="Product Preview"
->
-
-<div class="current-image-text">
-
-نئی تصویر select نہ کرنے کی صورت میں
-موجودہ تصویر برقرار رہے گی۔
-
-</div>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Description
-</label>
-
-<textarea id="editProductDescription">
-</textarea>
-
-</div>
-
-
-<button
-    class="login-btn"
-    onclick="updateProduct()">
-
-Product Update کریں
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-     ADMIN PANEL
-===================================================== -->
-
-<div id="adminPanel" class="admin-panel">
-
-<div class="admin-header">
-
-<h2>
-طاہر پرفیوم سٹور — Admin Panel
-</h2>
-
-<button onclick="logoutAdmin()">
-Logout
-</button>
-
-</div>
-
-
-<div class="admin-container">
-
-
-<div class="dashboard-cards">
-
-
-<div class="dashboard-card">
+<hr>
 
 <h3>
-Total Orders
+کل رقم:
+Rs. <span id="cartTotal">0</span>
 </h3>
 
-<strong
-    id="totalOrders"
-    class="admin-number">
+<h3>اپنی معلومات درج کریں</h3>
 
-0
+<input id="customerName" placeholder="نام">
 
-</strong>
+<input id="customerPhone" placeholder="موبائل نمبر">
 
-</div>
+<textarea id="customerAddress" placeholder="مکمل پتہ"></textarea>
 
-
-<div class="dashboard-card">
-
-<h3>
-New Orders
-</h3>
-
-<strong
-    id="newOrders"
-    class="admin-number">
-
-0
-
-</strong>
-
-</div>
-
-
-<div class="dashboard-card">
-
-<h3>
-Products
-</h3>
-
-<strong
-    id="totalProducts"
-    class="admin-number">
-
-0
-
-</strong>
-
-</div>
-
-
-<div class="dashboard-card">
-
-<h3>
-Sales
-</h3>
-
-<strong
-    id="totalSales"
-    class="admin-number">
-
-Rs. 0
-
-</strong>
-
-</div>
-
-</div>
-
-
-<div class="admin-tabs">
-
-<button
-    class="admin-tab active"
-    onclick="showAdminTab('orders',this)">
-
-Orders
-
+<button class="btn" onclick="placeOrder()">
+آرڈر مکمل کریں
 </button>
-
-
-<button
-    class="admin-tab"
-    onclick="showAdminTab('productsAdmin',this)">
-
-Products
-
-</button>
-
-</div>
-
-
-<!-- =====================================================
-     ORDERS
-===================================================== -->
-
-<div id="orders" class="admin-section active">
-
-<h2 style="margin-bottom:15px;">
-تمام Orders
-</h2>
-
-
-<div class="table-wrap">
-
-<table class="admin-table">
-
-<thead>
-
-<tr>
-
-<th>Order</th>
-<th>Customer</th>
-<th>Phone</th>
-<th>Address</th>
-<th>Products</th>
-<th>Total</th>
-<th>Status</th>
-
-</tr>
-
-</thead>
-
-
-<tbody id="ordersTable">
-
-</tbody>
-
-</table>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-     PRODUCTS ADMIN
-===================================================== -->
-
-<div id="productsAdmin" class="admin-section">
-
-<h2 style="margin-bottom:15px;">
-نیا Product Add کریں
-</h2>
-
-
-<div class="admin-product-form">
-
-
-<div class="form-group">
-
-<label>
-Product Name
-</label>
-
-<input
-    id="newProductName"
-    type="text"
-    placeholder="مثلاً Royal Oud"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Category
-</label>
-
-<select id="newProductCategory">
-
-<option value="men">
-مردانہ
-</option>
-
-<option value="women">
-زنانہ
-</option>
-
-<option value="attar">
-عطر
-</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Price
-</label>
-
-<input
-    id="newProductPrice"
-    type="number"
-    placeholder="2400"
-    class="english"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Old Price
-</label>
-
-<input
-    id="newProductOldPrice"
-    type="number"
-    placeholder="3000"
-    class="english"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Product Image Attachment
-</label>
-
-<input
-    id="newProductImage"
-    type="file"
-    accept="image/*"
-    onchange="previewNewImage(this)"
->
-
-<div id="newImagePreview" class="image-preview">
-
-<img
-    id="newPreviewImage"
-    src=""
-    alt="Preview"
->
-
-</div>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Description
-</label>
-
-<textarea
-    id="newProductDescription"
-    placeholder="Product کی تفصیل">
-</textarea>
-
-</div>
-
-
-<button
-    class="gold-btn"
-    onclick="addProduct()">
-
-Product Add کریں
-
-</button>
-
-
-<div id="productSaveStatus" class="save-status">
-</div>
-
-</div>
-
-
-<h2 style="margin-top:30px;margin-bottom:15px;">
-
-تمام Products
-
-</h2>
-
-
-<div
-    id="adminProductList"
-    class="admin-product-list">
-</div>
-
-
-</div>
 
 </div>
 
@@ -2377,557 +480,130 @@ Product Add کریں
 
 <script>
 
-/* =====================================================
-   FIREBASE DATABASE
-===================================================== */
+/* =========================================
+   FIREBASE CONFIG
+========================================= */
 
-const FIREBASE_DB =
-    "https://traindawateislami-default-rtdb.firebaseio.com";
+const firebaseConfig = {
 
+    /*
+       IMPORTANT:
+       اپنے Firebase Web App کی مکمل config
+       یہاں paste کریں۔
+    */
 
-const FIREBASE_PRODUCTS =
-    FIREBASE_DB +
-    "/tahirPerfume/products";
+    apiKey: "YOUR_API_KEY",
 
+    authDomain: "traindawateislami.firebaseapp.com",
 
-const FIREBASE_ORDERS =
-    FIREBASE_DB +
-    "/tahirPerfume/orders";
+    databaseURL:
+    "https://traindawateislami-default-rtdb.firebaseio.com/",
 
+    projectId:
+    "traindawateislami",
 
-/* =====================================================
-   DEFAULT PRODUCTS
-===================================================== */
-
-const defaultProducts = [
+    storageBucket:
+    "traindawateislami.firebasestorage.app",
 
-{
-    id:1,
-    name:"رائل عود",
-    category:"men",
-    price:2400,
-    oldPrice:3000,
+    messagingSenderId:
+    "YOUR_MESSAGING_SENDER_ID",
 
-    image:
-    "https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=700&q=80",
+    appId:
+    "YOUR_APP_ID"
+};
 
-    description:"پریمیم مردانہ خوشبو"
-},
 
-{
-    id:2,
-    name:"گلاب پریمیئم",
-    category:"women",
-    price:2100,
-    oldPrice:2500,
+firebase.initializeApp(firebaseConfig);
 
-    image:
-    "https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=700&q=80",
+const db = firebase.database();
 
-    description:"دلکش زنانہ خوشبو"
-},
+const storage = firebase.storage();
 
-{
-    id:3,
-    name:"عطر سلطانی",
-    category:"attar",
-    price:1500,
-    oldPrice:2000,
 
-    image:
-    "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=700&q=80",
+/* =========================================
+   GLOBAL
+========================================= */
 
-    description:"لمبی دیر تک رہنے والی خوشبو"
-},
+let products = {};
 
-{
-    id:4,
-    name:"مسک رائل",
-    category:"men",
-    price:1800,
-    oldPrice:2200,
+let cart = [];
 
-    image:
-    "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=700&q=80",
+let adminLoggedIn = false;
 
-    description:"پریمیم مسک خوشبو"
-},
 
-{
-    id:5,
-    name:"پرنسس",
-    category:"women",
-    price:2000,
-    oldPrice:2500,
+/* =========================================
+   LOAD PRODUCTS REALTIME
+========================================= */
 
-    image:
-    "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=700&q=80",
+db.ref("products").on("value", snapshot => {
 
-    description:"نرم اور خوبصورت خوشبو"
-},
+    products = snapshot.val() || {};
 
-{
-    id:6,
-    name:"عود عرب",
-    category:"attar",
-    price:2700,
-    oldPrice:3000,
+    renderProducts();
 
-    image:
-    "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=700&q=80",
+    renderAdminProducts();
 
-    description:"خالص عربی عطر"
-},
+});
 
-{
-    id:7,
-    name:"بلیک مسک",
-    category:"men",
-    price:2200,
-    oldPrice:2600,
 
-    image:
-    "https://images.unsplash.com/photo-1595425970377-c9703cf48b6c?auto=format&fit=crop&w=700&q=80",
+/* =========================================
+   CUSTOMER PRODUCTS
+========================================= */
 
-    description:"Bold اور Royal خوشبو"
-},
+function renderProducts(){
 
-{
-    id:8,
-    name:"سفید مسک",
-    category:"attar",
-    price:1600,
-    oldPrice:2000,
+    const box =
+        document.getElementById("products");
 
-    image:
-    "https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=700&q=80",
+    box.innerHTML = "";
 
-    description:"نرم، صاف اور دلکش"
-}
+    const list =
+        Object.values(products);
 
-];
+    if(list.length === 0){
 
-
-/* =====================================================
-   FIREBASE GET
-===================================================== */
-
-async function firebaseGet(path){
-
-    try{
-
-        const response =
-            await fetch(
-                path + ".json"
-            );
-
-        if(!response.ok){
-            throw new Error("Firebase GET failed");
-        }
-
-        return await response.json();
-
-    }catch(error){
-
-        console.error(error);
-
-        return null;
-    }
-}
-
-
-/* =====================================================
-   FIREBASE PUT
-===================================================== */
-
-async function firebasePut(
-    path,
-    data
-){
-
-    try{
-
-        const response =
-            await fetch(
-                path + ".json",
-                {
-                    method:"PUT",
-
-                    headers:{
-                        "Content-Type":
-                        "application/json"
-                    },
-
-                    body:
-                        JSON.stringify(data)
-                }
-            );
-
-        if(!response.ok){
-            throw new Error("Firebase PUT failed");
-        }
-
-        return await response.json();
-
-    }catch(error){
-
-        console.error(error);
-
-        alert(
-            "Firebase میں data save نہیں ہو سکا۔"
-        );
-
-        return null;
-    }
-}
-
-
-/* =====================================================
-   FIREBASE POST
-===================================================== */
-
-async function firebasePost(
-    path,
-    data
-){
-
-    try{
-
-        const response =
-            await fetch(
-                path + ".json",
-                {
-                    method:"POST",
-
-                    headers:{
-                        "Content-Type":
-                        "application/json"
-                    },
-
-                    body:
-                        JSON.stringify(data)
-                }
-            );
-
-        if(!response.ok){
-            throw new Error("Firebase POST failed");
-        }
-
-        return await response.json();
-
-    }catch(error){
-
-        console.error(error);
-
-        alert(
-            "Order Database میں save نہیں ہو سکا۔"
-        );
-
-        return null;
-    }
-}
-
-
-/* =====================================================
-   FIREBASE PATCH
-===================================================== */
-
-async function firebasePatch(
-    path,
-    data
-){
-
-    try{
-
-        const response =
-            await fetch(
-                path + ".json",
-                {
-                    method:"PATCH",
-
-                    headers:{
-                        "Content-Type":
-                        "application/json"
-                    },
-
-                    body:
-                        JSON.stringify(data)
-                }
-            );
-
-        if(!response.ok){
-            throw new Error("Firebase PATCH failed");
-        }
-
-        return await response.json();
-
-    }catch(error){
-
-        console.error(error);
-
-        return null;
-    }
-}
-
-
-/* =====================================================
-   FIREBASE DELETE
-===================================================== */
-
-async function firebaseDelete(path){
-
-    try{
-
-        const response =
-            await fetch(
-                path + ".json",
-                {
-                    method:"DELETE"
-                }
-            );
-
-        return response.ok;
-
-    }catch(error){
-
-        console.error(error);
-
-        return false;
-    }
-}
-
-
-/* =====================================================
-   PRODUCTS - LOCAL CACHE
-===================================================== */
-
-function getProducts(){
-
-    const saved =
-        localStorage.getItem(
-            "tahirProducts"
-        );
-
-    if(saved){
-
-        try{
-            return JSON.parse(saved);
-        }catch(e){}
-    }
-
-    return defaultProducts;
-}
-
-
-function saveProductsLocal(products){
-
-    localStorage.setItem(
-        "tahirProducts",
-        JSON.stringify(products)
-    );
-}
-
-
-/* =====================================================
-   FIREBASE PRODUCTS -> ARRAY
-===================================================== */
-
-function firebaseProductsToArray(data){
-
-    if(!data){
-        return [];
-    }
-
-    if(Array.isArray(data)){
-        return data.filter(Boolean);
-    }
-
-    return Object.values(data);
-}
-
-
-/* =====================================================
-   LOAD PRODUCTS FROM FIREBASE
-===================================================== */
-
-async function loadProductsFromFirebase(){
-
-    const data =
-        await firebaseGet(
-            FIREBASE_PRODUCTS
-        );
-
-    if(!data){
-
-        displayProducts(
-            getProducts()
-        );
+        box.innerHTML =
+        "<p>ابھی کوئی پروڈکٹ موجود نہیں۔</p>";
 
         return;
     }
 
-    const products =
-        firebaseProductsToArray(data);
+    list.forEach(product => {
 
-    if(products.length){
+        box.innerHTML += `
 
-        saveProductsLocal(products);
+        <div class="card">
 
-        displayProducts(products);
+            <img src="${escapeAttr(product.image || '')}"
+                 onerror="this.src='https://via.placeholder.com/500x500?text=Perfume'">
 
-        loadAdminProducts();
+            <div class="card-body">
 
-        document
-            .getElementById("totalProducts")
-            .textContent =
-            products.length;
-    }
-}
+                <h3>${escapeHtml(product.name)}</h3>
 
+                <p>
+                ${escapeHtml(product.description || "")}
+                </p>
 
-/* =====================================================
-   SAVE COMPLETE PRODUCTS
-===================================================== */
+                <div>
 
-async function saveProductsToFirebase(
-    products
-){
-
-    const productObject = {};
-
-    products.forEach(product => {
-
-        productObject[
-            String(product.id)
-        ] = product;
-
-    });
-
-    return await firebasePut(
-        FIREBASE_PRODUCTS,
-        productObject
-    );
-}
-
-
-/* =====================================================
-   DISPLAY PRODUCTS
-===================================================== */
-
-function displayProducts(
-    products = getProducts()
-){
-
-    const grid =
-        document.getElementById(
-            "productGrid"
-        );
-
-    if(!products.length){
-
-        grid.innerHTML = `
-            <div
-                style="
-                grid-column:1/-1;
-                text-align:center;
-                padding:40px;
-                ">
-
-                کوئی Product موجود نہیں۔
-
-            </div>
-        `;
-
-        document
-            .getElementById("productNumber")
-            .textContent =
-            "0 Products";
-
-        return;
-    }
-
-    grid.innerHTML = "";
-
-    products.forEach(product => {
-
-        let discount = 0;
-
-        if(
-            product.oldPrice &&
-            product.oldPrice > product.price
-        ){
-
-            discount =
-                Math.round(
-                    (
-                        (product.oldPrice - product.price)
-                        /
-                        product.oldPrice
-                    ) * 100
-                );
-        }
-
-        grid.innerHTML += `
-
-        <div class="product">
-
-            ${
-                discount > 0
-                ?
-                `
-                <span class="sale">
-                    -${discount}%
-                </span>
-                `
-                :
-                ""
-            }
-
-            <img
-                class="product-img"
-                src="${product.image}"
-                alt="${escapeHtml(product.name)}"
-            >
-
-            <div class="product-info">
-
-                <div class="stars">
-                    ★★★★★
-                </div>
-
-                <div class="product-name">
-                    ${escapeHtml(product.name)}
-                </div>
-
-                <div class="product-desc">
-                    ${escapeHtml(product.description || "")}
-                </div>
-
-                <div class="price">
-
-                    <span class="new-price">
-                        Rs.
-                        ${Number(product.price).toLocaleString()}
+                    <span class="price">
+                    Rs. ${Number(product.price || 0).toLocaleString()}
                     </span>
 
                     ${
                         product.oldPrice
                         ?
-                        `
-                        <span class="old-price">
-                            Rs.
-                            ${Number(product.oldPrice).toLocaleString()}
-                        </span>
-                        `
-                        :
-                        ""
+                        `<span class="old-price">
+                        Rs. ${Number(product.oldPrice).toLocaleString()}
+                        </span>`
+                        : ""
                     }
 
                 </div>
 
-                <button
-                    class="add-btn"
-                    onclick="addToCart(${product.id})">
+                <button class="btn"
+                    onclick="addToCart('${product.id}')">
 
                     کارٹ میں شامل کریں
 
@@ -2936,71 +612,26 @@ function displayProducts(
             </div>
 
         </div>
+
         `;
+
     });
 
-    document
-        .getElementById("productNumber")
-        .textContent =
-        products.length + " Products";
 }
 
 
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHtml(value){
-
-    return String(value)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-}
-
-
-/* =====================================================
+/* =========================================
    CART
-===================================================== */
+========================================= */
 
-let cart =
-    JSON.parse(
-        localStorage.getItem(
-            "tahirCart"
-        ) || "[]"
-    );
+function addToCart(id){
 
+    const product = products[id];
 
-function saveCart(){
-
-    localStorage.setItem(
-        "tahirCart",
-        JSON.stringify(cart)
-    );
-}
-
-
-function addToCart(productId){
-
-    const product =
-        getProducts().find(
-            item =>
-                Number(item.id) ===
-                Number(productId)
-        );
-
-    if(!product){
-        return;
-    }
+    if(!product) return;
 
     const existing =
-        cart.find(
-            item =>
-                Number(item.id) ===
-                Number(productId)
-        );
+        cart.find(x => x.id === id);
 
     if(existing){
 
@@ -3009,1730 +640,804 @@ function addToCart(productId){
     }else{
 
         cart.push({
-            ...product,
+
+            id:id,
+
+            name:product.name,
+
+            price:Number(product.price),
+
             qty:1
+
         });
 
     }
 
-    saveCart();
-    updateCart();
-    openCart();
+    updateCartCount();
+
+    alert("پروڈکٹ کارٹ میں شامل ہوگئی۔");
 }
 
 
-function updateCart(){
-
-    const items =
-        document.getElementById(
-            "cartItems"
-        );
+function updateCartCount(){
 
     const count =
-        document.getElementById(
-            "cartCount"
-        );
+        cart.reduce((sum,x)=>sum+x.qty,0);
 
-    const totalElement =
-        document.getElementById(
-            "cartTotal"
-        );
+    document.getElementById("cartCount")
+    .textContent = count;
 
-    let quantity = 0;
-    let totalPrice = 0;
-
-    cart.forEach(item => {
-
-        quantity += Number(item.qty);
-
-        totalPrice +=
-            Number(item.price) *
-            Number(item.qty);
-
-    });
-
-    count.textContent =
-        quantity;
-
-    totalElement.textContent =
-        "Rs. " +
-        totalPrice.toLocaleString();
-
-
-    if(!cart.length){
-
-        items.innerHTML = `
-
-            <p
-                style="
-                text-align:center;
-                color:#888;
-                margin-top:30px;
-                ">
-
-                آپ کا کارٹ خالی ہے۔
-
-            </p>
-        `;
-
-        return;
-    }
-
-
-    items.innerHTML =
-        cart.map(
-            (item,index) => `
-
-            <div class="cart-item">
-
-                <img
-                    src="${item.image}"
-                    alt="${escapeHtml(item.name)}"
-                >
-
-                <div class="cart-item-info">
-
-                    <h4>
-                        ${escapeHtml(item.name)}
-                    </h4>
-
-                    <p class="english">
-                        Rs.
-                        ${Number(item.price).toLocaleString()}
-                    </p>
-
-                    <div class="qty">
-
-                        <button
-                            onclick="changeQty(${index},-1)">
-                            −
-                        </button>
-
-                        <span>
-                            ${item.qty}
-                        </span>
-
-                        <button
-                            onclick="changeQty(${index},1)">
-                            +
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <button
-                    class="remove"
-                    onclick="removeItem(${index})">
-
-                    ×
-
-                </button>
-
-            </div>
-
-            `
-        ).join("");
-}
-
-
-function changeQty(index,amount){
-
-    cart[index].qty += amount;
-
-    if(cart[index].qty <= 0){
-
-        cart.splice(index,1);
-
-    }
-
-    saveCart();
-    updateCart();
-}
-
-
-function removeItem(index){
-
-    cart.splice(index,1);
-
-    saveCart();
-    updateCart();
 }
 
 
 function openCart(){
 
-    document
-        .getElementById("cartPanel")
-        .classList.add("open");
+    renderCart();
+
+    document.getElementById("cartModal")
+    .style.display="block";
+
 }
 
 
 function closeCart(){
 
-    document
-        .getElementById("cartPanel")
-        .classList.remove("open");
+    document.getElementById("cartModal")
+    .style.display="none";
+
 }
 
 
-/* =====================================================
-   CHECKOUT + FIREBASE ORDER
-===================================================== */
+function renderCart(){
 
-async function checkout(){
+    const box =
+        document.getElementById("cartItems");
 
-    if(!cart.length){
+    box.innerHTML="";
 
-        alert(
-            "آپ کا cart خالی ہے۔"
-        );
+    let total=0;
+
+    if(cart.length===0){
+
+        box.innerHTML="<p>کارٹ خالی ہے۔</p>";
+
+        document.getElementById("cartTotal")
+        .textContent="0";
 
         return;
     }
 
+    cart.forEach((item,index)=>{
 
-    const name =
-        prompt("اپنا نام لکھیں:");
+        const subtotal =
+            item.price * item.qty;
 
-    if(!name){
-        return;
-    }
+        total += subtotal;
 
+        box.innerHTML += `
 
-    const phone =
-        prompt("اپنا موبائل نمبر لکھیں:");
+        <div class="order">
 
-    if(!phone){
-        return;
-    }
+            <b>${escapeHtml(item.name)}</b>
 
+            <br>
 
-    const address =
-        prompt("اپنا مکمل پتہ لکھیں:");
+            Rs. ${item.price.toLocaleString()}
 
-    if(!address){
-        return;
-    }
+            <br>
 
+            مقدار:
 
-    let total = 0;
+            <button class="btn"
+                onclick="changeQty(${index},-1)">
+                -
+            </button>
 
-    cart.forEach(item => {
+            ${item.qty}
 
-        total +=
-            Number(item.price) *
-            Number(item.qty);
+            <button class="btn"
+                onclick="changeQty(${index},1)">
+                +
+            </button>
+
+            <br>
+
+            Rs. ${subtotal.toLocaleString()}
+
+            <br>
+
+            <button class="btn"
+                onclick="removeCart(${index})">
+                حذف
+            </button>
+
+        </div>
+
+        `;
 
     });
 
+    document.getElementById("cartTotal")
+    .textContent=total.toLocaleString();
+
+}
+
+
+function changeQty(index,value){
+
+    cart[index].qty += value;
+
+    if(cart[index].qty<=0){
+
+        cart.splice(index,1);
+
+    }
+
+    updateCartCount();
+
+    renderCart();
+
+}
+
+
+function removeCart(index){
+
+    cart.splice(index,1);
+
+    updateCartCount();
+
+    renderCart();
+
+}
+
+
+/* =========================================
+   PLACE ORDER
+========================================= */
+
+function placeOrder(){
+
+    if(cart.length===0){
+
+        alert("کارٹ خالی ہے۔");
+
+        return;
+    }
+
+    const name =
+        document.getElementById("customerName").value.trim();
+
+    const phone =
+        document.getElementById("customerPhone").value.trim();
+
+    const address =
+        document.getElementById("customerAddress").value.trim();
+
+    if(!name || !phone || !address){
+
+        alert("براہ کرم تمام معلومات مکمل کریں۔");
+
+        return;
+    }
+
+    let total=0;
+
+    cart.forEach(item => {
+
+        total += item.price * item.qty;
+
+    });
+
+    const orderRef =
+        db.ref("orders").push();
 
     const order = {
 
-        id:
-            "ORD-" +
-            Date.now(),
+        id:orderRef.key,
 
-        date:
-            new Date().toLocaleString("en-PK"),
-
-        customer:name,
+        customerName:name,
 
         phone:phone,
 
         address:address,
 
-        items:
-            cart.map(item => ({
-
-                name:item.name,
-
-                qty:Number(item.qty),
-
-                price:Number(item.price)
-
-            })),
+        items:cart,
 
         total:total,
 
-        status:"new"
+        status:"Pending",
+
+        createdAt:Date.now()
 
     };
 
+    orderRef.set(order)
 
-    /* Firebase میں Order */
+    .then(()=>{
 
-    const firebaseResult =
-        await firebasePost(
-            FIREBASE_ORDERS,
-            order
+        alert(
+        "آپ کا آرڈر کامیابی سے درج ہوگیا ہے۔"
         );
 
+        cart=[];
 
-    if(firebaseResult){
+        updateCartCount();
 
-        order.firebaseId =
-            firebaseResult.name;
+        closeCart();
 
-    }
+        document.getElementById("customerName")
+        .value="";
 
+        document.getElementById("customerPhone")
+        .value="";
 
-    /* Local backup */
+        document.getElementById("customerAddress")
+        .value="";
 
-    let orders =
-        JSON.parse(
-            localStorage.getItem(
-                "tahirOrders"
-            ) || "[]"
-        );
+    })
 
-    orders.unshift(order);
+    .catch(error=>{
 
-    localStorage.setItem(
-        "tahirOrders",
-        JSON.stringify(orders)
-    );
-
-
-    /* WhatsApp Message */
-
-    let message =
-        "السلام علیکم، طاہر پرفیوم سٹور پر میرا آرڈر ہے:%0A%0A";
-
-
-    message +=
-        "Order ID: " +
-        order.id +
-        "%0A";
-
-
-    message +=
-        "نام: " +
-        name +
-        "%0A";
-
-
-    message +=
-        "فون: " +
-        phone +
-        "%0A";
-
-
-    message +=
-        "پتہ: " +
-        address +
-        "%0A%0A";
-
-
-    cart.forEach(item => {
-
-        message +=
-            item.name +
-            " × " +
-            item.qty +
-            " — Rs. " +
-            (
-                Number(item.price) *
-                Number(item.qty)
-            ) +
-            "%0A";
+        alert("Order Error: "+error.message);
 
     });
 
-
-    message +=
-        "%0Aکل رقم: Rs. " +
-        total;
-
-
-    window.open(
-        "https://wa.me/923142300764?text=" +
-        message,
-        "_blank"
-    );
-
-
-    cart = [];
-
-    saveCart();
-
-    updateCart();
-
-    closeCart();
-
-
-    alert(
-        "آپ کا Order Database میں save ہو گیا ہے۔"
-    );
 }
 
 
-/* =====================================================
-   SEARCH
-===================================================== */
-
-function searchProducts(){
-
-    const value =
-        document
-            .getElementById("searchInput")
-            .value
-            .toLowerCase()
-            .trim();
-
-
-    const products =
-        getProducts().filter(
-            product =>
-                String(product.name)
-                    .toLowerCase()
-                    .includes(value)
-        );
-
-
-    displayProducts(products);
-
-
-    document
-        .getElementById("products")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
-}
-
-
-document
-    .getElementById("searchInput")
-    .addEventListener(
-        "keydown",
-        function(e){
-
-            if(e.key === "Enter"){
-                searchProducts();
-            }
-
-        }
-    );
-
-
-/* =====================================================
-   FILTER
-===================================================== */
-
-function filterProducts(
-    category,
-    button
-){
-
-    document
-        .querySelectorAll(".filter-btn")
-        .forEach(
-            btn =>
-                btn.classList.remove("active")
-        );
-
-
-    button.classList.add("active");
-
-
-    let products =
-        getProducts();
-
-
-    if(category !== "all"){
-
-        products =
-            products.filter(
-                product =>
-                    product.category ===
-                    category
-            );
-    }
-
-
-    displayProducts(products);
-}
-
-
-/* =====================================================
+/* =========================================
    ADMIN LOGIN
-===================================================== */
+========================================= */
+
+/*
+   یہ simple admin login ہے۔
+
+   Production website کے لیے Firebase Authentication
+   استعمال کرنا زیادہ محفوظ ہے۔
+
+   ابھی login:
+   Email:
+   admin@tahirperfume.com
+
+   Password:
+   123456
+*/
+
+const ADMIN_EMAIL =
+"admin@tahirperfume.com";
+
+const ADMIN_PASSWORD =
+"123456";
+
 
 function openAdminLogin(){
 
-    document
-        .getElementById("loginModal")
-        .classList.add("show");
+    document.getElementById("loginModal")
+    .style.display="block";
+
 }
 
 
-function closeAdminLogin(){
+function closeLogin(){
 
-    document
-        .getElementById("loginModal")
-        .classList.remove("show");
+    document.getElementById("loginModal")
+    .style.display="none";
 
-    document
-        .getElementById("loginError")
-        .textContent = "";
 }
 
 
 function adminLogin(){
 
-    const username =
-        document
-            .getElementById("adminUsername")
-            .value;
-
+    const email =
+        document.getElementById("adminEmail").value;
 
     const password =
-        document
-            .getElementById("adminPassword")
-            .value;
-
-
-    /*
-        DEMO LOGIN
-
-        Username: admin
-        Password: 12345
-    */
-
+        document.getElementById("adminPassword").value;
 
     if(
-        username === "admin" &&
-        password === "12345"
+        email === ADMIN_EMAIL &&
+        password === ADMIN_PASSWORD
     ){
 
-        localStorage.setItem(
-            "tahirAdminLogin",
-            "true"
-        );
+        adminLoggedIn=true;
 
+        closeLogin();
 
-        closeAdminLogin();
+        document.getElementById("store")
+        .style.display="none";
 
-        openAdminPanel();
+        document.getElementById("admin")
+        .style.display="block";
+
+        renderAdminProducts();
+
+        loadOrders();
 
     }else{
 
-        document
-            .getElementById("loginError")
-            .textContent =
-            "Username یا Password غلط ہے۔";
+        document.getElementById("loginError")
+        .textContent =
+        "Email یا Password غلط ہے۔";
+
     }
-}
 
-
-/* =====================================================
-   ADMIN PANEL
-===================================================== */
-
-async function openAdminPanel(){
-
-    document
-        .getElementById("adminPanel")
-        .classList.add("show");
-
-
-    await loadAdminDashboard();
 }
 
 
 function logoutAdmin(){
 
-    localStorage.removeItem(
-        "tahirAdminLogin"
-    );
+    adminLoggedIn=false;
 
+    document.getElementById("admin")
+    .style.display="none";
 
-    document
-        .getElementById("adminPanel")
-        .classList.remove("show");
+    document.getElementById("store")
+    .style.display="block";
+
 }
 
 
-/* =====================================================
-   ADMIN TABS
-===================================================== */
+/* =========================================
+   PRODUCT ADMIN
+========================================= */
 
-function showAdminTab(
-    tab,
-    button
-){
+function renderAdminProducts(){
 
-    document
-        .querySelectorAll(".admin-tab")
-        .forEach(
-            btn =>
-                btn.classList.remove("active")
-        );
+    if(!adminLoggedIn) return;
 
+    const box =
+        document.getElementById("adminProducts");
 
-    button.classList.add("active");
+    box.innerHTML="";
 
+    Object.values(products).forEach(product=>{
 
-    document
-        .querySelectorAll(".admin-section")
-        .forEach(
-            section =>
-                section.classList.remove("active")
-        );
+        box.innerHTML += `
 
+        <div class="product-admin">
 
-    document
-        .getElementById(tab)
-        .classList.add("active");
-}
+            <img src="${escapeAttr(product.image || '')}"
+                 onerror="this.src='https://via.placeholder.com/100'">
 
+            <div style="flex:1">
 
-/* =====================================================
-   ADMIN DASHBOARD
-===================================================== */
+                <b>${escapeHtml(product.name)}</b>
 
-async function loadAdminDashboard(){
+                <br>
 
-    await loadProductsFromFirebase();
+                Rs.
+                ${Number(product.price).toLocaleString()}
 
-    await loadOrdersFromFirebase();
+            </div>
 
-    loadAdminProducts();
+            <button class="btn"
+                onclick="editProduct('${product.id}')">
 
+                Update
 
-    const products =
-        getProducts();
+            </button>
 
+            <button class="btn"
+                onclick="deleteProduct('${product.id}')">
 
-    document
-        .getElementById("totalProducts")
-        .textContent =
-        products.length;
-}
+                Delete
 
+            </button>
 
-/* =====================================================
-   LOAD ORDERS FROM FIREBASE
-===================================================== */
-
-async function loadOrdersFromFirebase(){
-
-    const data =
-        await firebaseGet(
-            FIREBASE_ORDERS
-        );
-
-
-    if(!data){
-
-        loadOrders();
-
-        return;
-    }
-
-
-    const orders =
-        Object.entries(data)
-        .map(
-            ([firebaseId,order]) => ({
-
-                firebaseId:
-                    firebaseId,
-
-                ...order
-
-            })
-        )
-        .reverse();
-
-
-    localStorage.setItem(
-        "tahirOrders",
-        JSON.stringify(orders)
-    );
-
-
-    loadOrders();
-}
-
-
-/* =====================================================
-   LOAD ORDERS
-===================================================== */
-
-function loadOrders(){
-
-    const orders =
-        JSON.parse(
-            localStorage.getItem(
-                "tahirOrders"
-            ) || "[]"
-        );
-
-
-    document
-        .getElementById("totalOrders")
-        .textContent =
-        orders.length;
-
-
-    const newOrders =
-        orders.filter(
-            order =>
-                order.status === "new"
-        ).length;
-
-
-    document
-        .getElementById("newOrders")
-        .textContent =
-        newOrders;
-
-
-    const sales =
-        orders.reduce(
-            (sum,order) =>
-                sum +
-                Number(order.total || 0),
-            0
-        );
-
-
-    document
-        .getElementById("totalSales")
-        .textContent =
-        "Rs. " +
-        sales.toLocaleString();
-
-
-    const table =
-        document.getElementById(
-            "ordersTable"
-        );
-
-
-    if(!orders.length){
-
-        table.innerHTML = `
-
-        <tr>
-
-            <td
-                colspan="7"
-                style="
-                text-align:center;
-                padding:30px;
-                ">
-
-                ابھی کوئی Order موجود نہیں۔
-
-            </td>
-
-        </tr>
+        </div>
 
         `;
 
-        return;
-    }
+    });
 
-
-    table.innerHTML =
-        orders.map(
-            order => `
-
-            <tr>
-
-                <td class="english">
-
-                    <strong>
-                        ${order.id}
-                    </strong>
-
-                    <br>
-
-                    <small>
-                        ${order.date || ""}
-                    </small>
-
-                </td>
-
-
-                <td>
-                    ${escapeHtml(order.customer || "")}
-                </td>
-
-
-                <td class="english">
-                    ${escapeHtml(order.phone || "")}
-                </td>
-
-
-                <td>
-                    ${escapeHtml(order.address || "")}
-                </td>
-
-
-                <td>
-
-                    ${
-                        (order.items || [])
-                        .map(
-                            item =>
-                            `
-                            ${escapeHtml(item.name)}
-                            ×
-                            ${item.qty}
-                            `
-                        )
-                        .join("<br>")
-                    }
-
-                </td>
-
-
-                <td class="english">
-
-                    Rs.
-                    ${Number(order.total || 0)
-                        .toLocaleString()}
-
-                </td>
-
-
-                <td>
-
-                    <select
-                        onchange="
-                        changeOrderStatus(
-                            '${order.firebaseId || ""}',
-                            '${order.id}',
-                            this.value
-                        )">
-
-                        <option
-                            value="new"
-                            ${
-                                order.status === "new"
-                                ? "selected"
-                                : ""
-                            }>
-
-                            New
-
-                        </option>
-
-
-                        <option
-                            value="processing"
-                            ${
-                                order.status === "processing"
-                                ? "selected"
-                                : ""
-                            }>
-
-                            Processing
-
-                        </option>
-
-
-                        <option
-                            value="delivered"
-                            ${
-                                order.status === "delivered"
-                                ? "selected"
-                                : ""
-                            }>
-
-                            Delivered
-
-                        </option>
-
-
-                        <option
-                            value="cancelled"
-                            ${
-                                order.status === "cancelled"
-                                ? "selected"
-                                : ""
-                            }>
-
-                            Cancelled
-
-                        </option>
-
-                    </select>
-
-                </td>
-
-            </tr>
-
-            `
-        ).join("");
 }
 
 
-/* =====================================================
-   CHANGE ORDER STATUS
-===================================================== */
+/* =========================================
+   SAVE / UPDATE PRODUCT
+========================================= */
 
-async function changeOrderStatus(
-    firebaseId,
-    orderId,
-    status
-){
+async function saveProduct(){
 
-    if(firebaseId){
+    if(!adminLoggedIn){
 
-        await firebasePatch(
-            FIREBASE_ORDERS +
-            "/" +
-            firebaseId,
-            {
-                status:status
-            }
-        );
-
-    }
-
-
-    let orders =
-        JSON.parse(
-            localStorage.getItem(
-                "tahirOrders"
-            ) || "[]"
-        );
-
-
-    const order =
-        orders.find(
-            item =>
-                item.id === orderId
-        );
-
-
-    if(order){
-        order.status = status;
-    }
-
-
-    localStorage.setItem(
-        "tahirOrders",
-        JSON.stringify(orders)
-    );
-
-
-    loadOrders();
-}
-
-
-/* =====================================================
-   IMAGE PREVIEW - ADD
-===================================================== */
-
-function previewNewImage(input){
-
-    const previewBox =
-        document.getElementById(
-            "newImagePreview"
-        );
-
-
-    const previewImage =
-        document.getElementById(
-            "newPreviewImage"
-        );
-
-
-    const file =
-        input.files[0];
-
-
-    if(!file){
-
-        previewBox.style.display =
-            "none";
+        alert("Admin login required.");
 
         return;
     }
 
-
-    if(
-        !file.type.startsWith("image/")
-    ){
-
-        alert(
-            "صرف Image file منتخب کریں۔"
-        );
-
-        input.value = "";
-
-        return;
-    }
-
-
-    if(
-        file.size >
-        2 * 1024 * 1024
-    ){
-
-        alert(
-            "Image کا سائز 2MB سے کم ہونا چاہیے۔"
-        );
-
-        input.value = "";
-
-        return;
-    }
-
-
-    const reader =
-        new FileReader();
-
-
-    reader.onload =
-        function(e){
-
-            previewImage.src =
-                e.target.result;
-
-            previewBox.style.display =
-                "block";
-        };
-
-
-    reader.readAsDataURL(file);
-}
-
-
-/* =====================================================
-   ADD PRODUCT
-===================================================== */
-
-async function addProduct(){
+    const id =
+        document.getElementById("editId").value;
 
     const name =
-        document
-            .getElementById("newProductName")
-            .value
-            .trim();
-
-
-    const category =
-        document
-            .getElementById("newProductCategory")
-            .value;
-
+        document.getElementById("pName").value.trim();
 
     const price =
-        Number(
-            document
-                .getElementById("newProductPrice")
-                .value
-        );
-
+        Number(document.getElementById("pPrice").value);
 
     const oldPrice =
-        Number(
-            document
-                .getElementById("newProductOldPrice")
-                .value
-        );
-
-
-    const imageFile =
-        document
-            .getElementById("newProductImage")
-            .files[0];
-
+        Number(document.getElementById("pOldPrice").value || 0);
 
     const description =
-        document
-            .getElementById("newProductDescription")
-            .value
-            .trim();
+        document.getElementById("pDescription").value.trim();
 
+    const file =
+        document.getElementById("pImage").files[0];
 
-    if(
-        !name ||
-        !price ||
-        !imageFile
-    ){
+    if(!name || !price){
 
-        alert(
-            "Product Name، Price اور Image لازمی ہیں۔"
-        );
+        alert("نام اور قیمت لازمی ہے۔");
 
         return;
     }
 
+    const productId =
+        id || db.ref("products").push().key;
 
-    if(
-        !imageFile.type.startsWith("image/")
-    ){
+    let imageUrl =
+        id && products[id]
+        ? products[id].image || ""
+        : "";
 
-        alert(
-            "صرف Image file upload کریں۔"
-        );
+    try{
 
-        return;
-    }
+        /* IMAGE ATTACHMENT */
 
+        if(file){
 
-    if(
-        imageFile.size >
-        2 * 1024 * 1024
-    ){
+            if(file.size > 5 * 1024 * 1024){
 
-        alert(
-            "Image کا سائز 2MB سے کم ہونا چاہیے۔"
-        );
-
-        return;
-    }
-
-
-    const reader =
-        new FileReader();
-
-
-    reader.onload =
-        async function(e){
-
-            const products =
-                getProducts();
-
-
-            const product = {
-
-                id:
-                    Date.now(),
-
-                name:name,
-
-                category:category,
-
-                price:price,
-
-                oldPrice:
-                    oldPrice || "",
-
-                image:
-                    e.target.result,
-
-                description:
-                    description ||
-                    "Premium خوشبو"
-
-            };
-
-
-            products.push(product);
-
-
-            const result =
-                await saveProductsToFirebase(
-                    products
-                );
-
-
-            if(result === null){
-
-                alert(
-                    "Product Firebase میں save نہیں ہوا۔"
-                );
+                alert("تصویر 5MB سے کم ہونی چاہیے۔");
 
                 return;
             }
 
+            const fileRef =
+                storage.ref(
+                    "products/" +
+                    productId +
+                    "/" +
+                    Date.now() +
+                    "_" +
+                    file.name
+                );
 
-            saveProductsLocal(products);
+            const upload =
+                await fileRef.put(file);
 
+            imageUrl =
+                await upload.ref.getDownloadURL();
 
-            displayProducts(products);
+        }
 
-            loadAdminProducts();
+        const product={
 
-            document
-                .getElementById("totalProducts")
-                .textContent =
-                products.length;
+            id:productId,
 
+            name:name,
 
-            document
-                .getElementById("newProductName")
-                .value = "";
+            price:price,
 
+            oldPrice:oldPrice,
 
-            document
-                .getElementById("newProductPrice")
-                .value = "";
+            description:description,
 
+            image:imageUrl,
 
-            document
-                .getElementById("newProductOldPrice")
-                .value = "";
-
-
-            document
-                .getElementById("newProductImage")
-                .value = "";
-
-
-            document
-                .getElementById("newProductDescription")
-                .value = "";
-
-
-            document
-                .getElementById("newImagePreview")
-                .style.display =
-                "none";
-
-
-            document
-                .getElementById("productSaveStatus")
-                .textContent =
-                "✓ Product Firebase میں کامیابی سے Save ہو گیا۔";
-
-
-            setTimeout(
-                () => {
-
-                    document
-                        .getElementById(
-                            "productSaveStatus"
-                        )
-                        .textContent = "";
-
-                },
-                3000
-            );
+            updatedAt:Date.now()
 
         };
 
+        await db.ref(
+            "products/" + productId
+        ).set(product);
 
-    reader.readAsDataURL(imageFile);
+        alert(
+            id
+            ? "پروڈکٹ اپڈیٹ ہوگئی۔"
+            : "پروڈکٹ شامل ہوگئی۔"
+        );
+
+        clearProductForm();
+
+    }catch(error){
+
+        alert(
+            "Product Save Error: " +
+            error.message
+        );
+
+        console.error(error);
+
+    }
+
 }
 
 
-/* =====================================================
-   ADMIN PRODUCTS
-===================================================== */
+/* =========================================
+   EDIT PRODUCT
+========================================= */
 
-function loadAdminProducts(){
+function editProduct(id){
 
-    const products =
-        getProducts();
+    const product =
+        products[id];
+
+    if(!product) return;
+
+    document.getElementById("editId")
+    .value=product.id;
+
+    document.getElementById("pName")
+    .value=product.name || "";
+
+    document.getElementById("pPrice")
+    .value=product.price || "";
+
+    document.getElementById("pOldPrice")
+    .value=product.oldPrice || "";
+
+    document.getElementById("pDescription")
+    .value=product.description || "";
+
+    document.getElementById("currentImage")
+    .innerHTML =
+    product.image
+    ?
+    `<img src="${escapeAttr(product.image)}"
+          style="width:100px;height:100px;object-fit:cover;border-radius:10px">`
+    :
+    "";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
 
 
-    const list =
-        document.getElementById(
-            "adminProductList"
-        );
+/* =========================================
+   DELETE PRODUCT
+========================================= */
 
+function deleteProduct(id){
 
-    if(!products.length){
-
-        list.innerHTML = `
-            <p>
-                ابھی کوئی Product موجود نہیں۔
-            </p>
-        `;
-
+    if(!confirm("کیا آپ واقعی یہ پروڈکٹ حذف کرنا چاہتے ہیں؟"))
         return;
-    }
+
+    db.ref(
+        "products/" + id
+    ).remove()
+
+    .then(()=>{
+
+        alert("پروڈکٹ حذف ہوگئی۔");
+
+    })
+
+    .catch(error=>{
+
+        alert(error.message);
+
+    });
+
+}
 
 
-    list.innerHTML =
-        products.map(
-            (product,index) => `
+/* =========================================
+   CLEAR FORM
+========================================= */
 
-            <div class="admin-product-row">
+function clearProductForm(){
 
-                <img
-                    src="${product.image}"
-                    alt="${escapeHtml(product.name)}"
-                >
+    document.getElementById("editId")
+    .value="";
 
+    document.getElementById("pName")
+    .value="";
 
-                <div class="admin-product-info">
+    document.getElementById("pPrice")
+    .value="";
 
-                    <strong>
-                        ${escapeHtml(product.name)}
-                    </strong>
+    document.getElementById("pOldPrice")
+    .value="";
 
-                    <br>
+    document.getElementById("pDescription")
+    .value="";
 
-                    <span class="english">
+    document.getElementById("pImage")
+    .value="";
 
-                        Rs.
-                        ${Number(product.price)
-                            .toLocaleString()}
+    document.getElementById("currentImage")
+    .innerHTML="";
 
-                    </span>
-
-                </div>
-
-
-                <button
-                    class="edit-product"
-                    onclick="editProduct(${index})">
-
-                    Edit
-
-                </button>
+}
 
 
-                <button
-                    class="delete-product"
-                    onclick="deleteProduct(${index})">
+/* =========================================
+   ORDERS
+========================================= */
 
-                    Delete
+function loadOrders(){
+
+    db.ref("orders")
+
+    .on("value",snapshot=>{
+
+        if(!adminLoggedIn) return;
+
+        const box =
+            document.getElementById("adminOrders");
+
+        box.innerHTML="";
+
+        const orders=[];
+
+        snapshot.forEach(child=>{
+
+            orders.push(child.val());
+
+        });
+
+        orders.reverse();
+
+        if(orders.length===0){
+
+            box.innerHTML=
+            "<p>ابھی کوئی آرڈر نہیں۔</p>";
+
+            return;
+        }
+
+        orders.forEach(order=>{
+
+            let items="";
+
+            (order.items || []).forEach(item=>{
+
+                items += `
+                ${escapeHtml(item.name)}
+                × ${item.qty}
+                <br>
+                `;
+
+            });
+
+            box.innerHTML += `
+
+            <div class="order">
+
+                <h3>
+                آرڈر #${escapeHtml(order.id)}
+                </h3>
+
+                <b>نام:</b>
+                ${escapeHtml(order.customerName)}
+
+                <br>
+
+                <b>فون:</b>
+                ${escapeHtml(order.phone)}
+
+                <br>
+
+                <b>پتہ:</b>
+                ${escapeHtml(order.address)}
+
+                <hr>
+
+                <b>Products:</b>
+
+                <p>${items}</p>
+
+                <b>
+                کل:
+                Rs.
+                ${Number(order.total).toLocaleString()}
+                </b>
+
+                <br><br>
+
+                <select
+                    onchange="updateOrderStatus(
+                    '${order.id}',
+                    this.value
+                    )">
+
+                    <option
+                    ${order.status==="Pending"?"selected":""}>
+                    Pending
+                    </option>
+
+                    <option
+                    ${order.status==="Confirmed"?"selected":""}>
+                    Confirmed
+                    </option>
+
+                    <option
+                    ${order.status==="Delivered"?"selected":""}>
+                    Delivered
+                    </option>
+
+                    <option
+                    ${order.status==="Cancelled"?"selected":""}>
+                    Cancelled
+                    </option>
+
+                </select>
+
+                <button class="btn"
+                    onclick="deleteOrder('${order.id}')">
+
+                    Delete Order
 
                 </button>
 
             </div>
 
-            `
-        ).join("");
+            `;
+
+        });
+
+    });
+
 }
 
 
-/* =====================================================
-   EDIT PRODUCT
-===================================================== */
+function updateOrderStatus(id,status){
 
-function editProduct(index){
+    db.ref(
+        "orders/" + id + "/status"
+    ).set(status);
 
-    const products =
-        getProducts();
-
-
-    const product =
-        products[index];
-
-
-    if(!product){
-        return;
-    }
-
-
-    document
-        .getElementById("editProductIndex")
-        .value =
-        index;
-
-
-    document
-        .getElementById("editProductName")
-        .value =
-        product.name;
-
-
-    document
-        .getElementById("editProductCategory")
-        .value =
-        product.category;
-
-
-    document
-        .getElementById("editProductPrice")
-        .value =
-        product.price;
-
-
-    document
-        .getElementById("editProductOldPrice")
-        .value =
-        product.oldPrice || "";
-
-
-    document
-        .getElementById("editProductDescription")
-        .value =
-        product.description || "";
-
-
-    document
-        .getElementById("editProductPreview")
-        .src =
-        product.image;
-
-
-    document
-        .getElementById("editProductImage")
-        .value = "";
-
-
-    document
-        .getElementById("editProductModal")
-        .classList.add("show");
 }
 
 
-function closeEditProduct(){
+function deleteOrder(id){
 
-    document
-        .getElementById("editProductModal")
-        .classList.remove("show");
+    if(!confirm("کیا یہ Order delete کرنا ہے؟"))
+        return;
+
+    db.ref(
+        "orders/" + id
+    ).remove();
+
 }
 
 
-/* =====================================================
-   EDIT IMAGE PREVIEW
-===================================================== */
+/* =========================================
+   HELPERS
+========================================= */
 
-function previewEditImage(input){
+function escapeHtml(value){
 
-    const file =
-        input.files[0];
+    return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
-
-    if(!file){
-        return;
-    }
-
-
-    if(
-        !file.type.startsWith("image/")
-    ){
-
-        alert(
-            "صرف Image file منتخب کریں۔"
-        );
-
-        input.value = "";
-
-        return;
-    }
-
-
-    if(
-        file.size >
-        2 * 1024 * 1024
-    ){
-
-        alert(
-            "Image کا سائز 2MB سے کم ہونا چاہیے۔"
-        );
-
-        input.value = "";
-
-        return;
-    }
-
-
-    const reader =
-        new FileReader();
-
-
-    reader.onload =
-        function(e){
-
-            document
-                .getElementById(
-                    "editProductPreview"
-                )
-                .src =
-                e.target.result;
-
-        };
-
-
-    reader.readAsDataURL(file);
 }
 
+function escapeAttr(value){
 
-/* =====================================================
-   UPDATE PRODUCT
-===================================================== */
+    return escapeHtml(value);
 
-async function updateProduct(){
-
-    const index =
-        Number(
-            document
-                .getElementById(
-                    "editProductIndex"
-                )
-                .value
-        );
-
-
-    const products =
-        getProducts();
-
-
-    const product =
-        products[index];
-
-
-    if(!product){
-        return;
-    }
-
-
-    const name =
-        document
-            .getElementById(
-                "editProductName"
-            )
-            .value
-            .trim();
-
-
-    const category =
-        document
-            .getElementById(
-                "editProductCategory"
-            )
-            .value;
-
-
-    const price =
-        Number(
-            document
-                .getElementById(
-                    "editProductPrice"
-                )
-                .value
-        );
-
-
-    const oldPrice =
-        Number(
-            document
-                .getElementById(
-                    "editProductOldPrice"
-                )
-                .value
-        );
-
-
-    const description =
-        document
-            .getElementById(
-                "editProductDescription"
-            )
-            .value
-            .trim();
-
-
-    const imageFile =
-        document
-            .getElementById(
-                "editProductImage"
-            )
-            .files[0];
-
-
-    if(
-        !name ||
-        !price
-    ){
-
-        alert(
-            "Product Name اور Price لازمی ہیں۔"
-        );
-
-        return;
-    }
-
-
-    product.name =
-        name;
-
-    product.category =
-        category;
-
-    product.price =
-        price;
-
-    product.oldPrice =
-        oldPrice || "";
-
-    product.description =
-        description ||
-        "Premium خوشبو";
-
-
-    async function finishUpdate(){
-
-        const result =
-            await saveProductsToFirebase(
-                products
-            );
-
-
-        if(result === null){
-
-            alert(
-                "Product Firebase میں Update نہیں ہوا۔"
-            );
-
-            return;
-        }
-
-
-        saveProductsLocal(products);
-
-
-        displayProducts(products);
-
-        loadAdminProducts();
-
-
-        document
-            .getElementById("totalProducts")
-            .textContent =
-            products.length;
-
-
-        closeEditProduct();
-
-
-        alert(
-            "Product کامیابی سے Update ہو گیا۔"
-        );
-    }
-
-
-    if(imageFile){
-
-        if(
-            !imageFile.type.startsWith("image/")
-        ){
-
-            alert(
-                "صرف Image file منتخب کریں۔"
-            );
-
-            return;
-        }
-
-
-        if(
-            imageFile.size >
-            2 * 1024 * 1024
-        ){
-
-            alert(
-                "Image کا سائز 2MB سے کم ہونا چاہیے۔"
-            );
-
-            return;
-        }
-
-
-        const reader =
-            new FileReader();
-
-
-        reader.onload =
-            async function(e){
-
-                product.image =
-                    e.target.result;
-
-                await finishUpdate();
-
-            };
-
-
-        reader.readAsDataURL(
-            imageFile
-        );
-
-    }else{
-
-        await finishUpdate();
-
-    }
 }
 
+function goHome(){
 
-/* =====================================================
-   DELETE PRODUCT
-===================================================== */
+    document.getElementById("admin")
+    .style.display="none";
 
-async function deleteProduct(index){
+    document.getElementById("store")
+    .style.display="block";
 
-    const confirmDelete =
-        confirm(
-            "کیا آپ واقعی یہ Product delete کرنا چاہتے ہیں؟"
-        );
+    window.scrollTo(0,0);
 
-
-    if(!confirmDelete){
-        return;
-    }
-
-
-    let products =
-        getProducts();
-
-
-    products.splice(
-        index,
-        1
-    );
-
-
-    const result =
-        await saveProductsToFirebase(
-            products
-        );
-
-
-    if(result === null){
-
-        alert(
-            "Product Firebase سے delete نہیں ہوا۔"
-        );
-
-        return;
-    }
-
-
-    saveProductsLocal(products);
-
-
-    displayProducts(products);
-
-    loadAdminProducts();
-
-
-    document
-        .getElementById("totalProducts")
-        .textContent =
-        products.length;
-
-
-    alert(
-        "Product Delete ہو گیا۔"
-    );
 }
-
-
-/* =====================================================
-   INITIALIZE
-===================================================== */
-
-displayProducts(
-    getProducts()
-);
-
-updateCart();
-
-
-/* Firebase سے اصل Products */
-
-loadProductsFromFirebase();
-
-
-/* Firebase سے Orders */
-
-loadOrdersFromFirebase();
 
 </script>
 
