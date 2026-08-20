@@ -9,6 +9,8 @@
 
 <style>
 
+@import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap");
+
 /* =====================================================
    FONTS
 ===================================================== */
@@ -46,6 +48,62 @@ body{
     background:#fff;
     color:#111;
     font-family:var(--urdu-font);
+    line-height:1.8;
+}
+
+html[lang="en"] body,
+body.lang-en{
+    font-family:var(--english-font);
+    direction:ltr;
+}
+
+html[lang="en"] .hero-content,
+html[lang="en"] .about,
+html[lang="en"] footer,
+html[lang="en"] .section,
+html[lang="en"] .admin-panel{
+    direction:ltr;
+    text-align:left;
+}
+
+html[lang="en"] .admin-table th,
+html[lang="en"] .admin-table td{
+    text-align:left;
+}
+
+html[lang="en"] .price{
+    direction:ltr;
+    justify-content:flex-start;
+}
+
+.language-switch{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    padding:3px;
+    border:1px solid #ddd;
+    border-radius:22px;
+    background:#fff;
+}
+.language-switch button{
+    border:0;
+    background:transparent;
+    padding:6px 9px;
+    border-radius:18px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:12px;
+}
+.language-switch button.active{
+    background:#111;
+    color:#fff;
+}
+@media(max-width:650px){
+    body{font-size:15px;}
+    .language-switch button{padding:5px 7px;font-size:11px;}
+    .nav-inner{gap:18px;}
+    .nav-inner a{font-size:14px;}
+    .hero-content p{font-size:17px;line-height:1.9;}
 }
 
 button,
@@ -1488,6 +1546,11 @@ TAHIR PERFUME STORE
 </div>
 
 
+<div class="language-switch" aria-label="Language selector">
+<button id="langUr" type="button" onclick="setLanguage('ur')">اردو</button>
+<button id="langEn" type="button" onclick="setLanguage('en')">EN</button>
+</div>
+
 <div class="header-icons">
 
 <button
@@ -2246,9 +2309,15 @@ Product Update کریں
 طاہر پرفیوم سٹور — Admin Panel
 </h2>
 
+<div style="display:flex;align-items:center;gap:10px;">
+<div class="language-switch">
+<button id="adminLangUr" type="button" onclick="setLanguage('ur')">اردو</button>
+<button id="adminLangEn" type="button" onclick="setLanguage('en')">EN</button>
+</div>
 <button onclick="logoutAdmin()">
 Logout
 </button>
+</div>
 
 </div>
 
@@ -3172,9 +3241,13 @@ const defaultBanners = [
     {
         id:"default-1",
         title:"آپ کی خوشبو<br>آپ کی پہچان",
+        titleEn:"Your Fragrance<br>Your Identity",
         small:"طاہر پرفیوم سٹور",
+        smallEn:"Tahir Perfume Store",
         description:"بہترین اور دلکش خوشبوؤں کا شاندار کلیکشن۔ اپنے لیے اور اپنے پیاروں کے لیے آج ہی پسندیدہ پرفیوم منتخب کریں۔",
+        descriptionEn:"A premium collection of beautiful fragrances. Choose your favorite perfume today for yourself or your loved ones.",
         buttonText:"ابھی خریدیں",
+        buttonTextEn:"Shop Now",
         buttonLink:"#products",
         image:"https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1800&q=85",
         order:1,
@@ -3183,9 +3256,13 @@ const defaultBanners = [
     {
         id:"default-2",
         title:"خوشبو جو آپ کو یاد رکھے",
+        titleEn:"A Fragrance They Remember",
         small:"طاہر پرفیوم سٹور",
+        smallEn:"Tahir Perfume Store",
         description:"معیاری پرفیوم اور عطر کا خوبصورت کلیکشن، آپ کی شخصیت کے لیے بہترین انتخاب۔",
+        descriptionEn:"A beautiful collection of quality perfumes and attars, made to complement your personality.",
         buttonText:"کلیکشن دیکھیں",
+        buttonTextEn:"View Collection",
         buttonLink:"#products",
         image:"https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1800&q=85",
         order:2,
@@ -3313,11 +3390,12 @@ function renderHeroBanners(){
     const description = document.getElementById("heroDescription");
     const button = document.getElementById("heroButton");
 
-    if(small) small.textContent = banner.small || "طاہر پرفیوم سٹور";
-    if(title) title.innerHTML = banner.title || "آپ کی خوشبو<br>آپ کی پہچان";
-    if(description) description.textContent = banner.description || "";
+    const isEnglish = document.documentElement.lang === "en";
+    if(small) small.textContent = (isEnglish ? banner.smallEn : banner.small) || (isEnglish ? "Tahir Perfume Store" : "طاہر پرفیوم سٹور");
+    if(title) title.innerHTML = (isEnglish ? banner.titleEn : banner.title) || (isEnglish ? "Your Fragrance<br>Your Identity" : "آپ کی خوشبو<br>آپ کی پہچان");
+    if(description) description.textContent = (isEnglish ? banner.descriptionEn : banner.description) || "";
     if(button){
-        button.textContent = banner.buttonText || "ابھی خریدیں";
+        button.textContent = (isEnglish ? banner.buttonTextEn : banner.buttonText) || (isEnglish ? "Shop Now" : "ابھی خریدیں");
         button.href = banner.buttonLink || "#products";
         button.style.display = (banner.buttonText || banner.buttonLink) ? "inline-block" : "none";
     }
@@ -5446,8 +5524,72 @@ async function updateAboutStoreImage(){
 
 
 /* =====================================================
+   LANGUAGE SWITCHER — Urdu / English
+===================================================== */
+const LANGUAGE_TEXT = {
+"ہوم":"Home","کیٹیگریز":"Categories","پرفیوم":"Perfume","پرفیومز":"Perfumes","پرفیوم تلاش کریں...":"Search perfumes...","ہمارے بارے میں":"About Us","رابطہ":"Contact","رابطہ کریں":"Contact Us","ہم سے رابطہ کریں":"Contact Us","اہم لنکس":"Quick Links","کسٹمر سروس":"Customer Service","کسٹمر سپورٹ":"Customer Support","ابھی خریدیں":"Shop Now","کلیکشن دیکھیں":"View Collection","آفر دیکھیں":"View Offer","خاص آفر":"Special Offer","منتخب پرفیومز پر خصوصی رعایت":"Special discount on selected perfumes","خوشبو جو آپ کو یاد رکھے":"A fragrance they remember","آپ کی خوشبو":"Your Fragrance","آپ کی پہچان":"Your Identity","ہمیشہ آپ کے ساتھ":"Always With You","ہماری کلیکشن":"Our Collection","ہمارے پرفیوم":"Our Perfumes","پریمیم خوشبوئیں":"Premium Fragrances","پریمیم عطر":"Premium Attars","اعلیٰ معیار":"High Quality","محفوظ آرڈر":"Secure Ordering","گفٹ سیٹس":"Gift Sets","مردانہ":"Men","مردانہ پرفیوم":"Men's Perfumes","زنانہ":"Women","خواتین کے پرفیوم":"Women's Perfumes","عطر":"Attar","پاکستان":"Pakistan","📍 پاکستان":"📍 Pakistan","ڈیلیوری معلومات":"Delivery Information","واپسی کی پالیسی":"Return Policy","پرائیویسی پالیسی":"Privacy Policy","کل:":"Total:","آپ کا کارٹ 🛒":"Your Cart 🛒","WhatsApp پر آرڈر کریں":"Order via WhatsApp","بینرز":"Banners","ویب سائٹ کے بینرز":"Website Banners","ویب سائٹ کی تصاویر":"Website Images","ویب سائٹ سیٹنگز":"Website Settings","بینر شامل کریں":"Add Banner","نیا بینر شامل کریں":"Add New Banner","تمام بینرز":"All Banners","بینر کا عنوان":"Banner Title","چھوٹا عنوان":"Small Title","تفصیل":"Description","بٹن کا متن":"Button Text","بٹن کا لنک":"Button Link","بینر تصویر":"Banner Image","ترتیب نمبر":"Order Number","موجودہ تصویر":"Current Image","نئی تصویر منتخب کریں":"Choose New Image","تصویر تبدیل کریں":"Change Image","ترمیم":"Edit","حذف کریں":"Delete","فعال کریں":"Enable","غیر فعال کریں":"Disable","محفوظ کریں":"Save","منسوخ کریں":"Cancel","بند کریں":"Close","Product Add کریں":"Add Product","Product Update کریں":"Update Product","نیا Product Add کریں":"Add New Product","تمام Products":"All Products","تمام Orders":"All Orders","Products لوڈ ہو رہے ہیں...":"Loading products...","نئی Product Image":"New Product Image","سب سے زیادہ پسند کیے جانے والے پرفیوم":"Most Popular Perfumes","طاہر پرفیوم سٹور":"Tahir Perfume Store","طاہر پرفیوم سٹور — Admin Panel":"Tahir Perfume Store — Admin Panel","طاہر پرفیوم سٹور | Tahir Perfume Store":"Tahir Perfume Store | Tahir Perfume Store","بہترین اور دلکش خوشبوؤں کا شاندار کلیکشن۔ اپنے لیے اور اپنے پیاروں کے لیے آج ہی پسندیدہ پرفیوم منتخب کریں۔":"A wonderful collection of premium and captivating fragrances. Choose your favorite perfume today for yourself and your loved ones.","Premium perfumes اور attars کا قابل اعتماد آن لائن اسٹور۔ پاکستان بھر میں ڈیلیوری دستیاب ہے۔":"A trusted online store for premium perfumes and attars. Delivery available across Pakistan.","— پاکستان بھر میں ڈیلیوری دستیاب ہے":"— Delivery available across Pakistan","پریمیم پرفیوم اور عطر کا قابل اعتماد آن لائن اسٹور۔ پاکستان بھر میں ڈیلیوری دستیاب ہے۔":"Premium perfumes and attars online store. Delivery available across Pakistan.","ہمارا مقصد ایسی خوشبوئیں فراہم کرنا ہے جو آپ کی شخصیت کو مزید خوبصورت اور یادگار بنائیں۔":"Our goal is to provide fragrances that make your personality more beautiful and memorable.","طاہر پرفیوم سٹور میں ہم اپنے صارفین کے لیے":"At Tahir Perfume Store, we provide our customers with","بہترین اور معیاری پرفیوم اور عطر فراہم کرتے ہیں۔":"high-quality perfumes and attars.","یہاں سے آپ ایک سے زیادہ بینر/تصویریں شامل کر سکتے ہیں۔ تمام Active بینرز ویب سائٹ پر Slider کی صورت میں نظر آئیں گے۔":"From here you can add multiple banners/images. All active banners will appear on the website as a slider.","About سیکشن کی تصویر تبدیل کریں":"Change the image in the About section","یہاں سے ایڈمن ویب سائٹ کے \"ہمارے بارے میں\" سیکشن کے نیچے موجود تصویر تبدیل کر سکتا ہے۔ نئی تصویر محفوظ ہونے کے بعد ویب سائٹ پر خودکار طور پر دکھائی جائے گی۔":"From here, the admin can change the image under the website's \"About Us\" section. After saving the new image, it will automatically appear on the website.","نئی تصویر select نہ کرنے کی صورت میں موجودہ تصویر برقرار رہے گی۔":"If no new image is selected, the current image will remain.","اردو":"Urdu","انگلش":"English","سب":"All","آفر":"Offer"
+};
+const LANGUAGE_TEXT_EN_TO_UR = Object.fromEntries(Object.entries(LANGUAGE_TEXT).map(([u,e])=>[e,u]));
+
+function translateStaticText(root=document.body, lang=document.documentElement.lang){
+    const map = lang === 'en' ? LANGUAGE_TEXT : LANGUAGE_TEXT_EN_TO_UR;
+    const walker=document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const nodes=[];
+    while(walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(node=>{
+        if(node.parentElement && ['SCRIPT','STYLE'].includes(node.parentElement.tagName)) return;
+        const raw=node.nodeValue;
+        const trimmed=raw.trim();
+        if(!trimmed) return;
+        if(map[trimmed]) node.nodeValue=raw.replace(trimmed,map[trimmed]);
+    });
+    root.querySelectorAll?.('[placeholder],[title],[aria-label],[alt]').forEach(el=>{
+        ['placeholder','title','aria-label','alt'].forEach(attr=>{
+            const value=el.getAttribute(attr);
+            if(value && map[value]) el.setAttribute(attr,map[value]);
+        });
+    });
+}
+
+function setLanguage(lang){
+    const normalized=lang==='en'?'en':'ur';
+    document.documentElement.lang=normalized;
+    document.documentElement.dir=normalized==='en'?'ltr':'rtl';
+    document.body.classList.toggle('lang-en', normalized==='en');
+    localStorage.setItem('tahirLanguage',normalized);
+    document.querySelectorAll('#langUr,#adminLangUr').forEach(b=>b.classList.toggle('active',normalized==='ur'));
+    document.querySelectorAll('#langEn,#adminLangEn').forEach(b=>b.classList.toggle('active',normalized==='en'));
+    renderHeroBanners();
+    translateStaticText(document.body, normalized);
+    if(typeof loadAdminSettings==='function' && document.getElementById('settingsAdmin')?.classList.contains('active')) loadAdminSettings();
+}
+
+function initLanguage(){
+    const saved=localStorage.getItem('tahirLanguage') || 'ur';
+    document.documentElement.lang=saved;
+    document.documentElement.dir=saved==='en'?'ltr':'rtl';
+    document.body.classList.toggle('lang-en',saved==='en');
+    document.querySelectorAll('#langUr,#adminLangUr').forEach(b=>b.classList.toggle('active',saved==='ur'));
+    document.querySelectorAll('#langEn,#adminLangEn').forEach(b=>b.classList.toggle('active',saved==='en'));
+}
+
+// Keep dynamically rendered content, attributes and admin UI bilingual.
+let languageObserver;
+function startLanguageObserver(){
+    if(languageObserver) languageObserver.disconnect();
+    languageObserver=new MutationObserver(()=>{
+        if(document.body) translateStaticText(document.body, document.documentElement.lang);
+    });
+    if(document.body) languageObserver.observe(document.body,{childList:true,subtree:true,characterData:true});
+}
+
+/* =====================================================
    INITIALIZE
 ===================================================== */
+
+initLanguage();
+startLanguageObserver();
+translateStaticText(document.body, document.documentElement.lang);
 
 /* Local cache is shown immediately while Firebase loads. */
 displayProducts(getProducts());
