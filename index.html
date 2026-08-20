@@ -1,0 +1,4607 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>طاہر پرفیوم سٹور | Tahir Perfume Store</title>
+
+<style>
+
+/* =========================================================
+   FONTS
+========================================================= */
+
+:root{
+
+    --urdu-font:
+        "Jameel Noori Nastaleeq",
+        "Jameel Noori",
+        "Noto Nastaliq Urdu",
+        serif;
+
+    --english-font:
+        Arial,
+        sans-serif;
+
+    --black:#111;
+    --gold:#c79b3b;
+    --dark-gold:#9d7428;
+    --cream:#faf7f0;
+    --white:#fff;
+    --gray:#777;
+    --red:#c62828;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#fff;
+    color:#111;
+    font-family:var(--urdu-font);
+}
+
+button,
+input,
+select,
+textarea{
+    font-family:var(--urdu-font);
+}
+
+.english,
+.price,
+.admin-number,
+input[type="number"],
+input[type="tel"],
+input[type="email"]{
+    font-family:var(--english-font);
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar{
+
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:8px;
+    font-size:16px;
+}
+
+.topbar strong{
+    color:#e7c96d;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+
+    background:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    border-bottom:1px solid #eee;
+}
+
+.header-inner{
+
+    max-width:1250px;
+    margin:auto;
+    padding:12px 20px;
+    min-height:78px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+
+.logo{
+
+    font-size:28px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.logo span{
+
+    display:block;
+    font-family:Arial,sans-serif;
+    color:var(--gold);
+    direction:ltr;
+    text-align:center;
+    font-size:10px;
+    letter-spacing:3px;
+}
+
+
+/* SEARCH */
+
+.search{
+
+    flex:1;
+    max-width:480px;
+    position:relative;
+}
+
+.search input{
+
+    width:100%;
+    padding:12px 45px 12px 15px;
+    border:1px solid #ddd;
+    border-radius:30px;
+    outline:none;
+    font-size:15px;
+}
+
+.search button{
+
+    position:absolute;
+    right:6px;
+    top:5px;
+
+    width:35px;
+    height:35px;
+
+    border:0;
+    border-radius:50%;
+
+    background:#111;
+    color:white;
+    cursor:pointer;
+}
+
+
+/* HEADER ICONS */
+
+.header-icons{
+    display:flex;
+    gap:10px;
+}
+
+.icon-btn{
+
+    width:43px;
+    height:43px;
+
+    border-radius:50%;
+
+    border:1px solid #ddd;
+
+    background:white;
+
+    cursor:pointer;
+
+    position:relative;
+
+    font-size:18px;
+}
+
+.cart-count{
+
+    position:absolute;
+
+    top:-5px;
+    left:-5px;
+
+    width:20px;
+    height:20px;
+
+    background:var(--gold);
+    color:white;
+
+    border-radius:50%;
+
+    font-family:Arial;
+
+    font-size:11px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+nav{
+    border-top:1px solid #f2f2f2;
+}
+
+.nav-inner{
+
+    max-width:1250px;
+    margin:auto;
+
+    display:flex;
+    justify-content:center;
+    gap:35px;
+
+    padding:10px 20px;
+
+    overflow-x:auto;
+}
+
+.nav-inner a{
+
+    white-space:nowrap;
+    font-weight:bold;
+    font-size:16px;
+}
+
+.nav-inner a:hover{
+    color:var(--gold);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    min-height:550px;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.90),
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.15)
+    ),
+
+    url("https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1800&q=85")
+
+    center/cover;
+
+    display:flex;
+    align-items:center;
+
+    color:white;
+}
+
+.hero-content{
+
+    max-width:1250px;
+    width:100%;
+
+    margin:auto;
+
+    padding:40px 25px;
+}
+
+.hero-content small{
+
+    color:#e5c66b;
+    font-size:18px;
+}
+
+.hero-content h1{
+
+    font-size:clamp(45px,7vw,80px);
+    line-height:1.2;
+    margin:10px 0;
+}
+
+.hero-content p{
+
+    max-width:550px;
+
+    font-size:19px;
+    line-height:2;
+
+    color:#eee;
+}
+
+.gold-btn{
+
+    display:inline-block;
+
+    background:var(--gold);
+    color:white;
+
+    border:0;
+    border-radius:4px;
+
+    padding:12px 30px;
+    margin-top:20px;
+
+    cursor:pointer;
+
+    font-size:17px;
+    font-weight:bold;
+}
+
+.gold-btn:hover{
+    background:var(--dark-gold);
+}
+
+
+/* =========================================================
+   FEATURES
+   FREE DELIVERY REMOVED
+========================================================= */
+
+.features{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+
+    padding:35px 20px;
+}
+
+.feature{
+
+    background:var(--cream);
+
+    text-align:center;
+
+    padding:20px;
+
+    border-radius:8px;
+}
+
+.feature-icon{
+    font-size:28px;
+}
+
+.feature h3{
+    font-size:18px;
+}
+
+.feature p{
+    color:var(--gray);
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+
+    max-width:1250px;
+
+    margin:auto;
+
+    padding:60px 20px;
+}
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:35px;
+}
+
+.section-title small{
+
+    color:var(--gold);
+    font-weight:bold;
+}
+
+.section-title h2{
+    font-size:40px;
+}
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.categories{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:18px;
+}
+
+.category{
+
+    height:220px;
+
+    border-radius:8px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    background-size:cover;
+    background-position:center;
+}
+
+.category::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        transparent,
+        rgba(0,0,0,.85)
+    );
+}
+
+.category h3{
+
+    position:absolute;
+
+    z-index:2;
+
+    bottom:15px;
+    right:20px;
+
+    color:white;
+
+    font-size:25px;
+}
+
+.cat1{
+    background-image:url(
+    "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80"
+    );
+}
+
+.cat2{
+    background-image:url(
+    "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=800&q=80"
+    );
+}
+
+.cat3{
+    background-image:url(
+    "https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=800&q=80"
+    );
+}
+
+.cat4{
+    background-image:url(
+    "https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=800&q=80"
+    );
+}
+
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
+.products-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+}
+
+.filters{
+
+    display:flex;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+}
+
+.filter-btn{
+
+    background:white;
+
+    border:1px solid #ddd;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover{
+
+    background:#111;
+    color:white;
+}
+
+.products{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:22px;
+}
+
+.product{
+
+    border:1px solid #eee;
+
+    border-radius:8px;
+
+    overflow:hidden;
+
+    transition:.25s;
+
+    position:relative;
+
+    background:white;
+}
+
+.product:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+}
+
+.sale{
+
+    position:absolute;
+
+    top:12px;
+    right:12px;
+
+    background:var(--red);
+    color:white;
+
+    padding:4px 9px;
+
+    border-radius:4px;
+
+    font-family:Arial;
+    font-size:12px;
+
+    z-index:2;
+}
+
+.product-img{
+
+    width:100%;
+    height:270px;
+
+    object-fit:cover;
+    display:block;
+}
+
+.product-info{
+    padding:15px;
+}
+
+.stars{
+
+    color:#e5a91c;
+    font-family:Arial;
+}
+
+.product-name{
+
+    font-size:20px;
+    font-weight:bold;
+}
+
+.product-desc{
+
+    color:#777;
+    font-size:14px;
+}
+
+.price{
+
+    display:flex;
+
+    gap:10px;
+
+    align-items:center;
+
+    margin:10px 0;
+
+    direction:ltr;
+
+    justify-content:flex-end;
+}
+
+.new-price{
+
+    font-size:18px;
+    font-weight:bold;
+}
+
+.old-price{
+
+    color:#999;
+    text-decoration:line-through;
+}
+
+.add-btn{
+
+    width:100%;
+
+    padding:10px;
+
+    background:white;
+
+    border:1px solid #111;
+
+    cursor:pointer;
+
+    border-radius:4px;
+
+    font-weight:bold;
+}
+
+.add-btn:hover{
+
+    background:#111;
+    color:white;
+}
+
+
+/* =========================================================
+   OFFER
+========================================================= */
+
+.offer{
+
+    background:
+
+    linear-gradient(
+        rgba(0,0,0,.85),
+        rgba(0,0,0,.85)
+    ),
+
+    url(
+    "https://images.unsplash.com/photo-1595425970377-c9703cf48b6c?auto=format&fit=crop&w=1800&q=80"
+    )
+
+    center/cover;
+
+    color:white;
+
+    text-align:center;
+
+    padding:70px 20px;
+}
+
+.offer h2{
+
+    color:#e6c365;
+
+    font-size:43px;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:50px;
+
+    align-items:center;
+}
+
+.about-img{
+
+    width:100%;
+
+    height:450px;
+
+    object-fit:cover;
+
+    border-radius:8px;
+}
+
+.about h2{
+    font-size:40px;
+}
+
+.about p{
+
+    color:#666;
+
+    font-size:18px;
+
+    line-height:2;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    background:#111;
+
+    color:white;
+}
+
+.footer-grid{
+
+    max-width:1250px;
+
+    margin:auto;
+
+    padding:55px 20px;
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr 1fr;
+
+    gap:35px;
+}
+
+.footer-brand h2{
+    color:#e1bf63;
+}
+
+footer h3{
+    color:#e1bf63;
+}
+
+footer ul{
+    list-style:none;
+}
+
+footer li{
+
+    color:#aaa;
+
+    margin:8px 0;
+}
+
+footer li a:hover{
+    color:#e1bf63;
+}
+
+.copyright{
+
+    border-top:1px solid #292929;
+
+    padding:15px;
+
+    text-align:center;
+
+    font-family:Arial;
+
+    font-size:12px;
+
+    direction:ltr;
+
+    color:#888;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp{
+
+    position:fixed;
+
+    bottom:20px;
+    left:20px;
+
+    width:58px;
+    height:58px;
+
+    border-radius:50%;
+
+    background:#18a34a;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    font-size:27px;
+
+    z-index:2000;
+}
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+.cart-panel{
+
+    position:fixed;
+
+    top:0;
+    left:-420px;
+
+    width:400px;
+
+    max-width:92%;
+
+    height:100vh;
+
+    background:white;
+
+    z-index:3000;
+
+    box-shadow:
+    5px 0 30px rgba(0,0,0,.2);
+
+    transition:.3s;
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.cart-panel.open{
+    left:0;
+}
+
+.cart-head{
+
+    padding:18px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    border-bottom:1px solid #eee;
+}
+
+.cart-head button{
+
+    border:0;
+    background:none;
+
+    font-size:25px;
+    cursor:pointer;
+}
+
+.cart-items{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:15px;
+}
+
+.cart-item{
+
+    display:flex;
+
+    gap:10px;
+
+    border-bottom:1px solid #eee;
+
+    padding:12px 0;
+}
+
+.cart-item img{
+
+    width:65px;
+    height:65px;
+
+    object-fit:cover;
+}
+
+.cart-item-info{
+    flex:1;
+}
+
+.qty button{
+
+    padding:2px 8px;
+
+    cursor:pointer;
+}
+
+.remove{
+
+    border:0;
+
+    color:red;
+
+    background:#fee;
+
+    cursor:pointer;
+}
+
+.cart-bottom{
+
+    padding:18px;
+
+    border-top:1px solid #ddd;
+}
+
+.total{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    margin-bottom:12px;
+}
+
+.checkout{
+
+    width:100%;
+
+    padding:13px;
+
+    background:#111;
+
+    color:white;
+
+    border:0;
+
+    border-radius:4px;
+
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   MODALS
+========================================================= */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    z-index:5000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    overflow-y:auto;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.login-box{
+
+    width:400px;
+
+    max-width:100%;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:10px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.3);
+}
+
+.login-box h2{
+
+    text-align:center;
+
+    margin-bottom:20px;
+}
+
+.close-modal{
+
+    float:left;
+
+    border:0;
+
+    background:none;
+
+    font-size:25px;
+
+    cursor:pointer;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:5px;
+
+    font-weight:bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+    width:100%;
+
+    padding:11px;
+
+    border:1px solid #ddd;
+
+    border-radius:5px;
+
+    outline:none;
+
+    background:white;
+}
+
+.form-group textarea{
+    min-height:90px;
+}
+
+.login-btn{
+
+    width:100%;
+
+    padding:12px;
+
+    background:#111;
+
+    color:white;
+
+    border:0;
+
+    border-radius:5px;
+
+    cursor:pointer;
+}
+
+.login-error{
+
+    color:red;
+
+    text-align:center;
+
+    margin-top:10px;
+}
+
+
+/* =========================================================
+   IMAGE PREVIEW
+========================================================= */
+
+.image-preview{
+
+    margin-top:10px;
+
+    display:none;
+
+    text-align:center;
+}
+
+.image-preview img{
+
+    width:130px;
+    height:130px;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+    border:1px solid #ddd;
+}
+
+
+/* =========================================================
+   ADMIN PANEL
+========================================================= */
+
+.admin-panel{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:4500;
+
+    background:#f5f5f5;
+
+    display:none;
+
+    overflow-y:auto;
+}
+
+.admin-panel.show{
+    display:block;
+}
+
+.admin-header{
+
+    background:#111;
+
+    color:white;
+
+    padding:15px 25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:20;
+}
+
+.admin-header h2{
+    color:#e4c263;
+}
+
+.admin-header button{
+
+    background:#c62828;
+
+    color:white;
+
+    border:0;
+
+    padding:8px 18px;
+
+    border-radius:4px;
+
+    cursor:pointer;
+}
+
+.admin-container{
+
+    max-width:1250px;
+
+    margin:auto;
+
+    padding:30px 20px;
+}
+
+
+/* DASHBOARD */
+
+.dashboard-cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:15px;
+
+    margin-bottom:25px;
+}
+
+.dashboard-card{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:8px;
+
+    box-shadow:
+    0 3px 15px rgba(0,0,0,.05);
+}
+
+.dashboard-card h3{
+    color:#777;
+}
+
+.dashboard-card strong{
+
+    display:block;
+
+    margin-top:8px;
+
+    font-family:Arial;
+
+    font-size:27px;
+}
+
+
+/* ADMIN TABS */
+
+.admin-tabs{
+
+    display:flex;
+
+    gap:8px;
+
+    margin-bottom:20px;
+}
+
+.admin-tab{
+
+    padding:10px 20px;
+
+    border:0;
+
+    background:white;
+
+    cursor:pointer;
+
+    border-radius:5px;
+}
+
+.admin-tab.active{
+
+    background:#111;
+
+    color:white;
+}
+
+.admin-section{
+    display:none;
+}
+
+.admin-section.active{
+    display:block;
+}
+
+
+/* =========================================================
+   ORDERS TABLE
+========================================================= */
+
+.table-wrap{
+
+    background:white;
+
+    border-radius:8px;
+
+    overflow-x:auto;
+}
+
+.admin-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:950px;
+}
+
+.admin-table th,
+.admin-table td{
+
+    padding:12px;
+
+    border-bottom:1px solid #eee;
+
+    text-align:right;
+
+    vertical-align:top;
+}
+
+.admin-table th{
+    background:#faf7f0;
+}
+
+.admin-table select{
+
+    padding:6px;
+
+    border:1px solid #ddd;
+
+    border-radius:5px;
+}
+
+
+/* =========================================================
+   ADMIN PRODUCT FORM
+========================================================= */
+
+.admin-product-form{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:8px;
+
+    max-width:700px;
+}
+
+
+/* =========================================================
+   ADMIN PRODUCT LIST
+========================================================= */
+
+.admin-product-list{
+    margin-top:25px;
+}
+
+.admin-product-row{
+
+    background:white;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:12px;
+
+    margin-bottom:10px;
+
+    border-radius:7px;
+
+    flex-wrap:wrap;
+}
+
+.admin-product-row img{
+
+    width:70px;
+    height:70px;
+
+    object-fit:cover;
+
+    border-radius:6px;
+
+    border:1px solid #eee;
+}
+
+.admin-product-info{
+    flex:1;
+}
+
+.edit-product{
+
+    background:#c89b3c;
+
+    color:white;
+
+    border:0;
+
+    padding:8px 14px;
+
+    border-radius:4px;
+
+    cursor:pointer;
+}
+
+.edit-product:hover{
+    background:#9d7428;
+}
+
+.delete-product{
+
+    background:#c62828;
+
+    color:white;
+
+    border:0;
+
+    padding:8px 14px;
+
+    cursor:pointer;
+
+    border-radius:4px;
+}
+
+
+/* =========================================================
+   EDIT PRODUCT
+========================================================= */
+
+.edit-modal-box{
+
+    width:600px;
+
+    max-width:100%;
+
+    max-height:92vh;
+
+    overflow-y:auto;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:10px;
+}
+
+.edit-preview{
+
+    text-align:center;
+
+    margin:15px 0;
+}
+
+.edit-preview img{
+
+    width:140px;
+    height:140px;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+    border:1px solid #ddd;
+}
+
+.current-image-text{
+
+    color:#777;
+
+    font-size:14px;
+
+    margin-top:5px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:900px){
+
+    .products{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .features{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .dashboard-cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+
+@media(max-width:650px){
+
+    .header-inner{
+        flex-wrap:wrap;
+    }
+
+    .logo{
+        font-size:23px;
+    }
+
+    .search{
+        order:3;
+        flex-basis:100%;
+    }
+
+    .nav-inner{
+        justify-content:flex-start;
+        gap:22px;
+    }
+
+    .hero{
+        min-height:470px;
+    }
+
+    .hero-content h1{
+        font-size:45px;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .product-img{
+        height:210px;
+    }
+
+    .categories{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .about-img{
+        height:300px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .dashboard-cards{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .products-top{
+        display:block;
+    }
+
+    .filters{
+        margin-top:15px;
+    }
+
+    .admin-header h2{
+        font-size:16px;
+    }
+
+    .admin-product-row{
+        align-items:flex-start;
+    }
+
+    .admin-product-info{
+        min-width:180px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     TOP BAR
+========================================================= -->
+
+<div class="topbar">
+
+<strong>
+طاہر پرفیوم سٹور
+</strong>
+
+— پاکستان بھر میں ڈیلیوری دستیاب ہے
+
+</div>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+<div class="header-inner">
+
+
+<a href="#home" class="logo">
+
+طاہر پرفیوم سٹور
+
+<span>
+TAHIR PERFUME STORE
+</span>
+
+</a>
+
+
+<div class="search">
+
+<input
+    id="searchInput"
+    type="text"
+    placeholder="پرفیوم تلاش کریں..."
+>
+
+<button onclick="searchProducts()">
+⌕
+</button>
+
+</div>
+
+
+<div class="header-icons">
+
+<button
+    class="icon-btn"
+    onclick="openAdminLogin()"
+    title="Admin">
+
+⚙️
+
+</button>
+
+
+<button
+    class="icon-btn"
+    onclick="openCart()">
+
+🛒
+
+<span
+    id="cartCount"
+    class="cart-count">
+
+0
+
+</span>
+
+</button>
+
+</div>
+
+</div>
+
+
+<nav>
+
+<div class="nav-inner">
+
+<a href="#home">
+ہوم
+</a>
+
+<a href="#categories">
+کیٹیگریز
+</a>
+
+<a href="#products">
+پرفیوم
+</a>
+
+<a href="#about">
+ہمارے بارے میں
+</a>
+
+<a href="#contact">
+رابطہ
+</a>
+
+</div>
+
+</nav>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section
+    class="hero"
+    id="home">
+
+<div class="hero-content">
+
+<small>
+طاہر پرفیوم سٹور
+</small>
+
+<h1>
+
+آپ کی خوشبو<br>
+آپ کی پہچان
+
+</h1>
+
+<p>
+
+بہترین اور دلکش خوشبوؤں کا شاندار کلیکشن۔
+اپنے لیے اور اپنے پیاروں کے لیے آج ہی
+پسندیدہ پرفیوم منتخب کریں۔
+
+</p>
+
+<a
+    href="#products"
+    class="gold-btn">
+
+ابھی خریدیں
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FEATURES
+     FREE DELIVERY REMOVED
+========================================================= -->
+
+<section class="features">
+
+
+<div class="feature">
+
+<div class="feature-icon">
+💎
+</div>
+
+<h3>
+اعلیٰ معیار
+</h3>
+
+<p>
+پریمیم خوشبوئیں
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🔒
+</div>
+
+<h3>
+محفوظ آرڈر
+</h3>
+
+<p>
+Cash on Delivery
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+💬
+</div>
+
+<h3>
+کسٹمر سپورٹ
+</h3>
+
+<p>
+ہمیشہ آپ کے ساتھ
+</p>
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     CATEGORIES
+========================================================= -->
+
+<section
+    class="section"
+    id="categories">
+
+<div class="section-title">
+
+<small>
+ہماری کلیکشن
+</small>
+
+<h2>
+کیٹیگریز
+</h2>
+
+</div>
+
+
+<div class="categories">
+
+
+<a
+    class="category cat1"
+    href="#products">
+
+<h3>
+مردانہ پرفیوم
+</h3>
+
+</a>
+
+
+<a
+    class="category cat2"
+    href="#products">
+
+<h3>
+خواتین کے پرفیوم
+</h3>
+
+</a>
+
+
+<a
+    class="category cat3"
+    href="#products">
+
+<h3>
+پریمیم عطر
+</h3>
+
+</a>
+
+
+<a
+    class="category cat4"
+    href="#products">
+
+<h3>
+گفٹ سیٹس
+</h3>
+
+</a>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     PRODUCTS
+========================================================= -->
+
+<section
+    class="section"
+    id="products">
+
+
+<div class="section-title">
+
+<small>
+BEST COLLECTION
+</small>
+
+<h2>
+ہمارے پرفیوم
+</h2>
+
+<p>
+سب سے زیادہ پسند کیے جانے والے پرفیوم
+</p>
+
+</div>
+
+
+<div class="products-top">
+
+<strong id="productNumber">
+0 Products
+</strong>
+
+
+<div class="filters">
+
+
+<button
+    class="filter-btn active"
+    onclick="filterProducts('all',this)">
+
+سب
+
+</button>
+
+
+<button
+    class="filter-btn"
+    onclick="filterProducts('men',this)">
+
+مردانہ
+
+</button>
+
+
+<button
+    class="filter-btn"
+    onclick="filterProducts('women',this)">
+
+زنانہ
+
+</button>
+
+
+<button
+    class="filter-btn"
+    onclick="filterProducts('attar',this)">
+
+عطر
+
+</button>
+
+
+</div>
+
+</div>
+
+
+<div
+    id="productGrid"
+    class="products">
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     OFFER
+========================================================= -->
+
+<section class="offer">
+
+<h2>
+خاص آفر
+</h2>
+
+<p>
+منتخب پرفیومز پر خصوصی رعایت
+</p>
+
+<a
+    href="#products"
+    class="gold-btn">
+
+آفر دیکھیں
+
+</a>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section
+    class="section"
+    id="about">
+
+
+<div class="about">
+
+
+<img
+    class="about-img"
+    src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1000&q=80"
+    alt="Tahir Perfume Store"
+>
+
+
+<div>
+
+<small
+    style="
+    color:#c89b3c;
+    font-weight:bold;
+    ">
+
+طاہر پرفیوم سٹور
+
+</small>
+
+
+<h2>
+خوشبو جو آپ کو یاد رکھے
+</h2>
+
+
+<p>
+
+طاہر پرفیوم سٹور میں ہم اپنے صارفین کے لیے
+بہترین اور معیاری پرفیوم اور عطر فراہم کرتے ہیں۔
+ہمارا مقصد ایسی خوشبوئیں فراہم کرنا ہے جو آپ کی
+شخصیت کو مزید خوبصورت اور یادگار بنائیں۔
+
+</p>
+
+
+<a
+    href="#contact"
+    class="gold-btn">
+
+ہم سے رابطہ کریں
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer id="contact">
+
+
+<div class="footer-grid">
+
+
+<div class="footer-brand">
+
+<h2>
+طاہر پرفیوم سٹور
+</h2>
+
+<p>
+
+Premium perfumes اور attars کا قابل اعتماد
+آن لائن اسٹور۔ پاکستان بھر میں ڈیلیوری دستیاب ہے۔
+
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+اہم لنکس
+</h3>
+
+<ul>
+
+<li>
+<a href="#home">ہوم</a>
+</li>
+
+<li>
+<a href="#products">پرفیومز</a>
+</li>
+
+<li>
+<a href="#categories">کیٹیگریز</a>
+</li>
+
+<li>
+<a href="#about">ہمارے بارے میں</a>
+</li>
+
+</ul>
+
+</div>
+
+
+<div>
+
+<h3>
+کسٹمر سروس
+</h3>
+
+<ul>
+
+<li>
+رابطہ کریں
+</li>
+
+<li>
+ڈیلیوری معلومات
+</li>
+
+<li>
+واپسی کی پالیسی
+</li>
+
+<li>
+پرائیویسی پالیسی
+</li>
+
+</ul>
+
+</div>
+
+
+<!-- =====================================================
+     CONTACT — UPDATED
+===================================================== -->
+
+<div>
+
+<h3>
+رابطہ
+</h3>
+
+<ul>
+
+<li>
+
+<a
+    href="tel:03142300764"
+    class="english">
+
+📞 03142300764
+
+</a>
+
+</li>
+
+
+<li>
+
+📍 پاکستان
+
+</li>
+
+
+<li>
+
+<a
+    href="mailto:tahirnaeemtahir123@gmail.com"
+    class="english">
+
+✉️ tahirnaeemtahir123@gmail.com
+
+</a>
+
+</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 Tahir Perfume Store. All Rights Reserved.
+
+</div>
+
+
+</footer>
+
+
+<!-- =========================================================
+     WHATSAPP
+========================================================= -->
+
+<a
+    class="whatsapp"
+    href="https://wa.me/923142300764"
+    target="_blank">
+
+☎
+
+</a>
+
+
+<!-- =========================================================
+     CART
+========================================================= -->
+
+<aside
+    id="cartPanel"
+    class="cart-panel">
+
+
+<div class="cart-head">
+
+<h2>
+آپ کا کارٹ 🛒
+</h2>
+
+<button onclick="closeCart()">
+×
+</button>
+
+</div>
+
+
+<div
+    id="cartItems"
+    class="cart-items">
+
+</div>
+
+
+<div class="cart-bottom">
+
+
+<div class="total">
+
+<span>
+کل:
+</span>
+
+<span
+    id="cartTotal"
+    class="english">
+
+Rs. 0
+
+</span>
+
+</div>
+
+
+<button
+    class="checkout"
+    onclick="checkout()">
+
+WhatsApp پر آرڈر کریں
+
+</button>
+
+
+</div>
+
+</aside>
+
+
+<!-- =========================================================
+     ADMIN LOGIN
+========================================================= -->
+
+<div
+    id="loginModal"
+    class="modal">
+
+
+<div class="login-box">
+
+
+<button
+    class="close-modal"
+    onclick="closeAdminLogin()">
+
+×
+
+</button>
+
+
+<h2>
+Admin Login
+</h2>
+
+
+<div class="form-group">
+
+<label>
+Username
+</label>
+
+<input
+    id="adminUsername"
+    type="text"
+    placeholder="Username"
+    class="english"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Password
+</label>
+
+<input
+    id="adminPassword"
+    type="password"
+    placeholder="Password"
+    class="english"
+>
+
+</div>
+
+
+<button
+    class="login-btn"
+    onclick="adminLogin()">
+
+Login
+
+</button>
+
+
+<div
+    id="loginError"
+    class="login-error">
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================================
+     EDIT PRODUCT MODAL
+========================================================= -->
+
+<div
+    id="editProductModal"
+    class="modal">
+
+
+<div class="edit-modal-box">
+
+
+<button
+    class="close-modal"
+    onclick="closeEditProduct()">
+
+×
+
+</button>
+
+
+<h2
+    style="
+    text-align:center;
+    margin-bottom:20px;
+    ">
+
+Product Update کریں
+
+</h2>
+
+
+<input
+    type="hidden"
+    id="editProductIndex"
+>
+
+
+<div class="form-group">
+
+<label>
+Product Name
+</label>
+
+<input
+    id="editProductName"
+    type="text"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Category
+</label>
+
+<select
+    id="editProductCategory">
+
+<option value="men">
+مردانہ
+</option>
+
+<option value="women">
+زنانہ
+</option>
+
+<option value="attar">
+عطر
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Price
+</label>
+
+<input
+    id="editProductPrice"
+    type="number"
+    class="english"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Old Price
+</label>
+
+<input
+    id="editProductOldPrice"
+    type="number"
+    class="english"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+نئی Product Image
+</label>
+
+<input
+    id="editProductImage"
+    type="file"
+    accept="image/*"
+    onchange="previewEditImage(this)"
+>
+
+</div>
+
+
+<div class="edit-preview">
+
+<img
+    id="editProductPreview"
+    src=""
+    alt="Product Preview"
+>
+
+<div class="current-image-text">
+
+نئی تصویر select نہ کرنے کی صورت میں
+موجودہ تصویر برقرار رہے گی۔
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Description
+</label>
+
+<textarea
+    id="editProductDescription">
+</textarea>
+
+</div>
+
+
+<button
+    class="login-btn"
+    onclick="updateProduct()">
+
+Product Update کریں
+
+</button>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================================
+     ADMIN PANEL
+========================================================= -->
+
+<div
+    id="adminPanel"
+    class="admin-panel">
+
+
+<div class="admin-header">
+
+
+<h2>
+طاہر پرفیوم سٹور — Admin Panel
+</h2>
+
+
+<button onclick="logoutAdmin()">
+Logout
+</button>
+
+
+</div>
+
+
+<div class="admin-container">
+
+
+<div class="dashboard-cards">
+
+
+<div class="dashboard-card">
+
+<h3>
+Total Orders
+</h3>
+
+<strong
+    id="totalOrders"
+    class="admin-number">
+
+0
+
+</strong>
+
+</div>
+
+
+<div class="dashboard-card">
+
+<h3>
+New Orders
+</h3>
+
+<strong
+    id="newOrders"
+    class="admin-number">
+
+0
+
+</strong>
+
+</div>
+
+
+<div class="dashboard-card">
+
+<h3>
+Products
+</h3>
+
+<strong
+    id="totalProducts"
+    class="admin-number">
+
+0
+
+</strong>
+
+</div>
+
+
+<div class="dashboard-card">
+
+<h3>
+Sales
+</h3>
+
+<strong
+    id="totalSales"
+    class="admin-number">
+
+Rs. 0
+
+</strong>
+
+</div>
+
+
+</div>
+
+
+<div class="admin-tabs">
+
+
+<button
+    class="admin-tab active"
+    onclick="showAdminTab('orders',this)">
+
+Orders
+
+</button>
+
+
+<button
+    class="admin-tab"
+    onclick="showAdminTab('productsAdmin',this)">
+
+Products
+
+</button>
+
+
+</div>
+
+
+<!-- ORDERS -->
+
+<div
+    id="orders"
+    class="admin-section active">
+
+
+<h2 style="margin-bottom:15px;">
+
+تمام Orders
+
+</h2>
+
+
+<div class="table-wrap">
+
+
+<table class="admin-table">
+
+
+<thead>
+
+<tr>
+
+<th>
+Order
+</th>
+
+<th>
+Customer
+</th>
+
+<th>
+Phone
+</th>
+
+<th>
+Address
+</th>
+
+<th>
+Products
+</th>
+
+<th>
+Total
+</th>
+
+<th>
+Status
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody
+    id="ordersTable">
+
+</tbody>
+
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCTS -->
+
+<div
+    id="productsAdmin"
+    class="admin-section">
+
+
+<h2 style="margin-bottom:15px;">
+
+نیا Product Add کریں
+
+</h2>
+
+
+<div class="admin-product-form">
+
+
+<div class="form-group">
+
+<label>
+Product Name
+</label>
+
+<input
+    id="newProductName"
+    type="text"
+    placeholder="مثلاً Royal Oud"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Category
+</label>
+
+<select
+    id="newProductCategory">
+
+<option value="men">
+مردانہ
+</option>
+
+<option value="women">
+زنانہ
+</option>
+
+<option value="attar">
+عطر
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Price
+</label>
+
+<input
+    id="newProductPrice"
+    type="number"
+    placeholder="2400"
+    class="english"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Old Price
+</label>
+
+<input
+    id="newProductOldPrice"
+    type="number"
+    placeholder="3000"
+    class="english"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Product Image
+</label>
+
+<input
+    id="newProductImage"
+    type="file"
+    accept="image/*"
+    onchange="previewNewImage(this)"
+>
+
+
+<div
+    id="newImagePreview"
+    class="image-preview">
+
+<img
+    id="newPreviewImage"
+    src=""
+    alt="Preview"
+>
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Description
+</label>
+
+<textarea
+    id="newProductDescription"
+    placeholder="Product کی تفصیل">
+</textarea>
+
+</div>
+
+
+<button
+    class="gold-btn"
+    onclick="addProduct()">
+
+Product Add کریں
+
+</button>
+
+
+</div>
+
+
+<h2
+    style="
+    margin-top:30px;
+    margin-bottom:15px;
+    ">
+
+تمام Products
+
+</h2>
+
+
+<div
+    id="adminProductList"
+    class="admin-product-list">
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   DEFAULT PRODUCTS
+========================================================= */
+
+const defaultProducts = [
+
+{
+    id:1,
+    name:"رائل عود",
+    category:"men",
+    price:2400,
+    oldPrice:3000,
+    image:"https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=700&q=80",
+    description:"پریمیم مردانہ خوشبو"
+},
+
+{
+    id:2,
+    name:"گلاب پریمیئم",
+    category:"women",
+    price:2100,
+    oldPrice:2500,
+    image:"https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=700&q=80",
+    description:"دلکش زنانہ خوشبو"
+},
+
+{
+    id:3,
+    name:"عطر سلطانی",
+    category:"attar",
+    price:1500,
+    oldPrice:2000,
+    image:"https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=700&q=80",
+    description:"لمبی دیر تک رہنے والی خوشبو"
+},
+
+{
+    id:4,
+    name:"مسک رائل",
+    category:"men",
+    price:1800,
+    oldPrice:2200,
+    image:"https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=700&q=80",
+    description:"پریمیم مسک خوشبو"
+},
+
+{
+    id:5,
+    name:"پرنسس",
+    category:"women",
+    price:2000,
+    oldPrice:2500,
+    image:"https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=700&q=80",
+    description:"نرم اور خوبصورت خوشبو"
+},
+
+{
+    id:6,
+    name:"عود عرب",
+    category:"attar",
+    price:2700,
+    oldPrice:3000,
+    image:"https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=700&q=80",
+    description:"خالص عربی عطر"
+},
+
+{
+    id:7,
+    name:"بلیک مسک",
+    category:"men",
+    price:2200,
+    oldPrice:2600,
+    image:"https://images.unsplash.com/photo-1595425970377-c9703cf48b6c?auto=format&fit=crop&w=700&q=80",
+    description:"Bold اور Royal خوشبو"
+},
+
+{
+    id:8,
+    name:"سفید مسک",
+    category:"attar",
+    price:1600,
+    oldPrice:2000,
+    image:"https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=700&q=80",
+    description:"نرم، صاف اور دلکش"
+}
+
+];
+
+
+/* =========================================================
+   PRODUCT STORAGE
+========================================================= */
+
+function getProducts(){
+
+    let products =
+        localStorage.getItem("tahirProducts");
+
+    if(!products){
+
+        localStorage.setItem(
+            "tahirProducts",
+            JSON.stringify(defaultProducts)
+        );
+
+        return defaultProducts;
+    }
+
+    return JSON.parse(products);
+}
+
+
+function saveProducts(products){
+
+    localStorage.setItem(
+        "tahirProducts",
+        JSON.stringify(products)
+    );
+}
+
+
+/* =========================================================
+   DISPLAY PRODUCTS
+========================================================= */
+
+function displayProducts(
+    products = getProducts()
+){
+
+    const grid =
+        document.getElementById("productGrid");
+
+    grid.innerHTML = "";
+
+    products.forEach(product => {
+
+        let discount = 0;
+
+        if(
+            product.oldPrice &&
+            product.oldPrice > product.price
+        ){
+
+            discount =
+                Math.round(
+                    (
+                        (product.oldPrice - product.price)
+                        /
+                        product.oldPrice
+                    ) * 100
+                );
+        }
+
+        grid.innerHTML += `
+
+        <div class="product">
+
+            ${
+                discount > 0
+                ?
+                `
+                <span class="sale">
+                    -${discount}%
+                </span>
+                `
+                :
+                ""
+            }
+
+            <img
+                class="product-img"
+                src="${product.image}"
+                alt="${product.name}"
+            >
+
+            <div class="product-info">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <div class="product-name">
+                    ${product.name}
+                </div>
+
+                <div class="product-desc">
+                    ${product.description || ""}
+                </div>
+
+                <div class="price">
+
+                    <span class="new-price">
+                        Rs.
+                        ${Number(product.price).toLocaleString()}
+                    </span>
+
+                    ${
+                        product.oldPrice
+                        ?
+                        `
+                        <span class="old-price">
+                            Rs.
+                            ${Number(product.oldPrice).toLocaleString()}
+                        </span>
+                        `
+                        :
+                        ""
+                    }
+
+                </div>
+
+                <button
+                    class="add-btn"
+                    onclick="addToCart(${product.id})">
+
+                    کارٹ میں شامل کریں
+
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
+    });
+
+    document.getElementById(
+        "productNumber"
+    ).textContent =
+        products.length + " Products";
+}
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+let cart =
+    JSON.parse(
+        localStorage.getItem("tahirCart") || "[]"
+    );
+
+
+function addToCart(productId){
+
+    const products = getProducts();
+
+    const product =
+        products.find(
+            item => item.id === productId
+        );
+
+    if(!product){
+        return;
+    }
+
+    const existing =
+        cart.find(
+            item => item.id === productId
+        );
+
+    if(existing){
+
+        existing.qty++;
+
+    }else{
+
+        cart.push({
+            ...product,
+            qty:1
+        });
+
+    }
+
+    saveCart();
+
+    updateCart();
+
+    openCart();
+}
+
+
+function saveCart(){
+
+    localStorage.setItem(
+        "tahirCart",
+        JSON.stringify(cart)
+    );
+}
+
+
+function updateCart(){
+
+    const items =
+        document.getElementById("cartItems");
+
+    const count =
+        document.getElementById("cartCount");
+
+    const totalElement =
+        document.getElementById("cartTotal");
+
+    let quantity = 0;
+    let totalPrice = 0;
+
+    cart.forEach(item => {
+
+        quantity += item.qty;
+
+        totalPrice +=
+            Number(item.price) *
+            item.qty;
+
+    });
+
+    count.textContent = quantity;
+
+    totalElement.textContent =
+        "Rs. " +
+        totalPrice.toLocaleString();
+
+    if(!cart.length){
+
+        items.innerHTML = `
+
+        <p
+            style="
+            text-align:center;
+            color:#888;
+            margin-top:30px;
+            ">
+
+            آپ کا کارٹ خالی ہے۔
+
+        </p>
+
+        `;
+
+        return;
+    }
+
+    items.innerHTML =
+        cart.map(
+            (item,index) => `
+
+            <div class="cart-item">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                >
+
+                <div class="cart-item-info">
+
+                    <h4>
+                        ${item.name}
+                    </h4>
+
+                    <p class="english">
+                        Rs.
+                        ${Number(item.price).toLocaleString()}
+                    </p>
+
+                    <div class="qty">
+
+                        <button
+                            onclick="changeQty(${index},-1)">
+                            −
+                        </button>
+
+                        <span>
+                            ${item.qty}
+                        </span>
+
+                        <button
+                            onclick="changeQty(${index},1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="remove"
+                    onclick="removeItem(${index})">
+
+                    ×
+
+                </button>
+
+            </div>
+
+            `
+        ).join("");
+}
+
+
+function changeQty(index,amount){
+
+    cart[index].qty += amount;
+
+    if(cart[index].qty <= 0){
+        cart.splice(index,1);
+    }
+
+    saveCart();
+    updateCart();
+}
+
+
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    saveCart();
+    updateCart();
+}
+
+
+function openCart(){
+
+    document
+        .getElementById("cartPanel")
+        .classList.add("open");
+}
+
+
+function closeCart(){
+
+    document
+        .getElementById("cartPanel")
+        .classList.remove("open");
+}
+
+
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+function checkout(){
+
+    if(!cart.length){
+
+        alert("آپ کا کارٹ خالی ہے۔");
+
+        return;
+    }
+
+    const name =
+        prompt("اپنا نام لکھیں:");
+
+    if(!name){
+        return;
+    }
+
+    const phone =
+        prompt("اپنا موبائل نمبر لکھیں:");
+
+    if(!phone){
+        return;
+    }
+
+    const address =
+        prompt("اپنا مکمل پتہ لکھیں:");
+
+    if(!address){
+        return;
+    }
+
+    let total = 0;
+
+    cart.forEach(item => {
+
+        total +=
+            Number(item.price) *
+            item.qty;
+
+    });
+
+    const order = {
+
+        id:
+            "ORD-" +
+            Date.now(),
+
+        date:
+            new Date()
+            .toLocaleString("en-PK"),
+
+        customer:name,
+
+        phone:phone,
+
+        address:address,
+
+        items:
+            cart.map(item => ({
+
+                name:item.name,
+
+                qty:item.qty,
+
+                price:item.price
+
+            })),
+
+        total:total,
+
+        status:"new"
+
+    };
+
+    let orders =
+        JSON.parse(
+            localStorage.getItem(
+                "tahirOrders"
+            ) || "[]"
+        );
+
+    orders.unshift(order);
+
+    localStorage.setItem(
+        "tahirOrders",
+        JSON.stringify(orders)
+    );
+
+
+    let message =
+        "السلام علیکم، طاہر پرفیوم سٹور پر میرا آرڈر ہے:%0A%0A";
+
+    message +=
+        "Order ID: " +
+        order.id +
+        "%0A";
+
+    message +=
+        "نام: " +
+        name +
+        "%0A";
+
+    message +=
+        "فون: " +
+        phone +
+        "%0A";
+
+    message +=
+        "پتہ: " +
+        address +
+        "%0A%0A";
+
+    cart.forEach(item => {
+
+        message +=
+
+            item.name +
+            " × " +
+            item.qty +
+            " — Rs. " +
+            (
+                item.price *
+                item.qty
+            ) +
+            "%0A";
+
+    });
+
+    message +=
+        "%0Aکل رقم: Rs. " +
+        total;
+
+
+    /* UPDATED WHATSAPP NUMBER */
+
+    const whatsappNumber =
+        "923142300764";
+
+
+    window.open(
+
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        message,
+
+        "_blank"
+
+    );
+
+
+    cart = [];
+
+    saveCart();
+
+    updateCart();
+
+    closeCart();
+
+    alert(
+        "آپ کا آرڈر Admin Panel میں save ہو گیا ہے۔"
+    );
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function searchProducts(){
+
+    const value =
+        document
+            .getElementById("searchInput")
+            .value
+            .toLowerCase()
+            .trim();
+
+    const products =
+        getProducts().filter(
+            product =>
+                product.name
+                    .toLowerCase()
+                    .includes(value)
+        );
+
+    displayProducts(products);
+
+    document
+        .getElementById("products")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+}
+
+
+document
+    .getElementById("searchInput")
+    .addEventListener(
+        "keydown",
+        function(e){
+
+            if(e.key === "Enter"){
+                searchProducts();
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+function filterProducts(
+    category,
+    button
+){
+
+    document
+        .querySelectorAll(".filter-btn")
+        .forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+    button.classList.add("active");
+
+    let products = getProducts();
+
+    if(category !== "all"){
+
+        products =
+            products.filter(
+                product =>
+                    product.category === category
+            );
+    }
+
+    displayProducts(products);
+}
+
+
+/* =========================================================
+   ADMIN LOGIN
+========================================================= */
+
+function openAdminLogin(){
+
+    document
+        .getElementById("loginModal")
+        .classList.add("show");
+}
+
+
+function closeAdminLogin(){
+
+    document
+        .getElementById("loginModal")
+        .classList.remove("show");
+
+    document
+        .getElementById("loginError")
+        .textContent = "";
+}
+
+
+function adminLogin(){
+
+    const username =
+        document
+            .getElementById("adminUsername")
+            .value;
+
+    const password =
+        document
+            .getElementById("adminPassword")
+            .value;
+
+
+    /* DEMO LOGIN
+       Username: admin
+       Password: 12345
+    */
+
+    if(
+        username === "admin" &&
+        password === "12345"
+    ){
+
+        localStorage.setItem(
+            "tahirAdminLogin",
+            "true"
+        );
+
+        closeAdminLogin();
+
+        openAdminPanel();
+
+    }else{
+
+        document
+            .getElementById("loginError")
+            .textContent =
+            "Username یا Password غلط ہے۔";
+    }
+}
+
+
+/* =========================================================
+   ADMIN PANEL
+========================================================= */
+
+function openAdminPanel(){
+
+    document
+        .getElementById("adminPanel")
+        .classList.add("show");
+
+    loadAdminDashboard();
+}
+
+
+function logoutAdmin(){
+
+    localStorage.removeItem(
+        "tahirAdminLogin"
+    );
+
+    document
+        .getElementById("adminPanel")
+        .classList.remove("show");
+}
+
+
+/* =========================================================
+   ADMIN TABS
+========================================================= */
+
+function showAdminTab(
+    tab,
+    button
+){
+
+    document
+        .querySelectorAll(".admin-tab")
+        .forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+    button.classList.add("active");
+
+    document
+        .querySelectorAll(".admin-section")
+        .forEach(section =>
+            section.classList.remove("active")
+        );
+
+    document
+        .getElementById(tab)
+        .classList.add("active");
+}
+
+
+/* =========================================================
+   ADMIN DASHBOARD
+========================================================= */
+
+function loadAdminDashboard(){
+
+    loadOrders();
+
+    loadAdminProducts();
+
+    const products =
+        getProducts();
+
+    document
+        .getElementById("totalProducts")
+        .textContent =
+        products.length;
+}
+
+
+/* =========================================================
+   LOAD ORDERS
+========================================================= */
+
+function loadOrders(){
+
+    const orders =
+        JSON.parse(
+            localStorage.getItem(
+                "tahirOrders"
+            ) || "[]"
+        );
+
+    document
+        .getElementById("totalOrders")
+        .textContent =
+        orders.length;
+
+    const newOrders =
+        orders.filter(
+            order =>
+                order.status === "new"
+        ).length;
+
+    document
+        .getElementById("newOrders")
+        .textContent =
+        newOrders;
+
+    const sales =
+        orders.reduce(
+            (sum,order) =>
+                sum +
+                Number(order.total),
+            0
+        );
+
+    document
+        .getElementById("totalSales")
+        .textContent =
+        "Rs. " +
+        sales.toLocaleString();
+
+    const table =
+        document.getElementById(
+            "ordersTable"
+        );
+
+    if(!orders.length){
+
+        table.innerHTML = `
+
+        <tr>
+
+            <td
+                colspan="7"
+                style="
+                text-align:center;
+                padding:30px;
+                ">
+
+                ابھی کوئی Order موجود نہیں۔
+
+            </td>
+
+        </tr>
+
+        `;
+
+        return;
+    }
+
+    table.innerHTML =
+        orders.map(
+            order => `
+
+            <tr>
+
+                <td class="english">
+
+                    <strong>
+                        ${order.id}
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        ${order.date}
+                    </small>
+
+                </td>
+
+                <td>
+                    ${order.customer}
+                </td>
+
+                <td class="english">
+                    ${order.phone}
+                </td>
+
+                <td>
+                    ${order.address}
+                </td>
+
+                <td>
+
+                    ${order.items
+                        .map(
+                            item =>
+                            `
+                            ${item.name}
+                            ×
+                            ${item.qty}
+                            `
+                        )
+                        .join("<br>")
+                    }
+
+                </td>
+
+                <td class="english">
+
+                    Rs.
+                    ${Number(order.total)
+                        .toLocaleString()}
+
+                </td>
+
+                <td>
+
+                    <select
+                        onchange="
+                        changeOrderStatus(
+                            '${order.id}',
+                            this.value
+                        )">
+
+                        <option
+                            value="new"
+                            ${
+                                order.status === "new"
+                                ? "selected"
+                                : ""
+                            }>
+
+                            New
+
+                        </option>
+
+                        <option
+                            value="processing"
+                            ${
+                                order.status === "processing"
+                                ? "selected"
+                                : ""
+                            }>
+
+                            Processing
+
+                        </option>
+
+                        <option
+                            value="delivered"
+                            ${
+                                order.status === "delivered"
+                                ? "selected"
+                                : ""
+                            }>
+
+                            Delivered
+
+                        </option>
+
+                        <option
+                            value="cancelled"
+                            ${
+                                order.status === "cancelled"
+                                ? "selected"
+                                : ""
+                            }>
+
+                            Cancelled
+
+                        </option>
+
+                    </select>
+
+                </td>
+
+            </tr>
+
+            `
+        ).join("");
+}
+
+
+/* =========================================================
+   ORDER STATUS
+========================================================= */
+
+function changeOrderStatus(
+    id,
+    status
+){
+
+    let orders =
+        JSON.parse(
+            localStorage.getItem(
+                "tahirOrders"
+            ) || "[]"
+        );
+
+    const order =
+        orders.find(
+            item =>
+                item.id === id
+        );
+
+    if(order){
+        order.status = status;
+    }
+
+    localStorage.setItem(
+        "tahirOrders",
+        JSON.stringify(orders)
+    );
+
+    loadOrders();
+}
+
+
+/* =========================================================
+   IMAGE PREVIEW
+========================================================= */
+
+function previewNewImage(input){
+
+    const previewBox =
+        document.getElementById(
+            "newImagePreview"
+        );
+
+    const previewImage =
+        document.getElementById(
+            "newPreviewImage"
+        );
+
+    const file = input.files[0];
+
+    if(!file){
+
+        previewBox.style.display =
+            "none";
+
+        return;
+    }
+
+    if(
+        !file.type.startsWith("image/")
+    ){
+
+        alert(
+            "براہ کرم صرف Image file select کریں۔"
+        );
+
+        input.value = "";
+
+        previewBox.style.display =
+            "none";
+
+        return;
+    }
+
+    if(
+        file.size > 2 * 1024 * 1024
+    ){
+
+        alert(
+            "Image کا سائز 2MB سے کم ہونا چاہیے۔"
+        );
+
+        input.value = "";
+
+        return;
+    }
+
+    const reader =
+        new FileReader();
+
+    reader.onload =
+        function(e){
+
+            previewImage.src =
+                e.target.result;
+
+            previewBox.style.display =
+                "block";
+        };
+
+    reader.readAsDataURL(file);
+}
+
+
+/* =========================================================
+   ADD PRODUCT
+========================================================= */
+
+function addProduct(){
+
+    const name =
+        document
+            .getElementById("newProductName")
+            .value
+            .trim();
+
+    const category =
+        document
+            .getElementById("newProductCategory")
+            .value;
+
+    const price =
+        Number(
+            document
+                .getElementById("newProductPrice")
+                .value
+        );
+
+    const oldPrice =
+        Number(
+            document
+                .getElementById("newProductOldPrice")
+                .value
+        );
+
+    const imageFile =
+        document
+            .getElementById("newProductImage")
+            .files[0];
+
+    const description =
+        document
+            .getElementById("newProductDescription")
+            .value
+            .trim();
+
+    if(
+        !name ||
+        !price ||
+        !imageFile
+    ){
+
+        alert(
+            "Product Name، Price اور Image لازمی ہیں۔"
+        );
+
+        return;
+    }
+
+    if(
+        !imageFile.type.startsWith("image/")
+    ){
+
+        alert(
+            "براہ کرم صرف Image file upload کریں۔"
+        );
+
+        return;
+    }
+
+    if(
+        imageFile.size > 2 * 1024 * 1024
+    ){
+
+        alert(
+            "Image کا سائز 2MB سے کم ہونا چاہیے۔"
+        );
+
+        return;
+    }
+
+    const reader =
+        new FileReader();
+
+    reader.onload =
+        function(e){
+
+            let products =
+                getProducts();
+
+            products.push({
+
+                id:Date.now(),
+
+                name:name,
+
+                category:category,
+
+                price:price,
+
+                oldPrice:oldPrice,
+
+                image:e.target.result,
+
+                description:
+                    description ||
+                    "Premium خوشبو"
+
+            });
+
+            saveProducts(products);
+
+            document
+                .getElementById("newProductName")
+                .value = "";
+
+            document
+                .getElementById("newProductPrice")
+                .value = "";
+
+            document
+                .getElementById("newProductOldPrice")
+                .value = "";
+
+            document
+                .getElementById("newProductImage")
+                .value = "";
+
+            document
+                .getElementById("newProductDescription")
+                .value = "";
+
+            document
+                .getElementById("newImagePreview")
+                .style.display =
+                "none";
+
+            displayProducts();
+
+            loadAdminProducts();
+
+            loadAdminDashboard();
+
+            alert(
+                "Product کامیابی سے Add ہو گیا۔"
+            );
+
+        };
+
+    reader.readAsDataURL(imageFile);
+}
+
+
+/* =========================================================
+   ADMIN PRODUCT LIST
+========================================================= */
+
+function loadAdminProducts(){
+
+    const products =
+        getProducts();
+
+    const list =
+        document.getElementById(
+            "adminProductList"
+        );
+
+    list.innerHTML =
+        products.map(
+            (product,index) => `
+
+            <div class="admin-product-row">
+
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                >
+
+                <div class="admin-product-info">
+
+                    <strong>
+                        ${product.name}
+                    </strong>
+
+                    <br>
+
+                    <span class="english">
+
+                        Rs.
+                        ${Number(product.price)
+                            .toLocaleString()}
+
+                    </span>
+
+                </div>
+
+                <button
+                    class="edit-product"
+                    onclick="editProduct(${index})">
+
+                    Edit
+
+                </button>
+
+                <button
+                    class="delete-product"
+                    onclick="deleteProduct(${index})">
+
+                    Delete
+
+                </button>
+
+            </div>
+
+            `
+        ).join("");
+}
+
+
+/* =========================================================
+   EDIT PRODUCT
+========================================================= */
+
+function editProduct(index){
+
+    const products =
+        getProducts();
+
+    const product =
+        products[index];
+
+    if(!product){
+        return;
+    }
+
+    document
+        .getElementById("editProductIndex")
+        .value =
+        index;
+
+    document
+        .getElementById("editProductName")
+        .value =
+        product.name;
+
+    document
+        .getElementById("editProductCategory")
+        .value =
+        product.category;
+
+    document
+        .getElementById("editProductPrice")
+        .value =
+        product.price;
+
+    document
+        .getElementById("editProductOldPrice")
+        .value =
+        product.oldPrice || "";
+
+    document
+        .getElementById("editProductDescription")
+        .value =
+        product.description || "";
+
+    document
+        .getElementById("editProductPreview")
+        .src =
+        product.image;
+
+    document
+        .getElementById("editProductImage")
+        .value = "";
+
+    document
+        .getElementById("editProductModal")
+        .classList.add("show");
+}
+
+
+function closeEditProduct(){
+
+    document
+        .getElementById("editProductModal")
+        .classList.remove("show");
+}
+
+
+/* =========================================================
+   EDIT IMAGE PREVIEW
+========================================================= */
+
+function previewEditImage(input){
+
+    const file =
+        input.files[0];
+
+    if(!file){
+        return;
+    }
+
+    if(
+        !file.type.startsWith("image/")
+    ){
+
+        alert(
+            "براہ کرم صرف Image file select کریں۔"
+        );
+
+        input.value = "";
+
+        return;
+    }
+
+    if(
+        file.size >
+        2 * 1024 * 1024
+    ){
+
+        alert(
+            "Image کا سائز 2MB سے کم ہونا چاہیے۔"
+        );
+
+        input.value = "";
+
+        return;
+    }
+
+    const reader =
+        new FileReader();
+
+    reader.onload =
+        function(e){
+
+            document
+                .getElementById(
+                    "editProductPreview"
+                )
+                .src =
+                e.target.result;
+        };
+
+    reader.readAsDataURL(file);
+}
+
+
+/* =========================================================
+   UPDATE PRODUCT
+========================================================= */
+
+function updateProduct(){
+
+    const index =
+        Number(
+            document
+                .getElementById(
+                    "editProductIndex"
+                )
+                .value
+        );
+
+    const products =
+        getProducts();
+
+    const product =
+        products[index];
+
+    if(!product){
+        return;
+    }
+
+    const name =
+        document
+            .getElementById(
+                "editProductName"
+            )
+            .value
+            .trim();
+
+    const category =
+        document
+            .getElementById(
+                "editProductCategory"
+            )
+            .value;
+
+    const price =
+        Number(
+            document
+                .getElementById(
+                    "editProductPrice"
+                )
+                .value
+        );
+
+    const oldPrice =
+        Number(
+            document
+                .getElementById(
+                    "editProductOldPrice"
+                )
+                .value
+        );
+
+    const description =
+        document
+            .getElementById(
+                "editProductDescription"
+            )
+            .value
+            .trim();
+
+    const imageFile =
+        document
+            .getElementById(
+                "editProductImage"
+            )
+            .files[0];
+
+    if(
+        !name ||
+        !price
+    ){
+
+        alert(
+            "Product Name اور Price لازمی ہیں۔"
+        );
+
+        return;
+    }
+
+    product.name = name;
+
+    product.category = category;
+
+    product.price = price;
+
+    product.oldPrice = oldPrice;
+
+    product.description =
+        description ||
+        "Premium خوشبو";
+
+
+    if(imageFile){
+
+        if(
+            !imageFile.type.startsWith("image/")
+        ){
+
+            alert(
+                "براہ کرم صرف Image file select کریں۔"
+            );
+
+            return;
+        }
+
+        if(
+            imageFile.size >
+            2 * 1024 * 1024
+        ){
+
+            alert(
+                "Image کا سائز 2MB سے کم ہونا چاہیے۔"
+            );
+
+            return;
+        }
+
+        const reader =
+            new FileReader();
+
+        reader.onload =
+            function(e){
+
+                product.image =
+                    e.target.result;
+
+                saveProducts(products);
+
+                displayProducts();
+
+                loadAdminProducts();
+
+                loadAdminDashboard();
+
+                closeEditProduct();
+
+                alert(
+                    "Product کامیابی سے Update ہو گیا۔"
+                );
+            };
+
+        reader.readAsDataURL(imageFile);
+
+    }else{
+
+        saveProducts(products);
+
+        displayProducts();
+
+        loadAdminProducts();
+
+        loadAdminDashboard();
+
+        closeEditProduct();
+
+        alert(
+            "Product کامیابی سے Update ہو گیا۔"
+        );
+    }
+}
+
+
+/* =========================================================
+   DELETE PRODUCT
+========================================================= */
+
+function deleteProduct(index){
+
+    const confirmDelete =
+        confirm(
+            "کیا آپ واقعی یہ Product delete کرنا چاہتے ہیں؟"
+        );
+
+    if(!confirmDelete){
+        return;
+    }
+
+    let products =
+        getProducts();
+
+    products.splice(index,1);
+
+    saveProducts(products);
+
+    displayProducts();
+
+    loadAdminProducts();
+
+    loadAdminDashboard();
+
+    alert(
+        "Product Delete ہو گیا۔"
+    );
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+displayProducts();
+
+updateCart();
+
+</script>
+
+
+</body>
+
+</html>
