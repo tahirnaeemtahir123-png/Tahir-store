@@ -2,31 +2,25 @@
 <html lang="ur" dir="rtl">
 
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>طاہر پرفیوم سٹور | Tahir Perfume Store</title>
 
 <style>
 
-/* =========================================================
+/* =====================================================
    FONTS
-========================================================= */
+===================================================== */
 
 :root{
-
     --urdu-font:
         "Jameel Noori Nastaleeq",
         "Jameel Noori",
         "Noto Nastaliq Urdu",
         serif;
 
-    --english-font:
-        Arial,
-        sans-serif;
+    --english-font: Arial, sans-serif;
 
     --black:#111;
     --gold:#c79b3b;
@@ -35,12 +29,8 @@
     --white:#fff;
     --gray:#777;
     --red:#c62828;
+    --green:#159447;
 }
-
-
-/* =========================================================
-   RESET
-========================================================= */
 
 *{
     margin:0;
@@ -70,7 +60,8 @@ textarea{
 .admin-number,
 input[type="number"],
 input[type="tel"],
-input[type="email"]{
+input[type="email"],
+input[type="password"]{
     font-family:var(--english-font);
 }
 
@@ -80,14 +71,13 @@ a{
 }
 
 
-/* =========================================================
+/* =====================================================
    TOP BAR
-========================================================= */
+===================================================== */
 
 .topbar{
-
     background:#111;
-    color:white;
+    color:#fff;
     text-align:center;
     padding:8px;
     font-size:16px;
@@ -98,13 +88,12 @@ a{
 }
 
 
-/* =========================================================
+/* =====================================================
    HEADER
-========================================================= */
+===================================================== */
 
 header{
-
-    background:white;
+    background:#fff;
     position:sticky;
     top:0;
     z-index:1000;
@@ -112,7 +101,6 @@ header{
 }
 
 .header-inner{
-
     max-width:1250px;
     margin:auto;
     padding:12px 20px;
@@ -124,16 +112,13 @@ header{
     gap:20px;
 }
 
-
 .logo{
-
     font-size:28px;
     font-weight:bold;
     white-space:nowrap;
 }
 
 .logo span{
-
     display:block;
     font-family:Arial,sans-serif;
     color:var(--gold);
@@ -143,18 +128,13 @@ header{
     letter-spacing:3px;
 }
 
-
-/* SEARCH */
-
 .search{
-
     flex:1;
     max-width:480px;
     position:relative;
 }
 
 .search input{
-
     width:100%;
     padding:12px 45px 12px 15px;
     border:1px solid #ddd;
@@ -164,24 +144,17 @@ header{
 }
 
 .search button{
-
     position:absolute;
     right:6px;
     top:5px;
-
     width:35px;
     height:35px;
-
     border:0;
     border-radius:50%;
-
     background:#111;
-    color:white;
+    color:#fff;
     cursor:pointer;
 }
-
-
-/* HEADER ICONS */
 
 .header-icons{
     display:flex;
@@ -189,40 +162,27 @@ header{
 }
 
 .icon-btn{
-
     width:43px;
     height:43px;
-
     border-radius:50%;
-
     border:1px solid #ddd;
-
-    background:white;
-
+    background:#fff;
     cursor:pointer;
-
     position:relative;
-
     font-size:18px;
 }
 
 .cart-count{
-
     position:absolute;
-
     top:-5px;
     left:-5px;
-
     width:20px;
     height:20px;
-
     background:var(--gold);
-    color:white;
-
+    color:#fff;
     border-radius:50%;
 
     font-family:Arial;
-
     font-size:11px;
 
     display:flex;
@@ -231,16 +191,15 @@ header{
 }
 
 
-/* =========================================================
+/* =====================================================
    NAV
-========================================================= */
+===================================================== */
 
 nav{
     border-top:1px solid #f2f2f2;
 }
 
 .nav-inner{
-
     max-width:1250px;
     margin:auto;
 
@@ -254,7 +213,6 @@ nav{
 }
 
 .nav-inner a{
-
     white-space:nowrap;
     font-weight:bold;
     font-size:16px;
@@ -265,81 +223,62 @@ nav{
 }
 
 
-/* =========================================================
+/* =====================================================
    HERO
-========================================================= */
+===================================================== */
 
 .hero{
-
     min-height:550px;
 
     background:
-
-    linear-gradient(
-        90deg,
-        rgba(0,0,0,.90),
-        rgba(0,0,0,.45),
-        rgba(0,0,0,.15)
-    ),
-
-    url("https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1800&q=85")
-
-    center/cover;
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.90),
+            rgba(0,0,0,.45),
+            rgba(0,0,0,.15)
+        ),
+        url("https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
 
     display:flex;
     align-items:center;
-
-    color:white;
+    color:#fff;
 }
 
 .hero-content{
-
     max-width:1250px;
     width:100%;
-
     margin:auto;
-
     padding:40px 25px;
 }
 
 .hero-content small{
-
     color:#e5c66b;
     font-size:18px;
 }
 
 .hero-content h1{
-
     font-size:clamp(45px,7vw,80px);
     line-height:1.2;
     margin:10px 0;
 }
 
 .hero-content p{
-
     max-width:550px;
-
     font-size:19px;
     line-height:2;
-
     color:#eee;
 }
 
 .gold-btn{
-
     display:inline-block;
-
     background:var(--gold);
-    color:white;
-
+    color:#fff;
     border:0;
     border-radius:4px;
-
     padding:12px 30px;
     margin-top:20px;
-
     cursor:pointer;
-
     font-size:17px;
     font-weight:bold;
 }
@@ -349,34 +288,26 @@ nav{
 }
 
 
-/* =========================================================
+/* =====================================================
    FEATURES
    FREE DELIVERY REMOVED
-========================================================= */
+===================================================== */
 
 .features{
-
     max-width:1200px;
-
     margin:auto;
 
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
 
     gap:15px;
-
     padding:35px 20px;
 }
 
 .feature{
-
     background:var(--cream);
-
     text-align:center;
-
     padding:20px;
-
     border-radius:8px;
 }
 
@@ -393,28 +324,22 @@ nav{
 }
 
 
-/* =========================================================
-   SECTION
-========================================================= */
+/* =====================================================
+   SECTIONS
+===================================================== */
 
 .section{
-
     max-width:1250px;
-
     margin:auto;
-
     padding:60px 20px;
 }
 
 .section-title{
-
     text-align:center;
-
     margin-bottom:35px;
 }
 
 .section-title small{
-
     color:var(--gold);
     font-weight:bold;
 }
@@ -424,175 +349,129 @@ nav{
 }
 
 
-/* =========================================================
+/* =====================================================
    CATEGORIES
-========================================================= */
+===================================================== */
 
 .categories{
-
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
-
     gap:18px;
 }
 
 .category{
-
     height:220px;
-
     border-radius:8px;
-
     overflow:hidden;
-
     position:relative;
-
     background-size:cover;
     background-position:center;
 }
 
 .category::after{
-
     content:"";
-
     position:absolute;
-
     inset:0;
 
     background:
-    linear-gradient(
-        transparent,
-        rgba(0,0,0,.85)
-    );
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.85)
+        );
 }
 
 .category h3{
-
     position:absolute;
-
     z-index:2;
-
     bottom:15px;
     right:20px;
-
-    color:white;
-
+    color:#fff;
     font-size:25px;
 }
 
 .cat1{
     background-image:url(
-    "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80"
+        "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80"
     );
 }
 
 .cat2{
     background-image:url(
-    "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=800&q=80"
+        "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=800&q=80"
     );
 }
 
 .cat3{
     background-image:url(
-    "https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=800&q=80"
+        "https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=800&q=80"
     );
 }
 
 .cat4{
     background-image:url(
-    "https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=800&q=80"
+        "https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=800&q=80"
     );
 }
 
 
-/* =========================================================
+/* =====================================================
    PRODUCTS
-========================================================= */
+===================================================== */
 
 .products-top{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     margin-bottom:25px;
 }
 
 .filters{
-
     display:flex;
-
     gap:8px;
-
     flex-wrap:wrap;
 }
 
 .filter-btn{
-
-    background:white;
-
+    background:#fff;
     border:1px solid #ddd;
-
     padding:8px 18px;
-
     border-radius:30px;
-
     cursor:pointer;
 }
 
 .filter-btn.active,
 .filter-btn:hover{
-
     background:#111;
-    color:white;
+    color:#fff;
 }
 
 .products{
-
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
-
     gap:22px;
 }
 
 .product{
-
     border:1px solid #eee;
-
     border-radius:8px;
-
     overflow:hidden;
-
     transition:.25s;
-
     position:relative;
-
-    background:white;
+    background:#fff;
 }
 
 .product:hover{
-
     transform:translateY(-5px);
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.08);
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
 .sale{
-
     position:absolute;
-
     top:12px;
     right:12px;
-
     background:var(--red);
-    color:white;
-
+    color:#fff;
     padding:4px 9px;
-
     border-radius:4px;
 
     font-family:Arial;
@@ -602,10 +481,8 @@ nav{
 }
 
 .product-img{
-
     width:100%;
     height:270px;
-
     object-fit:cover;
     display:block;
 }
@@ -615,131 +492,95 @@ nav{
 }
 
 .stars{
-
     color:#e5a91c;
     font-family:Arial;
 }
 
 .product-name{
-
     font-size:20px;
     font-weight:bold;
 }
 
 .product-desc{
-
     color:#777;
     font-size:14px;
 }
 
 .price{
-
     display:flex;
-
     gap:10px;
-
     align-items:center;
-
     margin:10px 0;
 
     direction:ltr;
-
     justify-content:flex-end;
 }
 
 .new-price{
-
     font-size:18px;
     font-weight:bold;
 }
 
 .old-price{
-
     color:#999;
     text-decoration:line-through;
 }
 
 .add-btn{
-
     width:100%;
-
     padding:10px;
-
-    background:white;
-
+    background:#fff;
     border:1px solid #111;
-
     cursor:pointer;
-
     border-radius:4px;
-
     font-weight:bold;
 }
 
 .add-btn:hover{
-
     background:#111;
-    color:white;
+    color:#fff;
 }
 
 
-/* =========================================================
+/* =====================================================
    OFFER
-========================================================= */
+===================================================== */
 
 .offer{
-
     background:
+        linear-gradient(
+            rgba(0,0,0,.85),
+            rgba(0,0,0,.85)
+        ),
+        url("https://images.unsplash.com/photo-1595425970377-c9703cf48b6c?auto=format&fit=crop&w=1800&q=80")
+        center/cover;
 
-    linear-gradient(
-        rgba(0,0,0,.85),
-        rgba(0,0,0,.85)
-    ),
-
-    url(
-    "https://images.unsplash.com/photo-1595425970377-c9703cf48b6c?auto=format&fit=crop&w=1800&q=80"
-    )
-
-    center/cover;
-
-    color:white;
-
+    color:#fff;
     text-align:center;
-
     padding:70px 20px;
 }
 
 .offer h2{
-
     color:#e6c365;
-
     font-size:43px;
 }
 
 
-/* =========================================================
+/* =====================================================
    ABOUT
-========================================================= */
+===================================================== */
 
 .about{
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:50px;
-
     align-items:center;
 }
 
 .about-img{
-
     width:100%;
-
     height:450px;
-
     object-fit:cover;
-
     border-radius:8px;
 }
 
@@ -748,38 +589,29 @@ nav{
 }
 
 .about p{
-
     color:#666;
-
     font-size:18px;
-
     line-height:2;
 }
 
 
-/* =========================================================
+/* =====================================================
    FOOTER
-========================================================= */
+===================================================== */
 
 footer{
-
     background:#111;
-
-    color:white;
+    color:#fff;
 }
 
 .footer-grid{
-
     max-width:1250px;
-
     margin:auto;
 
     padding:55px 20px;
 
     display:grid;
-
     grid-template-columns:2fr 1fr 1fr 1fr;
-
     gap:35px;
 }
 
@@ -796,9 +628,7 @@ footer ul{
 }
 
 footer li{
-
     color:#aaa;
-
     margin:8px 0;
 }
 
@@ -807,31 +637,24 @@ footer li a:hover{
 }
 
 .copyright{
-
     border-top:1px solid #292929;
-
     padding:15px;
-
     text-align:center;
 
     font-family:Arial;
-
     font-size:12px;
 
     direction:ltr;
-
     color:#888;
 }
 
 
-/* =========================================================
+/* =====================================================
    WHATSAPP
-========================================================= */
+===================================================== */
 
 .whatsapp{
-
     position:fixed;
-
     bottom:20px;
     left:20px;
 
@@ -839,50 +662,39 @@ footer li a:hover{
     height:58px;
 
     border-radius:50%;
-
     background:#18a34a;
-
-    color:white;
+    color:#fff;
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
     font-size:27px;
-
     z-index:2000;
 }
 
 
-/* =========================================================
+/* =====================================================
    CART
-========================================================= */
+===================================================== */
 
 .cart-panel{
-
     position:fixed;
-
     top:0;
     left:-420px;
 
     width:400px;
-
     max-width:92%;
-
     height:100vh;
 
-    background:white;
-
+    background:#fff;
     z-index:3000;
 
-    box-shadow:
-    5px 0 30px rgba(0,0,0,.2);
+    box-shadow:5px 0 30px rgba(0,0,0,.2);
 
     transition:.3s;
 
     display:flex;
-
     flex-direction:column;
 }
 
@@ -891,50 +703,35 @@ footer li a:hover{
 }
 
 .cart-head{
-
     padding:18px;
-
     display:flex;
-
     justify-content:space-between;
-
     border-bottom:1px solid #eee;
 }
 
 .cart-head button{
-
     border:0;
     background:none;
-
     font-size:25px;
     cursor:pointer;
 }
 
 .cart-items{
-
     flex:1;
-
     overflow-y:auto;
-
     padding:15px;
 }
 
 .cart-item{
-
     display:flex;
-
     gap:10px;
-
     border-bottom:1px solid #eee;
-
     padding:12px 0;
 }
 
 .cart-item img{
-
     width:65px;
     height:65px;
-
     object-fit:cover;
 }
 
@@ -943,69 +740,47 @@ footer li a:hover{
 }
 
 .qty button{
-
     padding:2px 8px;
-
     cursor:pointer;
 }
 
 .remove{
-
     border:0;
-
     color:red;
-
     background:#fee;
-
     cursor:pointer;
 }
 
 .cart-bottom{
-
     padding:18px;
-
     border-top:1px solid #ddd;
 }
 
 .total{
-
     display:flex;
-
     justify-content:space-between;
-
     font-size:20px;
-
     font-weight:bold;
-
     margin-bottom:12px;
 }
 
 .checkout{
-
     width:100%;
-
     padding:13px;
-
     background:#111;
-
-    color:white;
-
+    color:#fff;
     border:0;
-
     border-radius:4px;
-
     cursor:pointer;
 }
 
 
-/* =========================================================
+/* =====================================================
    MODALS
-========================================================= */
+===================================================== */
 
 .modal{
-
     position:fixed;
-
     inset:0;
 
     background:rgba(0,0,0,.75);
@@ -1015,11 +790,9 @@ footer li a:hover{
     display:none;
 
     align-items:center;
-
     justify-content:center;
 
     padding:20px;
-
     overflow-y:auto;
 }
 
@@ -1028,38 +801,27 @@ footer li a:hover{
 }
 
 .login-box{
-
     width:400px;
-
     max-width:100%;
 
-    background:white;
+    background:#fff;
 
     padding:30px;
-
     border-radius:10px;
 
-    box-shadow:
-    0 20px 60px rgba(0,0,0,.3);
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
 }
 
 .login-box h2{
-
     text-align:center;
-
     margin-bottom:20px;
 }
 
 .close-modal{
-
     float:left;
-
     border:0;
-
     background:none;
-
     font-size:25px;
-
     cursor:pointer;
 }
 
@@ -1068,29 +830,20 @@ footer li a:hover{
 }
 
 .form-group label{
-
     display:block;
-
     margin-bottom:5px;
-
     font-weight:bold;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea{
-
     width:100%;
-
     padding:11px;
-
     border:1px solid #ddd;
-
     border-radius:5px;
-
     outline:none;
-
-    background:white;
+    background:#fff;
 }
 
 .form-group textarea{
@@ -1098,74 +851,53 @@ footer li a:hover{
 }
 
 .login-btn{
-
     width:100%;
-
     padding:12px;
-
     background:#111;
-
-    color:white;
-
+    color:#fff;
     border:0;
-
     border-radius:5px;
-
     cursor:pointer;
 }
 
 .login-error{
-
     color:red;
-
     text-align:center;
-
     margin-top:10px;
 }
 
 
-/* =========================================================
+/* =====================================================
    IMAGE PREVIEW
-========================================================= */
+===================================================== */
 
 .image-preview{
-
     margin-top:10px;
-
     display:none;
-
     text-align:center;
 }
 
 .image-preview img{
-
     width:130px;
     height:130px;
-
     object-fit:cover;
-
     border-radius:8px;
-
     border:1px solid #ddd;
 }
 
 
-/* =========================================================
+/* =====================================================
    ADMIN PANEL
-========================================================= */
+===================================================== */
 
 .admin-panel{
-
     position:fixed;
-
     inset:0;
-
     z-index:4500;
 
     background:#f5f5f5;
 
     display:none;
-
     overflow-y:auto;
 }
 
@@ -1174,21 +906,16 @@ footer li a:hover{
 }
 
 .admin-header{
-
     background:#111;
-
-    color:white;
+    color:#fff;
 
     padding:15px 25px;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
     position:sticky;
-
     top:0;
 
     z-index:20;
@@ -1199,54 +926,37 @@ footer li a:hover{
 }
 
 .admin-header button{
-
     background:#c62828;
-
-    color:white;
-
+    color:#fff;
     border:0;
-
     padding:8px 18px;
-
     border-radius:4px;
-
     cursor:pointer;
 }
 
 .admin-container{
-
     max-width:1250px;
-
     margin:auto;
-
     padding:30px 20px;
 }
 
 
-/* DASHBOARD */
+/* =====================================================
+   DASHBOARD
+===================================================== */
 
 .dashboard-cards{
-
     display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:15px;
-
     margin-bottom:25px;
 }
 
 .dashboard-card{
-
-    background:white;
-
+    background:#fff;
     padding:20px;
-
     border-radius:8px;
-
-    box-shadow:
-    0 3px 15px rgba(0,0,0,.05);
+    box-shadow:0 3px 15px rgba(0,0,0,.05);
 }
 
 .dashboard-card h3{
@@ -1254,46 +964,35 @@ footer li a:hover{
 }
 
 .dashboard-card strong{
-
     display:block;
-
     margin-top:8px;
 
     font-family:Arial;
-
     font-size:27px;
 }
 
 
-/* ADMIN TABS */
+/* =====================================================
+   ADMIN TABS
+===================================================== */
 
 .admin-tabs{
-
     display:flex;
-
     gap:8px;
-
     margin-bottom:20px;
 }
 
 .admin-tab{
-
     padding:10px 20px;
-
     border:0;
-
-    background:white;
-
+    background:#fff;
     cursor:pointer;
-
     border-radius:5px;
 }
 
 .admin-tab.active{
-
     background:#111;
-
-    color:white;
+    color:#fff;
 }
 
 .admin-section{
@@ -1305,37 +1004,27 @@ footer li a:hover{
 }
 
 
-/* =========================================================
-   ORDERS TABLE
-========================================================= */
+/* =====================================================
+   ORDERS
+===================================================== */
 
 .table-wrap{
-
-    background:white;
-
+    background:#fff;
     border-radius:8px;
-
     overflow-x:auto;
 }
 
 .admin-table{
-
     width:100%;
-
     border-collapse:collapse;
-
     min-width:950px;
 }
 
 .admin-table th,
 .admin-table td{
-
     padding:12px;
-
     border-bottom:1px solid #eee;
-
     text-align:right;
-
     vertical-align:top;
 }
 
@@ -1344,51 +1033,41 @@ footer li a:hover{
 }
 
 .admin-table select{
-
     padding:6px;
-
     border:1px solid #ddd;
-
     border-radius:5px;
 }
 
 
-/* =========================================================
+/* =====================================================
    ADMIN PRODUCT FORM
-========================================================= */
+===================================================== */
 
 .admin-product-form{
-
-    background:white;
-
+    background:#fff;
     padding:25px;
-
     border-radius:8px;
-
     max-width:700px;
 }
 
 
-/* =========================================================
+/* =====================================================
    ADMIN PRODUCT LIST
-========================================================= */
+===================================================== */
 
 .admin-product-list{
     margin-top:25px;
 }
 
 .admin-product-row{
-
-    background:white;
+    background:#fff;
 
     display:flex;
-
     align-items:center;
 
     gap:15px;
 
     padding:12px;
-
     margin-bottom:10px;
 
     border-radius:7px;
@@ -1397,14 +1076,12 @@ footer li a:hover{
 }
 
 .admin-product-row img{
-
     width:70px;
     height:70px;
 
     object-fit:cover;
 
     border-radius:6px;
-
     border:1px solid #eee;
 }
 
@@ -1413,93 +1090,82 @@ footer li a:hover{
 }
 
 .edit-product{
-
     background:#c89b3c;
-
-    color:white;
-
+    color:#fff;
     border:0;
-
     padding:8px 14px;
-
     border-radius:4px;
-
     cursor:pointer;
-}
-
-.edit-product:hover{
-    background:#9d7428;
 }
 
 .delete-product{
-
     background:#c62828;
-
-    color:white;
-
+    color:#fff;
     border:0;
-
     padding:8px 14px;
-
     cursor:pointer;
-
     border-radius:4px;
 }
 
 
-/* =========================================================
+/* =====================================================
    EDIT PRODUCT
-========================================================= */
+===================================================== */
 
 .edit-modal-box{
-
     width:600px;
-
     max-width:100%;
-
     max-height:92vh;
-
     overflow-y:auto;
 
-    background:white;
+    background:#fff;
 
     padding:30px;
-
     border-radius:10px;
 }
 
 .edit-preview{
-
     text-align:center;
-
     margin:15px 0;
 }
 
 .edit-preview img{
-
     width:140px;
     height:140px;
 
     object-fit:cover;
 
     border-radius:8px;
-
     border:1px solid #ddd;
 }
 
 .current-image-text{
-
     color:#777;
-
     font-size:14px;
-
     margin-top:5px;
 }
 
 
-/* =========================================================
+/* =====================================================
+   LOADING
+===================================================== */
+
+.firebase-loading{
+    text-align:center;
+    padding:25px;
+    color:#777;
+}
+
+.save-status{
+    margin-top:10px;
+    color:var(--green);
+    font-weight:bold;
+}
+
+
+/* =====================================================
    RESPONSIVE
-========================================================= */
+===================================================== */
 
 @media(max-width:900px){
 
@@ -1511,10 +1177,6 @@ footer li a:hover{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .features{
-        grid-template-columns:repeat(3,1fr);
-    }
-
     .footer-grid{
         grid-template-columns:1fr 1fr;
     }
@@ -1523,7 +1185,6 @@ footer li a:hover{
         grid-template-columns:repeat(2,1fr);
     }
 }
-
 
 @media(max-width:650px){
 
@@ -1597,47 +1258,35 @@ footer li a:hover{
     .admin-header h2{
         font-size:16px;
     }
-
-    .admin-product-row{
-        align-items:flex-start;
-    }
-
-    .admin-product-info{
-        min-width:180px;
-    }
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =========================================================
+<!-- =====================================================
      TOP BAR
-========================================================= -->
+===================================================== -->
 
 <div class="topbar">
 
-<strong>
-طاہر پرفیوم سٹور
-</strong>
+<strong>طاہر پرفیوم سٹور</strong>
 
 — پاکستان بھر میں ڈیلیوری دستیاب ہے
 
 </div>
 
 
-<!-- =========================================================
+<!-- =====================================================
      HEADER
-========================================================= -->
+===================================================== -->
 
 <header>
 
 <div class="header-inner">
-
 
 <a href="#home" class="logo">
 
@@ -1702,25 +1351,15 @@ TAHIR PERFUME STORE
 
 <div class="nav-inner">
 
-<a href="#home">
-ہوم
-</a>
+<a href="#home">ہوم</a>
 
-<a href="#categories">
-کیٹیگریز
-</a>
+<a href="#categories">کیٹیگریز</a>
 
-<a href="#products">
-پرفیوم
-</a>
+<a href="#products">پرفیوم</a>
 
-<a href="#about">
-ہمارے بارے میں
-</a>
+<a href="#about">ہمارے بارے میں</a>
 
-<a href="#contact">
-رابطہ
-</a>
+<a href="#contact">رابطہ</a>
 
 </div>
 
@@ -1729,13 +1368,11 @@ TAHIR PERFUME STORE
 </header>
 
 
-<!-- =========================================================
+<!-- =====================================================
      HERO
-========================================================= -->
+===================================================== -->
 
-<section
-    class="hero"
-    id="home">
+<section class="hero" id="home">
 
 <div class="hero-content">
 
@@ -1758,12 +1395,8 @@ TAHIR PERFUME STORE
 
 </p>
 
-<a
-    href="#products"
-    class="gold-btn">
-
+<a href="#products" class="gold-btn">
 ابھی خریدیں
-
 </a>
 
 </div>
@@ -1771,19 +1404,16 @@ TAHIR PERFUME STORE
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      FEATURES
-     FREE DELIVERY REMOVED
-========================================================= -->
+===================================================== -->
 
 <section class="features">
 
 
 <div class="feature">
 
-<div class="feature-icon">
-💎
-</div>
+<div class="feature-icon">💎</div>
 
 <h3>
 اعلیٰ معیار
@@ -1798,9 +1428,7 @@ TAHIR PERFUME STORE
 
 <div class="feature">
 
-<div class="feature-icon">
-🔒
-</div>
+<div class="feature-icon">🔒</div>
 
 <h3>
 محفوظ آرڈر
@@ -1815,9 +1443,7 @@ Cash on Delivery
 
 <div class="feature">
 
-<div class="feature-icon">
-💬
-</div>
+<div class="feature-icon">💬</div>
 
 <h3>
 کسٹمر سپورٹ
@@ -1833,13 +1459,11 @@ Cash on Delivery
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      CATEGORIES
-========================================================= -->
+===================================================== -->
 
-<section
-    class="section"
-    id="categories">
+<section class="section" id="categories">
 
 <div class="section-title">
 
@@ -1856,64 +1480,32 @@ Cash on Delivery
 
 <div class="categories">
 
-
-<a
-    class="category cat1"
-    href="#products">
-
-<h3>
-مردانہ پرفیوم
-</h3>
-
+<a class="category cat1" href="#products">
+<h3>مردانہ پرفیوم</h3>
 </a>
 
-
-<a
-    class="category cat2"
-    href="#products">
-
-<h3>
-خواتین کے پرفیوم
-</h3>
-
+<a class="category cat2" href="#products">
+<h3>خواتین کے پرفیوم</h3>
 </a>
 
-
-<a
-    class="category cat3"
-    href="#products">
-
-<h3>
-پریمیم عطر
-</h3>
-
+<a class="category cat3" href="#products">
+<h3>پریمیم عطر</h3>
 </a>
 
-
-<a
-    class="category cat4"
-    href="#products">
-
-<h3>
-گفٹ سیٹس
-</h3>
-
+<a class="category cat4" href="#products">
+<h3>گفٹ سیٹس</h3>
 </a>
-
 
 </div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      PRODUCTS
-========================================================= -->
+===================================================== -->
 
-<section
-    class="section"
-    id="products">
-
+<section class="section" id="products">
 
 <div class="section-title">
 
@@ -1935,67 +1527,55 @@ BEST COLLECTION
 <div class="products-top">
 
 <strong id="productNumber">
-0 Products
+Loading Products...
 </strong>
 
 
 <div class="filters">
 
-
 <button
     class="filter-btn active"
     onclick="filterProducts('all',this)">
-
 سب
-
 </button>
-
 
 <button
     class="filter-btn"
     onclick="filterProducts('men',this)">
-
 مردانہ
-
 </button>
-
 
 <button
     class="filter-btn"
     onclick="filterProducts('women',this)">
-
 زنانہ
-
 </button>
-
 
 <button
     class="filter-btn"
     onclick="filterProducts('attar',this)">
-
 عطر
-
 </button>
 
-
 </div>
 
 </div>
 
 
-<div
-    id="productGrid"
-    class="products">
+<div id="productGrid" class="products">
 
+<div class="firebase-loading">
+Products لوڈ ہو رہے ہیں...
 </div>
 
+</div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      OFFER
-========================================================= -->
+===================================================== -->
 
 <section class="offer">
 
@@ -2007,28 +1587,20 @@ BEST COLLECTION
 منتخب پرفیومز پر خصوصی رعایت
 </p>
 
-<a
-    href="#products"
-    class="gold-btn">
-
+<a href="#products" class="gold-btn">
 آفر دیکھیں
-
 </a>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      ABOUT
-========================================================= -->
+===================================================== -->
 
-<section
-    class="section"
-    id="about">
-
+<section class="section" id="about">
 
 <div class="about">
-
 
 <img
     class="about-img"
@@ -2039,21 +1611,13 @@ BEST COLLECTION
 
 <div>
 
-<small
-    style="
-    color:#c89b3c;
-    font-weight:bold;
-    ">
-
+<small style="color:#c89b3c;font-weight:bold;">
 طاہر پرفیوم سٹور
-
 </small>
-
 
 <h2>
 خوشبو جو آپ کو یاد رکھے
 </h2>
-
 
 <p>
 
@@ -2064,13 +1628,8 @@ BEST COLLECTION
 
 </p>
 
-
-<a
-    href="#contact"
-    class="gold-btn">
-
+<a href="#contact" class="gold-btn">
 ہم سے رابطہ کریں
-
 </a>
 
 </div>
@@ -2080,12 +1639,11 @@ BEST COLLECTION
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      FOOTER
-========================================================= -->
+===================================================== -->
 
 <footer id="contact">
-
 
 <div class="footer-grid">
 
@@ -2114,21 +1672,13 @@ Premium perfumes اور attars کا قابل اعتماد
 
 <ul>
 
-<li>
-<a href="#home">ہوم</a>
-</li>
+<li><a href="#home">ہوم</a></li>
 
-<li>
-<a href="#products">پرفیومز</a>
-</li>
+<li><a href="#products">پرفیومز</a></li>
 
-<li>
-<a href="#categories">کیٹیگریز</a>
-</li>
+<li><a href="#categories">کیٹیگریز</a></li>
 
-<li>
-<a href="#about">ہمارے بارے میں</a>
-</li>
+<li><a href="#about">ہمارے بارے میں</a></li>
 
 </ul>
 
@@ -2143,30 +1693,18 @@ Premium perfumes اور attars کا قابل اعتماد
 
 <ul>
 
-<li>
-رابطہ کریں
-</li>
+<li>رابطہ کریں</li>
 
-<li>
-ڈیلیوری معلومات
-</li>
+<li>ڈیلیوری معلومات</li>
 
-<li>
-واپسی کی پالیسی
-</li>
+<li>واپسی کی پالیسی</li>
 
-<li>
-پرائیویسی پالیسی
-</li>
+<li>پرائیویسی پالیسی</li>
 
 </ul>
 
 </div>
 
-
-<!-- =====================================================
-     CONTACT — UPDATED
-===================================================== -->
 
 <div>
 
@@ -2190,9 +1728,7 @@ Premium perfumes اور attars کا قابل اعتماد
 
 
 <li>
-
 📍 پاکستان
-
 </li>
 
 
@@ -2222,13 +1758,12 @@ Premium perfumes اور attars کا قابل اعتماد
 
 </div>
 
-
 </footer>
 
 
-<!-- =========================================================
+<!-- =====================================================
      WHATSAPP
-========================================================= -->
+===================================================== -->
 
 <a
     class="whatsapp"
@@ -2240,14 +1775,11 @@ Premium perfumes اور attars کا قابل اعتماد
 </a>
 
 
-<!-- =========================================================
+<!-- =====================================================
      CART
-========================================================= -->
+===================================================== -->
 
-<aside
-    id="cartPanel"
-    class="cart-panel">
-
+<aside id="cartPanel" class="cart-panel">
 
 <div class="cart-head">
 
@@ -2262,15 +1794,11 @@ Premium perfumes اور attars کا قابل اعتماد
 </div>
 
 
-<div
-    id="cartItems"
-    class="cart-items">
-
+<div id="cartItems" class="cart-items">
 </div>
 
 
 <div class="cart-bottom">
-
 
 <div class="total">
 
@@ -2278,42 +1806,31 @@ Premium perfumes اور attars کا قابل اعتماد
 کل:
 </span>
 
-<span
-    id="cartTotal"
-    class="english">
-
+<span id="cartTotal" class="english">
 Rs. 0
-
 </span>
 
 </div>
 
 
-<button
-    class="checkout"
-    onclick="checkout()">
+<button class="checkout" onclick="checkout()">
 
 WhatsApp پر آرڈر کریں
 
 </button>
-
 
 </div>
 
 </aside>
 
 
-<!-- =========================================================
+<!-- =====================================================
      ADMIN LOGIN
-========================================================= -->
+===================================================== -->
 
-<div
-    id="loginModal"
-    class="modal">
-
+<div id="loginModal" class="modal">
 
 <div class="login-box">
-
 
 <button
     class="close-modal"
@@ -2322,7 +1839,6 @@ WhatsApp پر آرڈر کریں
 ×
 
 </button>
-
 
 <h2>
 Admin Login
@@ -2373,26 +1889,20 @@ Login
 <div
     id="loginError"
     class="login-error">
-
-</div>
-
-
 </div>
 
 </div>
 
+</div>
 
-<!-- =========================================================
+
+<!-- =====================================================
      EDIT PRODUCT MODAL
-========================================================= -->
+===================================================== -->
 
-<div
-    id="editProductModal"
-    class="modal">
-
+<div id="editProductModal" class="modal">
 
 <div class="edit-modal-box">
-
 
 <button
     class="close-modal"
@@ -2403,11 +1913,7 @@ Login
 </button>
 
 
-<h2
-    style="
-    text-align:center;
-    margin-bottom:20px;
-    ">
+<h2 style="text-align:center;margin-bottom:20px;">
 
 Product Update کریں
 
@@ -2440,8 +1946,7 @@ Product Name
 Category
 </label>
 
-<select
-    id="editProductCategory">
+<select id="editProductCategory">
 
 <option value="men">
 مردانہ
@@ -2530,8 +2035,7 @@ Old Price
 Description
 </label>
 
-<textarea
-    id="editProductDescription">
+<textarea id="editProductDescription">
 </textarea>
 
 </div>
@@ -2545,33 +2049,26 @@ Product Update کریں
 
 </button>
 
-
 </div>
 
 </div>
 
 
-<!-- =========================================================
+<!-- =====================================================
      ADMIN PANEL
-========================================================= -->
+===================================================== -->
 
-<div
-    id="adminPanel"
-    class="admin-panel">
-
+<div id="adminPanel" class="admin-panel">
 
 <div class="admin-header">
-
 
 <h2>
 طاہر پرفیوم سٹور — Admin Panel
 </h2>
 
-
 <button onclick="logoutAdmin()">
 Logout
 </button>
-
 
 </div>
 
@@ -2649,12 +2146,10 @@ Rs. 0
 
 </div>
 
-
 </div>
 
 
 <div class="admin-tabs">
-
 
 <button
     class="admin-tab active"
@@ -2673,72 +2168,44 @@ Products
 
 </button>
 
-
 </div>
 
 
-<!-- ORDERS -->
+<!-- =====================================================
+     ORDERS
+===================================================== -->
 
-<div
-    id="orders"
-    class="admin-section active">
-
+<div id="orders" class="admin-section active">
 
 <h2 style="margin-bottom:15px;">
-
 تمام Orders
-
 </h2>
 
 
 <div class="table-wrap">
 
-
 <table class="admin-table">
-
 
 <thead>
 
 <tr>
 
-<th>
-Order
-</th>
-
-<th>
-Customer
-</th>
-
-<th>
-Phone
-</th>
-
-<th>
-Address
-</th>
-
-<th>
-Products
-</th>
-
-<th>
-Total
-</th>
-
-<th>
-Status
-</th>
+<th>Order</th>
+<th>Customer</th>
+<th>Phone</th>
+<th>Address</th>
+<th>Products</th>
+<th>Total</th>
+<th>Status</th>
 
 </tr>
 
 </thead>
 
 
-<tbody
-    id="ordersTable">
+<tbody id="ordersTable">
 
 </tbody>
-
 
 </table>
 
@@ -2747,17 +2214,14 @@ Status
 </div>
 
 
-<!-- PRODUCTS -->
+<!-- =====================================================
+     PRODUCTS ADMIN
+===================================================== -->
 
-<div
-    id="productsAdmin"
-    class="admin-section">
-
+<div id="productsAdmin" class="admin-section">
 
 <h2 style="margin-bottom:15px;">
-
 نیا Product Add کریں
-
 </h2>
 
 
@@ -2785,8 +2249,7 @@ Product Name
 Category
 </label>
 
-<select
-    id="newProductCategory">
+<select id="newProductCategory">
 
 <option value="men">
 مردانہ
@@ -2840,7 +2303,7 @@ Old Price
 <div class="form-group">
 
 <label>
-Product Image
+Product Image Attachment
 </label>
 
 <input
@@ -2850,10 +2313,7 @@ Product Image
     onchange="previewNewImage(this)"
 >
 
-
-<div
-    id="newImagePreview"
-    class="image-preview">
+<div id="newImagePreview" class="image-preview">
 
 <img
     id="newPreviewImage"
@@ -2889,14 +2349,13 @@ Product Add کریں
 </button>
 
 
+<div id="productSaveStatus" class="save-status">
+</div>
+
 </div>
 
 
-<h2
-    style="
-    margin-top:30px;
-    margin-bottom:15px;
-    ">
+<h2 style="margin-top:30px;margin-bottom:15px;">
 
 تمام Products
 
@@ -2906,10 +2365,6 @@ Product Add کریں
 <div
     id="adminProductList"
     class="admin-product-list">
-
-</div>
-
-
 </div>
 
 
@@ -2922,9 +2377,27 @@ Product Add کریں
 
 <script>
 
-/* =========================================================
+/* =====================================================
+   FIREBASE DATABASE
+===================================================== */
+
+const FIREBASE_DB =
+    "https://traindawateislami-default-rtdb.firebaseio.com";
+
+
+const FIREBASE_PRODUCTS =
+    FIREBASE_DB +
+    "/tahirPerfume/products";
+
+
+const FIREBASE_ORDERS =
+    FIREBASE_DB +
+    "/tahirPerfume/orders";
+
+
+/* =====================================================
    DEFAULT PRODUCTS
-========================================================= */
+===================================================== */
 
 const defaultProducts = [
 
@@ -2934,7 +2407,10 @@ const defaultProducts = [
     category:"men",
     price:2400,
     oldPrice:3000,
-    image:"https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=700&q=80",
+
+    image:
+    "https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=700&q=80",
+
     description:"پریمیم مردانہ خوشبو"
 },
 
@@ -2944,7 +2420,10 @@ const defaultProducts = [
     category:"women",
     price:2100,
     oldPrice:2500,
-    image:"https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=700&q=80",
+
+    image:
+    "https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=700&q=80",
+
     description:"دلکش زنانہ خوشبو"
 },
 
@@ -2954,7 +2433,10 @@ const defaultProducts = [
     category:"attar",
     price:1500,
     oldPrice:2000,
-    image:"https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=700&q=80",
+
+    image:
+    "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=700&q=80",
+
     description:"لمبی دیر تک رہنے والی خوشبو"
 },
 
@@ -2964,7 +2446,10 @@ const defaultProducts = [
     category:"men",
     price:1800,
     oldPrice:2200,
-    image:"https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=700&q=80",
+
+    image:
+    "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=700&q=80",
+
     description:"پریمیم مسک خوشبو"
 },
 
@@ -2974,7 +2459,10 @@ const defaultProducts = [
     category:"women",
     price:2000,
     oldPrice:2500,
-    image:"https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=700&q=80",
+
+    image:
+    "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=700&q=80",
+
     description:"نرم اور خوبصورت خوشبو"
 },
 
@@ -2984,7 +2472,10 @@ const defaultProducts = [
     category:"attar",
     price:2700,
     oldPrice:3000,
-    image:"https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=700&q=80",
+
+    image:
+    "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=700&q=80",
+
     description:"خالص عربی عطر"
 },
 
@@ -2994,7 +2485,10 @@ const defaultProducts = [
     category:"men",
     price:2200,
     oldPrice:2600,
-    image:"https://images.unsplash.com/photo-1595425970377-c9703cf48b6c?auto=format&fit=crop&w=700&q=80",
+
+    image:
+    "https://images.unsplash.com/photo-1595425970377-c9703cf48b6c?auto=format&fit=crop&w=700&q=80",
+
     description:"Bold اور Royal خوشبو"
 },
 
@@ -3004,37 +2498,228 @@ const defaultProducts = [
     category:"attar",
     price:1600,
     oldPrice:2000,
-    image:"https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=700&q=80",
+
+    image:
+    "https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=700&q=80",
+
     description:"نرم، صاف اور دلکش"
 }
 
 ];
 
 
-/* =========================================================
-   PRODUCT STORAGE
-========================================================= */
+/* =====================================================
+   FIREBASE GET
+===================================================== */
 
-function getProducts(){
+async function firebaseGet(path){
 
-    let products =
-        localStorage.getItem("tahirProducts");
+    try{
 
-    if(!products){
+        const response =
+            await fetch(
+                path + ".json"
+            );
 
-        localStorage.setItem(
-            "tahirProducts",
-            JSON.stringify(defaultProducts)
-        );
+        if(!response.ok){
+            throw new Error("Firebase GET failed");
+        }
 
-        return defaultProducts;
+        return await response.json();
+
+    }catch(error){
+
+        console.error(error);
+
+        return null;
     }
-
-    return JSON.parse(products);
 }
 
 
-function saveProducts(products){
+/* =====================================================
+   FIREBASE PUT
+===================================================== */
+
+async function firebasePut(
+    path,
+    data
+){
+
+    try{
+
+        const response =
+            await fetch(
+                path + ".json",
+                {
+                    method:"PUT",
+
+                    headers:{
+                        "Content-Type":
+                        "application/json"
+                    },
+
+                    body:
+                        JSON.stringify(data)
+                }
+            );
+
+        if(!response.ok){
+            throw new Error("Firebase PUT failed");
+        }
+
+        return await response.json();
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "Firebase میں data save نہیں ہو سکا۔"
+        );
+
+        return null;
+    }
+}
+
+
+/* =====================================================
+   FIREBASE POST
+===================================================== */
+
+async function firebasePost(
+    path,
+    data
+){
+
+    try{
+
+        const response =
+            await fetch(
+                path + ".json",
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                        "application/json"
+                    },
+
+                    body:
+                        JSON.stringify(data)
+                }
+            );
+
+        if(!response.ok){
+            throw new Error("Firebase POST failed");
+        }
+
+        return await response.json();
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "Order Database میں save نہیں ہو سکا۔"
+        );
+
+        return null;
+    }
+}
+
+
+/* =====================================================
+   FIREBASE PATCH
+===================================================== */
+
+async function firebasePatch(
+    path,
+    data
+){
+
+    try{
+
+        const response =
+            await fetch(
+                path + ".json",
+                {
+                    method:"PATCH",
+
+                    headers:{
+                        "Content-Type":
+                        "application/json"
+                    },
+
+                    body:
+                        JSON.stringify(data)
+                }
+            );
+
+        if(!response.ok){
+            throw new Error("Firebase PATCH failed");
+        }
+
+        return await response.json();
+
+    }catch(error){
+
+        console.error(error);
+
+        return null;
+    }
+}
+
+
+/* =====================================================
+   FIREBASE DELETE
+===================================================== */
+
+async function firebaseDelete(path){
+
+    try{
+
+        const response =
+            await fetch(
+                path + ".json",
+                {
+                    method:"DELETE"
+                }
+            );
+
+        return response.ok;
+
+    }catch(error){
+
+        console.error(error);
+
+        return false;
+    }
+}
+
+
+/* =====================================================
+   PRODUCTS - LOCAL CACHE
+===================================================== */
+
+function getProducts(){
+
+    const saved =
+        localStorage.getItem(
+            "tahirProducts"
+        );
+
+    if(saved){
+
+        try{
+            return JSON.parse(saved);
+        }catch(e){}
+    }
+
+    return defaultProducts;
+}
+
+
+function saveProductsLocal(products){
 
     localStorage.setItem(
         "tahirProducts",
@@ -3043,16 +2728,123 @@ function saveProducts(products){
 }
 
 
-/* =========================================================
+/* =====================================================
+   FIREBASE PRODUCTS -> ARRAY
+===================================================== */
+
+function firebaseProductsToArray(data){
+
+    if(!data){
+        return [];
+    }
+
+    if(Array.isArray(data)){
+        return data.filter(Boolean);
+    }
+
+    return Object.values(data);
+}
+
+
+/* =====================================================
+   LOAD PRODUCTS FROM FIREBASE
+===================================================== */
+
+async function loadProductsFromFirebase(){
+
+    const data =
+        await firebaseGet(
+            FIREBASE_PRODUCTS
+        );
+
+    if(!data){
+
+        displayProducts(
+            getProducts()
+        );
+
+        return;
+    }
+
+    const products =
+        firebaseProductsToArray(data);
+
+    if(products.length){
+
+        saveProductsLocal(products);
+
+        displayProducts(products);
+
+        loadAdminProducts();
+
+        document
+            .getElementById("totalProducts")
+            .textContent =
+            products.length;
+    }
+}
+
+
+/* =====================================================
+   SAVE COMPLETE PRODUCTS
+===================================================== */
+
+async function saveProductsToFirebase(
+    products
+){
+
+    const productObject = {};
+
+    products.forEach(product => {
+
+        productObject[
+            String(product.id)
+        ] = product;
+
+    });
+
+    return await firebasePut(
+        FIREBASE_PRODUCTS,
+        productObject
+    );
+}
+
+
+/* =====================================================
    DISPLAY PRODUCTS
-========================================================= */
+===================================================== */
 
 function displayProducts(
     products = getProducts()
 ){
 
     const grid =
-        document.getElementById("productGrid");
+        document.getElementById(
+            "productGrid"
+        );
+
+    if(!products.length){
+
+        grid.innerHTML = `
+            <div
+                style="
+                grid-column:1/-1;
+                text-align:center;
+                padding:40px;
+                ">
+
+                کوئی Product موجود نہیں۔
+
+            </div>
+        `;
+
+        document
+            .getElementById("productNumber")
+            .textContent =
+            "0 Products";
+
+        return;
+    }
 
     grid.innerHTML = "";
 
@@ -3094,7 +2886,7 @@ function displayProducts(
             <img
                 class="product-img"
                 src="${product.image}"
-                alt="${product.name}"
+                alt="${escapeHtml(product.name)}"
             >
 
             <div class="product-info">
@@ -3104,11 +2896,11 @@ function displayProducts(
                 </div>
 
                 <div class="product-name">
-                    ${product.name}
+                    ${escapeHtml(product.name)}
                 </div>
 
                 <div class="product-desc">
-                    ${product.description || ""}
+                    ${escapeHtml(product.description || "")}
                 </div>
 
                 <div class="price">
@@ -3144,34 +2936,59 @@ function displayProducts(
             </div>
 
         </div>
-
         `;
     });
 
-    document.getElementById(
-        "productNumber"
-    ).textContent =
+    document
+        .getElementById("productNumber")
+        .textContent =
         products.length + " Products";
 }
 
 
-/* =========================================================
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(value){
+
+    return String(value)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+}
+
+
+/* =====================================================
    CART
-========================================================= */
+===================================================== */
 
 let cart =
     JSON.parse(
-        localStorage.getItem("tahirCart") || "[]"
+        localStorage.getItem(
+            "tahirCart"
+        ) || "[]"
     );
+
+
+function saveCart(){
+
+    localStorage.setItem(
+        "tahirCart",
+        JSON.stringify(cart)
+    );
+}
 
 
 function addToCart(productId){
 
-    const products = getProducts();
-
     const product =
-        products.find(
-            item => item.id === productId
+        getProducts().find(
+            item =>
+                Number(item.id) ===
+                Number(productId)
         );
 
     if(!product){
@@ -3180,7 +2997,9 @@ function addToCart(productId){
 
     const existing =
         cart.find(
-            item => item.id === productId
+            item =>
+                Number(item.id) ===
+                Number(productId)
         );
 
     if(existing){
@@ -3197,71 +3016,68 @@ function addToCart(productId){
     }
 
     saveCart();
-
     updateCart();
-
     openCart();
-}
-
-
-function saveCart(){
-
-    localStorage.setItem(
-        "tahirCart",
-        JSON.stringify(cart)
-    );
 }
 
 
 function updateCart(){
 
     const items =
-        document.getElementById("cartItems");
+        document.getElementById(
+            "cartItems"
+        );
 
     const count =
-        document.getElementById("cartCount");
+        document.getElementById(
+            "cartCount"
+        );
 
     const totalElement =
-        document.getElementById("cartTotal");
+        document.getElementById(
+            "cartTotal"
+        );
 
     let quantity = 0;
     let totalPrice = 0;
 
     cart.forEach(item => {
 
-        quantity += item.qty;
+        quantity += Number(item.qty);
 
         totalPrice +=
             Number(item.price) *
-            item.qty;
+            Number(item.qty);
 
     });
 
-    count.textContent = quantity;
+    count.textContent =
+        quantity;
 
     totalElement.textContent =
         "Rs. " +
         totalPrice.toLocaleString();
 
+
     if(!cart.length){
 
         items.innerHTML = `
 
-        <p
-            style="
-            text-align:center;
-            color:#888;
-            margin-top:30px;
-            ">
+            <p
+                style="
+                text-align:center;
+                color:#888;
+                margin-top:30px;
+                ">
 
-            آپ کا کارٹ خالی ہے۔
+                آپ کا کارٹ خالی ہے۔
 
-        </p>
-
+            </p>
         `;
 
         return;
     }
+
 
     items.innerHTML =
         cart.map(
@@ -3271,13 +3087,13 @@ function updateCart(){
 
                 <img
                     src="${item.image}"
-                    alt="${item.name}"
+                    alt="${escapeHtml(item.name)}"
                 >
 
                 <div class="cart-item-info">
 
                     <h4>
-                        ${item.name}
+                        ${escapeHtml(item.name)}
                     </h4>
 
                     <p class="english">
@@ -3325,7 +3141,9 @@ function changeQty(index,amount){
     cart[index].qty += amount;
 
     if(cart[index].qty <= 0){
+
         cart.splice(index,1);
+
     }
 
     saveCart();
@@ -3358,18 +3176,21 @@ function closeCart(){
 }
 
 
-/* =========================================================
-   CHECKOUT
-========================================================= */
+/* =====================================================
+   CHECKOUT + FIREBASE ORDER
+===================================================== */
 
-function checkout(){
+async function checkout(){
 
     if(!cart.length){
 
-        alert("آپ کا کارٹ خالی ہے۔");
+        alert(
+            "آپ کا cart خالی ہے۔"
+        );
 
         return;
     }
+
 
     const name =
         prompt("اپنا نام لکھیں:");
@@ -3378,12 +3199,14 @@ function checkout(){
         return;
     }
 
+
     const phone =
         prompt("اپنا موبائل نمبر لکھیں:");
 
     if(!phone){
         return;
     }
+
 
     const address =
         prompt("اپنا مکمل پتہ لکھیں:");
@@ -3392,15 +3215,17 @@ function checkout(){
         return;
     }
 
+
     let total = 0;
 
     cart.forEach(item => {
 
         total +=
             Number(item.price) *
-            item.qty;
+            Number(item.qty);
 
     });
+
 
     const order = {
 
@@ -3409,8 +3234,7 @@ function checkout(){
             Date.now(),
 
         date:
-            new Date()
-            .toLocaleString("en-PK"),
+            new Date().toLocaleString("en-PK"),
 
         customer:name,
 
@@ -3423,9 +3247,9 @@ function checkout(){
 
                 name:item.name,
 
-                qty:item.qty,
+                qty:Number(item.qty),
 
-                price:item.price
+                price:Number(item.price)
 
             })),
 
@@ -3434,6 +3258,26 @@ function checkout(){
         status:"new"
 
     };
+
+
+    /* Firebase میں Order */
+
+    const firebaseResult =
+        await firebasePost(
+            FIREBASE_ORDERS,
+            order
+        );
+
+
+    if(firebaseResult){
+
+        order.firebaseId =
+            firebaseResult.name;
+
+    }
+
+
+    /* Local backup */
 
     let orders =
         JSON.parse(
@@ -3450,65 +3294,61 @@ function checkout(){
     );
 
 
+    /* WhatsApp Message */
+
     let message =
         "السلام علیکم، طاہر پرفیوم سٹور پر میرا آرڈر ہے:%0A%0A";
+
 
     message +=
         "Order ID: " +
         order.id +
         "%0A";
 
+
     message +=
         "نام: " +
         name +
         "%0A";
+
 
     message +=
         "فون: " +
         phone +
         "%0A";
 
+
     message +=
         "پتہ: " +
         address +
         "%0A%0A";
 
+
     cart.forEach(item => {
 
         message +=
-
             item.name +
             " × " +
             item.qty +
             " — Rs. " +
             (
-                item.price *
-                item.qty
+                Number(item.price) *
+                Number(item.qty)
             ) +
             "%0A";
 
     });
+
 
     message +=
         "%0Aکل رقم: Rs. " +
         total;
 
 
-    /* UPDATED WHATSAPP NUMBER */
-
-    const whatsappNumber =
-        "923142300764";
-
-
     window.open(
-
-        "https://wa.me/" +
-        whatsappNumber +
-        "?text=" +
+        "https://wa.me/923142300764?text=" +
         message,
-
         "_blank"
-
     );
 
 
@@ -3520,15 +3360,16 @@ function checkout(){
 
     closeCart();
 
+
     alert(
-        "آپ کا آرڈر Admin Panel میں save ہو گیا ہے۔"
+        "آپ کا Order Database میں save ہو گیا ہے۔"
     );
 }
 
 
-/* =========================================================
+/* =====================================================
    SEARCH
-========================================================= */
+===================================================== */
 
 function searchProducts(){
 
@@ -3539,15 +3380,18 @@ function searchProducts(){
             .toLowerCase()
             .trim();
 
+
     const products =
         getProducts().filter(
             product =>
-                product.name
+                String(product.name)
                     .toLowerCase()
                     .includes(value)
         );
 
+
     displayProducts(products);
+
 
     document
         .getElementById("products")
@@ -3571,9 +3415,9 @@ document
     );
 
 
-/* =========================================================
+/* =====================================================
    FILTER
-========================================================= */
+===================================================== */
 
 function filterProducts(
     category,
@@ -3582,30 +3426,37 @@ function filterProducts(
 
     document
         .querySelectorAll(".filter-btn")
-        .forEach(btn =>
-            btn.classList.remove("active")
+        .forEach(
+            btn =>
+                btn.classList.remove("active")
         );
+
 
     button.classList.add("active");
 
-    let products = getProducts();
+
+    let products =
+        getProducts();
+
 
     if(category !== "all"){
 
         products =
             products.filter(
                 product =>
-                    product.category === category
+                    product.category ===
+                    category
             );
     }
+
 
     displayProducts(products);
 }
 
 
-/* =========================================================
+/* =====================================================
    ADMIN LOGIN
-========================================================= */
+===================================================== */
 
 function openAdminLogin(){
 
@@ -3634,16 +3485,20 @@ function adminLogin(){
             .getElementById("adminUsername")
             .value;
 
+
     const password =
         document
             .getElementById("adminPassword")
             .value;
 
 
-    /* DEMO LOGIN
-       Username: admin
-       Password: 12345
+    /*
+        DEMO LOGIN
+
+        Username: admin
+        Password: 12345
     */
+
 
     if(
         username === "admin" &&
@@ -3654,6 +3509,7 @@ function adminLogin(){
             "tahirAdminLogin",
             "true"
         );
+
 
         closeAdminLogin();
 
@@ -3669,17 +3525,18 @@ function adminLogin(){
 }
 
 
-/* =========================================================
+/* =====================================================
    ADMIN PANEL
-========================================================= */
+===================================================== */
 
-function openAdminPanel(){
+async function openAdminPanel(){
 
     document
         .getElementById("adminPanel")
         .classList.add("show");
 
-    loadAdminDashboard();
+
+    await loadAdminDashboard();
 }
 
 
@@ -3689,15 +3546,16 @@ function logoutAdmin(){
         "tahirAdminLogin"
     );
 
+
     document
         .getElementById("adminPanel")
         .classList.remove("show");
 }
 
 
-/* =========================================================
+/* =====================================================
    ADMIN TABS
-========================================================= */
+===================================================== */
 
 function showAdminTab(
     tab,
@@ -3706,17 +3564,22 @@ function showAdminTab(
 
     document
         .querySelectorAll(".admin-tab")
-        .forEach(btn =>
-            btn.classList.remove("active")
+        .forEach(
+            btn =>
+                btn.classList.remove("active")
         );
+
 
     button.classList.add("active");
 
+
     document
         .querySelectorAll(".admin-section")
-        .forEach(section =>
-            section.classList.remove("active")
+        .forEach(
+            section =>
+                section.classList.remove("active")
         );
+
 
     document
         .getElementById(tab)
@@ -3724,18 +3587,22 @@ function showAdminTab(
 }
 
 
-/* =========================================================
+/* =====================================================
    ADMIN DASHBOARD
-========================================================= */
+===================================================== */
 
-function loadAdminDashboard(){
+async function loadAdminDashboard(){
 
-    loadOrders();
+    await loadProductsFromFirebase();
+
+    await loadOrdersFromFirebase();
 
     loadAdminProducts();
 
+
     const products =
         getProducts();
+
 
     document
         .getElementById("totalProducts")
@@ -3744,9 +3611,54 @@ function loadAdminDashboard(){
 }
 
 
-/* =========================================================
+/* =====================================================
+   LOAD ORDERS FROM FIREBASE
+===================================================== */
+
+async function loadOrdersFromFirebase(){
+
+    const data =
+        await firebaseGet(
+            FIREBASE_ORDERS
+        );
+
+
+    if(!data){
+
+        loadOrders();
+
+        return;
+    }
+
+
+    const orders =
+        Object.entries(data)
+        .map(
+            ([firebaseId,order]) => ({
+
+                firebaseId:
+                    firebaseId,
+
+                ...order
+
+            })
+        )
+        .reverse();
+
+
+    localStorage.setItem(
+        "tahirOrders",
+        JSON.stringify(orders)
+    );
+
+
+    loadOrders();
+}
+
+
+/* =====================================================
    LOAD ORDERS
-========================================================= */
+===================================================== */
 
 function loadOrders(){
 
@@ -3757,10 +3669,12 @@ function loadOrders(){
             ) || "[]"
         );
 
+
     document
         .getElementById("totalOrders")
         .textContent =
         orders.length;
+
 
     const newOrders =
         orders.filter(
@@ -3768,18 +3682,21 @@ function loadOrders(){
                 order.status === "new"
         ).length;
 
+
     document
         .getElementById("newOrders")
         .textContent =
         newOrders;
 
+
     const sales =
         orders.reduce(
             (sum,order) =>
                 sum +
-                Number(order.total),
+                Number(order.total || 0),
             0
         );
+
 
     document
         .getElementById("totalSales")
@@ -3787,10 +3704,12 @@ function loadOrders(){
         "Rs. " +
         sales.toLocaleString();
 
+
     const table =
         document.getElementById(
             "ordersTable"
         );
+
 
     if(!orders.length){
 
@@ -3816,6 +3735,7 @@ function loadOrders(){
         return;
     }
 
+
     table.innerHTML =
         orders.map(
             order => `
@@ -3831,30 +3751,35 @@ function loadOrders(){
                     <br>
 
                     <small>
-                        ${order.date}
+                        ${order.date || ""}
                     </small>
 
                 </td>
 
+
                 <td>
-                    ${order.customer}
+                    ${escapeHtml(order.customer || "")}
                 </td>
+
 
                 <td class="english">
-                    ${order.phone}
+                    ${escapeHtml(order.phone || "")}
                 </td>
 
+
                 <td>
-                    ${order.address}
+                    ${escapeHtml(order.address || "")}
                 </td>
 
+
                 <td>
 
-                    ${order.items
+                    ${
+                        (order.items || [])
                         .map(
                             item =>
                             `
-                            ${item.name}
+                            ${escapeHtml(item.name)}
                             ×
                             ${item.qty}
                             `
@@ -3864,19 +3789,22 @@ function loadOrders(){
 
                 </td>
 
+
                 <td class="english">
 
                     Rs.
-                    ${Number(order.total)
+                    ${Number(order.total || 0)
                         .toLocaleString()}
 
                 </td>
+
 
                 <td>
 
                     <select
                         onchange="
                         changeOrderStatus(
+                            '${order.firebaseId || ""}',
                             '${order.id}',
                             this.value
                         )">
@@ -3893,6 +3821,7 @@ function loadOrders(){
 
                         </option>
 
+
                         <option
                             value="processing"
                             ${
@@ -3905,6 +3834,7 @@ function loadOrders(){
 
                         </option>
 
+
                         <option
                             value="delivered"
                             ${
@@ -3916,6 +3846,7 @@ function loadOrders(){
                             Delivered
 
                         </option>
+
 
                         <option
                             value="cancelled"
@@ -3940,14 +3871,29 @@ function loadOrders(){
 }
 
 
-/* =========================================================
-   ORDER STATUS
-========================================================= */
+/* =====================================================
+   CHANGE ORDER STATUS
+===================================================== */
 
-function changeOrderStatus(
-    id,
+async function changeOrderStatus(
+    firebaseId,
+    orderId,
     status
 ){
+
+    if(firebaseId){
+
+        await firebasePatch(
+            FIREBASE_ORDERS +
+            "/" +
+            firebaseId,
+            {
+                status:status
+            }
+        );
+
+    }
+
 
     let orders =
         JSON.parse(
@@ -3956,28 +3902,32 @@ function changeOrderStatus(
             ) || "[]"
         );
 
+
     const order =
         orders.find(
             item =>
-                item.id === id
+                item.id === orderId
         );
+
 
     if(order){
         order.status = status;
     }
+
 
     localStorage.setItem(
         "tahirOrders",
         JSON.stringify(orders)
     );
 
+
     loadOrders();
 }
 
 
-/* =========================================================
-   IMAGE PREVIEW
-========================================================= */
+/* =====================================================
+   IMAGE PREVIEW - ADD
+===================================================== */
 
 function previewNewImage(input){
 
@@ -3986,12 +3936,16 @@ function previewNewImage(input){
             "newImagePreview"
         );
 
+
     const previewImage =
         document.getElementById(
             "newPreviewImage"
         );
 
-    const file = input.files[0];
+
+    const file =
+        input.files[0];
+
 
     if(!file){
 
@@ -4001,24 +3955,24 @@ function previewNewImage(input){
         return;
     }
 
+
     if(
         !file.type.startsWith("image/")
     ){
 
         alert(
-            "براہ کرم صرف Image file select کریں۔"
+            "صرف Image file منتخب کریں۔"
         );
 
         input.value = "";
 
-        previewBox.style.display =
-            "none";
-
         return;
     }
 
+
     if(
-        file.size > 2 * 1024 * 1024
+        file.size >
+        2 * 1024 * 1024
     ){
 
         alert(
@@ -4030,8 +3984,10 @@ function previewNewImage(input){
         return;
     }
 
+
     const reader =
         new FileReader();
+
 
     reader.onload =
         function(e){
@@ -4043,15 +3999,16 @@ function previewNewImage(input){
                 "block";
         };
 
+
     reader.readAsDataURL(file);
 }
 
 
-/* =========================================================
+/* =====================================================
    ADD PRODUCT
-========================================================= */
+===================================================== */
 
-function addProduct(){
+async function addProduct(){
 
     const name =
         document
@@ -4059,10 +4016,12 @@ function addProduct(){
             .value
             .trim();
 
+
     const category =
         document
             .getElementById("newProductCategory")
             .value;
+
 
     const price =
         Number(
@@ -4071,6 +4030,7 @@ function addProduct(){
                 .value
         );
 
+
     const oldPrice =
         Number(
             document
@@ -4078,16 +4038,19 @@ function addProduct(){
                 .value
         );
 
+
     const imageFile =
         document
             .getElementById("newProductImage")
             .files[0];
+
 
     const description =
         document
             .getElementById("newProductDescription")
             .value
             .trim();
+
 
     if(
         !name ||
@@ -4102,19 +4065,22 @@ function addProduct(){
         return;
     }
 
+
     if(
         !imageFile.type.startsWith("image/")
     ){
 
         alert(
-            "براہ کرم صرف Image file upload کریں۔"
+            "صرف Image file upload کریں۔"
         );
 
         return;
     }
 
+
     if(
-        imageFile.size > 2 * 1024 * 1024
+        imageFile.size >
+        2 * 1024 * 1024
     ){
 
         alert(
@@ -4124,18 +4090,22 @@ function addProduct(){
         return;
     }
 
+
     const reader =
         new FileReader();
 
-    reader.onload =
-        function(e){
 
-            let products =
+    reader.onload =
+        async function(e){
+
+            const products =
                 getProducts();
 
-            products.push({
 
-                id:Date.now(),
+            const product = {
+
+                id:
+                    Date.now(),
 
                 name:name,
 
@@ -4143,72 +4113,135 @@ function addProduct(){
 
                 price:price,
 
-                oldPrice:oldPrice,
+                oldPrice:
+                    oldPrice || "",
 
-                image:e.target.result,
+                image:
+                    e.target.result,
 
                 description:
                     description ||
                     "Premium خوشبو"
 
-            });
+            };
 
-            saveProducts(products);
+
+            products.push(product);
+
+
+            const result =
+                await saveProductsToFirebase(
+                    products
+                );
+
+
+            if(result === null){
+
+                alert(
+                    "Product Firebase میں save نہیں ہوا۔"
+                );
+
+                return;
+            }
+
+
+            saveProductsLocal(products);
+
+
+            displayProducts(products);
+
+            loadAdminProducts();
+
+            document
+                .getElementById("totalProducts")
+                .textContent =
+                products.length;
+
 
             document
                 .getElementById("newProductName")
                 .value = "";
 
+
             document
                 .getElementById("newProductPrice")
                 .value = "";
+
 
             document
                 .getElementById("newProductOldPrice")
                 .value = "";
 
+
             document
                 .getElementById("newProductImage")
                 .value = "";
 
+
             document
                 .getElementById("newProductDescription")
                 .value = "";
+
 
             document
                 .getElementById("newImagePreview")
                 .style.display =
                 "none";
 
-            displayProducts();
 
-            loadAdminProducts();
+            document
+                .getElementById("productSaveStatus")
+                .textContent =
+                "✓ Product Firebase میں کامیابی سے Save ہو گیا۔";
 
-            loadAdminDashboard();
 
-            alert(
-                "Product کامیابی سے Add ہو گیا۔"
+            setTimeout(
+                () => {
+
+                    document
+                        .getElementById(
+                            "productSaveStatus"
+                        )
+                        .textContent = "";
+
+                },
+                3000
             );
 
         };
+
 
     reader.readAsDataURL(imageFile);
 }
 
 
-/* =========================================================
-   ADMIN PRODUCT LIST
-========================================================= */
+/* =====================================================
+   ADMIN PRODUCTS
+===================================================== */
 
 function loadAdminProducts(){
 
     const products =
         getProducts();
 
+
     const list =
         document.getElementById(
             "adminProductList"
         );
+
+
+    if(!products.length){
+
+        list.innerHTML = `
+            <p>
+                ابھی کوئی Product موجود نہیں۔
+            </p>
+        `;
+
+        return;
+    }
+
 
     list.innerHTML =
         products.map(
@@ -4218,13 +4251,14 @@ function loadAdminProducts(){
 
                 <img
                     src="${product.image}"
-                    alt="${product.name}"
+                    alt="${escapeHtml(product.name)}"
                 >
+
 
                 <div class="admin-product-info">
 
                     <strong>
-                        ${product.name}
+                        ${escapeHtml(product.name)}
                     </strong>
 
                     <br>
@@ -4239,6 +4273,7 @@ function loadAdminProducts(){
 
                 </div>
 
+
                 <button
                     class="edit-product"
                     onclick="editProduct(${index})">
@@ -4246,6 +4281,7 @@ function loadAdminProducts(){
                     Edit
 
                 </button>
+
 
                 <button
                     class="delete-product"
@@ -4262,60 +4298,71 @@ function loadAdminProducts(){
 }
 
 
-/* =========================================================
+/* =====================================================
    EDIT PRODUCT
-========================================================= */
+===================================================== */
 
 function editProduct(index){
 
     const products =
         getProducts();
 
+
     const product =
         products[index];
+
 
     if(!product){
         return;
     }
+
 
     document
         .getElementById("editProductIndex")
         .value =
         index;
 
+
     document
         .getElementById("editProductName")
         .value =
         product.name;
+
 
     document
         .getElementById("editProductCategory")
         .value =
         product.category;
 
+
     document
         .getElementById("editProductPrice")
         .value =
         product.price;
+
 
     document
         .getElementById("editProductOldPrice")
         .value =
         product.oldPrice || "";
 
+
     document
         .getElementById("editProductDescription")
         .value =
         product.description || "";
+
 
     document
         .getElementById("editProductPreview")
         .src =
         product.image;
 
+
     document
         .getElementById("editProductImage")
         .value = "";
+
 
     document
         .getElementById("editProductModal")
@@ -4331,31 +4378,34 @@ function closeEditProduct(){
 }
 
 
-/* =========================================================
+/* =====================================================
    EDIT IMAGE PREVIEW
-========================================================= */
+===================================================== */
 
 function previewEditImage(input){
 
     const file =
         input.files[0];
 
+
     if(!file){
         return;
     }
+
 
     if(
         !file.type.startsWith("image/")
     ){
 
         alert(
-            "براہ کرم صرف Image file select کریں۔"
+            "صرف Image file منتخب کریں۔"
         );
 
         input.value = "";
 
         return;
     }
+
 
     if(
         file.size >
@@ -4371,8 +4421,10 @@ function previewEditImage(input){
         return;
     }
 
+
     const reader =
         new FileReader();
+
 
     reader.onload =
         function(e){
@@ -4383,17 +4435,19 @@ function previewEditImage(input){
                 )
                 .src =
                 e.target.result;
+
         };
+
 
     reader.readAsDataURL(file);
 }
 
 
-/* =========================================================
+/* =====================================================
    UPDATE PRODUCT
-========================================================= */
+===================================================== */
 
-function updateProduct(){
+async function updateProduct(){
 
     const index =
         Number(
@@ -4404,15 +4458,19 @@ function updateProduct(){
                 .value
         );
 
+
     const products =
         getProducts();
+
 
     const product =
         products[index];
 
+
     if(!product){
         return;
     }
+
 
     const name =
         document
@@ -4422,12 +4480,14 @@ function updateProduct(){
             .value
             .trim();
 
+
     const category =
         document
             .getElementById(
                 "editProductCategory"
             )
             .value;
+
 
     const price =
         Number(
@@ -4438,6 +4498,7 @@ function updateProduct(){
                 .value
         );
 
+
     const oldPrice =
         Number(
             document
@@ -4447,6 +4508,7 @@ function updateProduct(){
                 .value
         );
 
+
     const description =
         document
             .getElementById(
@@ -4455,12 +4517,14 @@ function updateProduct(){
             .value
             .trim();
 
+
     const imageFile =
         document
             .getElementById(
                 "editProductImage"
             )
             .files[0];
+
 
     if(
         !name ||
@@ -4474,17 +4538,63 @@ function updateProduct(){
         return;
     }
 
-    product.name = name;
 
-    product.category = category;
+    product.name =
+        name;
 
-    product.price = price;
+    product.category =
+        category;
 
-    product.oldPrice = oldPrice;
+    product.price =
+        price;
+
+    product.oldPrice =
+        oldPrice || "";
 
     product.description =
         description ||
         "Premium خوشبو";
+
+
+    async function finishUpdate(){
+
+        const result =
+            await saveProductsToFirebase(
+                products
+            );
+
+
+        if(result === null){
+
+            alert(
+                "Product Firebase میں Update نہیں ہوا۔"
+            );
+
+            return;
+        }
+
+
+        saveProductsLocal(products);
+
+
+        displayProducts(products);
+
+        loadAdminProducts();
+
+
+        document
+            .getElementById("totalProducts")
+            .textContent =
+            products.length;
+
+
+        closeEditProduct();
+
+
+        alert(
+            "Product کامیابی سے Update ہو گیا۔"
+        );
+    }
 
 
     if(imageFile){
@@ -4494,11 +4604,12 @@ function updateProduct(){
         ){
 
             alert(
-                "براہ کرم صرف Image file select کریں۔"
+                "صرف Image file منتخب کریں۔"
             );
 
             return;
         }
+
 
         if(
             imageFile.size >
@@ -4512,78 +4623,90 @@ function updateProduct(){
             return;
         }
 
+
         const reader =
             new FileReader();
 
+
         reader.onload =
-            function(e){
+            async function(e){
 
                 product.image =
                     e.target.result;
 
-                saveProducts(products);
+                await finishUpdate();
 
-                displayProducts();
-
-                loadAdminProducts();
-
-                loadAdminDashboard();
-
-                closeEditProduct();
-
-                alert(
-                    "Product کامیابی سے Update ہو گیا۔"
-                );
             };
 
-        reader.readAsDataURL(imageFile);
+
+        reader.readAsDataURL(
+            imageFile
+        );
 
     }else{
 
-        saveProducts(products);
+        await finishUpdate();
 
-        displayProducts();
-
-        loadAdminProducts();
-
-        loadAdminDashboard();
-
-        closeEditProduct();
-
-        alert(
-            "Product کامیابی سے Update ہو گیا۔"
-        );
     }
 }
 
 
-/* =========================================================
+/* =====================================================
    DELETE PRODUCT
-========================================================= */
+===================================================== */
 
-function deleteProduct(index){
+async function deleteProduct(index){
 
     const confirmDelete =
         confirm(
             "کیا آپ واقعی یہ Product delete کرنا چاہتے ہیں؟"
         );
 
+
     if(!confirmDelete){
         return;
     }
 
+
     let products =
         getProducts();
 
-    products.splice(index,1);
 
-    saveProducts(products);
+    products.splice(
+        index,
+        1
+    );
 
-    displayProducts();
+
+    const result =
+        await saveProductsToFirebase(
+            products
+        );
+
+
+    if(result === null){
+
+        alert(
+            "Product Firebase سے delete نہیں ہوا۔"
+        );
+
+        return;
+    }
+
+
+    saveProductsLocal(products);
+
+
+    displayProducts(products);
 
     loadAdminProducts();
 
-    loadAdminDashboard();
+
+    document
+        .getElementById("totalProducts")
+        .textContent =
+        products.length;
+
 
     alert(
         "Product Delete ہو گیا۔"
@@ -4591,17 +4714,27 @@ function deleteProduct(index){
 }
 
 
-/* =========================================================
+/* =====================================================
    INITIALIZE
-========================================================= */
+===================================================== */
 
-displayProducts();
+displayProducts(
+    getProducts()
+);
 
 updateCart();
 
+
+/* Firebase سے اصل Products */
+
+loadProductsFromFirebase();
+
+
+/* Firebase سے Orders */
+
+loadOrdersFromFirebase();
+
 </script>
 
-
 </body>
-
 </html>
