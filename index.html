@@ -1,5608 +1,1486 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>طاہر پرفیوم سٹور | Tahir Perfume Store</title>
-
-<style>
-
-@import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap");
-
-/* =====================================================
-   FONTS
-===================================================== */
-
-:root{
-    --urdu-font:
-        "Jameel Noori Nastaleeq",
-        "Jameel Noori",
-        "Noto Nastaliq Urdu",
-        serif;
-
-    --english-font: Arial, sans-serif;
-
-    --black:#111;
-    --gold:#c79b3b;
-    --dark-gold:#9d7428;
-    --cream:#faf7f0;
-    --white:#fff;
-    --gray:#777;
-    --red:#c62828;
-    --green:#159447;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#fff;
-    color:#111;
-    font-family:var(--urdu-font);
-    line-height:1.8;
-}
-
-html[lang="en"] body,
-body.lang-en{
-    font-family:var(--english-font);
-    direction:ltr;
-}
-
-html[lang="en"] .hero-content,
-html[lang="en"] .about,
-html[lang="en"] footer,
-html[lang="en"] .section,
-html[lang="en"] .admin-panel{
-    direction:ltr;
-    text-align:left;
-}
-
-html[lang="en"] .admin-table th,
-html[lang="en"] .admin-table td{
-    text-align:left;
-}
-
-html[lang="en"] .price{
-    direction:ltr;
-    justify-content:flex-start;
-}
-
-.language-switch{
-    display:flex;
-    align-items:center;
-    gap:4px;
-    padding:3px;
-    border:1px solid #ddd;
-    border-radius:22px;
-    background:#fff;
-}
-.language-switch button{
-    border:0;
-    background:transparent;
-    padding:6px 9px;
-    border-radius:18px;
-    cursor:pointer;
-    font-weight:bold;
-    font-size:12px;
-}
-.language-switch button.active{
-    background:#111;
-    color:#fff;
-}
-@media(max-width:650px){
-    body{font-size:15px;}
-    .language-switch button{padding:5px 7px;font-size:11px;}
-    .nav-inner{gap:18px;}
-    .nav-inner a{font-size:14px;}
-    .hero-content p{font-size:17px;line-height:1.9;}
-}
-
-button,
-input,
-select,
-textarea{
-    font-family:var(--urdu-font);
-}
-
-.english,
-.price,
-.admin-number,
-input[type="number"],
-input[type="tel"],
-input[type="email"],
-input[type="password"]{
-    font-family:var(--english-font);
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-
-/* =====================================================
-   TOP BAR
-===================================================== */
-
-.topbar{
-    background:#111;
-    color:#fff;
-    text-align:center;
-    padding:8px;
-    font-size:16px;
-}
-
-.topbar strong{
-    color:#e7c96d;
-}
-
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-header{
-    background:#fff;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    border-bottom:1px solid #eee;
-}
-
-.header-inner{
-    max-width:1250px;
-    margin:auto;
-    padding:12px 20px;
-    min-height:78px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-}
-
-.logo{
-    font-size:28px;
-    font-weight:bold;
-    white-space:nowrap;
-}
-
-.logo span{
-    display:block;
-    font-family:Arial,sans-serif;
-    color:var(--gold);
-    direction:ltr;
-    text-align:center;
-    font-size:10px;
-    letter-spacing:3px;
-}
-
-.search{
-    flex:1;
-    max-width:480px;
-    position:relative;
-}
-
-.search input{
-    width:100%;
-    padding:12px 45px 12px 15px;
-    border:1px solid #ddd;
-    border-radius:30px;
-    outline:none;
-    font-size:15px;
-}
-
-.search button{
-    position:absolute;
-    right:6px;
-    top:5px;
-    width:35px;
-    height:35px;
-    border:0;
-    border-radius:50%;
-    background:#111;
-    color:#fff;
-    cursor:pointer;
-}
-
-.header-icons{
-    display:flex;
-    gap:10px;
-}
-
-.icon-btn{
-    width:43px;
-    height:43px;
-    border-radius:50%;
-    border:1px solid #ddd;
-    background:#fff;
-    cursor:pointer;
-    position:relative;
-    font-size:18px;
-}
-
-.cart-count{
-    position:absolute;
-    top:-5px;
-    left:-5px;
-    width:20px;
-    height:20px;
-    background:var(--gold);
-    color:#fff;
-    border-radius:50%;
-
-    font-family:Arial;
-    font-size:11px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-
-/* =====================================================
-   NAV
-===================================================== */
-
-nav{
-    border-top:1px solid #f2f2f2;
-}
-
-.nav-inner{
-    max-width:1250px;
-    margin:auto;
-
-    display:flex;
-    justify-content:center;
-    gap:35px;
-
-    padding:10px 20px;
-
-    overflow-x:auto;
-}
-
-.nav-inner a{
-    white-space:nowrap;
-    font-weight:bold;
-    font-size:16px;
-}
-
-.nav-inner a:hover{
-    color:var(--gold);
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
- .hero{
-    min-height:550px;
-    position:relative;
-    overflow:hidden;
-    background:#222 center/cover no-repeat;
-    display:flex;
-    align-items:center;
-    color:#fff;
-}
-
-.hero-slide{
-    position:absolute;
-    inset:0;
-    background:center/cover no-repeat;
-    opacity:0;
-    transition:opacity .7s ease;
-    pointer-events:none;
-}
-
-.hero-slide.active{
-    opacity:1;
-}
-
-.hero-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        90deg,
-        rgba(0,0,0,.90),
-        rgba(0,0,0,.45),
-        rgba(0,0,0,.15)
-    );
-}
-
-.hero-content{
-    max-width:1250px;
-    width:100%;
-    margin:auto;
-    padding:40px 25px;
-    position:relative;
-    z-index:2;
-}
-
-.hero-content small{
-    color:#e5c66b;
-    font-size:18px;
-}
-
-.hero-content h1{
-    font-size:clamp(45px,7vw,80px);
-    line-height:1.2;
-    margin:10px 0;
-}
-
-.hero-content p{
-    max-width:550px;
-    font-size:19px;
-    line-height:2;
-    color:#eee;
-}
-
-.hero-controls{
-    position:absolute;
-    left:25px;
-    bottom:25px;
-    z-index:4;
-    display:flex;
-    gap:8px;
-}
-
-.hero-arrow{
-    width:42px;
-    height:42px;
-    border:1px solid rgba(255,255,255,.55);
-    background:rgba(0,0,0,.35);
-    color:#fff;
-    border-radius:50%;
-    cursor:pointer;
-    font-size:20px;
-}
-
-.hero-dots{
-    position:absolute;
-    right:25px;
-    bottom:30px;
-    z-index:4;
-    display:flex;
-    gap:7px;
-    direction:ltr;
-}
-
-.hero-dot{
-    width:9px;
-    height:9px;
-    border:0;
-    border-radius:50%;
-    background:rgba(255,255,255,.55);
-    cursor:pointer;
-    padding:0;
-}
-
-.hero-dot.active{
-    background:#e5c66b;
-    transform:scale(1.25);
-}
-
-.banner-admin-card{
-    background:#fff;
-    padding:18px;
-    border-radius:8px;
-    margin-bottom:15px;
-    box-shadow:0 3px 15px rgba(0,0,0,.05);
-}
-
-.banner-admin-grid{
-    display:grid;
-    grid-template-columns:150px 1fr;
-    gap:15px;
-    align-items:start;
-}
-
-.banner-admin-image{
-    width:150px;
-    height:95px;
-    object-fit:cover;
-    border-radius:7px;
-    border:1px solid #eee;
-    background:#f5f5f5;
-}
-
-.banner-admin-actions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:7px;
-    margin-top:10px;
-}
-
-.banner-btn{
-    border:0;
-    padding:7px 12px;
-    border-radius:4px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-.banner-edit{
-    background:#c89b3c;
-    color:#fff;
-}
-
-.banner-delete{
-    background:#c62828;
-    color:#fff;
-}
-
-.banner-toggle{
-    background:#159447;
-    color:#fff;
-}
-
-.banner-inactive{
-    background:#777;
-    color:#fff;
-}
-
-.banner-form{
-    background:#fff;
-    padding:25px;
-    border-radius:8px;
-    margin-bottom:25px;
-}
-
-.banner-form-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-}
-
-.banner-form .full{
-    grid-column:1/-1;
-}
-
-.banner-form input[type="file"]{
-    padding:8px;
-}
-
-.banner-preview{
-    display:none;
-    margin-top:10px;
-}
-
-.banner-preview img{
-    width:100%;
-    max-width:600px;
-    max-height:250px;
-    object-fit:cover;
-    border-radius:8px;
-    border:1px solid #ddd;
-}
-
-.gold-btn{
-    display:inline-block;
-    background:var(--gold);
-    color:#fff;
-    border:0;
-    border-radius:4px;
-    padding:12px 30px;
-    margin-top:20px;
-    cursor:pointer;
-    font-size:17px;
-    font-weight:bold;
-}
-
-.gold-btn:hover{
-    background:var(--dark-gold);
-}
-
-
-/* =====================================================
-   FEATURES
-   FREE DELIVERY REMOVED
-===================================================== */
-
-.features{
-    max-width:1200px;
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-
-    gap:15px;
-    padding:35px 20px;
-}
-
-.feature{
-    background:var(--cream);
-    text-align:center;
-    padding:20px;
-    border-radius:8px;
-}
-
-.feature-icon{
-    font-size:28px;
-}
-
-.feature h3{
-    font-size:18px;
-}
-
-.feature p{
-    color:var(--gray);
-}
-
-
-/* =====================================================
-   SECTIONS
-===================================================== */
-
-.section{
-    max-width:1250px;
-    margin:auto;
-    padding:60px 20px;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:35px;
-}
-
-.section-title small{
-    color:var(--gold);
-    font-weight:bold;
-}
-
-.section-title h2{
-    font-size:40px;
-}
-
-
-/* =====================================================
-   CATEGORIES
-===================================================== */
-
-.categories{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-}
-
-.category{
-    height:220px;
-    border-radius:8px;
-    overflow:hidden;
-    position:relative;
-    background-size:cover;
-    background-position:center;
-}
-
-.category::after{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-        linear-gradient(
-            transparent,
-            rgba(0,0,0,.85)
-        );
-}
-
-.category h3{
-    position:absolute;
-    z-index:2;
-    bottom:15px;
-    right:20px;
-    color:#fff;
-    font-size:25px;
-}
-
-.cat1{
-    background-image:url(
-        "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80"
-    );
-}
-
-.cat2{
-    background-image:url(
-        "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=800&q=80"
-    );
-}
-
-.cat3{
-    background-image:url(
-        "https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=800&q=80"
-    );
-}
-
-.cat4{
-    background-image:url(
-        "https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=800&q=80"
-    );
-}
-
-
-/* =====================================================
-   PRODUCTS
-===================================================== */
-
-.products-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:25px;
-}
-
-.filters{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-}
-
-.filter-btn{
-    background:#fff;
-    border:1px solid #ddd;
-    padding:8px 18px;
-    border-radius:30px;
-    cursor:pointer;
-}
-
-.filter-btn.active,
-.filter-btn:hover{
-    background:#111;
-    color:#fff;
-}
-
-.products{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:22px;
-}
-
-.product{
-    border:1px solid #eee;
-    border-radius:8px;
-    overflow:hidden;
-    transition:.25s;
-    position:relative;
-    background:#fff;
-}
-
-.product:hover{
-    transform:translateY(-5px);
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-.sale{
-    position:absolute;
-    top:12px;
-    right:12px;
-    background:var(--red);
-    color:#fff;
-    padding:4px 9px;
-    border-radius:4px;
-
-    font-family:Arial;
-    font-size:12px;
-
-    z-index:2;
-}
-
-.product-img{
-    width:100%;
-    height:270px;
-    object-fit:cover;
-    display:block;
-}
-
-.product-info{
-    padding:15px;
-}
-
-.stars{
-    color:#e5a91c;
-    font-family:Arial;
-}
-
-.product-name{
-    font-size:20px;
-    font-weight:bold;
-}
-
-.product-desc{
-    color:#777;
-    font-size:14px;
-}
-
-.price{
-    display:flex;
-    gap:10px;
-    align-items:center;
-    margin:10px 0;
-
-    direction:ltr;
-    justify-content:flex-end;
-}
-
-.new-price{
-    font-size:18px;
-    font-weight:bold;
-}
-
-.old-price{
-    color:#999;
-    text-decoration:line-through;
-}
-
-.add-btn{
-    width:100%;
-    padding:10px;
-    background:#fff;
-    border:1px solid #111;
-    cursor:pointer;
-    border-radius:4px;
-    font-weight:bold;
-}
-
-.add-btn:hover{
-    background:#111;
-    color:#fff;
-}
-
-
-/* =====================================================
-   OFFER
-===================================================== */
-
-.offer{
-    background:
-        linear-gradient(
-            rgba(0,0,0,.85),
-            rgba(0,0,0,.85)
-        ),
-        url("https://images.unsplash.com/photo-1595425970377-c9703cf48b6c?auto=format&fit=crop&w=1800&q=80")
-        center/cover;
-
-    color:#fff;
-    text-align:center;
-    padding:70px 20px;
-}
-
-.offer h2{
-    color:#e6c365;
-    font-size:43px;
-}
-
-
-/* =====================================================
-   ABOUT
-===================================================== */
-
-.about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
-}
-
-.about-img{
-    width:100%;
-    height:450px;
-    object-fit:cover;
-    border-radius:8px;
-}
-
-.about h2{
-    font-size:40px;
-}
-
-.about p{
-    color:#666;
-    font-size:18px;
-    line-height:2;
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
-    background:#111;
-    color:#fff;
-}
-
-.footer-grid{
-    max-width:1250px;
-    margin:auto;
-
-    padding:55px 20px;
-
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr 1fr;
-    gap:35px;
-}
-
-.footer-brand h2{
-    color:#e1bf63;
-}
-
-footer h3{
-    color:#e1bf63;
-}
-
-footer ul{
-    list-style:none;
-}
-
-footer li{
-    color:#aaa;
-    margin:8px 0;
-}
-
-footer li a:hover{
-    color:#e1bf63;
-}
-
-.copyright{
-    border-top:1px solid #292929;
-    padding:15px;
-    text-align:center;
-
-    font-family:Arial;
-    font-size:12px;
-
-    direction:ltr;
-    color:#888;
-}
-
-
-/* =====================================================
-   WHATSAPP
-===================================================== */
-
-.whatsapp{
-    position:fixed;
-    bottom:20px;
-    left:20px;
-
-    width:58px;
-    height:58px;
-
-    border-radius:50%;
-    background:#18a34a;
-    color:#fff;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-size:27px;
-    z-index:2000;
-}
-
-
-/* =====================================================
-   CART
-===================================================== */
-
-.cart-panel{
-    position:fixed;
-    top:0;
-    left:-420px;
-
-    width:400px;
-    max-width:92%;
-    height:100vh;
-
-    background:#fff;
-    z-index:3000;
-
-    box-shadow:5px 0 30px rgba(0,0,0,.2);
-
-    transition:.3s;
-
-    display:flex;
-    flex-direction:column;
-}
-
-.cart-panel.open{
-    left:0;
-}
-
-.cart-head{
-    padding:18px;
-    display:flex;
-    justify-content:space-between;
-    border-bottom:1px solid #eee;
-}
-
-.cart-head button{
-    border:0;
-    background:none;
-    font-size:25px;
-    cursor:pointer;
-}
-
-.cart-items{
-    flex:1;
-    overflow-y:auto;
-    padding:15px;
-}
-
-.cart-item{
-    display:flex;
-    gap:10px;
-    border-bottom:1px solid #eee;
-    padding:12px 0;
-}
-
-.cart-item img{
-    width:65px;
-    height:65px;
-    object-fit:cover;
-}
-
-.cart-item-info{
-    flex:1;
-}
-
-.qty button{
-    padding:2px 8px;
-    cursor:pointer;
-}
-
-.remove{
-    border:0;
-    color:red;
-    background:#fee;
-    cursor:pointer;
-}
-
-.cart-bottom{
-    padding:18px;
-    border-top:1px solid #ddd;
-}
-
-.total{
-    display:flex;
-    justify-content:space-between;
-    font-size:20px;
-    font-weight:bold;
-    margin-bottom:12px;
-}
-
-.checkout{
-    width:100%;
-    padding:13px;
-    background:#111;
-    color:#fff;
-    border:0;
-    border-radius:4px;
-    cursor:pointer;
-}
-
-
-/* =====================================================
-   MODALS
-===================================================== */
-
-.modal{
-    position:fixed;
-    inset:0;
-
-    background:rgba(0,0,0,.75);
-
-    z-index:5000;
-
-    display:none;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:20px;
-    overflow-y:auto;
-}
-
-.modal.show{
-    display:flex;
-}
-
-.login-box{
-    width:400px;
-    max-width:100%;
-
-    background:#fff;
-
-    padding:30px;
-    border-radius:10px;
-
-    box-shadow:0 20px 60px rgba(0,0,0,.3);
-}
-
-.login-box h2{
-    text-align:center;
-    margin-bottom:20px;
-}
-
-.close-modal{
-    float:left;
-    border:0;
-    background:none;
-    font-size:25px;
-    cursor:pointer;
-}
-
-.form-group{
-    margin-bottom:15px;
-}
-
-.form-group label{
-    display:block;
-    margin-bottom:5px;
-    font-weight:bold;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea{
-    width:100%;
-    padding:11px;
-    border:1px solid #ddd;
-    border-radius:5px;
-    outline:none;
-    background:#fff;
-}
-
-.form-group textarea{
-    min-height:90px;
-}
-
-.login-btn{
-    width:100%;
-    padding:12px;
-    background:#111;
-    color:#fff;
-    border:0;
-    border-radius:5px;
-    cursor:pointer;
-}
-
-.login-error{
-    color:red;
-    text-align:center;
-    margin-top:10px;
-}
-
-
-/* =====================================================
-   IMAGE PREVIEW
-===================================================== */
-
-.image-preview{
-    margin-top:10px;
-    display:none;
-    text-align:center;
-}
-
-.image-preview img{
-    width:130px;
-    height:130px;
-    object-fit:cover;
-    border-radius:8px;
-    border:1px solid #ddd;
-}
-
-
-/* =====================================================
-   ADMIN PANEL
-===================================================== */
-
-.admin-panel{
-    position:fixed;
-    inset:0;
-    z-index:4500;
-
-    background:#f5f5f5;
-
-    display:none;
-    overflow-y:auto;
-}
-
-.admin-panel.show{
-    display:block;
-}
-
-.admin-header{
-    background:#111;
-    color:#fff;
-
-    padding:15px 25px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    position:sticky;
-    top:0;
-
-    z-index:20;
-}
-
-.admin-header h2{
-    color:#e4c263;
-}
-
-.admin-header button{
-    background:#c62828;
-    color:#fff;
-    border:0;
-    padding:8px 18px;
-    border-radius:4px;
-    cursor:pointer;
-}
-
-.admin-container{
-    max-width:1250px;
-    margin:auto;
-    padding:30px 20px;
-}
-
-
-/* =====================================================
-   DASHBOARD
-===================================================== */
-
-.dashboard-cards{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-    margin-bottom:25px;
-}
-
-.dashboard-card{
-    background:#fff;
-    padding:20px;
-    border-radius:8px;
-    box-shadow:0 3px 15px rgba(0,0,0,.05);
-}
-
-.dashboard-card h3{
-    color:#777;
-}
-
-.dashboard-card strong{
-    display:block;
-    margin-top:8px;
-
-    font-family:Arial;
-    font-size:27px;
-}
-
-
-/* =====================================================
-   ADMIN TABS
-===================================================== */
-
-.admin-tabs{
-    display:flex;
-    gap:8px;
-    margin-bottom:20px;
-}
-
-.admin-tab{
-    padding:10px 20px;
-    border:0;
-    background:#fff;
-    cursor:pointer;
-    border-radius:5px;
-}
-
-.admin-tab.active{
-    background:#111;
-    color:#fff;
-}
-
-.admin-section{
-    display:none;
-}
-
-.admin-section.active{
-    display:block;
-}
-
-
-/* =====================================================
-   ORDERS
-===================================================== */
-
-.table-wrap{
-    background:#fff;
-    border-radius:8px;
-    overflow-x:auto;
-}
-
-.admin-table{
-    width:100%;
-    border-collapse:collapse;
-    min-width:950px;
-}
-
-.admin-table th,
-.admin-table td{
-    padding:12px;
-    border-bottom:1px solid #eee;
-    text-align:right;
-    vertical-align:top;
-}
-
-.admin-table th{
-    background:#faf7f0;
-}
-
-.admin-table select{
-    padding:6px;
-    border:1px solid #ddd;
-    border-radius:5px;
-}
-
-
-/* =====================================================
-   ADMIN PRODUCT FORM
-===================================================== */
-
-.admin-product-form{
-    background:#fff;
-    padding:25px;
-    border-radius:8px;
-    max-width:700px;
-}
-
-
-/* =====================================================
-   ADMIN PRODUCT LIST
-===================================================== */
-
-.admin-product-list{
-    margin-top:25px;
-}
-
-.admin-product-row{
-    background:#fff;
-
-    display:flex;
-    align-items:center;
-
-    gap:15px;
-
-    padding:12px;
-    margin-bottom:10px;
-
-    border-radius:7px;
-
-    flex-wrap:wrap;
-}
-
-.admin-product-row img{
-    width:70px;
-    height:70px;
-
-    object-fit:cover;
-
-    border-radius:6px;
-    border:1px solid #eee;
-}
-
-.admin-product-info{
-    flex:1;
-}
-
-.edit-product{
-    background:#c89b3c;
-    color:#fff;
-    border:0;
-    padding:8px 14px;
-    border-radius:4px;
-    cursor:pointer;
-}
-
-.delete-product{
-    background:#c62828;
-    color:#fff;
-    border:0;
-    padding:8px 14px;
-    cursor:pointer;
-    border-radius:4px;
-}
-
-
-/* =====================================================
-   EDIT PRODUCT
-===================================================== */
-
-.edit-modal-box{
-    width:600px;
-    max-width:100%;
-    max-height:92vh;
-    overflow-y:auto;
-
-    background:#fff;
-
-    padding:30px;
-    border-radius:10px;
-}
-
-.edit-preview{
-    text-align:center;
-    margin:15px 0;
-}
-
-.edit-preview img{
-    width:140px;
-    height:140px;
-
-    object-fit:cover;
-
-    border-radius:8px;
-    border:1px solid #ddd;
-}
-
-.current-image-text{
-    color:#777;
-    font-size:14px;
-    margin-top:5px;
-}
-
-
-/* =====================================================
-   LOADING
-===================================================== */
-
-.firebase-loading{
-    text-align:center;
-    padding:25px;
-    color:#777;
-}
-
-.save-status{
-    margin-top:10px;
-    color:var(--green);
-    font-weight:bold;
-}
-
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
-@media(max-width:900px){
-
-    .products{
-        grid-template-columns:repeat(3,1fr);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دعوت اسلامی اسپیشل ٹرین Tahir</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fontlibrary.org/face/jameel-noori-nastaleeq" type="text/css"/>
+  <!-- SheetJS CDN for Excel Export -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <style>
+    :root {
+      --primary-color: #059669;
+      --primary-hover: #047857;
+      --header-gradient: linear-gradient(135deg, #10b981, #059669, #047857);
+      --accent-gold: #fef08a;
+      --available-green: #10b981;
+      --selected-blue: #0284c7;
+      --booked-red: #dc2626;
+      --bg-canvas: #f0fdf4;
+      --card-bg: #ffffff;
     }
 
-    .categories{
-        grid-template-columns:repeat(2,1fr);
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'JameelNooriNastaleeqRegular', 'Noto Nastaliq Urdu', sans-serif; }
+    body { background-color: var(--bg-canvas); padding: 12px; direction: rtl; color: #1e293b; }
+
+    .app-container {
+      max-width: 580px;
+      margin: auto;
+      background: var(--card-bg);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(5, 150, 105, 0.12);
+      overflow: hidden;
+      border: 1px solid #a7f3d0;
     }
 
-    .footer-grid{
-        grid-template-columns:1fr 1fr;
+    .banner-header {
+      position: relative;
+      background: var(--header-gradient);
+      color: white;
+      text-align: center;
+      padding: 30px 16px;
+      border-bottom: 4px solid var(--accent-gold);
+    }
+    .banner-header h1 { font-size: 30px; color: var(--accent-gold); text-shadow: 0 2px 5px rgba(0,0,0,0.3); margin-bottom: 6px; }
+    .banner-header p { font-size: 15px; opacity: 0.95; letter-spacing: 0.5px; }
+
+    .custom-banner-preview {
+      width: 100%;
+      max-height: 200px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      border-radius: 10px;
+      border: 2px solid rgba(255,255,255,0.4);
+      display: none;
+    }
+    .custom-banner-preview img { width: 100%; height: auto; object-fit: cover; }
+
+    .user-bar {
+      background: #064e3b;
+      color: #ecfdf5;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+    .user-bar button {
+      background: #ef4444;
+      color: white;
+      border: none;
+      padding: 4px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: bold;
     }
 
-    .dashboard-cards{
-        grid-template-columns:repeat(2,1fr);
+    .admin-controls-bar {
+      background: #e6f4ea;
+      border-bottom: 1px solid #c6f6d5;
+      padding: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
     }
-}
-
-@media(max-width:650px){
-
-    .header-inner{
-        flex-wrap:wrap;
+    .admin-btn {
+      background: #0d9488;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
     }
+    .admin-btn:hover { background: #0f766e; }
 
-    .logo{
-        font-size:23px;
+    .stats-dashboard {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: #f7fee7;
+      border-bottom: 1px solid #d9f99d;
+      padding: 10px 4px;
+      text-align: center;
     }
+    .stat-card h5 { font-size: 11px; color: #4d7c0f; }
+    .stat-card p { font-size: 15px; font-weight: bold; color: var(--primary-color); }
 
-    .search{
-        order:3;
-        flex-basis:100%;
+    .coach-tabs {
+      display: flex;
+      overflow-x: auto;
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 10px 6px;
+      gap: 8px;
     }
-
-    .nav-inner{
-        justify-content:flex-start;
-        gap:22px;
+    .coach-tab {
+      flex: 0 0 auto;
+      text-align: center;
+      cursor: pointer;
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      font-size: 13px;
+      background: #f8fafc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 600;
     }
-
-    .hero{
-        min-height:470px;
-    }
-
-    .banner-form-grid{
-        grid-template-columns:1fr;
-    }
-
-    .banner-form .full{
-        grid-column:auto;
-    }
-
-    .banner-admin-grid{
-        grid-template-columns:1fr;
-    }
-
-    .banner-admin-image{
-        width:100%;
-        height:180px;
-    }
-
-    .hero-content h1{
-        font-size:45px;
-    }
-
-    .products{
-        grid-template-columns:repeat(2,1fr);
-        gap:12px;
-    }
-
-    .product-img{
-        height:210px;
-    }
-
-    .categories{
-        grid-template-columns:1fr 1fr;
+    .coach-tab.active {
+      background: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+      box-shadow: 0 2px 6px rgba(5,150,105,0.25);
     }
 
-    .features{
-        grid-template-columns:1fr;
+    .layout-area { padding: 14px; background: #f8fafc; }
+    .coach-frame {
+      border: 2px solid #a7f3d0;
+      border-radius: 14px;
+      padding: 12px 8px;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
     }
+    .side-col { width: 32%; display: flex; flex-direction: column; gap: 5px; }
+    .main-col { width: 66%; display: flex; flex-direction: column; gap: 12px; }
+    .berth-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
 
-    .about{
-        grid-template-columns:1fr;
+    .seat-card {
+      border: 1px solid #a7f3d0;
+      background: #ecfdf5;
+      color: #065f46;
+      border-radius: 6px;
+      text-align: center;
+      padding: 6px 2px;
+      cursor: pointer;
+      font-size: 12px;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      font-weight: bold;
     }
+    .seat-card.selected { background: var(--selected-blue) !important; color: white !important; border-color: #0369a1 !important; }
+    .seat-card.booked { background: var(--booked-red) !important; color: white !important; border-color: #991b1b !important; }
 
-    .about-img{
-        height:300px;
-    }
+    .table-line { background: #e2e8f0; font-size: 9px; text-align: center; color: #64748b; margin: 3px 0; border-radius: 2px; }
 
-    .footer-grid{
-        grid-template-columns:1fr;
+    .footer-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px;
+      background: #fff;
+      border-top: 1px solid #e2e8f0;
     }
+    .book-btn {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 10px 26px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(5,150,105,0.2);
+    }
+    .book-btn:disabled { background: #94a3b8; cursor: not-allowed; box-shadow: none; }
 
-    .dashboard-cards{
-        grid-template-columns:1fr 1fr;
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(6, 78, 59, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      backdrop-filter: blur(2px);
     }
+    .modal-box {
+      background: white;
+      border-radius: 14px;
+      width: 94%;
+      max-width: 580px;
+      padding: 20px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    .modal-header {
+      font-size: 20px;
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 8px;
+      text-align: center;
+    }
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; font-size: 13px; font-weight: bold; margin-bottom: 4px; }
+    .form-group input, .form-group select {
+      width: 100%; padding: 9px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px;
+    }
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      background: #f8fafc;
+      padding: 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+    }
+    .checkbox-item { display: flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer; }
+    .checkbox-item input { width: auto; cursor: pointer; }
 
-    .products-top{
-        display:block;
-    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .modal-actions { display: flex; gap: 8px; margin-top: 18px; }
+    .btn-submit { flex: 1; background: var(--primary-color); color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+    .btn-excel { background: #047857; color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 12px; }
+    .btn-close { background: #64748b; color: white; border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; }
+    
+    .data-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 10px; }
+    .data-table th, .data-table td { border: 1px solid #e2e8f0; padding: 8px 4px; text-align: center; }
+    .data-table th { background: var(--primary-color); color: white; }
 
-    .filters{
-        margin-top:15px;
-    }
-
-    .admin-header h2{
-        font-size:16px;
-    }
-}
+    .ticket-paper { border: 2px dashed var(--primary-color); padding: 18px; border-radius: 10px; background: #fff; }
+    .ticket-header { text-align: center; font-size: 20px; color: var(--primary-color); font-weight: bold; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px; margin-bottom: 10px; }
+    .ticket-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px #f1f5f9 solid; font-size: 14px; }
+  
+    .ticket-qr-wrap{display:flex;justify-content:center;align-items:center;margin:14px 0;padding:10px;border:1px dashed #a7f3d0;border-radius:10px;background:#f0fdf4}
+    .ticket-qr{width:180px;min-height:180px;display:flex;justify-content:center;align-items:center}
+    .scan-status{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:bold}
+    .scan-status.scanned{background:#dcfce7;color:#166534}.scan-status.unscanned{background:#fee2e2;color:#991b1b}
+    .scan-result{margin-top:12px;padding:12px;border-radius:10px;background:#f8fafc;border:1px solid #dbeafe;display:none}
+    .scan-result.show{display:block}#qr-reader{width:100%;max-width:420px;margin:auto}
+    .scan-manual{display:flex;gap:8px;margin-top:12px}.scan-manual input{flex:1;padding:10px;border:1px solid #cbd5e1;border-radius:7px}
+    .history-status-cell{white-space:nowrap}
 
 </style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
-
-
 <body>
-
-
-<!-- =====================================================
-     TOP BAR
-===================================================== -->
-
-<div class="topbar">
-
-<strong>طاہر پرفیوم سٹور</strong>
-
-— پاکستان بھر میں ڈیلیوری دستیاب ہے
-
-</div>
-
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
-<header>
-
-<div class="header-inner">
-
-<a href="#home" class="logo">
-
-طاہر پرفیوم سٹور
-
-<span>
-TAHIR PERFUME STORE
-</span>
-
-</a>
-
-
-<div class="search">
-
-<input
-    id="searchInput"
-    type="text"
-    placeholder="پرفیوم تلاش کریں..."
->
-
-<button onclick="searchProducts()">
-⌕
-</button>
-
-</div>
-
-
-<div class="language-switch" aria-label="Language selector">
-<button id="langUr" type="button" onclick="setLanguage('ur')">اردو</button>
-<button id="langEn" type="button" onclick="setLanguage('en')">EN</button>
-</div>
-
-<div class="header-icons">
-
-<button
-    class="icon-btn"
-    onclick="openAdminLogin()"
-    title="Admin">
-
-⚙️
-
-</button>
-
-
-<button
-    class="icon-btn"
-    onclick="openCart()">
-
-🛒
-
-<span
-    id="cartCount"
-    class="cart-count">
-
-0
-
-</span>
-
-</button>
-
-</div>
-
-</div>
-
-
-<nav>
-
-<div class="nav-inner">
-
-<a href="#home">ہوم</a>
-
-<a href="#categories">کیٹیگریز</a>
-
-<a href="#products">پرفیوم</a>
-
-<a href="#about">ہمارے بارے میں</a>
-
-<a href="#contact">رابطہ</a>
-
-</div>
-
-</nav>
-
-</header>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section class="hero" id="home">
-
-<div id="heroSlides"></div>
-
-<div class="hero-overlay"></div>
-
-<div class="hero-content">
-
-<small id="heroSmall">طاہر پرفیوم سٹور</small>
-
-<h1 id="heroTitle">
-آپ کی خوشبو<br>
-آپ کی پہچان
-</h1>
-
-<p id="heroDescription">
-بہترین اور دلکش خوشبوؤں کا شاندار کلیکشن۔
-اپنے لیے اور اپنے پیاروں کے لیے آج ہی
-پسندیدہ پرفیوم منتخب کریں۔
-</p>
-
-<a id="heroButton" href="#products" class="gold-btn">
-ابھی خریدیں
-</a>
-
-</div>
-
-<div id="heroControls" class="hero-controls" style="display:none;">
-<button class="hero-arrow" type="button" onclick="previousBanner()" aria-label="Previous">‹</button>
-<button class="hero-arrow" type="button" onclick="nextBanner()" aria-label="Next">›</button>
-</div>
-
-<div id="heroDots" class="hero-dots"></div>
-
-</section>
-
-
-<!-- =====================================================
-     FEATURES
-===================================================== -->
-
-<section class="features">
-
-
-<div class="feature">
-
-<div class="feature-icon">💎</div>
-
-<h3>
-اعلیٰ معیار
-</h3>
-
-<p>
-پریمیم خوشبوئیں
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">🔒</div>
-
-<h3>
-محفوظ آرڈر
-</h3>
-
-<p>
-Cash on Delivery
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">💬</div>
-
-<h3>
-کسٹمر سپورٹ
-</h3>
-
-<p>
-ہمیشہ آپ کے ساتھ
-</p>
-
-</div>
-
-
-</section>
-
-
-<!-- =====================================================
-     CATEGORIES
-===================================================== -->
-
-<section class="section" id="categories">
-
-<div class="section-title">
-
-<small>
-ہماری کلیکشن
-</small>
-
-<h2>
-کیٹیگریز
-</h2>
-
-</div>
-
-
-<div class="categories">
-
-<a class="category cat1" href="#products">
-<h3>مردانہ پرفیوم</h3>
-</a>
-
-<a class="category cat2" href="#products">
-<h3>خواتین کے پرفیوم</h3>
-</a>
-
-<a class="category cat3" href="#products">
-<h3>پریمیم عطر</h3>
-</a>
-
-<a class="category cat4" href="#products">
-<h3>گفٹ سیٹس</h3>
-</a>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     PRODUCTS
-===================================================== -->
-
-<section class="section" id="products">
-
-<div class="section-title">
-
-<small>
-BEST COLLECTION
-</small>
-
-<h2>
-ہمارے پرفیوم
-</h2>
-
-<p>
-سب سے زیادہ پسند کیے جانے والے پرفیوم
-</p>
-
-</div>
-
-
-<div class="products-top">
-
-<strong id="productNumber">
-Loading Products...
-</strong>
-
-
-<div class="filters">
-
-<button
-    class="filter-btn active"
-    onclick="filterProducts('all',this)">
-سب
-</button>
-
-<button
-    class="filter-btn"
-    onclick="filterProducts('men',this)">
-مردانہ
-</button>
-
-<button
-    class="filter-btn"
-    onclick="filterProducts('women',this)">
-زنانہ
-</button>
-
-<button
-    class="filter-btn"
-    onclick="filterProducts('attar',this)">
-عطر
-</button>
-
-</div>
-
-</div>
-
-
-<div id="productGrid" class="products">
-
-<div class="firebase-loading">
-Products لوڈ ہو رہے ہیں...
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     OFFER
-===================================================== -->
-
-<section class="offer">
-
-<h2>
-خاص آفر
-</h2>
-
-<p>
-منتخب پرفیومز پر خصوصی رعایت
-</p>
-
-<a href="#products" class="gold-btn">
-آفر دیکھیں
-</a>
-
-</section>
-
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section class="section" id="about">
-
-<div class="about">
-
-<img
-    id="aboutStoreImage"
-    class="about-img"
-    src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1000&q=80"
-    alt="Tahir Perfume Store"
->
-
-
-<div>
-
-<small style="color:#c89b3c;font-weight:bold;">
-طاہر پرفیوم سٹور
-</small>
-
-<h2>
-خوشبو جو آپ کو یاد رکھے
-</h2>
-
-<p>
-
-طاہر پرفیوم سٹور میں ہم اپنے صارفین کے لیے
-بہترین اور معیاری پرفیوم اور عطر فراہم کرتے ہیں۔
-ہمارا مقصد ایسی خوشبوئیں فراہم کرنا ہے جو آپ کی
-شخصیت کو مزید خوبصورت اور یادگار بنائیں۔
-
-</p>
-
-<a href="#contact" class="gold-btn">
-ہم سے رابطہ کریں
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer id="contact">
-
-<div class="footer-grid">
-
-
-<div class="footer-brand">
-
-<h2>
-طاہر پرفیوم سٹور
-</h2>
-
-<p>
-
-Premium perfumes اور attars کا قابل اعتماد
-آن لائن اسٹور۔ پاکستان بھر میں ڈیلیوری دستیاب ہے۔
-
-</p>
-
-</div>
-
-
-<div>
-
-<h3>
-اہم لنکس
-</h3>
-
-<ul>
-
-<li><a href="#home">ہوم</a></li>
-
-<li><a href="#products">پرفیومز</a></li>
-
-<li><a href="#categories">کیٹیگریز</a></li>
-
-<li><a href="#about">ہمارے بارے میں</a></li>
-
-</ul>
-
-</div>
-
-
-<div>
-
-<h3>
-کسٹمر سروس
-</h3>
-
-<ul>
-
-<li>رابطہ کریں</li>
-
-<li>ڈیلیوری معلومات</li>
-
-<li>واپسی کی پالیسی</li>
-
-<li>پرائیویسی پالیسی</li>
-
-</ul>
-
-</div>
-
-
-<div>
-
-<h3>
-رابطہ
-</h3>
-
-<ul>
-
-<li>
-
-<a
-    href="tel:03142300764"
-    class="english">
-
-📞 03142300764
-
-</a>
-
-</li>
-
-
-<li>
-📍 پاکستان
-</li>
-
-
-<li>
-
-<a
-    href="mailto:tahirnaeemtahir123@gmail.com"
-    class="english">
-
-✉️ tahirnaeemtahir123@gmail.com
-
-</a>
-
-</li>
-
-</ul>
-
-</div>
-
-
-</div>
-
-
-<div class="copyright">
-
-© 2026 Tahir Perfume Store. All Rights Reserved.
-
-</div>
-
-</footer>
-
-
-<!-- =====================================================
-     WHATSAPP
-===================================================== -->
-
-<a
-    class="whatsapp"
-    href="https://wa.me/923142300764"
-    target="_blank">
-
-☎
-
-</a>
-
-
-<!-- =====================================================
-     CART
-===================================================== -->
-
-<aside id="cartPanel" class="cart-panel">
-
-<div class="cart-head">
-
-<h2>
-آپ کا کارٹ 🛒
-</h2>
-
-<button onclick="closeCart()">
-×
-</button>
-
-</div>
-
-
-<div id="cartItems" class="cart-items">
-</div>
-
-
-<div class="cart-bottom">
-
-<div class="total">
-
-<span>
-کل:
-</span>
-
-<span id="cartTotal" class="english">
-Rs. 0
-</span>
-
-</div>
-
-
-<button class="checkout" onclick="checkout()">
-
-WhatsApp پر آرڈر کریں
-
-</button>
-
-</div>
-
-</aside>
-
-
-<!-- =====================================================
-     ADMIN LOGIN
-===================================================== -->
-
-<div id="loginModal" class="modal">
-
-<div class="login-box">
-
-<button
-    class="close-modal"
-    onclick="closeAdminLogin()">
-
-×
-
-</button>
-
-<h2>
-Admin Login
-</h2>
-
-
-<div class="form-group">
-
-<label>
-Username
-</label>
-
-<input
-    id="adminUsername"
-    type="text"
-    placeholder="Username"
-    class="english"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Password
-</label>
-
-<input
-    id="adminPassword"
-    type="password"
-    placeholder="Password"
-    class="english"
->
-
-</div>
-
-
-<button
-    class="login-btn"
-    onclick="adminLogin()">
-
-Login
-
-</button>
-
-
-<div
-    id="loginError"
-    class="login-error">
-</div>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-     EDIT PRODUCT MODAL
-===================================================== -->
-
-<div id="editProductModal" class="modal">
-
-<div class="edit-modal-box">
-
-<button
-    class="close-modal"
-    onclick="closeEditProduct()">
-
-×
-
-</button>
-
-
-<h2 style="text-align:center;margin-bottom:20px;">
-
-Product Update کریں
-
-</h2>
-
-
-<input
-    type="hidden"
-    id="editProductIndex"
->
-
-
-<div class="form-group">
-
-<label>
-Product Name
-</label>
-
-<input
-    id="editProductName"
-    type="text"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Category
-</label>
-
-<select id="editProductCategory">
-
-<option value="men">
-مردانہ
-</option>
-
-<option value="women">
-زنانہ
-</option>
-
-<option value="attar">
-عطر
-</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Price
-</label>
-
-<input
-    id="editProductPrice"
-    type="number"
-    class="english"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Old Price
-</label>
-
-<input
-    id="editProductOldPrice"
-    type="number"
-    class="english"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-نئی Product Image
-</label>
-
-<input
-    id="editProductImage"
-    type="file"
-    accept="image/*"
-    onchange="previewEditImage(this)"
->
-
-</div>
-
-
-<div class="edit-preview">
-
-<img
-    id="editProductPreview"
-    src=""
-    alt="Product Preview"
->
-
-<div class="current-image-text">
-
-نئی تصویر select نہ کرنے کی صورت میں
-موجودہ تصویر برقرار رہے گی۔
-
-</div>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Description
-</label>
-
-<textarea id="editProductDescription">
-</textarea>
-
-</div>
-
-
-<button
-    class="login-btn"
-    onclick="updateProduct()">
-
-Product Update کریں
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-     ADMIN PANEL
-===================================================== -->
-
-<div id="adminPanel" class="admin-panel">
-
-<div class="admin-header">
-
-<h2>
-طاہر پرفیوم سٹور — Admin Panel
-</h2>
-
-<div style="display:flex;align-items:center;gap:10px;">
-<div class="language-switch">
-<button id="adminLangUr" type="button" onclick="setLanguage('ur')">اردو</button>
-<button id="adminLangEn" type="button" onclick="setLanguage('en')">EN</button>
-</div>
-<button onclick="logoutAdmin()">
-Logout
-</button>
-</div>
-
-</div>
-
-
-<div class="admin-container">
-
-
-<div class="dashboard-cards">
-
-
-<div class="dashboard-card">
-
-<h3>
-Total Orders
-</h3>
-
-<strong
-    id="totalOrders"
-    class="admin-number">
-
-0
-
-</strong>
-
-</div>
-
-
-<div class="dashboard-card">
-
-<h3>
-New Orders
-</h3>
-
-<strong
-    id="newOrders"
-    class="admin-number">
-
-0
-
-</strong>
-
-</div>
-
-
-<div class="dashboard-card">
-
-<h3>
-Products
-</h3>
-
-<strong
-    id="totalProducts"
-    class="admin-number">
-
-0
-
-</strong>
-
-</div>
-
-
-<div class="dashboard-card">
-
-<h3>
-Sales
-</h3>
-
-<strong
-    id="totalSales"
-    class="admin-number">
-
-Rs. 0
-
-</strong>
-
-</div>
-
-</div>
-
-
-<div class="admin-tabs">
-
-<button
-    class="admin-tab active"
-    onclick="showAdminTab('orders',this)">
-
-Orders
-
-</button>
-
-
-<button
-    class="admin-tab"
-    onclick="showAdminTab('productsAdmin',this)">
-
-Products
-
-</button>
-
-<button
-    class="admin-tab"
-    onclick="showAdminTab('bannersAdmin',this)">
-
-بینرز
-
-</button>
-
-<button
-    class="admin-tab"
-    onclick="showAdminTab('settingsAdmin',this); loadAdminSettings()">
-
-ویب سائٹ سیٹنگز
-
-</button>
-
-</div>
-
-
-<!-- =====================================================
-     BANNERS ADMIN
-===================================================== -->
-
-<div id="bannersAdmin" class="admin-section">
-
-<h2 style="margin-bottom:8px;">ویب سائٹ کے بینرز</h2>
-
-<p style="color:#777;margin-bottom:18px;">
-یہاں سے آپ ایک سے زیادہ بینر/تصویریں شامل کر سکتے ہیں۔ تمام Active بینرز ویب سائٹ پر Slider کی صورت میں نظر آئیں گے۔
-</p>
-
-<div class="banner-form">
-
-<h3 style="margin-bottom:15px;">نیا بینر شامل کریں</h3>
-
-<div class="banner-form-grid">
-
-<div class="form-group">
-<label>بینر کا عنوان</label>
-<input id="newBannerTitle" type="text" placeholder="آپ کی خوشبو، آپ کی پہچان">
-</div>
-
-<div class="form-group">
-<label>چھوٹا عنوان</label>
-<input id="newBannerSmall" type="text" placeholder="طاہر پرفیوم سٹور">
-</div>
-
-<div class="form-group full">
-<label>تفصیل</label>
-<textarea id="newBannerDescription" placeholder="بہترین اور دلکش خوشبوؤں کا شاندار کلیکشن۔"></textarea>
-</div>
-
-<div class="form-group">
-<label>بٹن کا متن</label>
-<input id="newBannerButton" type="text" value="ابھی خریدیں">
-</div>
-
-<div class="form-group">
-<label>بٹن کا لنک</label>
-<input id="newBannerLink" type="text" value="#products" class="english">
-</div>
-
-<div class="form-group">
-<label>بینر تصویر</label>
-<input id="newBannerImage" type="file" accept="image/*" onchange="previewBannerImage(this)">
-<div id="bannerImagePreview" class="banner-preview">
-<img id="newBannerPreview" src="" alt="Banner Preview">
-</div>
-</div>
-
-<div class="form-group">
-<label>ترتیب نمبر</label>
-<input id="newBannerOrder" type="number" value="1" min="1" class="english">
-</div>
-
-</div>
-
-<button class="gold-btn" type="button" onclick="addBanner()">بینر شامل کریں</button>
-
-<div id="bannerSaveStatus" class="save-status"></div>
-
-</div>
-
-<h3 style="margin-bottom:15px;">تمام بینرز</h3>
-
-<div id="adminBannerList"></div>
-
-</div>
-
-
-<!-- =====================================================
-     WEBSITE SETTINGS ADMIN
-===================================================== -->
-
-<div id="settingsAdmin" class="admin-section">
-
-<h2 style="margin-bottom:8px;">ویب سائٹ کی تصاویر</h2>
-
-<p style="color:#777;margin-bottom:18px;">
-یہاں سے ایڈمن ویب سائٹ کے "ہمارے بارے میں" سیکشن کے نیچے موجود تصویر تبدیل کر سکتا ہے۔ نئی تصویر محفوظ ہونے کے بعد ویب سائٹ پر خودکار طور پر دکھائی جائے گی۔
-</p>
-
-<div class="banner-form" style="max-width:800px;">
-
-<h3 style="margin-bottom:15px;">About سیکشن کی تصویر تبدیل کریں</h3>
-
-<div class="form-group">
-<label>موجودہ تصویر</label>
-<img id="adminAboutImagePreview" class="banner-preview" style="display:block;width:100%;max-width:600px;max-height:300px;object-fit:cover;border-radius:8px;border:1px solid #ddd;margin-bottom:15px;" src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1000&q=80" alt="About Image">
-</div>
-
-<div class="form-group">
-<label>نئی تصویر منتخب کریں</label>
-<input id="aboutStoreImageFile" type="file" accept="image/*" onchange="previewAboutImage(this)">
-<div id="aboutImageUploadPreview" class="banner-preview">
-<img id="aboutNewImagePreview" src="" alt="New About Image Preview">
-</div>
-</div>
-
-<button class="gold-btn" type="button" onclick="updateAboutStoreImage()">تصویر تبدیل کریں</button>
-<div id="aboutImageSaveStatus" class="save-status"></div>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-     ORDERS
-===================================================== -->
-
-<div id="orders" class="admin-section active">
-
-<h2 style="margin-bottom:15px;">
-تمام Orders
-</h2>
-
-
-<div class="table-wrap">
-
-<table class="admin-table">
-
-<thead>
-
-<tr>
-
-<th>Order</th>
-<th>Customer</th>
-<th>Phone</th>
-<th>Address</th>
-<th>Products</th>
-<th>Total</th>
-<th>Status</th>
-
-</tr>
-
-</thead>
-
-
-<tbody id="ordersTable">
-
-</tbody>
-
-</table>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-     PRODUCTS ADMIN
-===================================================== -->
-
-<div id="productsAdmin" class="admin-section">
-
-<h2 style="margin-bottom:15px;">
-نیا Product Add کریں
-</h2>
-
-
-<div class="admin-product-form">
-
-
-<div class="form-group">
-
-<label>
-Product Name
-</label>
-
-<input
-    id="newProductName"
-    type="text"
-    placeholder="مثلاً Royal Oud"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Category
-</label>
-
-<select id="newProductCategory">
-
-<option value="men">
-مردانہ
-</option>
-
-<option value="women">
-زنانہ
-</option>
-
-<option value="attar">
-عطر
-</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Price
-</label>
-
-<input
-    id="newProductPrice"
-    type="number"
-    placeholder="2400"
-    class="english"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Old Price
-</label>
-
-<input
-    id="newProductOldPrice"
-    type="number"
-    placeholder="3000"
-    class="english"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Product Image Attachment
-</label>
-
-<input
-    id="newProductImage"
-    type="file"
-    accept="image/*"
-    onchange="previewNewImage(this)"
->
-
-<div id="newImagePreview" class="image-preview">
-
-<img
-    id="newPreviewImage"
-    src=""
-    alt="Preview"
->
-
-</div>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Description
-</label>
-
-<textarea
-    id="newProductDescription"
-    placeholder="Product کی تفصیل">
-</textarea>
-
-</div>
-
-
-<button
-    class="gold-btn"
-    onclick="addProduct()">
-
-Product Add کریں
-
-</button>
-
-
-<div id="productSaveStatus" class="save-status">
+<!-- QR / SCAN / STATUS: Each ticket has a unique QR code; admin scanning marks it scanned and history/Excel show status. -->
+<!-- LOGIN MODAL -->
+<div class="modal-overlay" id="loginModal" style="display: flex;">
+  <div class="modal-box" style="max-width:380px;">
+    <div class="modal-header">لاگ ان پینل</div>
+    <form id="loginForm">
+      <div class="form-group">
+        <label>یوزر نیم (Username):</label>
+        <input type="text" id="loginUser" required placeholder="یوزر نیم درج کریں">
+      </div>
+      <div class="form-group">
+        <label>پاس ورڈ (Password):</label>
+        <input type="password" id="loginPass" required placeholder="پاس ورڈ درج کریں">
+      </div>
+      <button type="submit" class="btn-submit">لاگ ان کریں</button>
+    </form>
+  </div>
+</div>
+
+<div class="app-container">
+  <!-- Header -->
+  <div class="banner-header" id="bannerHeader">
+    <div class="custom-banner-preview" id="bannerImgBox">
+      <img id="bannerImg" src="" alt="بینر تصویر">
+    </div>
+    <h1>🕌 دعوتِ اسلامی اسپیشل ٹرین 🚂</h1>
+    <p>آن لائن ٹکٹ بکنگ و مینجمنٹ پورٹل</p>
+  </div>
+
+  <!-- User Info -->
+  <div class="user-bar">
+    <div>لاگ ان یوزر: <strong id="loggedInUserDisplay">میہمانی</strong> (<span id="loggedInRoleDisplay">مہمان</span>)</div>
+    <button onclick="logout()">لاگ آؤٹ</button>
+  </div>
+
+  <!-- Admin Controls -->
+  <div class="admin-controls-bar" id="adminPanelControls" style="display:none;">
+<button class="admin-btn" id="qrScanAdminBtn" type="button" onclick="openQrScannerModal()" style="display:none;">📷 QR اسکین کریں</button>
+    <button class="admin-btn" onclick="openModal('createUserModal')">➕ نیا یوزر بنائیں</button>
+    <button class="admin-btn" onclick="openUsersListModal()">👥 یوزرز لسٹنگ و ایڈیٹ</button>
+    <button class="admin-btn" onclick="openModal('bannerModal')">🖼️ بینر تبدیل کریں</button>
+    <button class="admin-btn" onclick="openAllHistoryModal(true)">📋 تمام ہسٹری و ایکسل</button>
+  </div>
+
+  <!-- Regular User Controls -->
+  <div class="admin-controls-bar" id="userPanelControls" style="display:none;">
+    <button class="admin-btn" id="qrScanUserBtn" type="button" onclick="openQrScannerModal()" style="display:none; background:#2563eb;">📷 QR اسکین کریں</button>
+    <button class="admin-btn" style="background:#059669; width:100%;" onclick="openAllHistoryModal(false)">📜 اپنی ڈسٹرکٹ کی بکنگ ہسٹری دیکھیں</button>
+  </div>
+
+  <!-- Stats Dashboard -->
+  <div class="stats-dashboard">
+    <div class="stat-card"><h5>کُل سیٹیں</h5><p id="stTotal">624</p></div>
+    <div class="stat-card"><h5>بک شدہ</h5><p id="stBooked" style="color:#dc2626;">0</p></div>
+    <div class="stat-card"><h5>خالی</h5><p id="stVacant" style="color:#10b981;">624</p></div>
+    <div class="stat-card"><h5>کُل رقم</h5><p id="stRevenue">Rs. 0</p></div>
+  </div>
+
+  <!-- Coach Tabs Nav -->
+  <div class="coach-tabs" id="coachTabs"></div>
+
+  <!-- Seat Layout Frame -->
+  <div class="layout-area">
+    <div class="coach-frame">
+      <div class="side-col" id="sideCol"></div>
+      <div class="main-col" id="mainCol"></div>
+    </div>
+  </div>
+
+  <!-- Checkout Footer Bar -->
+  <div class="footer-bar">
+    <div style="font-size:13px; font-weight:bold;">
+      سیٹ: <span id="selectedSeatLabel" style="color:var(--primary-color);">کوئی منتخب نہیں</span>
+    </div>
+    <button class="book-btn" id="bookActionBtn" disabled onclick="openBookingModal()">ٹکٹ بک کریں</button>
+  </div>
+</div>
+
+<!-- MODAL: ADD / EDIT USER -->
+<div class="modal-overlay" id="createUserModal">
+  <div class="modal-box" style="max-width:460px;">
+    <div class="modal-header" id="userModalTitle">نیا یوزر رجسٹر کریں</div>
+    <form id="createUserForm">
+      <input type="hidden" id="editUserIndex" value="-1">
+      <div class="form-group">
+        <label>مکمل نام:</label>
+        <input type="text" id="uFullName" required>
+      </div>
+      <div class="form-group">
+        <label>یوزر نیم (Username):</label>
+        <input type="text" id="uUsername" required>
+      </div>
+      <div class="form-group">
+        <label>فون نمبر:</label>
+        <input type="tel" id="uPhone" required>
+      </div>
+      <div class="form-group">
+        <label>پاس ورڈ (Password):</label>
+        <input type="password" id="uPassword" required>
+      </div>
+      <div class="form-group">
+        <label>تخصیص شدہ اضلاع (تعدد کا انتخاب کریں):</label>
+        <div class="checkbox-group" id="uDistrictCheckboxes"></div>
+      </div>
+      <div class="form-group">
+        <label>تخصیص شدہ کوچ (ایک یا زیادہ منتخب کریں):</label>
+        <div class="checkbox-group" id="uCoachCheckboxes"></div>
+      </div>
+      <div class="form-group">
+        <label>پرمیشنز:</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="checkbox" id="uQrScanPermission"> QR Code اسکین کرنے کی اجازت</label>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn-close" onclick="closeModal('createUserModal')">منسوخ</button>
+        <button type="submit" class="btn-submit" id="userSubmitBtn">یوزر محفوظ کریں</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: USERS LISTING -->
+<div class="modal-overlay" id="usersListModal">
+  <div class="modal-box">
+    <div class="modal-header">رجسٹرڈ یوزرز کی فہرست</div>
+    <div style="overflow-x:auto;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>نام</th>
+            <th>یوزر نیم</th>
+            <th>فون نمبر</th>
+            <th>اضلاع</th>
+            <th>کوچ</th>
+            <th>QR اسکین</th>
+            <th>ایکشن</th>
+          </tr>
+        </thead>
+        <tbody id="usersTableBody"></tbody>
+      </table>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-close" onclick="closeModal('usersListModal')">بند کریں</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: UPDATE BANNER POPUP -->
+<div class="modal-overlay" id="bannerModal">
+  <div class="modal-box" style="max-width:420px;">
+    <div class="modal-header">ڈیش بورڈ بینر پاپ اپ تنظیم</div>
+    <form id="bannerForm">
+      <div class="form-group">
+        <label>بینر تصویر کا URL درج کریں:</label>
+        <input type="url" id="bannerUrlInput" placeholder="https://example.com/banner.jpg" required>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn-close" onclick="closeModal('bannerModal')">منسوخ</button>
+        <button type="submit" class="btn-submit">بینر اپ لوڈ کریں</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: BOOKING TICKET INPUT FORM -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal-box" style="max-width:460px;">
+    <div class="modal-header">مسافر و ٹکٹ فارم</div>
+    <form id="bookingForm">
+      <div class="form-group">
+        <label>مسافر کا نام:</label>
+        <input type="text" id="pName" required>
+      </div>
+      <div class="form-group">
+        <label>فون نمبر:</label>
+        <input type="tel" id="pPhone" required placeholder="03001234567">
+      </div>
+      
+      <!-- CASCADING DROPDOWNS FROM EXCEL DATA -->
+      <div class="form-group">
+        <label>ڈسٹرکٹ:</label>
+        <select id="pDistrict" required onchange="onDistrictChange()"></select>
+      </div>
+      <div class="form-group">
+        <label>ٹاؤن:</label>
+        <select id="pTown" required onchange="onTownChange()"></select>
+      </div>
+      <div class="form-group">
+        <label>یوسی / سیکٹر:</label>
+        <input type="text" id="pUc" required placeholder="یوسی کا نام یا نمبر لکھیں">
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-close" onclick="closeModal('bookingModal')">منسوخ</button>
+        <button type="submit" class="btn-submit">✅ کنفرم کریں</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: TICKET PRINT / VIEW POPUP -->
+<div class="modal-overlay" id="printTicketModal">
+  <div class="modal-box" style="max-width:420px;">
+    <div id="printArea">
+      <div class="ticket-paper" id="ticketContent"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-close" onclick="closeModal('printTicketModal')">بند کریں</button>
+      <button class="btn-submit" onclick="downloadTicket()">⬇️ ٹکٹ PNG ڈاؤن لوڈ کریں</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal-overlay" id="qrScannerModal">
+  <div class="modal-box" style="max-width:520px;">
+    <div class="modal-header">🎯 QR ٹکٹ اسکین کریں</div>
+    <div id="qr-reader"></div>
+    <div class="scan-manual">
+      <input type="text" id="manualTicketCode" placeholder="ٹکٹ کوڈ لکھیں، مثلاً TKT-2025-000001">
+      <button class="btn-submit" type="button" onclick="scanTicketCode(document.getElementById('manualTicketCode').value)">اسکین کریں</button>
+    </div>
+    <div id="scanResult" class="scan-result"></div>
+    <div class="modal-actions">
+      <button class="btn-close" onclick="stopQrScanner(); closeModal('qrScannerModal')">بند کریں</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: HISTORY AND EXCEL EXPORT -->
+<div class="modal-overlay" id="historyModal">
+  <div class="modal-box">
+    <div class="modal-header" id="historyTitle">بکنگز ریکارڈز</div>
+    
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:12px;">
+      <div style="flex:1;">
+        <select id="filterDistrictHistory" onchange="renderHistoryTable()" style="width:100%; padding:8px; border-radius:6px; border:1px solid #cbd5e1;"></select>
+      </div>
+      <button class="btn-excel" onclick="exportToExcel()">📊 ایکسل (Excel) میں ڈاؤن لوڈ کریں</button>
+    </div>
+
+    <div style="overflow-x:auto;">
+      <table class="data-table" id="exportTable">
+        <thead>
+          <tr>
+            <th>ٹکٹ کوڈ</th>
+            <th>کوچ/سیٹ</th>
+            <th>نام</th>
+            <th>فون نمبر</th>
+            <th>ڈسٹرکٹ</th>
+            <th>ٹاؤن</th>
+            <th>UC/سیکٹر</th>
+            <th>Status</th>
+            <th>ایکشن</th>
+          </tr>
+        </thead>
+        <tbody id="historyTableBody"></tbody>
+      </table>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-close" onclick="closeModal('historyModal')">بند کریں</button>
+    </div>
+  </div>
 </div>
-
-</div>
-
-
-<h2 style="margin-top:30px;margin-bottom:15px;">
-
-تمام Products
-
-</h2>
-
-
-<div
-    id="adminProductList"
-    class="admin-product-list">
-</div>
-
-
-</div>
-
-</div>
-
-</div>
-
 
 <script>
-
-/* =====================================================
-   FIREBASE DATABASE
-===================================================== */
-
-const FIREBASE_DB =
-    "https://traindawateislami-default-rtdb.firebaseio.com";
-
-
-const FIREBASE_PRODUCTS =
-    FIREBASE_DB +
-    "/tahirPerfume/products";
-
-
-const FIREBASE_ORDERS =
-    FIREBASE_DB +
-    "/tahirPerfume/orders";
-
-
-const FIREBASE_BANNERS =
-    FIREBASE_DB +
-    "/tahirPerfume/banners";
-
-const FIREBASE_SETTINGS =
-    FIREBASE_DB +
-    "/tahirPerfume/settings";
-
-
-/* =====================================================
-   DEFAULT PRODUCTS
-===================================================== */
-
-const defaultProducts = [
-
-{
-    id:1,
-    name:"رائل عود",
-    category:"men",
-    price:2400,
-    oldPrice:3000,
-
-    image:
-    "https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=700&q=80",
-
-    description:"پریمیم مردانہ خوشبو"
-},
-
-{
-    id:2,
-    name:"گلاب پریمیئم",
-    category:"women",
-    price:2100,
-    oldPrice:2500,
-
-    image:
-    "https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=700&q=80",
-
-    description:"دلکش زنانہ خوشبو"
-},
-
-{
-    id:3,
-    name:"عطر سلطانی",
-    category:"attar",
-    price:1500,
-    oldPrice:2000,
-
-    image:
-    "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=700&q=80",
-
-    description:"لمبی دیر تک رہنے والی خوشبو"
-},
-
-{
-    id:4,
-    name:"مسک رائل",
-    category:"men",
-    price:1800,
-    oldPrice:2200,
-
-    image:
-    "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=700&q=80",
-
-    description:"پریمیم مسک خوشبو"
-},
-
-{
-    id:5,
-    name:"پرنسس",
-    category:"women",
-    price:2000,
-    oldPrice:2500,
-
-    image:
-    "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=700&q=80",
-
-    description:"نرم اور خوبصورت خوشبو"
-},
-
-{
-    id:6,
-    name:"عود عرب",
-    category:"attar",
-    price:2700,
-    oldPrice:3000,
-
-    image:
-    "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=700&q=80",
-
-    description:"خالص عربی عطر"
-},
-
-{
-    id:7,
-    name:"بلیک مسک",
-    category:"men",
-    price:2200,
-    oldPrice:2600,
-
-    image:
-    "https://images.unsplash.com/photo-1595425970377-c9703cf48b6c?auto=format&fit=crop&w=700&q=80",
-
-    description:"Bold اور Royal خوشبو"
-},
-
-{
-    id:8,
-    name:"سفید مسک",
-    category:"attar",
-    price:1600,
-    oldPrice:2000,
-
-    image:
-    "https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=700&q=80",
-
-    description:"نرم، صاف اور دلکش"
-}
-
-];
-
-
-/* =====================================================
-   FIREBASE GET
-===================================================== */
-
-async function firebaseGet(path){
-
-    try{
-
-        const response =
-            await fetch(
-                path + ".json"
-            );
-
-        if(!response.ok){
-            throw new Error("Firebase GET failed");
-        }
-
-        return await response.json();
-
-    }catch(error){
-
-        console.error(error);
-
-        return null;
-    }
-}
-
-
-/* =====================================================
-   FIREBASE PUT
-===================================================== */
-
-async function firebasePut(
-    path,
-    data
-){
-
-    try{
-
-        const response =
-            await fetch(
-                path + ".json",
-                {
-                    method:"PUT",
-
-                    headers:{
-                        "Content-Type":
-                        "application/json"
-                    },
-
-                    body:
-                        JSON.stringify(data)
-                }
-            );
-
-        if(!response.ok){
-            throw new Error("Firebase PUT failed");
-        }
-
-        return await response.json();
-
-    }catch(error){
-
-        console.error(error);
-
-        alert(
-            "Firebase میں data save نہیں ہو سکا۔"
-        );
-
-        return null;
-    }
-}
-
-
-/* =====================================================
-   FIREBASE POST
-===================================================== */
-
-async function firebasePost(
-    path,
-    data
-){
-
-    try{
-
-        const response =
-            await fetch(
-                path + ".json",
-                {
-                    method:"POST",
-
-                    headers:{
-                        "Content-Type":
-                        "application/json"
-                    },
-
-                    body:
-                        JSON.stringify(data)
-                }
-            );
-
-        if(!response.ok){
-            throw new Error("Firebase POST failed");
-        }
-
-        return await response.json();
-
-    }catch(error){
-
-        console.error(error);
-
-        alert(
-            "Order Database میں save نہیں ہو سکا۔"
-        );
-
-        return null;
-    }
-}
-
-
-/* =====================================================
-   FIREBASE PATCH
-===================================================== */
-
-async function firebasePatch(
-    path,
-    data
-){
-
-    try{
-
-        const response =
-            await fetch(
-                path + ".json",
-                {
-                    method:"PATCH",
-
-                    headers:{
-                        "Content-Type":
-                        "application/json"
-                    },
-
-                    body:
-                        JSON.stringify(data)
-                }
-            );
-
-        if(!response.ok){
-            throw new Error("Firebase PATCH failed");
-        }
-
-        return await response.json();
-
-    }catch(error){
-
-        console.error(error);
-
-        return null;
-    }
-}
-
-
-/* =====================================================
-   FIREBASE DELETE
-===================================================== */
-
-async function firebaseDelete(path){
-
-    try{
-
-        const response =
-            await fetch(
-                path + ".json",
-                {
-                    method:"DELETE"
-                }
-            );
-
-        return response.ok;
-
-    }catch(error){
-
-        console.error(error);
-
-        return false;
-    }
-}
-
-
-/* =====================================================
-   PRODUCTS - LOCAL CACHE
-   IMPORTANT: localStorage is only a cache.
-   Firebase is always the source of truth.
-===================================================== */
-
-function getProducts(){
-    const saved = localStorage.getItem("tahirProducts");
-
-    if(saved){
-        try{
-            const parsed = JSON.parse(saved);
-            return Array.isArray(parsed) ? parsed : [];
-        }catch(e){
-            console.error("Local products parse error:", e);
-        }
-    }
-
-    return defaultProducts;
-}
-
-function saveProductsLocal(products){
-    localStorage.setItem(
-        "tahirProducts",
-        JSON.stringify(Array.isArray(products) ? products : [])
-    );
-}
-
-/* =====================================================
-   FIREBASE PRODUCTS -> ARRAY
-===================================================== */
-
-function firebaseProductsToArray(data){
-    if(!data){
-        return [];
-    }
-
-    if(Array.isArray(data)){
-        return data.filter(Boolean);
-    }
-
-    return Object.entries(data)
-        .filter(([key,value]) => value && typeof value === "object")
-        .map(([key,value]) => ({
-            ...value,
-            id: value.id ?? key
-        }));
-}
-
-/* =====================================================
-   SAVE ONE PRODUCT
-   NEVER overwrite the complete products node.
-===================================================== */
-
-async function saveProductToFirebase(product){
-    if(!product || product.id === undefined || product.id === null){
-        return null;
-    }
-
-    return await firebasePut(
-        FIREBASE_PRODUCTS + "/" + encodeURIComponent(String(product.id)),
-        product
-    );
-}
-
-/* =====================================================
-   LOAD PRODUCTS FROM FIREBASE
-===================================================== */
-
-async function loadProductsFromFirebase(options = {}){
-    const data = await firebaseGet(FIREBASE_PRODUCTS);
-
-    /* If Firebase request fails, keep the local cache visible. */
-    if(data === null){
-        displayProducts(getProducts());
-        loadAdminProducts();
-        return getProducts();
-    }
-
-    let products = firebaseProductsToArray(data);
-
-    /*
-       If Firebase is completely empty, initialize it once with
-       the default products. This happens only when the database
-       has no products at all.
-    */
-    if(!products.length){
-        products = defaultProducts.map(product => ({...product}));
-
-        const seedObject = {};
-        products.forEach(product => {
-            seedObject[String(product.id)] = product;
-        });
-
-        const seeded = await firebasePut(
-            FIREBASE_PRODUCTS,
-            seedObject
-        );
-
-        if(seeded === null){
-            displayProducts(getProducts());
-            loadAdminProducts();
-            return getProducts();
-        }
-    }
-
-    saveProductsLocal(products);
-    displayProducts(products);
-    loadAdminProducts();
-
-    const totalProducts = document.getElementById("totalProducts");
-    if(totalProducts){
-        totalProducts.textContent = products.length;
-    }
-
-    return products;
-}
-
-/* =====================================================
-   SYNC PRODUCTS
-   Every browser/system periodically gets the latest Firebase data.
-===================================================== */
-
-let productsSyncRunning = false;
-
-async function syncProductsFromFirebase(){
-    if(productsSyncRunning){
-        return;
-    }
-
-    productsSyncRunning = true;
-
-    try{
-        await loadProductsFromFirebase();
-    }finally{
-        productsSyncRunning = false;
-    }
-}
-
-/* Sync every 5 seconds so another system sees changes automatically. */
-setInterval(syncProductsFromFirebase, 5000);
-setInterval(syncBannersFromFirebase, 5000);
-
-/* Also sync immediately when the browser tab becomes active. */
-document.addEventListener("visibilitychange", function(){
-    if(document.visibilityState === "visible"){
-        syncProductsFromFirebase();
-        syncBannersFromFirebase();
-    }
-});
-
-window.addEventListener("focus", syncProductsFromFirebase);
-window.addEventListener("focus", syncBannersFromFirebase);
-
-/* =====================================================
-   BANNERS / HERO SLIDER
-===================================================== */
-
-const defaultBanners = [
-    {
-        id:"default-1",
-        title:"آپ کی خوشبو<br>آپ کی پہچان",
-        titleEn:"Your Fragrance<br>Your Identity",
-        small:"طاہر پرفیوم سٹور",
-        smallEn:"Tahir Perfume Store",
-        description:"بہترین اور دلکش خوشبوؤں کا شاندار کلیکشن۔ اپنے لیے اور اپنے پیاروں کے لیے آج ہی پسندیدہ پرفیوم منتخب کریں۔",
-        descriptionEn:"A premium collection of beautiful fragrances. Choose your favorite perfume today for yourself or your loved ones.",
-        buttonText:"ابھی خریدیں",
-        buttonTextEn:"Shop Now",
-        buttonLink:"#products",
-        image:"https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1800&q=85",
-        order:1,
-        active:true
+  // -------------------------------------------------------------
+  // 🔥 EXCEL DATA STRUCTURE HIERARCHY
+  // -------------------------------------------------------------
+  const LOCATION_DATA = {
+    "لاہور جنوبی ڈسٹرکٹ": {
+      "نشتر ٹاؤن": {},
+      "ملتان روڈ ٹاؤن": {},
+      "رائیونڈ ٹاؤن": {},
+      "ٹاؤن شپ": {},
+      "جوہر ٹاؤن": {},
+      "بحریہ ٹاؤن": {}
     },
-    {
-        id:"default-2",
-        title:"خوشبو جو آپ کو یاد رکھے",
-        titleEn:"A Fragrance They Remember",
-        small:"طاہر پرفیوم سٹور",
-        smallEn:"Tahir Perfume Store",
-        description:"معیاری پرفیوم اور عطر کا خوبصورت کلیکشن، آپ کی شخصیت کے لیے بہترین انتخاب۔",
-        descriptionEn:"A beautiful collection of quality perfumes and attars, made to complement your personality.",
-        buttonText:"کلیکشن دیکھیں",
-        buttonTextEn:"View Collection",
-        buttonLink:"#products",
-        image:"https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1800&q=85",
-        order:2,
-        active:true
+    "لاہور سنٹرل ڈسٹرکٹ": {
+      "گلبرگ ٹاؤن": {},
+      "اقبال ٹاؤن": {},
+      "سمن آباد ٹاؤن": {}
+    },
+    "لاہور شمالی ڈسٹرکٹ": {
+      "راوی ٹاؤن": {},
+      "شالیمار ٹاؤن": {},
+      "داتا گنج بخش ٹاؤن": {},
+      "گلشن راوی ٹاؤن": {}
+    },
+    "لاہور کینٹ ڈسٹرکٹ": {
+      "واہگہ ٹاؤن": {},
+      "عزیز بھٹی ٹاؤن": {},
+      "کینٹ ٹاؤن": {},
+      "ڈی ایچ اے ٹاؤن": {},
+      "والٹن ٹاؤن": {},
+      "داروغہ والا ٹاؤن": {}
     }
-];
+  };
 
-let banners = [];
-let currentBannerIndex = 0;
-let bannerTimer = null;
-let bannersSyncRunning = false;
+  const ALL_DISTRICTS = Object.keys(LOCATION_DATA);
 
-function firebaseBannersToArray(data){
-    if(!data) return [];
+  // District -> Town map. UC is intentionally a free-text field.
+  // If the source hierarchy contains sub-town levels, their parent Town
+  // remains selectable; sub-town is not shown as a separate field.
+  const DISTRICT_TOWNS = Object.fromEntries(ALL_DISTRICTS.map(d => [
+    d, Object.keys(LOCATION_DATA[d] || {})
+  ]));
 
-    if(Array.isArray(data)){
-        return data.filter(Boolean).map((banner,index)=>({
-            ...banner,
-            id:banner.id ?? String(index)
-        }));
+  // -------------------------------------------------------------
+  // 🔥 FIREBASE CONFIGURATION
+  // -------------------------------------------------------------
+  const firebaseConfig = {
+    databaseURL: "https://traindawateislami-default-rtdb.firebaseio.com"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+
+  const FIXED_FARE = 5000;
+  const TOTAL_COACHES = 8;
+  
+  let usersList = [
+    { username: 'admin', pass: 'admin123', name: 'سپر ایڈمن', phone: '03000000000', districts: ['All'], coaches: ['All'], role: 'admin', permissions: { qrScan: true } }
+  ];
+
+  let coachesData = [];
+
+  function generateInitialCoaches() {
+    let coaches = [];
+    for (let c = 1; c <= TOTAL_COACHES; c++) {
+      let berths = [];
+      let sideSeats = [];
+      for (let b = 1; b <= 60; b++) berths.push({ id: `${b < 10 ? '0'+b : b}B`, status: 'available', passenger: null });
+      for (let s = 61; s <= 78; s++) sideSeats.push({ id: `${s}S`, status: 'available', passenger: null });
+      coaches.push({ coachNum: c, berths, sideSeats });
     }
+    return coaches;
+  }
 
-    return Object.entries(data)
-        .filter(([key,value]) => value && typeof value === "object")
-        .map(([key,value]) => ({
-            ...value,
-            id:value.id ?? key
-        }));
-}
-
-function getSortedActiveBanners(list){
-    return (Array.isArray(list) ? list : [])
-        .filter(banner => banner && banner.active !== false)
-        .sort((a,b) => Number(a.order || 999999) - Number(b.order || 999999));
-}
-
-function saveBannersLocal(list){
-    localStorage.setItem("tahirBanners", JSON.stringify(Array.isArray(list) ? list : []));
-}
-
-function getBannersLocal(){
-    try{
-        const saved = localStorage.getItem("tahirBanners");
-        return saved ? JSON.parse(saved) : defaultBanners.map(b=>({...b}));
-    }catch(error){
-        console.error("Local banners parse error:", error);
-        return defaultBanners.map(b=>({...b}));
+  // Realtime Sync Listener for Coaches Data
+  db.ref('coachesData').on('value', (snapshot) => {
+    const data = snapshot.val();
+    if (data) {
+      coachesData = data;
+    } else {
+      coachesData = generateInitialCoaches();
+      saveCoachesToDB();
     }
-}
+    renderTabs();
+    renderLayout();
+    updateStats();
+  });
 
-async function loadBannersFromFirebase(){
-    const data = await firebaseGet(FIREBASE_BANNERS);
+  // Realtime Sync Listener for Users
+  let usersLoaded = false;
 
-    if(data === null){
-        banners = getBannersLocal();
-        renderHeroBanners();
-        loadAdminBanners();
-        return banners;
-    }
-
-    let loaded = firebaseBannersToArray(data);
-
-    if(!loaded.length){
-        loaded = defaultBanners.map(b=>({...b}));
-        const seedObject = {};
-        loaded.forEach(banner => {
-            seedObject[String(banner.id)] = banner;
-        });
-
-        const seeded = await firebasePut(FIREBASE_BANNERS, seedObject);
-
-        if(seeded === null){
-            banners = getBannersLocal();
-        }else{
-            banners = loaded;
-        }
-    }else{
-        banners = loaded;
-    }
-
-    saveBannersLocal(banners);
-    renderHeroBanners();
-    loadAdminBanners();
-    return banners;
-}
-
-function renderHeroBanners(){
-    const slidesBox = document.getElementById("heroSlides");
-    const dotsBox = document.getElementById("heroDots");
-    const controls = document.getElementById("heroControls");
-
-    if(!slidesBox || !dotsBox) return;
-
-    const active = getSortedActiveBanners(banners);
-
-    if(!active.length){
-        slidesBox.innerHTML = "";
-        dotsBox.innerHTML = "";
-        if(controls) controls.style.display = "none";
-        return;
-    }
-
-    if(currentBannerIndex >= active.length) currentBannerIndex = 0;
-
-    slidesBox.innerHTML = active.map((banner,index)=>`
-        <div class="hero-slide ${index === currentBannerIndex ? "active" : ""}"
-             style="background-image:url('${escapeCssUrl(banner.image)}')"
-             aria-hidden="${index === currentBannerIndex ? "false" : "true"}"></div>
-    `).join("");
-
-    dotsBox.innerHTML = active.length > 1
-        ? active.map((banner,index)=>`
-            <button class="hero-dot ${index === currentBannerIndex ? "active" : ""}"
-                    type="button"
-                    onclick="goToBanner(${index})"
-                    aria-label="Banner ${index+1}"></button>
-        `).join("")
-        : "";
-
-    if(controls) controls.style.display = active.length > 1 ? "flex" : "none";
-
-    const banner = active[currentBannerIndex];
-    const small = document.getElementById("heroSmall");
-    const title = document.getElementById("heroTitle");
-    const description = document.getElementById("heroDescription");
-    const button = document.getElementById("heroButton");
-
-    const isEnglish = document.documentElement.lang === "en";
-    if(small) small.textContent = (isEnglish ? banner.smallEn : banner.small) || (isEnglish ? "Tahir Perfume Store" : "طاہر پرفیوم سٹور");
-    if(title) title.innerHTML = (isEnglish ? banner.titleEn : banner.title) || (isEnglish ? "Your Fragrance<br>Your Identity" : "آپ کی خوشبو<br>آپ کی پہچان");
-    if(description) description.textContent = (isEnglish ? banner.descriptionEn : banner.description) || "";
-    if(button){
-        button.textContent = (isEnglish ? banner.buttonTextEn : banner.buttonText) || (isEnglish ? "Shop Now" : "ابھی خریدیں");
-        button.href = banner.buttonLink || "#products";
-        button.style.display = (banner.buttonText || banner.buttonLink) ? "inline-block" : "none";
-    }
-
-    restartBannerTimer(active.length);
-}
-
-function restartBannerTimer(count){
-    clearInterval(bannerTimer);
-
-    if(count > 1){
-        bannerTimer = setInterval(() => {
-            nextBanner();
-        }, 5000);
-    }
-}
-
-function goToBanner(index){
-    const active = getSortedActiveBanners(banners);
-    if(!active.length) return;
-
-    currentBannerIndex = (index + active.length) % active.length;
-    renderHeroBanners();
-}
-
-function nextBanner(){
-    const active = getSortedActiveBanners(banners);
-    if(active.length < 2) return;
-
-    currentBannerIndex = (currentBannerIndex + 1) % active.length;
-    renderHeroBanners();
-}
-
-function previousBanner(){
-    const active = getSortedActiveBanners(banners);
-    if(active.length < 2) return;
-
-    currentBannerIndex = (currentBannerIndex - 1 + active.length) % active.length;
-    renderHeroBanners();
-}
-
-function escapeCssUrl(url){
-    return String(url || "")
-        .replace(/\\/g,"\\\\")
-        .replace(/'/g,"\\'");
-}
-
-function escapeHtml(value){
-    return String(value ?? "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-}
-
-/*
-   Compress banner images before saving them in Realtime Database.
-   This keeps Firebase data much smaller than the original camera/photo file.
-*/
-function compressImageFile(file, maxWidth=1800, maxHeight=700, quality=.78){
-    return new Promise((resolve,reject)=>{
-        if(!file || !file.type.startsWith("image/")){
-            reject(new Error("Invalid image"));
-            return;
-        }
-
-        const reader = new FileReader();
-
-        reader.onload = function(event){
-            const img = new Image();
-
-            img.onload = function(){
-                let width = img.naturalWidth;
-                let height = img.naturalHeight;
-
-                const scale = Math.min(
-                    1,
-                    maxWidth / width,
-                    maxHeight / height
-                );
-
-                width = Math.max(1, Math.round(width * scale));
-                height = Math.max(1, Math.round(height * scale));
-
-                const canvas = document.createElement("canvas");
-                canvas.width = width;
-                canvas.height = height;
-
-                const ctx = canvas.getContext("2d");
-                ctx.drawImage(img,0,0,width,height);
-
-                resolve(
-                    canvas.toDataURL("image/jpeg", quality)
-                );
-            };
-
-            img.onerror = () => reject(new Error("Image load failed"));
-            img.src = event.target.result;
-        };
-
-        reader.onerror = () => reject(new Error("File read failed"));
-        reader.readAsDataURL(file);
-    });
-}
-
-function previewBannerImage(input){
-    const file = input.files && input.files[0];
-    const box = document.getElementById("bannerImagePreview");
-    const img = document.getElementById("newBannerPreview");
-
-    if(!file){
-        if(box) box.style.display = "none";
-        return;
-    }
-
-    if(!file.type.startsWith("image/")){
-        alert("صرف Image file منتخب کریں۔");
-        input.value = "";
-        return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = function(e){
-        img.src = e.target.result;
-        box.style.display = "block";
+  function normalizeUser(u) {
+    u = u || {};
+    return {
+      name: String(u.name || ''),
+      username: String(u.username || '').trim(),
+      phone: String(u.phone || ''),
+      pass: String(u.pass ?? u.password ?? ''),
+      districts: Array.isArray(u.districts) ? u.districts : (u.districts ? Object.values(u.districts) : []),
+      coaches: Array.isArray(u.coaches) ? u.coaches : (u.coaches ? Object.values(u.coaches).map(Number) : (u.role === 'admin' ? ['All'] : [])),
+      role: u.role || 'user',
+      permissions: {
+        qrScan: u.role === 'admin' ? true : !!(u.permissions && u.permissions.qrScan)
+      }
     };
-    reader.readAsDataURL(file);
-}
+  }
 
-function clearBannerForm(){
-    document.getElementById("newBannerTitle").value = "";
-    document.getElementById("newBannerSmall").value = "";
-    document.getElementById("newBannerDescription").value = "";
-    document.getElementById("newBannerButton").value = "ابھی خریدیں";
-    document.getElementById("newBannerLink").value = "#products";
-    document.getElementById("newBannerImage").value = "";
-    document.getElementById("newBannerOrder").value = "1";
-    document.getElementById("bannerImagePreview").style.display = "none";
-}
+  db.ref('usersList').on('value', (snapshot) => {
+    const data = snapshot.val();
+    if (data) {
+      const rawUsers = Array.isArray(data) ? data : Object.values(data);
+      usersList = rawUsers.map(normalizeUser).filter(u => u.username);
+    } else {
+      usersList = [
+        { username: 'admin', pass: 'admin123', name: 'سپر ایڈمن', phone: '03000000000', districts: ['All'], role: 'admin', coaches: ['All'], permissions: { qrScan: true } }
+      ];
+      saveUsersToDB();
+    }
+    usersLoaded = true;
+    renderDistrictCheckboxes();
+    renderCoachCheckboxes();
+  });
 
-async function addBanner(){
-    const title = document.getElementById("newBannerTitle").value.trim();
-    const small = document.getElementById("newBannerSmall").value.trim();
-    const description = document.getElementById("newBannerDescription").value.trim();
-    const buttonText = document.getElementById("newBannerButton").value.trim();
-    const buttonLink = document.getElementById("newBannerLink").value.trim();
-    const order = Number(document.getElementById("newBannerOrder").value) || 1;
-    const file = document.getElementById("newBannerImage").files[0];
+  let currentUser = null;
+  let selectedSeatInfo = null;
+  let activeCoachIndex = 0;
+  let currentHistoryIsAdmin = false;
 
-    if(!title || !file){
-        alert("بینر کا عنوان اور تصویر لازمی ہیں۔");
+  function saveUsersToDB() {
+    const payload = usersList.map(normalizeUser);
+    usersList = payload;
+    return db.ref('usersList').set(payload);
+  }
+  function saveCoachesToDB() { db.ref('coachesData').set(coachesData); }
+
+  function renderDistrictCheckboxes() {
+    const box = document.getElementById("uDistrictCheckboxes");
+    box.innerHTML = "";
+    ALL_DISTRICTS.forEach(d => {
+      const lbl = document.createElement("label");
+      lbl.className = "checkbox-item";
+      lbl.innerHTML = `<input type="checkbox" value="${d}"> ${d}`;
+      box.appendChild(lbl);
+    });
+  }
+
+  function renderCoachCheckboxes() {
+    const box = document.getElementById("uCoachCheckboxes");
+    box.innerHTML = "";
+    for (let c = 1; c <= TOTAL_COACHES; c++) {
+      const lbl = document.createElement("label");
+      lbl.className = "checkbox-item";
+      lbl.innerHTML = `<input type="checkbox" value="${c}"> Coach #${c}`;
+      box.appendChild(lbl);
+    }
+  }
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderDistrictCheckboxes();
+    renderCoachCheckboxes();
+
+    // Login Form Submit
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const uInput = document.getElementById("loginUser").value.trim();
+      const pInput = document.getElementById("loginPass").value.trim();
+
+      if (!usersLoaded) {
+        alert("یوزرز کا ڈیٹا لوڈ ہو رہا ہے، براہ کرم چند لمحے بعد دوبارہ کوشش کریں۔");
         return;
-    }
-
-    if(!file.type.startsWith("image/")){
-        alert("صرف Image file upload کریں۔");
-        return;
-    }
-
-    const status = document.getElementById("bannerSaveStatus");
-    status.textContent = "بینر تیار کیا جا رہا ہے...";
-
-    try{
-        const image = await compressImageFile(file);
-
-        const banner = {
-            id:"banner-" + Date.now(),
-            title:title,
-            small:small || "طاہر پرفیوم سٹور",
-            description:description,
-            buttonText:buttonText || "ابھی خریدیں",
-            buttonLink:buttonLink || "#products",
-            image:image,
-            order:order,
-            active:true
-        };
-
-        const result = await firebasePut(
-            FIREBASE_BANNERS + "/" + encodeURIComponent(banner.id),
-            banner
-        );
-
-        if(result === null){
-            status.textContent = "";
-            alert("بینر Firebase میں save نہیں ہوا۔");
-            return;
-        }
-
-        banners.push(banner);
-        saveBannersLocal(banners);
-        currentBannerIndex = 0;
-        renderHeroBanners();
-        loadAdminBanners();
-        clearBannerForm();
-
-        status.textContent = "✓ بینر کامیابی سے شامل ہو گیا۔";
-        setTimeout(()=> status.textContent="",3000);
-    }catch(error){
-        console.error(error);
-        status.textContent = "";
-        alert("بینر تیار نہیں ہو سکا۔");
-    }
-}
-
-function loadAdminBanners(){
-    const list = document.getElementById("adminBannerList");
-    if(!list) return;
-
-    const all = [...banners].sort(
-        (a,b)=>Number(a.order||999999)-Number(b.order||999999)
-    );
-
-    if(!all.length){
-        list.innerHTML = '<div class="banner-admin-card">کوئی بینر موجود نہیں۔</div>';
-        return;
-    }
-
-    list.innerHTML = all.map(banner=>{
-        const statusClass = banner.active === false ? "banner-inactive" : "banner-toggle";
-        const statusText = banner.active === false ? "غیر فعال" : "فعال";
-
-        return `
-            <div class="banner-admin-card">
-                <div class="banner-admin-grid">
-                    <img class="banner-admin-image"
-                         src="${escapeHtml(banner.image)}"
-                         alt="Banner">
-
-                    <div>
-                        <h3>${escapeHtml(stripHtml(banner.title || ""))}</h3>
-                        <div style="color:#777;margin-top:5px;">
-                            ترتیب: ${escapeHtml(banner.order || 1)}
-                            &nbsp; | &nbsp;
-                            حالت: ${statusText}
-                        </div>
-                        <div class="banner-admin-actions">
-                            <button class="banner-btn ${statusClass}"
-                                    onclick="toggleBanner('${escapeHtml(String(banner.id))}')">
-                                ${statusText === "فعال" ? "غیر فعال کریں" : "فعال کریں"}
-                            </button>
-                            <button class="banner-btn banner-edit"
-                                    onclick="editBanner('${escapeHtml(String(banner.id))}')">
-                                ترمیم
-                            </button>
-                            <button class="banner-btn banner-delete"
-                                    onclick="deleteBanner('${escapeHtml(String(banner.id))}')">
-                                حذف کریں
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-    }).join("");
-}
-
-function stripHtml(value){
-    const div = document.createElement("div");
-    div.innerHTML = value;
-    return div.textContent || div.innerText || "";
-}
-
-async function toggleBanner(id){
-    const banner = banners.find(item => String(item.id) === String(id));
-    if(!banner) return;
-
-    banner.active = banner.active === false;
-    const result = await firebasePatch(
-        FIREBASE_BANNERS + "/" + encodeURIComponent(String(banner.id)),
-        {active:banner.active}
-    );
-
-    if(result === null){
-        banner.active = !banner.active;
-        return;
-    }
-
-    saveBannersLocal(banners);
-    if(currentBannerIndex >= getSortedActiveBanners(banners).length){
-        currentBannerIndex = 0;
-    }
-    renderHeroBanners();
-    loadAdminBanners();
-}
-
-function editBanner(id){
-    const banner = banners.find(item => String(item.id) === String(id));
-    if(!banner) return;
-
-    const newTitle = prompt("بینر کا عنوان:", stripHtml(banner.title || ""));
-    if(newTitle === null) return;
-
-    const newSmall = prompt("چھوٹا عنوان:", banner.small || "");
-    if(newSmall === null) return;
-
-    const newDescription = prompt("تفصیل:", banner.description || "");
-    if(newDescription === null) return;
-
-    const newButton = prompt("بٹن کا متن:", banner.buttonText || "");
-    if(newButton === null) return;
-
-    const newLink = prompt("بٹن کا لنک:", banner.buttonLink || "#products");
-    if(newLink === null) return;
-
-    const newOrder = prompt("ترتیب نمبر:", banner.order || 1);
-    if(newOrder === null) return;
-
-    updateBannerText(
-        banner,
-        newTitle,
-        newSmall,
-        newDescription,
-        newButton,
-        newLink,
-        Number(newOrder) || 1
-    );
-}
-
-async function updateBannerText(banner,title,small,description,buttonText,buttonLink,order){
-    const updated = {
-        ...banner,
-        title:title,
-        small:small,
-        description:description,
-        buttonText:buttonText,
-        buttonLink:buttonLink,
-        order:order
-    };
-
-    const result = await firebasePut(
-        FIREBASE_BANNERS + "/" + encodeURIComponent(String(banner.id)),
-        updated
-    );
-
-    if(result === null){
-        alert("بینر Update نہیں ہوا۔");
-        return;
-    }
-
-    const index = banners.findIndex(item => String(item.id) === String(banner.id));
-    if(index !== -1) banners[index] = updated;
-
-    saveBannersLocal(banners);
-    renderHeroBanners();
-    loadAdminBanners();
-    alert("بینر کامیابی سے Update ہو گیا۔");
-}
-
-async function deleteBanner(id){
-    const banner = banners.find(item => String(item.id) === String(id));
-    if(!banner) return;
-
-    if(!confirm("کیا آپ واقعی یہ بینر حذف کرنا چاہتے ہیں؟")) return;
-
-    const result = await firebaseDelete(
-        FIREBASE_BANNERS + "/" + encodeURIComponent(String(banner.id))
-    );
-
-    if(!result){
-        alert("بینر Firebase سے delete نہیں ہوا۔");
-        return;
-    }
-
-    banners = banners.filter(item => String(item.id) !== String(id));
-    saveBannersLocal(banners);
-    currentBannerIndex = 0;
-    renderHeroBanners();
-    loadAdminBanners();
-}
-
-async function syncBannersFromFirebase(){
-    if(bannersSyncRunning) return;
-
-    bannersSyncRunning = true;
-
-    try{
-        await loadBannersFromFirebase();
-    }finally{
-        bannersSyncRunning = false;
-    }
-}
-
-/* =====================================================
-   DISPLAY PRODUCTS
-===================================================== */
-
-function displayProducts(
-    products = getProducts()
-){
-
-    const grid =
-        document.getElementById(
-            "productGrid"
-        );
-
-    if(!products.length){
-
-        grid.innerHTML = `
-            <div
-                style="
-                grid-column:1/-1;
-                text-align:center;
-                padding:40px;
-                ">
-
-                کوئی Product موجود نہیں۔
-
-            </div>
-        `;
-
-        document
-            .getElementById("productNumber")
-            .textContent =
-            "0 Products";
-
-        return;
-    }
-
-    grid.innerHTML = "";
-
-    products.forEach(product => {
-
-        let discount = 0;
-
-        if(
-            product.oldPrice &&
-            product.oldPrice > product.price
-        ){
-
-            discount =
-                Math.round(
-                    (
-                        (product.oldPrice - product.price)
-                        /
-                        product.oldPrice
-                    ) * 100
-                );
-        }
-
-        grid.innerHTML += `
-
-        <div class="product">
-
-            ${
-                discount > 0
-                ?
-                `
-                <span class="sale">
-                    -${discount}%
-                </span>
-                `
-                :
-                ""
-            }
-
-            <img
-                class="product-img"
-                src="${product.image}"
-                alt="${escapeHtml(product.name)}"
-            >
-
-            <div class="product-info">
-
-                <div class="stars">
-                    ★★★★★
-                </div>
-
-                <div class="product-name">
-                    ${escapeHtml(product.name)}
-                </div>
-
-                <div class="product-desc">
-                    ${escapeHtml(product.description || "")}
-                </div>
-
-                <div class="price">
-
-                    <span class="new-price">
-                        Rs.
-                        ${Number(product.price).toLocaleString()}
-                    </span>
-
-                    ${
-                        product.oldPrice
-                        ?
-                        `
-                        <span class="old-price">
-                            Rs.
-                            ${Number(product.oldPrice).toLocaleString()}
-                        </span>
-                        `
-                        :
-                        ""
-                    }
-
-                </div>
-
-                <button
-                    class="add-btn"
-                    onclick="addToCart(${product.id})">
-
-                    کارٹ میں شامل کریں
-
-                </button>
-
-            </div>
-
-        </div>
-        `;
+      }
+
+      const found = usersList.find(x =>
+        String(x.username || '').trim() === uInput &&
+        String(x.pass ?? '').trim() === pInput
+      );
+      if (found) {
+        currentUser = found;
+        document.getElementById("loginModal").style.display = "none";
+        document.getElementById("loggedInUserDisplay").innerText = currentUser.name;
+        
+        const distsText = (currentUser.role === 'admin' || currentUser.districts.includes('All')) ? 'تمام اضلاع' : currentUser.districts.join(', ');
+        document.getElementById("loggedInRoleDisplay").innerText = currentUser.role === 'admin' ? 'ایڈمن' : `یوزر (${distsText})`;
+
+        const isAdmin = currentUser.role === 'admin';
+        const canQrScan = isAdmin || !!(currentUser.permissions && (
+          currentUser.permissions.qrScan === true ||
+          currentUser.permissions.qrScan === 'true' ||
+          currentUser.permissions.qrScan === 1
+        ));
+
+        document.getElementById("adminPanelControls").style.display = isAdmin ? "flex" : "none";
+        document.getElementById("userPanelControls").style.display = isAdmin ? "none" : "flex";
+
+        const adminQrBtn = document.getElementById('qrScanAdminBtn');
+        const userQrBtn = document.getElementById('qrScanUserBtn');
+        if (adminQrBtn) adminQrBtn.style.display = isAdmin ? 'inline-flex' : 'none';
+        if (userQrBtn) userQrBtn.style.display = (!isAdmin && canQrScan) ? 'inline-flex' : 'none';
+        renderTabs();
+        renderLayout();
+        updateStats();
+      } else {
+        alert("غلط یوزر نیم یا پاس ورڈ!");
+      }
     });
 
-    document
-        .getElementById("productNumber")
-        .textContent =
-        products.length + " Products";
-}
+    // Create / Edit User Form Submit
+    document.getElementById("createUserForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const editIndex = parseInt(document.getElementById("editUserIndex").value);
+      
+      const selectedDistricts = [];
+      document.querySelectorAll("#uDistrictCheckboxes input:checked").forEach(cb => {
+        selectedDistricts.push(cb.value);
+      });
 
-
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHtml(value){
-
-    return String(value)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-}
-
-
-/* =====================================================
-   CART
-===================================================== */
-
-let cart =
-    JSON.parse(
-        localStorage.getItem(
-            "tahirCart"
-        ) || "[]"
-    );
-
-
-function saveCart(){
-
-    localStorage.setItem(
-        "tahirCart",
-        JSON.stringify(cart)
-    );
-}
-
-
-function addToCart(productId){
-
-    const product =
-        getProducts().find(
-            item =>
-                Number(item.id) ===
-                Number(productId)
-        );
-
-    if(!product){
+      if (selectedDistricts.length === 0) {
+        alert("براہ کرم کم از کم ایک ڈسٹرکٹ منتخب کریں!");
         return;
-    }
+      }
 
-    const existing =
-        cart.find(
-            item =>
-                Number(item.id) ===
-                Number(productId)
-        );
+      const selectedCoaches = [];
+      document.querySelectorAll("#uCoachCheckboxes input:checked").forEach(cb => selectedCoaches.push(Number(cb.value)));
+      if (selectedCoaches.length === 0) {
+        alert("براہ کرم کم از کم ایک کوچ منتخب کریں!");
+        return;
+      }
 
-    if(existing){
+      const userData = {
+        name: document.getElementById("uFullName").value.trim(),
+        username: document.getElementById("uUsername").value.trim(),
+        phone: document.getElementById("uPhone").value.trim(),
+        pass: document.getElementById("uPassword").value.trim(),
+        districts: selectedDistricts,
+        coaches: selectedCoaches,
+        role: 'user',
+        permissions: { qrScan: document.getElementById('uQrScanPermission').checked }
+      };
 
-        existing.qty++;
+      if (editIndex === -1) {
+        if (usersList.some(x => x.username === userData.username)) {
+          alert("اس یوزر نیم کا اکاؤنٹ پہلے سے موجود ہے!");
+          return;
+        }
+        usersList.push(userData);
+        alert(`یوزر (${userData.name}) کامیابی سے رجسٹر کر دیا گیا!`);
+      } else {
+        usersList[editIndex] = userData;
+        alert(`یوزر (${userData.name}) کا ڈیٹا کامیابی سے اپڈیٹ کر دیا گیا!`);
+      }
 
-    }else{
-
-        cart.push({
-            ...product,
-            qty:1
-        });
-
-    }
-
-    saveCart();
-    updateCart();
-    openCart();
-}
-
-
-function updateCart(){
-
-    const items =
-        document.getElementById(
-            "cartItems"
-        );
-
-    const count =
-        document.getElementById(
-            "cartCount"
-        );
-
-    const totalElement =
-        document.getElementById(
-            "cartTotal"
-        );
-
-    let quantity = 0;
-    let totalPrice = 0;
-
-    cart.forEach(item => {
-
-        quantity += Number(item.qty);
-
-        totalPrice +=
-            Number(item.price) *
-            Number(item.qty);
-
+      saveUsersToDB().then(() => {
+        resetUserForm();
+        closeModal("createUserModal");
+        openUsersListModal();
+      }).catch(err => {
+        console.error(err);
+        alert("یوزر محفوظ نہیں ہو سکا۔ Firebase Database Rules اور انٹرنیٹ کنکشن چیک کریں۔");
+      });
     });
 
-    count.textContent =
-        quantity;
-
-    totalElement.textContent =
-        "Rs. " +
-        totalPrice.toLocaleString();
-
-
-    if(!cart.length){
-
-        items.innerHTML = `
-
-            <p
-                style="
-                text-align:center;
-                color:#888;
-                margin-top:30px;
-                ">
-
-                آپ کا کارٹ خالی ہے۔
-
-            </p>
-        `;
-
-        return;
-    }
-
-
-    items.innerHTML =
-        cart.map(
-            (item,index) => `
-
-            <div class="cart-item">
-
-                <img
-                    src="${item.image}"
-                    alt="${escapeHtml(item.name)}"
-                >
-
-                <div class="cart-item-info">
-
-                    <h4>
-                        ${escapeHtml(item.name)}
-                    </h4>
-
-                    <p class="english">
-                        Rs.
-                        ${Number(item.price).toLocaleString()}
-                    </p>
-
-                    <div class="qty">
-
-                        <button
-                            onclick="changeQty(${index},-1)">
-                            −
-                        </button>
-
-                        <span>
-                            ${item.qty}
-                        </span>
-
-                        <button
-                            onclick="changeQty(${index},1)">
-                            +
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <button
-                    class="remove"
-                    onclick="removeItem(${index})">
-
-                    ×
-
-                </button>
-
-            </div>
-
-            `
-        ).join("");
-}
-
-
-function changeQty(index,amount){
-
-    cart[index].qty += amount;
-
-    if(cart[index].qty <= 0){
-
-        cart.splice(index,1);
-
-    }
-
-    saveCart();
-    updateCart();
-}
-
-
-function removeItem(index){
-
-    cart.splice(index,1);
-
-    saveCart();
-    updateCart();
-}
-
-
-function openCart(){
-
-    document
-        .getElementById("cartPanel")
-        .classList.add("open");
-}
-
-
-function closeCart(){
-
-    document
-        .getElementById("cartPanel")
-        .classList.remove("open");
-}
-
-
-/* =====================================================
-   CHECKOUT + FIREBASE ORDER
-===================================================== */
-
-async function checkout(){
-
-    if(!cart.length){
-
-        alert(
-            "آپ کا cart خالی ہے۔"
-        );
-
-        return;
-    }
-
-
-    const name =
-        prompt("اپنا نام لکھیں:");
-
-    if(!name){
-        return;
-    }
-
-
-    const phone =
-        prompt("اپنا موبائل نمبر لکھیں:");
-
-    if(!phone){
-        return;
-    }
-
-
-    const address =
-        prompt("اپنا مکمل پتہ لکھیں:");
-
-    if(!address){
-        return;
-    }
-
-
-    let total = 0;
-
-    cart.forEach(item => {
-
-        total +=
-            Number(item.price) *
-            Number(item.qty);
-
+    // Banner Form Submit
+    document.getElementById("bannerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const url = document.getElementById("bannerUrlInput").value.trim();
+      if(url) {
+        document.getElementById("bannerImg").src = url;
+        document.getElementById("bannerImgBox").style.display = "block";
+        closeModal("bannerModal");
+      }
     });
 
+    // Booking Form Submit
+    document.getElementById("bookingForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const passengerData = {
+        ticketId: generateTicketId(),
+        name: document.getElementById("pName").value.trim(),
+        phone: document.getElementById("pPhone").value.trim(),
+        district: document.getElementById("pDistrict").value,
+        town: document.getElementById("pTown").value,
+        uc: document.getElementById("pUc").value.trim(),
+        bookedBy: currentUser.username,
+        scanned: false,
+        scannedAt: null,
+        scannedBy: null
+      };
 
-    const order = {
+      const coach = coachesData.find(c => c.coachNum === selectedSeatInfo.coachNum);
+      const target = coach.berths.find(x => x.id === selectedSeatInfo.id) || coach.sideSeats.find(x => x.id === selectedSeatInfo.id);
+      target.status = 'booked';
+      target.passenger = passengerData;
 
-        id:
-            "ORD-" +
-            Date.now(),
+      saveCoachesToDB();
 
-        date:
-            new Date().toLocaleString("en-PK"),
+      showTicketModal(selectedSeatInfo.coachNum, selectedSeatInfo.id, passengerData);
 
-        customer:name,
+      document.getElementById("bookingForm").reset();
+      closeModal("bookingModal");
 
-        phone:phone,
-
-        address:address,
-
-        items:
-            cart.map(item => ({
-
-                name:item.name,
-
-                qty:Number(item.qty),
-
-                price:Number(item.price)
-
-            })),
-
-        total:total,
-
-        status:"new"
-
-    };
-
-
-    /* Firebase میں Order */
-
-    const firebaseResult =
-        await firebasePost(
-            FIREBASE_ORDERS,
-            order
-        );
-
-
-    if(firebaseResult){
-
-        order.firebaseId =
-            firebaseResult.name;
-
-    }
-
-
-    /* Local backup */
-
-    let orders =
-        JSON.parse(
-            localStorage.getItem(
-                "tahirOrders"
-            ) || "[]"
-        );
-
-    orders.unshift(order);
-
-    localStorage.setItem(
-        "tahirOrders",
-        JSON.stringify(orders)
-    );
-
-
-    /* WhatsApp Message */
-
-    let message =
-        "السلام علیکم، طاہر پرفیوم سٹور پر میرا آرڈر ہے:%0A%0A";
-
-
-    message +=
-        "Order ID: " +
-        order.id +
-        "%0A";
-
-
-    message +=
-        "نام: " +
-        name +
-        "%0A";
-
-
-    message +=
-        "فون: " +
-        phone +
-        "%0A";
-
-
-    message +=
-        "پتہ: " +
-        address +
-        "%0A%0A";
-
-
-    cart.forEach(item => {
-
-        message +=
-            item.name +
-            " × " +
-            item.qty +
-            " — Rs. " +
-            (
-                Number(item.price) *
-                Number(item.qty)
-            ) +
-            "%0A";
-
+      selectedSeatInfo = null;
+      document.getElementById("selectedSeatLabel").innerText = "کوئی منتخب نہیں";
+      document.getElementById("bookActionBtn").disabled = true;
+      renderLayout();
+      updateStats();
     });
 
+  });
 
-    message +=
-        "%0Aکل رقم: Rs. " +
-        total;
-
-
-    window.open(
-        "https://wa.me/923142300764?text=" +
-        message,
-        "_blank"
-    );
-
-
-    cart = [];
-
-    saveCart();
-
-    updateCart();
-
-    closeCart();
-
-
-    alert(
-        "آپ کا Order Database میں save ہو گیا ہے۔"
-    );
-}
-
-
-/* =====================================================
-   SEARCH
-===================================================== */
-
-function searchProducts(){
-
-    const value =
-        document
-            .getElementById("searchInput")
-            .value
-            .toLowerCase()
-            .trim();
-
-
-    const products =
-        getProducts().filter(
-            product =>
-                String(product.name)
-                    .toLowerCase()
-                    .includes(value)
-        );
-
-
-    displayProducts(products);
-
-
-    document
-        .getElementById("products")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
-}
-
-
-document
-    .getElementById("searchInput")
-    .addEventListener(
-        "keydown",
-        function(e){
-
-            if(e.key === "Enter"){
-                searchProducts();
-            }
-
-        }
-    );
-
-
-/* =====================================================
-   FILTER
-===================================================== */
-
-function filterProducts(
-    category,
-    button
-){
-
-    document
-        .querySelectorAll(".filter-btn")
-        .forEach(
-            btn =>
-                btn.classList.remove("active")
-        );
-
-
-    button.classList.add("active");
-
-
-    let products =
-        getProducts();
-
-
-    if(category !== "all"){
-
-        products =
-            products.filter(
-                product =>
-                    product.category ===
-                    category
-            );
+  // -------------------------------------------------------------
+  // 📍 DISTRICT + MANUAL UC ENTRY
+  // -------------------------------------------------------------
+  function openBookingModal() {
+    if (!selectedSeatInfo) return;
+    if (currentUser && currentUser.role !== 'admin' && Array.isArray(currentUser.coaches) && !currentUser.coaches.includes('All') && !currentUser.coaches.map(Number).includes(Number(selectedSeatInfo.coachNum))) {
+      alert("آپ کو اس کوچ کی اجازت نہیں ہے۔");
+      return;
+    }
+    const selDist = document.getElementById("pDistrict");
+    selDist.innerHTML = "";
+    
+    let allowedDistricts = [];
+    if (currentUser.role === 'admin' || currentUser.districts.includes('All')) {
+      allowedDistricts = ALL_DISTRICTS;
+    } else {
+      allowedDistricts = ALL_DISTRICTS.filter(d => currentUser.districts.includes(d));
+      if (allowedDistricts.length === 0) allowedDistricts = ALL_DISTRICTS;
     }
 
-
-    displayProducts(products);
-}
-
-
-/* =====================================================
-   ADMIN LOGIN
-===================================================== */
-
-function openAdminLogin(){
-
-    document
-        .getElementById("loginModal")
-        .classList.add("show");
-}
-
-
-function closeAdminLogin(){
-
-    document
-        .getElementById("loginModal")
-        .classList.remove("show");
-
-    document
-        .getElementById("loginError")
-        .textContent = "";
-}
-
-
-function adminLogin(){
-
-    const username =
-        document
-            .getElementById("adminUsername")
-            .value;
-
-
-    const password =
-        document
-            .getElementById("adminPassword")
-            .value;
-
-
-    /*
-        DEMO LOGIN
-
-        Username: admin
-        Password: 12345
-    */
-
-
-    if(
-        username === "admin" &&
-        password === "12345"
-    ){
-
-        localStorage.setItem(
-            "tahirAdminLogin",
-            "true"
-        );
-
-
-        closeAdminLogin();
-
-        openAdminPanel();
-
-    }else{
-
-        document
-            .getElementById("loginError")
-            .textContent =
-            "Username یا Password غلط ہے۔";
-    }
-}
-
-
-/* =====================================================
-   ADMIN PANEL
-===================================================== */
-
-async function openAdminPanel(){
-
-    document
-        .getElementById("adminPanel")
-        .classList.add("show");
-
-
-    await loadAdminDashboard();
-}
-
-
-function logoutAdmin(){
-
-    localStorage.removeItem(
-        "tahirAdminLogin"
-    );
-
-
-    document
-        .getElementById("adminPanel")
-        .classList.remove("show");
-}
-
-
-/* =====================================================
-   ADMIN TABS
-===================================================== */
-
-function showAdminTab(
-    tab,
-    button
-){
-
-    document
-        .querySelectorAll(".admin-tab")
-        .forEach(
-            btn =>
-                btn.classList.remove("active")
-        );
-
-
-    button.classList.add("active");
-
-
-    document
-        .querySelectorAll(".admin-section")
-        .forEach(
-            section =>
-                section.classList.remove("active")
-        );
-
-
-    document
-        .getElementById(tab)
-        .classList.add("active");
-}
-
-
-/* =====================================================
-   ADMIN DASHBOARD
-===================================================== */
-
-async function loadAdminDashboard(){
-
-    await loadProductsFromFirebase();
-
-    await loadOrdersFromFirebase();
-
-    await loadBannersFromFirebase();
-
-    loadAdminProducts();
-
-
-    const products =
-        getProducts();
-
-
-    document
-        .getElementById("totalProducts")
-        .textContent =
-        products.length;
-}
-
-
-/* =====================================================
-   LOAD ORDERS FROM FIREBASE
-===================================================== */
-
-async function loadOrdersFromFirebase(){
-
-    const data =
-        await firebaseGet(
-            FIREBASE_ORDERS
-        );
-
-
-    if(!data){
-
-        loadOrders();
-
-        return;
-    }
-
-
-    const orders =
-        Object.entries(data)
-        .map(
-            ([firebaseId,order]) => ({
-
-                firebaseId:
-                    firebaseId,
-
-                ...order
-
-            })
-        )
-        .reverse();
-
-
-    localStorage.setItem(
-        "tahirOrders",
-        JSON.stringify(orders)
-    );
-
-
-    loadOrders();
-}
-
-
-/* =====================================================
-   LOAD ORDERS
-===================================================== */
-
-function loadOrders(){
-
-    const orders =
-        JSON.parse(
-            localStorage.getItem(
-                "tahirOrders"
-            ) || "[]"
-        );
-
-
-    document
-        .getElementById("totalOrders")
-        .textContent =
-        orders.length;
-
-
-    const newOrders =
-        orders.filter(
-            order =>
-                order.status === "new"
-        ).length;
-
-
-    document
-        .getElementById("newOrders")
-        .textContent =
-        newOrders;
-
-
-    const sales =
-        orders.reduce(
-            (sum,order) =>
-                sum +
-                Number(order.total || 0),
-            0
-        );
-
-
-    document
-        .getElementById("totalSales")
-        .textContent =
-        "Rs. " +
-        sales.toLocaleString();
-
-
-    const table =
-        document.getElementById(
-            "ordersTable"
-        );
-
-
-    if(!orders.length){
-
-        table.innerHTML = `
-
-        <tr>
-
-            <td
-                colspan="7"
-                style="
-                text-align:center;
-                padding:30px;
-                ">
-
-                ابھی کوئی Order موجود نہیں۔
-
-            </td>
-
-        </tr>
-
-        `;
-
-        return;
-    }
-
-
-    table.innerHTML =
-        orders.map(
-            order => `
-
-            <tr>
-
-                <td class="english">
-
-                    <strong>
-                        ${order.id}
-                    </strong>
-
-                    <br>
-
-                    <small>
-                        ${order.date || ""}
-                    </small>
-
-                </td>
-
-
-                <td>
-                    ${escapeHtml(order.customer || "")}
-                </td>
-
-
-                <td class="english">
-                    ${escapeHtml(order.phone || "")}
-                </td>
-
-
-                <td>
-                    ${escapeHtml(order.address || "")}
-                </td>
-
-
-                <td>
-
-                    ${
-                        (order.items || [])
-                        .map(
-                            item =>
-                            `
-                            ${escapeHtml(item.name)}
-                            ×
-                            ${item.qty}
-                            `
-                        )
-                        .join("<br>")
-                    }
-
-                </td>
-
-
-                <td class="english">
-
-                    Rs.
-                    ${Number(order.total || 0)
-                        .toLocaleString()}
-
-                </td>
-
-
-                <td>
-
-                    <select
-                        onchange="
-                        changeOrderStatus(
-                            '${order.firebaseId || ""}',
-                            '${order.id}',
-                            this.value
-                        )">
-
-                        <option
-                            value="new"
-                            ${
-                                order.status === "new"
-                                ? "selected"
-                                : ""
-                            }>
-
-                            New
-
-                        </option>
-
-
-                        <option
-                            value="processing"
-                            ${
-                                order.status === "processing"
-                                ? "selected"
-                                : ""
-                            }>
-
-                            Processing
-
-                        </option>
-
-
-                        <option
-                            value="delivered"
-                            ${
-                                order.status === "delivered"
-                                ? "selected"
-                                : ""
-                            }>
-
-                            Delivered
-
-                        </option>
-
-
-                        <option
-                            value="cancelled"
-                            ${
-                                order.status === "cancelled"
-                                ? "selected"
-                                : ""
-                            }>
-
-                            Cancelled
-
-                        </option>
-
-                    </select>
-
-                </td>
-
-            </tr>
-
-            `
-        ).join("");
-}
-
-
-/* =====================================================
-   CHANGE ORDER STATUS
-===================================================== */
-
-async function changeOrderStatus(
-    firebaseId,
-    orderId,
-    status
-){
-
-    if(firebaseId){
-
-        await firebasePatch(
-            FIREBASE_ORDERS +
-            "/" +
-            firebaseId,
-            {
-                status:status
-            }
-        );
-
-    }
-
-
-    let orders =
-        JSON.parse(
-            localStorage.getItem(
-                "tahirOrders"
-            ) || "[]"
-        );
-
-
-    const order =
-        orders.find(
-            item =>
-                item.id === orderId
-        );
-
-
-    if(order){
-        order.status = status;
-    }
-
-
-    localStorage.setItem(
-        "tahirOrders",
-        JSON.stringify(orders)
-    );
-
-
-    loadOrders();
-}
-
-
-/* =====================================================
-   IMAGE PREVIEW - ADD
-===================================================== */
-
-function previewNewImage(input){
-
-    const previewBox =
-        document.getElementById(
-            "newImagePreview"
-        );
-
-
-    const previewImage =
-        document.getElementById(
-            "newPreviewImage"
-        );
-
-
-    const file =
-        input.files[0];
-
-
-    if(!file){
-
-        previewBox.style.display =
-            "none";
-
-        return;
-    }
-
-
-    if(
-        !file.type.startsWith("image/")
-    ){
-
-        alert(
-            "صرف Image file منتخب کریں۔"
-        );
-
-        input.value = "";
-
-        return;
-    }
-
-
-    if(
-        file.size >
-        2 * 1024 * 1024
-    ){
-
-        alert(
-            "Image کا سائز 2MB سے کم ہونا چاہیے۔"
-        );
-
-        input.value = "";
-
-        return;
-    }
-
-
-    const reader =
-        new FileReader();
-
-
-    reader.onload =
-        function(e){
-
-            previewImage.src =
-                e.target.result;
-
-            previewBox.style.display =
-                "block";
-        };
-
-
-    reader.readAsDataURL(file);
-}
-
-
-/* =====================================================
-   ADD PRODUCT
-===================================================== */
-
-async function addProduct(){
-    const name = document
-        .getElementById("newProductName")
-        .value
-        .trim();
-
-    const category = document
-        .getElementById("newProductCategory")
-        .value;
-
-    const price = Number(document
-        .getElementById("newProductPrice")
-        .value);
-
-    const oldPrice = Number(document
-        .getElementById("newProductOldPrice")
-        .value);
-
-    const imageFile = document
-        .getElementById("newProductImage")
-        .files[0];
-
-    const description = document
-        .getElementById("newProductDescription")
-        .value
-        .trim();
-
-    if(!name || !price || !imageFile){
-        alert("Product Name، Price اور Image لازمی ہیں۔");
-        return;
-    }
-
-    if(!imageFile.type.startsWith("image/")){
-        alert("صرف Image file upload کریں۔");
-        return;
-    }
-
-    if(imageFile.size > 2 * 1024 * 1024){
-        alert("Image کا سائز 2MB سے کم ہونا چاہیے۔");
-        return;
-    }
-
-    const reader = new FileReader();
-
-    reader.onload = async function(e){
-        /*
-           IMPORTANT:
-           Do NOT read the old localStorage list and PUT the whole list.
-           We only create this one new product in Firebase.
-        */
-        const product = {
-            id: Date.now(),
-            name: name,
-            category: category,
-            price: price,
-            oldPrice: oldPrice || "",
-            image: e.target.result,
-            description: description || "Premium خوشبو"
-        };
-
-        const result = await saveProductToFirebase(product);
-
-        if(result === null){
-            alert("Product Firebase میں save نہیں ہوا۔");
-            return;
-        }
-
-        /* Reload from Firebase so this browser has the same data as every other system. */
-        await loadProductsFromFirebase();
-
-        document.getElementById("newProductName").value = "";
-        document.getElementById("newProductPrice").value = "";
-        document.getElementById("newProductOldPrice").value = "";
-        document.getElementById("newProductImage").value = "";
-        document.getElementById("newProductDescription").value = "";
-        document.getElementById("newImagePreview").style.display = "none";
-
-        document.getElementById("productSaveStatus").textContent =
-            "✓ Product Firebase میں کامیابی سے Save ہو گیا۔";
-
-        setTimeout(() => {
-            document.getElementById("productSaveStatus").textContent = "";
-        }, 3000);
-    };
-
-    reader.readAsDataURL(imageFile);
-}
-
-/* =====================================================
-   ADMIN PRODUCTS
-===================================================== */
-
-function loadAdminProducts(){
-
-    const products =
-        getProducts();
-
-
-    const list =
-        document.getElementById(
-            "adminProductList"
-        );
-
-
-    if(!products.length){
-
-        list.innerHTML = `
-            <p>
-                ابھی کوئی Product موجود نہیں۔
-            </p>
-        `;
-
-        return;
-    }
-
-
-    list.innerHTML =
-        products.map(
-            (product,index) => `
-
-            <div class="admin-product-row">
-
-                <img
-                    src="${product.image}"
-                    alt="${escapeHtml(product.name)}"
-                >
-
-
-                <div class="admin-product-info">
-
-                    <strong>
-                        ${escapeHtml(product.name)}
-                    </strong>
-
-                    <br>
-
-                    <span class="english">
-
-                        Rs.
-                        ${Number(product.price)
-                            .toLocaleString()}
-
-                    </span>
-
-                </div>
-
-
-                <button
-                    class="edit-product"
-                    onclick="editProduct(${index})">
-
-                    Edit
-
-                </button>
-
-
-                <button
-                    class="delete-product"
-                    onclick="deleteProduct(${index})">
-
-                    Delete
-
-                </button>
-
-            </div>
-
-            `
-        ).join("");
-}
-
-
-/* =====================================================
-   EDIT PRODUCT
-===================================================== */
-
-function editProduct(index){
-
-    const products =
-        getProducts();
-
-
-    const product =
-        products[index];
-
-
-    if(!product){
-        return;
-    }
-
-
-    document
-        .getElementById("editProductIndex")
-        .value =
-        index;
-
-
-    document
-        .getElementById("editProductName")
-        .value =
-        product.name;
-
-
-    document
-        .getElementById("editProductCategory")
-        .value =
-        product.category;
-
-
-    document
-        .getElementById("editProductPrice")
-        .value =
-        product.price;
-
-
-    document
-        .getElementById("editProductOldPrice")
-        .value =
-        product.oldPrice || "";
-
-
-    document
-        .getElementById("editProductDescription")
-        .value =
-        product.description || "";
-
-
-    document
-        .getElementById("editProductPreview")
-        .src =
-        product.image;
-
-
-    document
-        .getElementById("editProductImage")
-        .value = "";
-
-
-    document
-        .getElementById("editProductModal")
-        .classList.add("show");
-}
-
-
-function closeEditProduct(){
-
-    document
-        .getElementById("editProductModal")
-        .classList.remove("show");
-}
-
-
-/* =====================================================
-   EDIT IMAGE PREVIEW
-===================================================== */
-
-function previewEditImage(input){
-
-    const file =
-        input.files[0];
-
-
-    if(!file){
-        return;
-    }
-
-
-    if(
-        !file.type.startsWith("image/")
-    ){
-
-        alert(
-            "صرف Image file منتخب کریں۔"
-        );
-
-        input.value = "";
-
-        return;
-    }
-
-
-    if(
-        file.size >
-        2 * 1024 * 1024
-    ){
-
-        alert(
-            "Image کا سائز 2MB سے کم ہونا چاہیے۔"
-        );
-
-        input.value = "";
-
-        return;
-    }
-
-
-    const reader =
-        new FileReader();
-
-
-    reader.onload =
-        function(e){
-
-            document
-                .getElementById(
-                    "editProductPreview"
-                )
-                .src =
-                e.target.result;
-
-        };
-
-
-    reader.readAsDataURL(file);
-}
-
-
-/* =====================================================
-   UPDATE PRODUCT
-===================================================== */
-
-async function updateProduct(){
-    const index = Number(document
-        .getElementById("editProductIndex")
-        .value);
-
-    /* Always get the latest Firebase list before editing. */
-    const products = await loadProductsFromFirebase();
-    const product = products[index];
-
-    if(!product){
-        alert("Product نہیں ملا۔ براہ کرم دوبارہ کوشش کریں۔");
-        return;
-    }
-
-    const name = document
-        .getElementById("editProductName")
-        .value
-        .trim();
-
-    const category = document
-        .getElementById("editProductCategory")
-        .value;
-
-    const price = Number(document
-        .getElementById("editProductPrice")
-        .value);
-
-    const oldPrice = Number(document
-        .getElementById("editProductOldPrice")
-        .value);
-
-    const description = document
-        .getElementById("editProductDescription")
-        .value
-        .trim();
-
-    const imageFile = document
-        .getElementById("editProductImage")
-        .files[0];
-
-    if(!name || !price){
-        alert("Product Name اور Price لازمی ہیں۔");
-        return;
-    }
-
-    product.name = name;
-    product.category = category;
-    product.price = price;
-    product.oldPrice = oldPrice || "";
-    product.description = description || "Premium خوشبو";
-
-    async function finishUpdate(){
-        /* Only update this product; do not overwrite all products. */
-        const result = await saveProductToFirebase(product);
-
-        if(result === null){
-            alert("Product Firebase میں Update نہیں ہوا۔");
-            return;
-        }
-
-        await loadProductsFromFirebase();
-        closeEditProduct();
-
-        alert("Product کامیابی سے Update ہو گیا۔");
-    }
-
-    if(imageFile){
-        if(!imageFile.type.startsWith("image/")){
-            alert("صرف Image file منتخب کریں۔");
-            return;
-        }
-
-        if(imageFile.size > 2 * 1024 * 1024){
-            alert("Image کا سائز 2MB سے کم ہونا چاہیے۔");
-            return;
-        }
-
-        const reader = new FileReader();
-
-        reader.onload = async function(e){
-            product.image = e.target.result;
-            await finishUpdate();
-        };
-
-        reader.readAsDataURL(imageFile);
-    }else{
-        await finishUpdate();
-    }
-}
-
-/* =====================================================
-   DELETE PRODUCT
-===================================================== */
-
-async function deleteProduct(index){
-    const confirmDelete = confirm(
-        "کیا آپ واقعی یہ Product delete کرنا چاہتے ہیں؟"
-    );
-
-    if(!confirmDelete){
-        return;
-    }
-
-    /* Always use the latest Firebase data. */
-    const products = await loadProductsFromFirebase();
-    const product = products[index];
-
-    if(!product){
-        alert("Product نہیں ملا۔");
-        return;
-    }
-
-    const result = await firebaseDelete(
-        FIREBASE_PRODUCTS + "/" + encodeURIComponent(String(product.id))
-    );
-
-    if(!result){
-        alert("Product Firebase سے delete نہیں ہوا۔");
-        return;
-    }
-
-    await loadProductsFromFirebase();
-
-    alert("Product Delete ہو گیا۔");
-}
-
-/* =====================================================
-   WEBSITE IMAGE SETTINGS
-===================================================== */
-
-const DEFAULT_ABOUT_IMAGE =
-    "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1000&q=80";
-
-function setAboutStoreImage(image){
-    const src = image || DEFAULT_ABOUT_IMAGE;
-    const publicImage = document.getElementById("aboutStoreImage");
-    const adminPreview = document.getElementById("adminAboutImagePreview");
-
-    if(publicImage) publicImage.src = src;
-    if(adminPreview) adminPreview.src = src;
-}
-
-async function loadAboutStoreImage(){
-    const data = await firebaseGet(FIREBASE_SETTINGS + "/aboutImage");
-    const image = data || localStorage.getItem("tahirAboutStoreImage") || DEFAULT_ABOUT_IMAGE;
-    setAboutStoreImage(image);
-    localStorage.setItem("tahirAboutStoreImage", image);
-    return image;
-}
-
-async function loadAdminSettings(){
-    const image = await loadAboutStoreImage();
-    const preview = document.getElementById("adminAboutImagePreview");
-    if(preview) preview.src = image;
-}
-
-function previewAboutImage(input){
-    const file = input.files && input.files[0];
-    const box = document.getElementById("aboutImageUploadPreview");
-    const img = document.getElementById("aboutNewImagePreview");
-
-    if(!file){
-        if(box) box.style.display = "none";
-        return;
-    }
-
-    if(!file.type.startsWith("image/")){
-        alert("صرف Image file منتخب کریں۔");
-        input.value = "";
-        return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = function(e){
-        img.src = e.target.result;
-        box.style.display = "block";
-    };
-    reader.readAsDataURL(file);
-}
-
-async function updateAboutStoreImage(){
-    const input = document.getElementById("aboutStoreImageFile");
-    const file = input && input.files ? input.files[0] : null;
-    const status = document.getElementById("aboutImageSaveStatus");
-
-    if(!file){
-        alert("براہ کرم نئی تصویر منتخب کریں۔");
-        return;
-    }
-
-    if(!file.type.startsWith("image/")){
-        alert("صرف Image file upload کریں۔");
-        return;
-    }
-
-    status.textContent = "تصویر تیار کی جا رہی ہے...";
-
-    try{
-        const image = await compressImageFile(file, 1400, 700, .80);
-        const result = await firebasePut(
-            FIREBASE_SETTINGS + "/aboutImage",
-            image
-        );
-
-        if(result === null){
-            status.textContent = "";
-            alert("تصویر Firebase میں save نہیں ہوئی۔");
-            return;
-        }
-
-        localStorage.setItem("tahirAboutStoreImage", image);
-        setAboutStoreImage(image);
-        input.value = "";
-        document.getElementById("aboutImageUploadPreview").style.display = "none";
-        status.textContent = "✓ تصویر کامیابی سے تبدیل ہو گئی۔";
-        setTimeout(()=> status.textContent = "", 3000);
-    }catch(error){
-        console.error(error);
-        status.textContent = "";
-        alert("تصویر update نہیں ہو سکی۔");
-    }
-}
-
-
-/* =====================================================
-   LANGUAGE SWITCHER — Urdu / English
-===================================================== */
-const LANGUAGE_TEXT = {
-"ہوم":"Home","کیٹیگریز":"Categories","پرفیوم":"Perfume","پرفیومز":"Perfumes","پرفیوم تلاش کریں...":"Search perfumes...","ہمارے بارے میں":"About Us","رابطہ":"Contact","رابطہ کریں":"Contact Us","ہم سے رابطہ کریں":"Contact Us","اہم لنکس":"Quick Links","کسٹمر سروس":"Customer Service","کسٹمر سپورٹ":"Customer Support","ابھی خریدیں":"Shop Now","کلیکشن دیکھیں":"View Collection","آفر دیکھیں":"View Offer","خاص آفر":"Special Offer","منتخب پرفیومز پر خصوصی رعایت":"Special discount on selected perfumes","خوشبو جو آپ کو یاد رکھے":"A fragrance they remember","آپ کی خوشبو":"Your Fragrance","آپ کی پہچان":"Your Identity","ہمیشہ آپ کے ساتھ":"Always With You","ہماری کلیکشن":"Our Collection","ہمارے پرفیوم":"Our Perfumes","پریمیم خوشبوئیں":"Premium Fragrances","پریمیم عطر":"Premium Attars","اعلیٰ معیار":"High Quality","محفوظ آرڈر":"Secure Ordering","گفٹ سیٹس":"Gift Sets","مردانہ":"Men","مردانہ پرفیوم":"Men's Perfumes","زنانہ":"Women","خواتین کے پرفیوم":"Women's Perfumes","عطر":"Attar","پاکستان":"Pakistan","📍 پاکستان":"📍 Pakistan","ڈیلیوری معلومات":"Delivery Information","واپسی کی پالیسی":"Return Policy","پرائیویسی پالیسی":"Privacy Policy","کل:":"Total:","آپ کا کارٹ 🛒":"Your Cart 🛒","WhatsApp پر آرڈر کریں":"Order via WhatsApp","بینرز":"Banners","ویب سائٹ کے بینرز":"Website Banners","ویب سائٹ کی تصاویر":"Website Images","ویب سائٹ سیٹنگز":"Website Settings","بینر شامل کریں":"Add Banner","نیا بینر شامل کریں":"Add New Banner","تمام بینرز":"All Banners","بینر کا عنوان":"Banner Title","چھوٹا عنوان":"Small Title","تفصیل":"Description","بٹن کا متن":"Button Text","بٹن کا لنک":"Button Link","بینر تصویر":"Banner Image","ترتیب نمبر":"Order Number","موجودہ تصویر":"Current Image","نئی تصویر منتخب کریں":"Choose New Image","تصویر تبدیل کریں":"Change Image","ترمیم":"Edit","حذف کریں":"Delete","فعال کریں":"Enable","غیر فعال کریں":"Disable","محفوظ کریں":"Save","منسوخ کریں":"Cancel","بند کریں":"Close","Product Add کریں":"Add Product","Product Update کریں":"Update Product","نیا Product Add کریں":"Add New Product","تمام Products":"All Products","تمام Orders":"All Orders","Products لوڈ ہو رہے ہیں...":"Loading products...","نئی Product Image":"New Product Image","سب سے زیادہ پسند کیے جانے والے پرفیوم":"Most Popular Perfumes","طاہر پرفیوم سٹور":"Tahir Perfume Store","طاہر پرفیوم سٹور — Admin Panel":"Tahir Perfume Store — Admin Panel","طاہر پرفیوم سٹور | Tahir Perfume Store":"Tahir Perfume Store | Tahir Perfume Store","بہترین اور دلکش خوشبوؤں کا شاندار کلیکشن۔ اپنے لیے اور اپنے پیاروں کے لیے آج ہی پسندیدہ پرفیوم منتخب کریں۔":"A wonderful collection of premium and captivating fragrances. Choose your favorite perfume today for yourself and your loved ones.","Premium perfumes اور attars کا قابل اعتماد آن لائن اسٹور۔ پاکستان بھر میں ڈیلیوری دستیاب ہے۔":"A trusted online store for premium perfumes and attars. Delivery available across Pakistan.","— پاکستان بھر میں ڈیلیوری دستیاب ہے":"— Delivery available across Pakistan","پریمیم پرفیوم اور عطر کا قابل اعتماد آن لائن اسٹور۔ پاکستان بھر میں ڈیلیوری دستیاب ہے۔":"Premium perfumes and attars online store. Delivery available across Pakistan.","ہمارا مقصد ایسی خوشبوئیں فراہم کرنا ہے جو آپ کی شخصیت کو مزید خوبصورت اور یادگار بنائیں۔":"Our goal is to provide fragrances that make your personality more beautiful and memorable.","طاہر پرفیوم سٹور میں ہم اپنے صارفین کے لیے":"At Tahir Perfume Store, we provide our customers with","بہترین اور معیاری پرفیوم اور عطر فراہم کرتے ہیں۔":"high-quality perfumes and attars.","یہاں سے آپ ایک سے زیادہ بینر/تصویریں شامل کر سکتے ہیں۔ تمام Active بینرز ویب سائٹ پر Slider کی صورت میں نظر آئیں گے۔":"From here you can add multiple banners/images. All active banners will appear on the website as a slider.","About سیکشن کی تصویر تبدیل کریں":"Change the image in the About section","یہاں سے ایڈمن ویب سائٹ کے \"ہمارے بارے میں\" سیکشن کے نیچے موجود تصویر تبدیل کر سکتا ہے۔ نئی تصویر محفوظ ہونے کے بعد ویب سائٹ پر خودکار طور پر دکھائی جائے گی۔":"From here, the admin can change the image under the website's \"About Us\" section. After saving the new image, it will automatically appear on the website.","نئی تصویر select نہ کرنے کی صورت میں موجودہ تصویر برقرار رہے گی۔":"If no new image is selected, the current image will remain.","اردو":"Urdu","انگلش":"English","سب":"All","آفر":"Offer"
-};
-const LANGUAGE_TEXT_EN_TO_UR = Object.fromEntries(Object.entries(LANGUAGE_TEXT).map(([u,e])=>[e,u]));
-
-function translateStaticText(root=document.body, lang=document.documentElement.lang){
-    const map = lang === 'en' ? LANGUAGE_TEXT : LANGUAGE_TEXT_EN_TO_UR;
-    const walker=document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-    const nodes=[];
-    while(walker.nextNode()) nodes.push(walker.currentNode);
-    nodes.forEach(node=>{
-        if(node.parentElement && ['SCRIPT','STYLE'].includes(node.parentElement.tagName)) return;
-        const raw=node.nodeValue;
-        const trimmed=raw.trim();
-        if(!trimmed) return;
-        if(map[trimmed]) node.nodeValue=raw.replace(trimmed,map[trimmed]);
+    allowedDistricts.forEach(d => {
+      const opt = document.createElement("option");
+      opt.value = d; opt.innerText = d;
+      selDist.appendChild(opt);
     });
-    root.querySelectorAll?.('[placeholder],[title],[aria-label],[alt]').forEach(el=>{
-        ['placeholder','title','aria-label','alt'].forEach(attr=>{
-            const value=el.getAttribute(attr);
-            if(value && map[value]) el.setAttribute(attr,map[value]);
-        });
+
+    onDistrictChange();
+    openModal("bookingModal");
+  }
+
+  function onDistrictChange() {
+    const distVal = document.getElementById("pDistrict").value;
+    const townSelect = document.getElementById("pTown");
+    const ucInput = document.getElementById("pUc");
+    townSelect.innerHTML = "";
+    ucInput.value = "";
+
+    const towns = DISTRICT_TOWNS[distVal] || [];
+    towns.forEach(town => {
+      const opt = document.createElement("option");
+      opt.value = town;
+      opt.innerText = town;
+      townSelect.appendChild(opt);
     });
-}
+    if (!towns.length) {
+      const opt = document.createElement("option");
+      opt.value = "";
+      opt.innerText = "ٹاؤن دستیاب نہیں";
+      townSelect.appendChild(opt);
+    }
+    onTownChange();
+  }
 
-function setLanguage(lang){
-    const normalized=lang==='en'?'en':'ur';
-    document.documentElement.lang=normalized;
-    document.documentElement.dir=normalized==='en'?'ltr':'rtl';
-    document.body.classList.toggle('lang-en', normalized==='en');
-    localStorage.setItem('tahirLanguage',normalized);
-    document.querySelectorAll('#langUr,#adminLangUr').forEach(b=>b.classList.toggle('active',normalized==='ur'));
-    document.querySelectorAll('#langEn,#adminLangEn').forEach(b=>b.classList.toggle('active',normalized==='en'));
-    renderHeroBanners();
-    translateStaticText(document.body, normalized);
-    if(typeof loadAdminSettings==='function' && document.getElementById('settingsAdmin')?.classList.contains('active')) loadAdminSettings();
-}
+  function onTownChange() {
+    const distVal = document.getElementById("pDistrict").value;
+    const townVal = document.getElementById("pTown").value;
+    const ucInput = document.getElementById("pUc");
+    ucInput.value = "";
 
-function initLanguage(){
-    const saved=localStorage.getItem('tahirLanguage') || 'ur';
-    document.documentElement.lang=saved;
-    document.documentElement.dir=saved==='en'?'ltr':'rtl';
-    document.body.classList.toggle('lang-en',saved==='en');
-    document.querySelectorAll('#langUr,#adminLangUr').forEach(b=>b.classList.toggle('active',saved==='ur'));
-    document.querySelectorAll('#langEn,#adminLangEn').forEach(b=>b.classList.toggle('active',saved==='en'));
-}
+    // UC is a free-text field; no predefined UC list is used.
+    ucInput.placeholder = "یوسی کا نام یا نمبر لکھیں";
+  }
 
-// Keep dynamically rendered content, attributes and admin UI bilingual.
-let languageObserver;
-function startLanguageObserver(){
-    if(languageObserver) languageObserver.disconnect();
-    languageObserver=new MutationObserver(()=>{
-        if(document.body) translateStaticText(document.body, document.documentElement.lang);
+  function showTicketModal(coachNum, seatId, passenger) {
+    if (!passenger.ticketId) {
+      passenger.ticketId = generateTicketId();
+      saveCoachesToDB();
+    }
+    const ticketId = passenger.ticketId;
+    const scanned = passenger.scanned === true;
+    const statusHtml = scanned
+      ? '<span class="scan-status scanned">✓ اسکین شدہ</span>'
+      : '<span class="scan-status unscanned">غیر اسکین شدہ</span>';
+
+    document.getElementById("ticketContent").innerHTML = `
+      <div class="ticket-header">🕌 دعوتِ اسلامی اسپیشل ٹرین ای-ٹکٹ</div>
+      <div class="ticket-row"><span>ٹکٹ کوڈ:</span><strong>${ticketId}</strong></div>
+      <div class="ticket-qr-wrap"><div class="ticket-qr" id="ticketQrCode"></div></div>
+      <div class="ticket-row"><span>اسٹیٹس:</span><strong>${statusHtml}</strong></div>
+      <div class="ticket-row"><span>مسافر کا نام:</span><strong>${passenger.name}</strong></div>
+      <div class="ticket-row"><span>فون نمبر:</span><strong>${passenger.phone}</strong></div>
+      <div class="ticket-row"><span>کوچ و سیٹ نمبر:</span><strong>Coach #${coachNum} [${seatId}]</strong></div>
+      <div class="ticket-row"><span>کرایہ:</span><strong>Rs. ${FIXED_FARE}</strong></div>
+      <div class="ticket-row"><span>ڈسٹرکٹ:</span><strong>${passenger.district}</strong></div>
+      <div class="ticket-row"><span>ٹاؤن:</span><strong>${passenger.town || ''}</strong></div>
+      <div class="ticket-row"><span>یوسی / سیکٹر:</span><span>${passenger.uc}</span></div>
+      <div class="ticket-row"><span>بکنگ بذریعہ:</span><span>${passenger.bookedBy || currentUser.name}</span></div>
+      ${scanned ? `<div class="ticket-row"><span>اسکین کیا گیا:</span><span>${passenger.scannedAt || ''} — ${passenger.scannedBy || ''}</span></div>` : ''}
+    `;
+    document.getElementById("printTicketModal").style.display = "flex";
+    setTimeout(() => {
+      const qrBox = document.getElementById("ticketQrCode");
+      if (qrBox && window.QRCode) {
+        qrBox.innerHTML = "";
+        new QRCode(qrBox, {text: ticketId, width:170, height:170, correctLevel:QRCode.CorrectLevel.M});
+      }
+    }, 0);
+  }
+
+  function generateTicketId() {
+    return `TKT-${new Date().getFullYear()}-${Date.now().toString().slice(-8)}${Math.floor(1000+Math.random()*9000)}`;
+  }
+
+  function findTicketByCode(code) {
+    const wanted = String(code || "").trim();
+    if (!wanted) return null;
+    for (const coach of coachesData) {
+      for (const seat of [...coach.berths, ...coach.sideSeats]) {
+        if (seat.status === 'booked' && seat.passenger && seat.passenger.ticketId === wanted)
+          return {coach, seat, passenger:seat.passenger};
+      }
+    }
+    return null;
+  }
+
+  function markTicketScanned(found) {
+    found.passenger.scanned = true;
+    found.passenger.scannedAt = new Date().toLocaleString('en-GB');
+    found.passenger.scannedBy = currentUser ? currentUser.username : 'Admin';
+    saveCoachesToDB();
+  }
+
+  function scanTicketCode(code) {
+    if (!canScanQr()) {
+      alert("آپ کے اکاؤنٹ کو QR Code اسکین کرنے کی اجازت نہیں ہے۔");
+      return;
+    }
+    const found = findTicketByCode(code);
+    if (found && currentUser.role !== 'admin') {
+      const districtAllowed = currentUser.districts && (currentUser.districts.includes('All') || currentUser.districts.includes(found.passenger.district));
+      const coachAllowed = currentUser.coaches && (currentUser.coaches.includes('All') || currentUser.coaches.map(Number).includes(Number(found.coach.coachNum)));
+      if (!districtAllowed || !coachAllowed) {
+        const result = document.getElementById("scanResult");
+        result.className = "scan-result show";
+        result.innerHTML = '<strong style="color:#b91c1c;">اس ٹکٹ کو اسکین کرنے کی آپ کے اکاؤنٹ کو اجازت نہیں ہے۔</strong>';
+        return;
+      }
+    }
+    const result = document.getElementById("scanResult");
+    if (!found) {
+      result.className = "scan-result show";
+      result.innerHTML = '<strong style="color:#b91c1c;">ٹکٹ نہیں ملا۔</strong>';
+      return;
+    }
+    markTicketScanned(found);
+    result.className = "scan-result show";
+    result.innerHTML = `
+      <div style="font-weight:bold;color:#166534;margin-bottom:6px;">✓ ٹکٹ اسکین شدہ</div>
+      <div><strong>ٹکٹ:</strong> ${found.passenger.ticketId}</div>
+      <div><strong>نام:</strong> ${found.passenger.name}</div>
+      <div><strong>کوچ/سیٹ:</strong> C#${found.coach.coachNum}-${found.seat.id}</div>
+      <button type="button" class="btn-submit" style="margin-top:10px;width:100%;" onclick="startQrScannerAgain()">📷 نیا اسکین کریں</button>
+    `;
+    renderHistoryTable();
+    renderLayout();
+  }
+
+  function canScanQr() {
+    return !!(currentUser && (currentUser.role === 'admin' || (currentUser.permissions && (currentUser.permissions.qrScan === true || currentUser.permissions.qrScan === 'true'))));
+  }
+
+  function openQrScannerModal() {
+    if (!currentUser || (currentUser.role !== 'admin' && !(currentUser.permissions && (currentUser.permissions.qrScan === true || currentUser.permissions.qrScan === 'true')))) {
+      alert("آپ کو QR Code اسکین کرنے کی اجازت نہیں ہے۔");
+      return;
+    }
+    if (!canScanQr()) {
+      alert("آپ کے اکاؤنٹ کو QR Code اسکین کرنے کی اجازت نہیں ہے۔"); return;
+    }
+    document.getElementById("qrScannerModal").style.display = "flex";
+    document.getElementById("scanResult").className = "scan-result";
+    document.getElementById("scanResult").innerHTML = "";
+    startQrScanner();
+  }
+  let qrScanner = null;
+  let qrScannerStarting = false;
+  let lastQrCode = "";
+  let lastQrTime = 0;
+
+  async function startQrScanner() {
+    if (!canScanQr()) {
+      alert("آپ کے اکاؤنٹ کو QR Code اسکین کرنے کی اجازت نہیں ہے۔");
+      return;
+    }
+    const reader = document.getElementById("qr-reader");
+    const result = document.getElementById("scanResult");
+    if (!reader || !result) return;
+    if (qrScanner || qrScannerStarting) return;
+
+    let tries = 0;
+    while (!window.Html5Qrcode && tries < 20) {
+      await new Promise(r => setTimeout(r, 250));
+      tries++;
+    }
+    if (!window.Html5Qrcode) {
+      result.className = "scan-result show";
+      result.innerHTML = '<strong style="color:#b91c1c;">QR اسکینر لوڈ نہیں ہو سکا۔ انٹرنیٹ چیک کرکے دوبارہ کوشش کریں۔</strong>';
+      return;
+    }
+
+    qrScannerStarting = true;
+    reader.innerHTML = "";
+    result.className = "scan-result show";
+    result.innerHTML = '<strong style="color:#047857;">📷 کیمرہ کھولا جا رہا ہے… QR Code سامنے رکھیں۔</strong>';
+
+    try {
+      // اہم: Html5Qrcode ہی camera stream شروع کرے گا۔
+      // الگ سے getUserMedia() چلانے سے Chrome ایک ہی scan کے لیے دو camera
+      // permission requests کر سکتا تھا۔ اب صرف ایک camera stream استعمال ہوگی۔
+      qrScanner = new Html5Qrcode("qr-reader");
+      const config = { fps: 10, qrbox: { width: 230, height: 230 }, aspectRatio: 1.777778 };
+      let started = false;
+
+      // پہلے براہِ راست پیچھے والا کیمرہ آزمائیں۔ یہ طریقہ موبائل Chrome/Edge میں
+      // getCameras() سے زیادہ قابلِ اعتماد ہے اور بٹن دبانے کے فوراً بعد permission مانگتا ہے۔
+      try {
+        await qrScanner.start(
+          { facingMode: { exact: "environment" } },
+          config,
+          onQrDecoded,
+          () => {}
+        );
+        started = true;
+      } catch (e1) {
+        // اگر exact environment دستیاب نہ ہو تو عام environment آزمائیں۔
+        try {
+          await qrScanner.start(
+            { facingMode: "environment" },
+            config,
+            onQrDecoded,
+            () => {}
+          );
+          started = true;
+        } catch (e2) {
+          // آخری fallback: دستیاب camera ID استعمال کریں۔
+          const cameras = await Html5Qrcode.getCameras();
+          if (cameras && cameras.length) {
+            const camera = cameras.find(c => /back|rear|environment|world/i.test(c.label)) || cameras[0];
+            await qrScanner.start(camera.id, config, onQrDecoded, () => {});
+            started = true;
+          } else {
+            throw e2;
+          }
+        }
+      }
+
+      if (!started) throw new Error("Camera could not start");
+      result.className = "scan-result show";
+      result.innerHTML = '<strong style="color:#047857;">📷 کیمرہ آن ہے — QR Code اسکین ہونے تک کھلا رہے گا۔</strong>';
+    } catch (err) {
+      if (qrScanner) {
+        try { await qrScanner.stop(); } catch(e) {}
+        try { await qrScanner.clear(); } catch(e) {}
+      }
+      qrScanner = null;
+      result.className = "scan-result show";
+      result.innerHTML = '<strong style="color:#b45309;">کیمرہ شروع نہیں ہو سکا۔ Browser میں Camera کی اجازت دیں، پھر دوبارہ "اسکین کریں" دبائیں۔ اگر اجازت پہلے سے ہے تو صفحہ HTTPS یا localhost پر کھولیں۔</strong>';
+      console.error("QR camera error:", err);
+    } finally {
+      qrScannerStarting = false;
+    }
+  }
+
+  function onQrDecoded(decodedText) {
+    const code = String(decodedText || "").trim();
+    if (!code) return;
+    const now = Date.now();
+    if (code === lastQrCode && now - lastQrTime < 2500) return;
+    lastQrCode = code;
+    lastQrTime = now;
+
+    // QR ملنے کے بعد scanner کو بند نہیں کریں؛ صرف decoding/video کو pause کریں۔
+    // اس سے camera stream زندہ رہتی ہے اور "نیا اسکین کریں" پر permission دوبارہ نہیں مانگی جاتی۔
+    try {
+      if (qrScanner && typeof qrScanner.pause === "function") {
+        qrScanner.pause(true);
+      }
+    } catch (e) { console.warn("QR pause error:", e); }
+    scanTicketCode(code);
+  }
+
+  function startQrScannerAgain() {
+    const result = document.getElementById("scanResult");
+    if (qrScanner && typeof qrScanner.resume === "function") {
+      try {
+        result.className = "scan-result show";
+        result.innerHTML = '<strong style="color:#047857;">📷 نیا اسکین — QR Code سامنے رکھیں۔</strong>';
+        qrScanner.resume();
+        return;
+      } catch (e) {
+        console.warn("QR resume error:", e);
+      }
+    }
+    // صرف پہلی بار یا واقعی scanner بند ہونے کی صورت میں نیا camera session بنائیں۔
+    startQrScanner();
+  }
+
+  async function stopQrScanner() {
+    if (!qrScanner) return;
+    const scanner = qrScanner;
+    qrScanner = null;
+    try { await scanner.stop(); } catch(e) {}
+    try { await scanner.clear(); } catch(e) {}
+  }
+
+  window.addEventListener("beforeunload", () => {
+    stopQrScanner();
+  });
+
+  async function downloadTicket() {
+    const ticket = document.getElementById("ticketContent");
+    if (!ticket) return;
+
+    if (typeof html2canvas === "undefined") {
+      alert("PNG download library is not loaded. Please refresh the page and try again.");
+      return;
+    }
+
+    const canvas = await html2canvas(ticket, {
+      backgroundColor: "#ffffff",
+      scale: 2,
+      useCORS: true,
+      logging: false
     });
-    if(document.body) languageObserver.observe(document.body,{childList:true,subtree:true,characterData:true});
-}
 
-/* =====================================================
-   INITIALIZE
-===================================================== */
+    const link = document.createElement("a");
+    const ticketId = (ticket.dataset.ticketId || "ticket").replace(/[^a-zA-Z0-9_-]/g, "-");
+    link.download = `${ticketId}.png`;
+    link.href = canvas.toDataURL("image/png");
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  }
 
-initLanguage();
-startLanguageObserver();
-translateStaticText(document.body, document.documentElement.lang);
 
-/* Local cache is shown immediately while Firebase loads. */
-displayProducts(getProducts());
-updateCart();
+  function resetUserForm() {
+    document.getElementById("createUserForm").reset();
+    document.getElementById('uQrScanPermission').checked = false;
+    document.getElementById("editUserIndex").value = "-1";
+    document.getElementById("userModalTitle").innerText = "نیا یوزر رجسٹر کریں";
+    document.getElementById("userSubmitBtn").innerText = "یوزر محفوظ کریں";
+    document.querySelectorAll("#uDistrictCheckboxes input").forEach(cb => cb.checked = false);
+    document.querySelectorAll("#uCoachCheckboxes input").forEach(cb => cb.checked = false);
+  }
 
-/* Firebase is the source of truth. */
-syncProductsFromFirebase();
-syncBannersFromFirebase();
-loadAboutStoreImage();
+  function openUsersListModal() {
+    const tbody = document.getElementById("usersTableBody");
+    tbody.innerHTML = "";
+    
+    usersList.forEach((u, idx) => {
+      if (u.role === 'admin') return;
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${u.name}</td>
+        <td>${u.username}</td>
+        <td>${u.phone}</td>
+        <td>${u.districts ? u.districts.join(', ') : ''}</td>
+        <td>${Array.isArray(u.coaches) ? u.coaches.map(c => `#${c}`).join(', ') : '-'}</td>
+        <td>${u.permissions && u.permissions.qrScan ? 'مجاز' : 'غیر مجاز'}</td>
+        <td>
+          <button style="background:#0284c7; color:white; border:none; padding:2px 6px; border-radius:4px; cursor:pointer;" onclick="editUser(${idx})">ایڈیٹ</button>
+          <button style="background:#dc2626; color:white; border:none; padding:2px 6px; border-radius:4px; cursor:pointer;" onclick="deleteUser(${idx})">ڈیلیٹ</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
 
-/* Firebase سے Orders */
-loadOrdersFromFirebase();
+    openModal("usersListModal");
+  }
+
+  function editUser(idx) {
+    const u = usersList[idx];
+    document.getElementById("editUserIndex").value = idx;
+    document.getElementById("uFullName").value = u.name;
+    document.getElementById("uUsername").value = u.username;
+    document.getElementById("uPhone").value = u.phone;
+    document.getElementById("uPassword").value = u.pass;
+    document.getElementById('uQrScanPermission').checked = !!(u.permissions && (u.permissions.qrScan === true || u.permissions.qrScan === 'true' || u.permissions.qrScan === 1));
+
+    document.querySelectorAll("#uDistrictCheckboxes input").forEach(cb => {
+      cb.checked = u.districts && u.districts.includes(cb.value);
+    });
+    document.querySelectorAll("#uCoachCheckboxes input").forEach(cb => {
+      cb.checked = Array.isArray(u.coaches) && u.coaches.map(Number).includes(Number(cb.value));
+    });
+
+    document.getElementById("userModalTitle").innerText = "یوزر کی تفصیلات ایڈیٹ کریں";
+    document.getElementById("userSubmitBtn").innerText = "تبدیلی محفوظ کریں";
+
+    closeModal("usersListModal");
+    openModal("createUserModal");
+  }
+
+  function deleteUser(idx) {
+    if (confirm(`کیا آپ واقعی (${usersList[idx].name}) کو ڈیلیٹ کرنا چاہتے ہیں؟`)) {
+      usersList.splice(idx, 1);
+      saveUsersToDB().then(() => {
+        openUsersListModal();
+      }).catch(err => {
+        console.error(err);
+        alert("یوزر ڈیلیٹ نہیں ہو سکا۔");
+      });
+    }
+  }
+
+  function logout() {
+    currentUser = null;
+    document.getElementById("loginModal").style.display = "flex";
+    const adminPanel = document.getElementById("adminPanelControls");
+    const userPanel = document.getElementById("userPanelControls");
+    if (adminPanel) adminPanel.style.display = "none";
+    if (userPanel) userPanel.style.display = "none";
+  }
+  function openModal(id) { document.getElementById(id).style.display = "flex"; }
+  function closeModal(id) { document.getElementById(id).style.display = "none"; }
+
+  function getVisibleCoaches() {
+    if (!currentUser || currentUser.role === 'admin' || !Array.isArray(currentUser.coaches) || currentUser.coaches.includes('All')) {
+      return coachesData;
+    }
+    const allowed = currentUser.coaches.map(Number);
+    return coachesData.filter(c => allowed.includes(Number(c.coachNum)));
+  }
+
+  function renderTabs() {
+    const box = document.getElementById("coachTabs");
+    box.innerHTML = "";
+    const visible = getVisibleCoaches();
+    if (!visible.length) return;
+    const activeCoachNum = coachesData[activeCoachIndex]?.coachNum;
+    let visibleIndex = visible.findIndex(c => Number(c.coachNum) === Number(activeCoachNum));
+    if (visibleIndex < 0) visibleIndex = 0;
+    activeCoachIndex = coachesData.findIndex(c => Number(c.coachNum) === Number(visible[visibleIndex].coachNum));
+    visible.forEach(coach => {
+      const idx = coachesData.findIndex(c => Number(c.coachNum) === Number(coach.coachNum));
+      const tab = document.createElement("div");
+      tab.className = `coach-tab ${idx === activeCoachIndex ? 'active' : ''}`;
+      tab.innerText = `Coach #${coach.coachNum}`;
+      tab.onclick = () => { activeCoachIndex = idx; renderTabs(); renderLayout(); };
+      box.appendChild(tab);
+    });
+  }
+
+  function renderLayout() {
+    if (!coachesData || coachesData.length === 0) return;
+    const coach = coachesData[activeCoachIndex];
+    if (!coach) return;
+    if (currentUser && currentUser.role !== 'admin' && Array.isArray(currentUser.coaches) && !currentUser.coaches.includes('All') && !currentUser.coaches.map(Number).includes(Number(coach.coachNum))) {
+      const visible = getVisibleCoaches();
+      if (!visible.length) return;
+      activeCoachIndex = coachesData.findIndex(c => Number(c.coachNum) === Number(visible[0].coachNum));
+      return renderLayout();
+    }
+
+    const sideCol = document.getElementById("sideCol");
+    const mainCol = document.getElementById("mainCol");
+    sideCol.innerHTML = ""; mainCol.innerHTML = "";
+
+    coach.sideSeats.forEach((seat, i) => {
+      if (i > 0 && i % 2 === 0) sideCol.appendChild(createDivider());
+      sideCol.appendChild(createSeatCard(seat, coach.coachNum));
+    });
+
+    for (let i = 0; i < coach.berths.length; i += 3) {
+      if (i > 0 && i % 6 === 0) mainCol.appendChild(createDivider());
+      const row = document.createElement("div");
+      row.className = "berth-row";
+      for (let k = 2; k >= 0; k--) {
+        if (coach.berths[i + k]) row.appendChild(createSeatCard(coach.berths[i + k], coach.coachNum));
+      }
+      mainCol.appendChild(row);
+    }
+  }
+
+  function createDivider() {
+    const d = document.createElement("div");
+    d.className = "table-line"; d.innerText = "Table"; return d;
+  }
+
+  function createSeatCard(seat, coachNum) {
+    const card = document.createElement("div");
+    const isSel = selectedSeatInfo && selectedSeatInfo.coachNum === coachNum && selectedSeatInfo.id === seat.id;
+    card.className = `seat-card ${seat.status} ${isSel ? 'selected' : ''}`;
+    card.innerText = seat.id;
+
+    if (seat.status === 'available') {
+      card.onclick = () => {
+        selectedSeatInfo = { coachNum, id: seat.id };
+        renderLayout();
+        document.getElementById("selectedSeatLabel").innerText = `Coach #${coachNum} - ${seat.id}`;
+        document.getElementById("bookActionBtn").disabled = false;
+      };
+    } else if (seat.status === 'booked' && seat.passenger) {
+      card.title = "ٹکٹ دیکھنے کے لیے کلک کریں";
+      card.onclick = () => {
+        showTicketModal(coachNum, seat.id, seat.passenger);
+      };
+    }
+    return card;
+  }
+
+
+  function calculatePermissionRevenue() {
+    let count = 0;
+    coachesData.forEach(c => {
+      const coachAllowed = !currentUser || currentUser.role === 'admin' ||
+        !Array.isArray(currentUser.coaches) || currentUser.coaches.includes('All') ||
+        currentUser.coaches.map(Number).includes(Number(c.coachNum));
+      if (!coachAllowed) return;
+      [...c.berths, ...c.sideSeats].forEach(s => {
+        if (s.status !== 'booked' || !s.passenger) return;
+        const districtAllowed = !currentUser || currentUser.role === 'admin' ||
+          !Array.isArray(currentUser.districts) || currentUser.districts.includes('All') ||
+          currentUser.districts.includes(s.passenger.district);
+        if (districtAllowed) count++;
+      });
+    });
+    return count * FIXED_FARE;
+  }
+
+  function updateStats() {
+    let booked = 0;
+    coachesData.forEach(c => {
+      [...c.berths, ...c.sideSeats].forEach(s => {
+        if (s.status === 'booked') booked++;
+      });
+    });
+
+    const totalSeats = TOTAL_COACHES * 78;
+    const vacant = totalSeats - booked;
+
+    let visibleBooked = 0;
+    coachesData.forEach(c => {
+      const coachAllowed = !currentUser || currentUser.role === 'admin' ||
+        !Array.isArray(currentUser.coaches) || currentUser.coaches.includes('All') ||
+        currentUser.coaches.map(Number).includes(Number(c.coachNum));
+      if (!coachAllowed) return;
+
+      [...c.berths, ...c.sideSeats].forEach(s => {
+        if (s.status !== 'booked' || !s.passenger) return;
+        const districtAllowed = !currentUser || currentUser.role === 'admin' ||
+          !Array.isArray(currentUser.districts) || currentUser.districts.includes('All') ||
+          currentUser.districts.includes(s.passenger.district);
+        if (districtAllowed) visibleBooked++;
+      });
+    });
+
+    const revenue = visibleBooked * FIXED_FARE;
+
+    document.getElementById("stTotal").innerText = totalSeats;
+    document.getElementById("stBooked").innerText = booked;
+    document.getElementById("stVacant").innerText = vacant;
+    document.getElementById("stRevenue").innerText = `Rs. ${revenue.toLocaleString()}`;
+  }
+
+  function openAllHistoryModal(isAdmin) {
+    currentHistoryIsAdmin = isAdmin;
+    const sel = document.getElementById("filterDistrictHistory");
+    sel.innerHTML = "";
+
+    let allowed = [];
+    if (isAdmin || currentUser.districts.includes('All')) {
+      allowed = ["تمام اضلاع", ...ALL_DISTRICTS];
+    } else {
+      allowed = ALL_DISTRICTS.filter(d => currentUser.districts.includes(d));
+    }
+
+    allowed.forEach(d => {
+      const opt = document.createElement("option");
+      opt.value = d; opt.innerText = d;
+      sel.appendChild(opt);
+    });
+
+    renderHistoryTable();
+    openModal("historyModal");
+  }
+
+  function renderHistoryTable() {
+    const filter = document.getElementById("filterDistrictHistory").value;
+    const tbody = document.getElementById("historyTableBody");
+    tbody.innerHTML = "";
+
+    coachesData.forEach(c => {
+      [...c.berths, ...c.sideSeats].forEach(s => {
+        if (s.status === 'booked' && s.passenger) {
+          const p = s.passenger;
+          const matchDistrict = (filter === "تمام اضلاع" || p.district === filter);
+          const userAllowed = currentHistoryIsAdmin || currentUser.districts.includes('All') || currentUser.districts.includes(p.district);
+
+          if (matchDistrict && userAllowed) {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+              <td>${p.ticketId || '-'}</td>
+              <td>C#${c.coachNum}-${s.id}</td>
+              <td>${p.name}</td>
+              <td>${p.phone}</td>
+              <td>${p.district}</td>
+              <td>${p.town || '-'}</td>
+              <td>${p.uc || '-'}</td>
+              <td class="history-status-cell">${p.scanned ? '<span class="scan-status scanned">اسکین شدہ</span>' : '<span class="scan-status unscanned">غیر اسکین شدہ</span>'}</td>
+              <td><button style="background:#ef4444;color:white;border:none;padding:2px 6px;border-radius:4px;cursor:pointer;" onclick="cancelBooking(${c.coachNum}, '${s.id}')">منسوخ</button></td>
+            `;
+            tbody.appendChild(tr);
+          }
+        }
+      });
+    });
+  }
+
+  function cancelBooking(coachNum, seatId) {
+    if (confirm(`کیا آپ واقعی C#${coachNum}-${seatId} کی بکنگ منسوخ کرنا چاہتے ہیں؟`)) {
+      const coach = coachesData.find(c => c.coachNum === coachNum);
+      const target = coach.berths.find(x => x.id === seatId) || coach.sideSeats.find(x => x.id === seatId);
+      target.status = 'available';
+      target.passenger = null;
+
+      saveCoachesToDB();
+      renderHistoryTable();
+      renderLayout();
+      updateStats();
+    }
+  }
+
+  function exportToExcel() {
+    const table = document.getElementById("exportTable");
+    const wb = XLSX.utils.table_to_book(table, { sheet: "Bookings" });
+    XLSX.writeFile(wb, `Train_Bookings_Report.xlsx`);
+  }
 </script>
-
+<script>
+window.openQrScannerModal = openQrScannerModal;
+window.stopQrScanner = stopQrScanner;
+window.scanTicketCode = scanTicketCode;
+</script>
 </body>
 </html>
