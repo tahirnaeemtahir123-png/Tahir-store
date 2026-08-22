@@ -3442,11 +3442,11 @@ const defaultBanners = [
     },
     {
         id:"default-2",
-        title:"روایت اور نفاست کا ایک نام!",
+        title:"خوشبو جو آپ کو یاد رکھے",
         titleEn:"A Fragrance They Remember",
         small:"TAHIR ONLINE STORE",
         smallEn:"TAHIR ONLINE STORE",
-        description:""عطرت کی دلکشی ہو یا عبایا کا سکون، اسٹولز کا فیشن ہو یا چوڑیوں کی کھنک — آپ کے حسن کا ہر رنگ ایک ہی چھت تلے۔"",
+        description:"معیاری پرفیوم اور عطر کا خوبصورت کلیکشن، آپ کی شخصیت کے لیے بہترین انتخاب۔",
         descriptionEn:"A beautiful collection of quality perfumes and attars, made to complement your personality.",
         buttonText:"کلیکشن دیکھیں",
         buttonTextEn:"View Collection",
@@ -4415,7 +4415,7 @@ async function checkout(){
 
 
     alert(
-        "آپ کا ہمارے پاس  save ہو گیا ہے۔"
+        "آپ کا Order Database میں save ہو گیا ہے۔"
     );
 }
 
@@ -5760,7 +5760,6 @@ loadOrdersFromFirebase();
    ===================================================== */
 const FIREBASE_CATEGORIES = FIREBASE_DB + "/tahirOnlineStore/categories";
 const FIREBASE_PAYMENT_SETTINGS = FIREBASE_DB + "/tahirOnlineStore/paymentSettings";
-const FIREBASE_DELIVERY_SETTINGS = FIREBASE_DB + "/tahirOnlineStore/deliverySettings";
 
 const defaultCategories = [
   {id:"perfume",name:"پرفیوم",nameEn:"Perfumes",image:"https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=80",bannerImage:"https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1800&q=85",order:1,active:true},
@@ -6046,38 +6045,6 @@ async function loadPaymentSettings(){
   localStorage.setItem("tahirOnlinePaymentSettings",JSON.stringify(settings));
   window.paymentSettings=settings; return settings;
 }
-const defaultDeliverySettings = { enabled:true, charge:200 };
-
-async function loadDeliverySettings(){
-  const data=await firebaseGet(FIREBASE_DELIVERY_SETTINGS);
-  const settings=data&&typeof data==="object"?{...defaultDeliverySettings,...data}:JSON.parse(localStorage.getItem("tahirOnlineDeliverySettings")||"null")||defaultDeliverySettings;
-  settings.charge=Math.max(0,Number(settings.charge)||0);
-  localStorage.setItem("tahirOnlineDeliverySettings",JSON.stringify(settings));
-  window.deliverySettings=settings;
-  return settings;
-}
-function deliverySettingsHTML(s){
-  s=s||defaultDeliverySettings;
-  return `<div id="deliverySettingsWrap" class="banner-form" style="max-width:900px;margin-top:20px">
-    <h3>ڈیلیوری چارجز</h3>
-    <p style="color:#777">یہ رقم ہر آرڈر کے ٹوٹل میں خودکار طور پر شامل ہوگی۔</p>
-    <div class="banner-form-grid">
-      <div class="form-group"><label><input id="deliveryEnabled" type="checkbox" ${s.enabled!==false?"checked":""}> ڈیلیوری چارج فعال</label></div>
-      <div class="form-group"><label>ڈیلیوری چارج (Rs.)</label><input id="deliveryCharge" type="number" min="0" step="1" class="english" value="${Number(s.charge||0)}"></div>
-    </div>
-    <button class="gold-btn" type="button" onclick="saveDeliverySettings()">ڈیلیوری چارجز محفوظ کریں</button>
-    <div id="deliverySettingsStatus" class="save-status"></div>
-  </div>`;
-}
-async function saveDeliverySettings(){
-  const s={enabled:document.getElementById("deliveryEnabled")?.checked!==false,charge:Math.max(0,Number(document.getElementById("deliveryCharge")?.value)||0)};
-  const result=await firebasePut(FIREBASE_DELIVERY_SETTINGS,s);
-  if(result===null){alert("ڈیلیوری چارجز محفوظ نہیں ہوئے۔");return}
-  window.deliverySettings=s;localStorage.setItem("tahirOnlineDeliverySettings",JSON.stringify(s));
-  renderCheckoutSummary();
-  const st=document.getElementById("deliverySettingsStatus");if(st){st.textContent="✓ ڈیلیوری چارجز محفوظ ہوگئے";setTimeout(()=>st.textContent="",3000)}
-}
-
 function paymentSettingsHTML(s){
   s=s||defaultPaymentSettings;
   return `<div class="banner-form" style="max-width:900px">
@@ -6120,7 +6087,7 @@ async function savePaymentSettings(){
    ===================================================== */
 function checkout(){
   if(!cart.length){alert("آپ کا cart خالی ہے۔");return}
-  Promise.all([loadPaymentSettings(),loadDeliverySettings()]).then(()=>{
+  loadPaymentSettings().then(()=>{
     const modal=document.getElementById("checkoutModal");modal.classList.add("show");
     ["checkoutName","checkoutPhone","checkoutProvince","checkoutCity","checkoutAddress","checkoutPostal","checkoutNotes","checkoutReceipt"].forEach(id=>{const e=document.getElementById(id);if(e)e.value=""});
     const s=window.paymentSettings||defaultPaymentSettings;
@@ -6132,18 +6099,9 @@ function checkout(){
 }
 function closeCheckout(){document.getElementById("checkoutModal").classList.remove("show")}
 function renderCheckoutSummary(){
-  let subtotal=cart.reduce((s,i)=>s+Number(i.price)*Number(i.qty),0);
-  const ds=window.deliverySettings||defaultDeliverySettings;
-  const delivery=ds.enabled!==false?Math.max(0,Number(ds.charge)||0):0;
-  const grandTotal=subtotal+delivery;
-  const el=document.getElementById("checkoutSummary");
-  if(!el)return;
-  el.innerHTML=`<strong>آپ کا آرڈر</strong><br>${cart.map(i=>`${escapeHtml(i.name)} × ${i.qty} — Rs. ${(Number(i.price)*Number(i.qty)).toLocaleString()}`).join("<br>")}<hr>
-    <div style="display:flex;justify-content:space-between"><span>مصنوعات کا ٹوٹل:</span><strong>Rs. ${subtotal.toLocaleString()}</strong></div>
-    <div style="display:flex;justify-content:space-between;margin-top:6px"><span>ڈیلیوری چارج:</span><strong>${delivery?"Rs. "+delivery.toLocaleString():"مفت"}</strong></div>
-    <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:18px"><span>کل رقم:</span><strong>Rs. ${grandTotal.toLocaleString()}</strong></div>`;
+  let total=cart.reduce((s,i)=>s+Number(i.price)*Number(i.qty),0);
+  document.getElementById("checkoutSummary").innerHTML=`<strong>آپ کا آرڈر</strong><br>${cart.map(i=>`${escapeHtml(i.name)} × ${i.qty} — Rs. ${(Number(i.price)*Number(i.qty)).toLocaleString()}`).join("<br>")}<hr><strong>کل رقم: Rs. ${total.toLocaleString()}</strong>`;
 }
-
 function selectPaymentMethod(method){
   document.querySelectorAll(".payment-option").forEach(x=>x.classList.remove("active"));
   const radio=document.querySelector(`input[name="paymentMethod"][value="${method}"]`);
@@ -6203,15 +6161,12 @@ async function submitCheckout(){
   let paymentAccount="Cash on Delivery";
   if(method==="jazzcash"){paymentAccount="JazzCash - "+(s.jazzcash?.accountNumber||"")}
   if(method==="bank"){paymentAccount=(s.bank?.bankName||"Bank")+" - "+(s.bank?.accountNumber||"")}
-  const subtotal=cart.reduce((sum,i)=>sum+Number(i.price)*Number(i.qty),0);
-  const ds=window.deliverySettings||defaultDeliverySettings;
-  const deliveryCharge=ds.enabled!==false?Math.max(0,Number(ds.charge)||0):0;
-  const total=subtotal+deliveryCharge;
+  const total=cart.reduce((sum,i)=>sum+Number(i.price)*Number(i.qty),0);
   const order={
     id:"ORD-"+Date.now(),date:new Date().toLocaleString("en-PK"),
     customer:name,phone,address,province,city,postalCode:postal,notes,
     items:cart.map(i=>({name:i.name,category:i.category,qty:Number(i.qty),price:Number(i.price)})),
-    subtotal,deliveryCharge,total,paymentMethod:method,paymentAccount,
+    total,paymentMethod:method,paymentAccount,
     receipt:receipt || null,
     paymentStatus:method==="cod"?"cod":"pending",status:"new"
   };
@@ -6234,7 +6189,6 @@ function installAdminExtensions(){
   const settings=document.getElementById("settingsAdmin");
   if(settings && !document.getElementById("paymentSettingsWrap")){
     const wrap=document.createElement("div");wrap.id="paymentSettingsWrap";wrap.innerHTML="<h2 style='margin:25px 0 15px'>ادائیگی کی سیٹنگز</h2><div id='paymentSettingsContent'></div>";
-    const dwrap=document.createElement("div");dwrap.id="deliverySettingsContent";settings.appendChild(dwrap);
     settings.appendChild(wrap);
   }
   if(settings && !document.getElementById("categoryImageSettingsWrap")){
@@ -6276,7 +6230,6 @@ async function openAdminPanel(){
   loadAdminCategories();
   const s=await loadPaymentSettings();
   const content=document.getElementById("paymentSettingsContent");if(content)content.innerHTML=paymentSettingsHTML(s);
-  const ds=await loadDeliverySettings();const dc=document.getElementById("deliverySettingsContent");if(dc)dc.innerHTML=deliverySettingsHTML(ds);
   loadCategoryImageSettings();
 }
 async function loadAdminSettings(){
@@ -6284,7 +6237,6 @@ async function loadAdminSettings(){
   installAdminExtensions();
   const s=await loadPaymentSettings();
   const content=document.getElementById("paymentSettingsContent");if(content)content.innerHTML=paymentSettingsHTML(s);
-  const ds=await loadDeliverySettings();const dc=document.getElementById("deliverySettingsContent");if(dc)dc.innerHTML=deliverySettingsHTML(ds);
   loadCategoryImageSettings();
 }
 
@@ -6353,8 +6305,6 @@ function printOrder(orderId){
     ${o.receipt?`<p><strong>ادائیگی کی رسید:</strong> اٹیچ شدہ</p>`:""}
     <hr>
     ${(o.items||[]).map(i=>`<p>${escapeHtml(i.name)} × ${i.qty} — Rs. ${(Number(i.price)*Number(i.qty)).toLocaleString()}</p>`).join("")}
-    <p><strong>مصنوعات کا ٹوٹل:</strong> Rs. ${Number(o.subtotal ?? o.total ?? 0).toLocaleString()}</p>
-    <p><strong>ڈیلیوری چارج:</strong> ${Number(o.deliveryCharge||0)?"Rs. "+Number(o.deliveryCharge).toLocaleString():"مفت"}</p>
     <h3 style="text-align:left">کل: Rs. ${Number(o.total||0).toLocaleString()}</h3>
     <p>${escapeHtml(o.notes||"")}</p>
     <hr><p style="text-align:center">شکریہ — TAHIR ONLINE STORE</p>
